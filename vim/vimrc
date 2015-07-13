@@ -1,12 +1,3 @@
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-" Please note that that's how you add plugins
-
-filetype plugin indent on " required!
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -20,7 +11,15 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
-
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'Townk/vim-autoclose'
+"Plugin 'ntpeters/vim-better-whitespace'
+"Plugin 'ntpeters/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,37 +36,31 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-syntax enable " Tunr on syntax highlistging
 set background=dark
 colorscheme base16-ocean
 
 set hidden " Leave hidden buffers open
 set history=100 "by default Vim saves your last 8 commands.  We can handle more
-syntax enable
-set number
+set syntax 
 set nowrap
 set cursorline
 
-
 " invisible char
-set list
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set linespace=2
+set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸·
+:set list
 
 if has('gui_running')
-  set guifont=Source\ Code\ Pro\ Medium:h14
+  set guifont=Sauce\ Code\ Powerline\ Semibold:h14
 endif
-
+let g:airline_powerline_fonts = 1
 " VISUALS
 
-syntax enable                       " Enable Syntax Highlighting
 set t_Co=256                        " 256 colours, please
 set background=dark               " Dark background
-colorscheme solarized         " Dark Color Scheme
+
 " colorscheme base16-ocean          " Dark Color Scheme
 hi normal ctermbg=NONE              " Stuff for iTerm
 " Tabs, indentation and lines
-filetype plugin indent on
 " 4 spaces please
 set expandtab
 set shiftwidth=4
@@ -75,16 +68,15 @@ set tabstop=4
 set softtabstop=4
 " Round indent to nearest multiple of 4
 set shiftround
-
+set number
 set wrap " Word wrapping
 " set textwidth=90
 " set formatoptions=cqt
 " set formatoptions=qrn1 " Make line wrap create new vim line
-set smartindent
 set breakindent " Make word wrapping behave like it does in every other sane text editor
 set autoindent
-set wrap linebreak nolist
-set linespace=4
+set wrap linebreak
+"set linespace=4
 
 " Show status line
 set laststatus=2
@@ -98,6 +90,7 @@ set modeline
 set ruler
 " Show file title in terminal tab
 set title
+set foldmethod=indent
 
 " Limit line-length to 80 columns by highlighting col 81
 if exists("+colorcolumn")
