@@ -1,117 +1,97 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+
+" Plugins
+" =============
 
 " set the runtime path to include Vundle and initialize
+filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" # Theme
 Plugin 'chriskempson/base16-vim'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'cakebaker/scss-syntax.vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
-Plugin 'Townk/vim-autoclose'
-"Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'ntpeters/vim-indent-guides'
 
-" All of your Plugins must be added before the following line
+Plugin 'Townk/vim-autoclose'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
-set background=dark
-colorscheme base16-ocean
 
-set hidden " Leave hidden buffers open
-set history=100 "by default Vim saves your last 8 commands.  We can handle more
-set syntax 
-set nowrap
-set cursorline
 
-" invisible char
-set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸·
-:set list
+" That bell is the worst sound. Shut it the fuck off.
+set visualbell
 
-if has('gui_running')
-  set guifont=Sauce\ Code\ Powerline\ Semibold:h14
-endif
-let g:airline_powerline_fonts = 1
-" VISUALS
+" General Config
+" ==============
 
-set t_Co=256                        " 256 colours, please
-set background=dark               " Dark background
+let mapleader='\'               " I just use the default Leader
+set showcmd                     " Show incomplete cmds down the bottom
+set gcr=a:blinkon0              " Disable cursor blink
+set laststatus=2                " Always show status line
+set splitright                  " Opens vertical split right of current window
+set splitbelow                  " Opens horizontal split below current window
+set shortmess=filnxtToOI        " see :help shortmess
 
-" colorscheme base16-ocean          " Dark Color Scheme
-hi normal ctermbg=NONE              " Stuff for iTerm
-" Tabs, indentation and lines
-" 4 spaces please
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-" Round indent to nearest multiple of 4
-set shiftround
-set number
-set wrap " Word wrapping
-" set textwidth=90
-" set formatoptions=cqt
-" set formatoptions=qrn1 " Make line wrap create new vim line
-set breakindent " Make word wrapping behave like it does in every other sane text editor
-set autoindent
-set wrap linebreak
-"set linespace=4
+" Set relevant filetypes
+au BufRead,BufNewFile *.md set filetype=markdown
 
-" Show status line
-set laststatus=2
-" Show what mode you’re currently in
-set showmode
-" Show what commands you’re typing
-set showcmd
-" Allow modelines
-set modeline
-" Show current line and column position in file
-set ruler
-" Show file title in terminal tab
-set title
-set foldmethod=indent
+" Appearance
+" ==========
 
+" "Syntax highlighting should be in 256 colors
+syntax on
+syntax enable
+set t_Co=256
 " Limit line-length to 80 columns by highlighting col 81
 if exists("+colorcolumn")
     set colorcolumn=81
 endif
 " Highlight current line
 set cursorline
-" Don’t keep results highlighted after searching...
-set nohlsearch
-" ...just highlight as we type
-set incsearch
-" Ignore case when searching...
-set ignorecase
-" ...except if we input a capital letter
-set smartcase
-" That bell is the worst sound. Shut it the fuck off.
-set visualbell
+" Show current line and column position in file
+set ruler
+" Show file title in terminal tab
+set title
 
-" Set relevant filetypes
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.lens set filetype=html
+" Use base-16 for the color scheme, different themes in GUI and terminal
+if has('gui_running')
+    colorscheme base16-ocean
+    set background=dark
+    set guifont=Sauce\ Code\ Powerline\ Semibold:h14
+else
+    let base16colorspace=256  " Access colors present in 256 colorspace
+    colorscheme base16-ocean
+    set background=dark
+endif
+
+" Sanity Config (Don't edit text like an animal)
+" ==============================================
+
+set nocompatible                " Use vim rather than vi settings
+set encoding=utf-8              " standard encoding
+"set relativenumber             " prefer absolute #
+set backspace=indent,eol,start  " Allow backspace in insert mode
+set listchars=space:·,nbsp:·,trail:·,precedes:«,extends:»,eol:↲,tab:▸·
+:set list
+set autoread                    " Reload files changed outside vim
+set hidden                      " Buffers can exist in the background
+set history=1000                " Store lots of :cmdline history (its not 1990)
+" Allow motions and back-spacing over line-endings etc
+set whichwrap=h,l,b,<,>,~,[,]
+
+"Don't dump distracting text to terminal during searches!
+set shellpipe=2>/dev/null>
+"set re=1                        "Use a non-broken regex engine for syntax highlighting
 
 
 " INTERACTIONS
@@ -119,12 +99,98 @@ au BufRead,BufNewFile *.lens set filetype=html
 " Start scrolling slightly before the cursor reaches an edge
 set scrolloff=3
 set sidescrolloff=5
-" Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
-" Allow motions and back-spacing over line-endings etc
-set backspace=indent,eol,start
-set whichwrap=h,l,b,<,>,~,[,]
-" Underscores denote words
-set iskeyword-=_
+
+
 set autoread " Make Vim automatically open changed files (e.g. changed after a Git commit)
-" set iskeyword+=- "Makes foo-bar considered one word
+set iskeyword+=- "Makes foo-bar considered one wordi
+
+" Indentation and Display
+" =======================
+
+" We want to replace tabs with spaces and have 4 space width indentation
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set shiftround
+
+set number
+set breakindent " Make word wrapping behave like it does in every other sane text editor
+set autoindent
+set wrap linebreak
+
+" Turn Off Swap Files
+" ===================
+
+set noswapfile
+set nobackup
+set nowritebackup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Persistent Undo
+" ===============
+
+" Keep undo history across sessions, by storing in file
+" Only works in MacVim (gui) mode
+if has('gui_running')
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" Mouse
+" ======
+
+" Send more characters for redraws
+set ttyfast
+" Enable mouse use in all modes
+set mouse=a
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
+
+" Scrolling
+" =========
+
+" Start scrolling when we're getting close to margins
+set scrolloff=10
+set sidescrolloff=15
+set sidescroll=1
+
+" Search Settings
+" ===============
+
+set incsearch        " Find the next match as we type the search
+set hlsearch         " Highlight searches by default
+set viminfo='100,f1  " Save up to 100 marks, enable capital marks
+set nohlsearch       " Don’t keep results highlighted after searching
+set incsearch        " ...just highlight as we type
+set ignorecase       " Ignore case when searching...
+set smartcase        " ...except if we input a capital letter
+
+" Folds
+" =====
+set foldmethod=indent   " Fold based on indent
+set foldnestmax=3       " Deepest fold is 3 levels
+set nofoldenable        " Don't fold by default
+nnoremap <space> za
+vnoremap <space> zf
+
+" Plugin Options
+" ==============
+" Airline options
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set noshowmode " Let airline handle the mode displayi
+
+" Custom commands
+" ===============
+
+"Let K be the opposite of J
+map K i<Enter><Esc>
+"\rr => refresh vimrc
+map <leader>rr :source ~/.vimrc<CR>
