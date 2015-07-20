@@ -3,6 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
 
 declare -a FILES_TO_SYMLINK=(
+    "config"
     "zprezto"
     "zprezto/runcoms/zshrc"
     "zprezto/runcoms/zpreztorc"

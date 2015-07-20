@@ -14,8 +14,16 @@ fi
 
 export PATH="/Users/gennadijanzen/bin:$PATH"
 
-alias vi='vim -g'
+export CDPATH="$HOME:$HOME/Sites:$HOME/Sites/typo3"
+
+export KEYTIMEOUT=1
+
+alias vi='vim'
 alias vim='vim -g'
+alias t='~/Sites/typo3/'
+alias tb='~/Sites/typo3/bv/'
+alias ts='~/Sites/typo3/shop/'
+alias m='~/Sites/magento/'
 
 unalias mysql
 
@@ -42,3 +50,8 @@ bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 bindkey -s "^[OX" "="
 bindkey -s "^[Ok" "+"
+
+
+# iTerm shell base16 color scheme init
+BASE16_SHELL="$HOME/.config/base16-shell/base16-ocean.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

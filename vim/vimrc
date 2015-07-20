@@ -14,14 +14,21 @@ Plugin 'chriskempson/base16-vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+
+" Plugin 'kien/ctrlp.vim'
+" ctrpvim/ctrp.vim is a fork, which is currently maintained
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'cakebaker/scss-syntax.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 
-Plugin 'Townk/vim-autoclose'
+Plugin 'Raimondi/delimitMate'
+Plugin 'docunext/closetag.vim'
+
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,7 +61,7 @@ syntax enable
 set t_Co=256
 " Limit line-length to 80 columns by highlighting col 81
 if exists("+colorcolumn")
-    set colorcolumn=81
+    set colorcolumn=121
 endif
 " Highlight current line
 set cursorline
@@ -194,3 +201,5 @@ set noshowmode " Let airline handle the mode displayi
 map K i<Enter><Esc>
 "\rr => refresh vimrc
 map <leader>rr :source ~/.vimrc<CR>
+
+
