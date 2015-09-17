@@ -18,12 +18,10 @@ export CDPATH="$HOME:$HOME/Sites:$HOME/Sites/typo3"
 
 export KEYTIMEOUT=1
 
-alias vi='vim'
-alias vim='vim -g'
-alias t='~/Sites/typo3/'
-alias tb='~/Sites/typo3/bv/'
-alias ts='~/Sites/typo3/shop/'
-alias m='~/Sites/magento/'
+# PHPStorm CLI Config
+export PHP_IDE_CONFIG="serverName=localhost"
+export XDEBUG_CONFIG="idekey=PHPSTORM"
+
 
 unalias mysql
 
