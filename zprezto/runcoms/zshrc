@@ -21,6 +21,7 @@ export KEYTIMEOUT=1
 # PHPStorm CLI Config
 export PHP_IDE_CONFIG="serverName=localhost"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 
 unalias mysql
@@ -53,3 +54,5 @@ bindkey -s "^[Ok" "+"
 # iTerm shell base16 color scheme init
 BASE16_SHELL="$HOME/.config/base16-shell/base16-ocean.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh

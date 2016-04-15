@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
+cd "$(dirname "${BASH_SOURCE}")" && source "_utils.sh"
 
 declare -a FILES_TO_SYMLINK=(
     "config"
@@ -20,6 +20,7 @@ declare -a FILES_TO_SYMLINK=(
     "vim/vimrc"
 
     "nvim/nvimrc"
+    "tmux/tmux.conf"
 
 )
 

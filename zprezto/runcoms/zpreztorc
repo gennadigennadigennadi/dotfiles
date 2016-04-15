@@ -40,7 +40,8 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'utility' \
   'syntax-highlighting' \
-  'prompt'
+  'prompt'\
+  'jira'
 
 #
 # Editor
@@ -162,4 +163,4 @@ zstyle ':prezto:module:prompt' theme 'paradox'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'
