@@ -20,14 +20,17 @@ Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Commenting out
+Plugin 'scrooloose/nerdcommenter'
 " Wie gehe ich mit Gist um?
 " Plugin 'mattn/gist-vim'
 
 " [],(), {}, <> Auto Sourrinding mapping, Try cs"'
 Plugin 'tpope/vim-surround'
-"Plugin 'cakebaker/scss-syntax.vim'
+
+Plugin 'cakebaker/scss-syntax.vim'
 "Plugin 'othree/html5.vim'
-"Plugin 'elzr/vim-json'
+Plugin 'elzr/vim-json'
 Plugin 'StanAngeloff/php.vim'
 
 " Git Wrapper for Vim
@@ -46,6 +49,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-php/phpctags'
 Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'junegunn/goyo.vim'
 
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'jlanzarotta/bufexplorer'
@@ -242,8 +246,11 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 let g:sauce_path = '~/workspace/vimsauce'
+
 " Custom commands
 " ===============
 
