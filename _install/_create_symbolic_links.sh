@@ -22,6 +22,8 @@ declare -a FILES_TO_SYMLINK=(
     "nvim/nvimrc"
     "tmux/tmux.conf"
 
+    "ag/agignore"
+
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

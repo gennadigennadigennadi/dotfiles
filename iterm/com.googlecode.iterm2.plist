@@ -6,6 +6,8 @@
 	<true/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AnimateDimming</key>
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -36300,7 +36302,7 @@
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<false/>
+	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
 	<key>EnableRendezvous</key>
@@ -36398,8 +36400,10 @@
 	<string>515 500 743 77 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>281 946 606 456 0 0 2560 1417 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>2829 574 770 381 2560 360 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>262 255 874 926 0 0 2560 1417 </string>
+	<string>3520 364 954 1053 2560 360 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_140BC117-E41F-404F-BC36-BC9D18E0AA38</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_140BC117-E41F-404F-BC36-BC9D18E0AA38_selection</key>
@@ -37235,10 +37239,14 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncInstallationId</key>
+	<string>EFB10B3B-349C-4A4F-91EB-33294BA2C369</string>
 	<key>NoSyncLastTipTime</key>
 	<real>478787999.54081798</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -37330,11 +37338,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=78</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-04-15T08:22:28Z</date>
+	<date>2016-11-04T10:26:14Z</date>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>ShowBookmarkName</key>
@@ -37346,7 +37354,7 @@
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.40000000596046448</real>
+	<real>0.36675932086431062</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -49147,6 +49155,10 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160313</string>
+	<string>3.0.10</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>

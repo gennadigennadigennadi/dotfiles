@@ -119,7 +119,7 @@ set nocompatible                " Use vim rather than vi settings
 "set encoding=utf-8              " standard encoding
 set relativenumber             " prefer absolute #
 set backspace=indent,eol,start  " Allow backspace in insert mode
-set listchars=space:·,nbsp:·,trail:·,precedes:«,extends:»,tab:▸·
+set listchars=space:·,nbsp:·,trail:·,precedes:«,extends:»,tab:▸·,eol:¬
 :set list
 set autoread                    " Reload files changed outside vim
 set hidden                      " Buffers can exist in the background
@@ -179,8 +179,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Keep undo history across sessions, by storing in file
 " Only works in MacVim (gui) mode
 if has('gui_running')
-  set undodir=~/.vim/backups
-  set undofile
+    set undodir=~/.vim/backups
+    set undofile
 endif
 
 " Use the system clipboard
@@ -202,11 +202,6 @@ set ttyfast
 
 " Scrolling
 " =========
-
-" Start scrolling when we're getting close to margins
-set scrolloff=10
-set sidescrolloff=15
-set sidescroll=1
 
 " Search Settings
 " ===============
@@ -242,12 +237,18 @@ set noshowmode " Le  airline handle the mode display
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" The Silver Searcher
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
 
 let g:sauce_path = '~/workspace/vimsauce'
 
@@ -256,4 +257,8 @@ let g:sauce_path = '~/workspace/vimsauce'
 
 map <leader>rr :source ~/.vimrc<CR>
 
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
 
