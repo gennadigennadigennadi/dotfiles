@@ -1,15 +1,15 @@
 [core]
-	excludesfile = /Users/gennadijanzen/.gitignore_global
+	excludesfile = /Users/gennadi/.gitignore_global
 	fileMode = false
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
 	name = Gennadi Janzen
-	email = janzen@icmedienhaus.de
+	email = g.janzen@checkdomain.de
 [color]
 	ui = auto
 
@@ -21,3 +21,7 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[merge]
+	tool = code
+[commit]
+	template = /Users/gennadi/.stCommitMsg

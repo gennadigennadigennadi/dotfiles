@@ -1,1 +1,0 @@
-/Users/gennadijanzen/.vimrc
