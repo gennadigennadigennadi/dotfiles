@@ -3,7 +3,7 @@ set nocompatible              " be iMproved, required
 " Plugins
 " =============
 
-call plug#begin('.local/share/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " # Theme
 "Plugin 'chriskempson/base16-vim'
