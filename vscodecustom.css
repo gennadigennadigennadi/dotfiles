@@ -1,0 +1,28 @@
+/*
+ I decided on the Courier New cursive font for now. Works better for me than FlottFlott.
+*/
+.mtk7,
+.mtk3,
+.mtk13,
+.mtk16 {
+  /* margin-left: 1px; */
+  /* font-family: "Courier New"; */
+}
+
+.mtk7,
+.mtk4 {
+  /* font-family: "Courier New"; */
+}
+
+/*
+  For the tab titles.
+*/
+.monaco-icon-label-description-container .label-name {
+  /* font-family: "Courier"; */
+}
+
+.tabs-container .monaco-icon-label-description-container .label-name,
+.sidebar .monaco-icon-label-description-container .label-name,
+.quick-open-row .monaco-icon-label-description-container .label-name {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe WPC,Segoe UI,HelveticaNeue-Light,Ubuntu,Droid Sans,sans-serif;
+}
