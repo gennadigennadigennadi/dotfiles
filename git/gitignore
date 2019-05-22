@@ -3,3 +3,5 @@
 .tags*
 .tags_sorted_by_file
 logo.png
+.vscode/*
+.php_cs.cache

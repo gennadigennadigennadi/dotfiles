@@ -1,58 +1,76 @@
-set nocompatible              " be iMproved, required
-
-" Plugins
-" =============
-
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " # Theme
-"Plugin 'chriskempson/base16-vim'
-Plug   'tyrannicaltoucan/vim-quantum'
-Plug 'yuttie/comfortable-motion.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'chriskempson/base16-vim'
+
+Plug 'mhinz/vim-startify'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" colorscheme quantumPlug 'ryanoasis/vim-devicons'
+
 Plug 'ervandew/supertab'
 Plug 'rking/ag.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'swekaj/php-foldexpr.vim'
+
+" Navigation
+Plug 'majutsushi/tagbar'
+Plug 'yuttie/comfortable-motion.vim'
+Plug 'scrooloose/nerdtree'
+
+"Plug 'ctrlpvim/ctrlp.vim' // alternateive
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Asynchronous linting for every languages
+Plug 'neomake/neomake'
+
+" Sync linting tool
+" Plug 'scrooloose/syntastic'
+
+Plug 'airblade/vim-gitgutter'
 
 " Commenting out
-Plug 'scrooloose/nerdcommenter'
-" Wie gehe ich mit Gist um?
-" Plugin 'mattn/gist-vim'
+Plug 'tpope/vim-commentary'
 
 " [],(), {}, <> Auto Sourrinding mapping, Try cs"'
 Plug 'tpope/vim-surround'
 
-Plug 'cakebaker/scss-syntax.vim'
-"Plugin 'othree/html5.vim'
+" Language
 Plug 'elzr/vim-json'
-"Plug 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim'
+Plug '2072/PHP-Indenting-for-VIm'
+Plug 'chrisbra/csv.vim'
 
 " Git Wrapper for Vim
-"Plugin 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
-"Plugin 'joonty/vdebug'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
-"Plug 'Raimondi/delimitMate'
+Plug 'joonty/vdebug'
+Plug 'stephpy/vim-php-cs-fixer'
+
+
 "Plugin 'docunext/closetag.vim'
-"Plugin 'terryma/vim-multiple-cursors'
 
+" Auto completion
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'phpactor/ncm2-phpactor'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 " TEST
+" Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'christoomey/vim-tmux-navigator'
 
-"Plug 'majutsushi/tagbar'
-"Plug 'vim-php/phpctags'
-"Plugin 'vim-php/tagbar-phpctags.vim'
-"vimPlug 'junegunn/goyo.vim'
+" Distraction free writing // Zenmode
+" Plug 'junegunn/goyo.vim'
 
-"Plugin 'Yggdroot/indentLine'
-"Plugin 'jlanzarotta/bufexplorer'
-"Plugin 'chrisbra/csv.vim'
 
-Plug 'ryanoasis/vim-devicons'
 call plug#end()            " required
+
 filetype plugin indent on    " required
 
 
@@ -63,7 +81,6 @@ set visualbell
 " General Config
 " ==============
 
-"let mapleader="\<space>"        " I just use the default Leader
 let mapleader="\<space>"
 nmap <leader><leader> :noh<cr>
 set showcmd                     " Show incomplete cmds down the bottom
@@ -72,7 +89,7 @@ set laststatus=2                " Always show status line
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shortmess=filnxtToOI        " see :help shortmess
-
+set statusline+=%{gutentags#statusline()}
 " Set relevant filetypes
 au BufRead,BufNewFile *.md set filetype=markdown
 
@@ -82,28 +99,24 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " "Syntax highlighting should be in 256 colors
 syntax on
 syntax enable
-set t_Co=256
+" set t_Co=256
 " Limit line-length to 80 columns by highlighting col 81
 if exists("+colorcolumn")
-    set colorcolumn=121
+    " set colorcolumn=121
 endif
 " Highlight current line
-set cursorline
+" set cursorline
 " Show current line and column position in file
 set ruler
 " Show file title in terminal tab
 set title
 
 " Use base-16 for the color scheme, different themes in GUI and terminal
-if has('gui_running')
-    colorscheme base16-ocean
-    set background=dark
-    set guifont=Sauce\ Code\ Powerline\ Medium:h14
-else
-    set background=dark
-    set termguicolors
-    colorscheme quantum
+     " set background=dark
+if (has("termguicolors"))
+    " set termguicolors
 endif
+colorscheme dim
 
 " Sanity Config (Don't edit text like an animal)
 " ==============================================
@@ -113,7 +126,7 @@ set encoding=utf-8              " standard encoding
 set relativenumber             " prefer absolute #
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set listchars=space:·,nbsp:·,trail:·,precedes:«,extends:»,tab:▸·,eol:¬
-:set list
+"set list
 set autoread                    " Reload files changed outside vim
 set hidden                      " Buffers can exist in the background
 set history=1000                " Store lots of :cmdline history (its not 1990)
@@ -122,11 +135,10 @@ set whichwrap=h,l,b,<,>,~,[,]
 
 "Don't dump distracting text to terminal during searches!
 set shellpipe=2>/dev/null>
-"set re=1                        "Use a non-broken regex engine for syntax highlighting
+set re=1                        "Use a non-broken regex engine for syntax highlighting
 
-"set tags+=.tags
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
+" set guioptions-=r  "remove right-hand scroll bar
+" set guioptions-=L  "remove left-hand scroll bar
 
 " INTERACTIONS
 
@@ -137,7 +149,7 @@ set sidescroll=1
 
 
 set autoread " Make Vim automatically open changed files (e.g. changed after a Git commit)
-set iskeyword+=- "Makes foo-bar considered one wordi
+set iskeyword+=- "Makes foo-bar considered one word
 set iskeyword+=$
 
 " Indentation and Display
@@ -155,7 +167,8 @@ set shiftround
 
 set number
 set breakindent " Make word wrapping behave like it does in every other sane text editor
-set wrap linebreak
+" set wrap linebreak
+set nowrap
 
 " Turn Off Swap Files
 " ===================
@@ -177,7 +190,8 @@ if has('gui_running')
 endif
 
 " Use the system clipboard
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
+
 " Change the cursor shape while in insert-mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
@@ -190,11 +204,6 @@ set timeoutlen=1000 ttimeoutlen=0
 set mouse=a
 set ttyfast
 " set ttymouse=xterm2
-
-" USE THE SYSTEM CLIPBOARD
-
-" Scrolling
-" =========
 
 " Search Settings
 " ===============
@@ -222,45 +231,139 @@ set nofoldenable        " Don't fold by default
 " Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" let g:airline_theme="base16_ocean"
-let g:airline_theme='quantum'
-set linespace=5
+" let g:airline_theme='quantum'
+set linespace=1
 set noshowmode " Le  airline handle the mode display
 
 
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
-let g:ctrlp_working_path_mode = 0
-" The Silver Searcher
-if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-endif
-
-let g:sauce_path = '~/workspace/vimsauce'
-
 " Custom commands
 " ===============
 
 map <leader>rr :source ~/.vimrc<CR>
 
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
+" close the buffer
+nmap <leader>db :bdelete!<cr>
 
-let g:tagbar_phpctags_bin='phpctags'
+" FZF
+nmap <Leader>; :Buffers<CR>
+nmap <Leader>ff :Files<CR>
+nmap <Leader>ft :Tags<CR>
 
+" Goto definition of class or class member under the cursor
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+let g:python3_host_prog='/usr/local/bin/python3'
+" let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
+let g:php_cs_fixer_config_file = '.php_cs'
+" let g:php_cs_fixer_verbose = 1 
+
+let g:neomake_php_enabled_makers = ['phpmd', 'php']
+
+" Neomake signs in the gutter
+let g:neomake_error_sign = {'text': '', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {
+            \   'text': '',
+            \   'texthl': 'NeomakeWarningSign',
+            \ }
+let g:neomake_message_sign = {
+            \   'text': '',
+            \   'texthl': 'NeomakeWarningSign',
+            \ }
+let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+
+" update neomake when save file
+if isdirectory($HOME . "/.local/share/nvim/plugged/neomake")
+    call neomake#configure#automake('w')
+endif
+
+" display warning for phpcs error
+function! SetWarningType(entry)
+    let a:entry.type = 'W'
+endfunction
+
+function! SetErrorType(entry)
+    let a:entry.type = 'E'
+endfunction
+
+function! SetMessageType(entry)
+    let a:entry.type = 'M'
+endfunction
+
+let base16colorspace=256
+let g:neomake_php_php_maker = {
+            \ 'args': ['-l', '-d', 'display_errors=1', '-d', 'log_errors=0',
+            \      '-d', 'xdebug.cli_color=0'],
+            \ 'errorformat':
+            \ '%-GNo syntax errors detected in%.%#,'.
+            \ '%EParse error: %#syntax error\, %m in %f on line %l,'.
+            \ '%EParse error: %m in %f on line %l,'.
+            \ '%EFatal error: %m in %f on line %l,'.
+            \ '%-G\s%#,'.
+            \ '%-GErrors parsing %.%#',
+            \ 'output_stream': 'stdout',
+            \ 'postprocess': function('SetErrorType'),
+\ }
+
+let g:gutentags_cache_dir = $HOME . "/.local/share/nvim/gutentags"
+
+let g:vdebug_options = {
+    \    'port' : 9000,
+    \    'timeout' : 20,
+    \    'server' : '',
+    \    'on_close' : 'stop',
+    \    'break_on_open' : 0,
+    \    'ide_key' : '',
+    \    'debug_window_level' : 0,
+    \    'debug_file_level' : 0,
+    \    'debug_file' : '',
+    \    'path_maps' : {},
+    \    'watch_window_style' : 'expanded',
+    \    'marker_default' : '⬦',
+    \    'marker_closed_tree' : '▸',
+    \    'marker_open_tree' : '▾',
+    \    'sign_breakpoint' : '▷',
+    \    'sign_current' : '▶',
+    \    'continuous_mode'  : 1
+    \}
+
+
+" Put this function at the very end of your vimrc file.
+
+function! PhpSyntaxOverride()
+  " Put snippet overrides in this function.
+  hi! link phpDocTags phpDefine
+  hi! link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
+hi phpUseNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
+hi phpClassNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
+
+syn match phpParentOnly "[()]" contained containedin=phpParent
+hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE

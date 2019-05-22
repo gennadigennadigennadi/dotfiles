@@ -1,6 +1,7 @@
 [core]
-	excludesfile = /Users/gennadi/.gitignore_global
+	excludesfile = /Users/gjanzen/.gitignore_global
 	fileMode = false
+	precomposeunicode = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -9,7 +10,7 @@
 	trustExitCode = true
 [user]
 	name = Gennadi Janzen
-	email = g.janzen@checkdomain.de
+	email = gjanzen@eos-uptrade.de
 [color]
 	ui = auto
 
