@@ -2,12 +2,7 @@
 	excludesfile = /Users/gjanzen/.gitignore_global
 	fileMode = false
 	precomposeunicode = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [user]
 	name = Gennadi Janzen
 	email = gjanzen@eos-uptrade.de
@@ -22,7 +17,9 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[merge]
-	tool = code
 [commit]
 	template = /Users/gennadi/.stCommitMsg
+[merge]
+	tool = vimdiff
+[mergetool]
+	path = nvim
