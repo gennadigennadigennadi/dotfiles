@@ -1,0 +1,10 @@
+package brew
+package composer
+package neovim
+theme agnoster
+theme bobthefish
+theme default
+theme nai
+theme pure
+theme simplevi
+theme spacefish
