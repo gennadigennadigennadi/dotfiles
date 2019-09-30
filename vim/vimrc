@@ -21,7 +21,8 @@ Plug 'swekaj/php-foldexpr.vim'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator' " tmux like pane switching ctrl + hjkl
-Plug 'majutsushi/tagbar' " code outliner
+" Plug 'majutsushi/tagbar' " code outliner
+Plug 'liuchengxu/vista.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'wincent/ferret' " <leader> + a 
