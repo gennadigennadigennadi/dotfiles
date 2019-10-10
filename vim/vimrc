@@ -54,12 +54,16 @@ Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 Plug 'tobyS/pdv' " php Documentor der schon etwas älter ist
 
 " Auto completion
-Plug 'ludovicchabant/vim-gutentags', {'for': 'php'}
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
+Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plug 'ludovicchabant/vim-gutentags', {'for': 'php'}
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
 
 Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
-Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
+" Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
 
 " Distraction free writing // Zenmode
 " Plug 'junegunn/goyo.vim'
@@ -287,7 +291,7 @@ noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(20)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-20)<CR>
 
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 " autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
@@ -390,14 +394,6 @@ hi phpClassNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
 
 syn match phpParentOnly "[()]" contained containedin=phpParent
 hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE
-
-
-augroup ncm2
-    au!
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    au User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
-    au User Ncm2PopupClose set completeopt=menuone
-augroup END
 
 " parameter expansion for selected entry via Enter
 " inoremap <silent> <expr> <CR> pumvisible()
