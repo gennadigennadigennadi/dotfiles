@@ -1,11 +1,7 @@
 [core]
-	excludesfile = /Users/gjanzen/.gitignore_global
 	fileMode = false
 	precomposeunicode = false
 	pager = diff-so-fancy | less --tabs=4 -RFX
-[user]
-	name = Gennadi Janzen
-	email = gjanzen@eos-uptrade.de
 [color]
 	ui = auto
 [credential]

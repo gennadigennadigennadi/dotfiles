@@ -1,0 +1,17 @@
+*~
+.DS_Store
+logo.png
+.tags
+.tags_sorted_by_file
+.ctags
+tags
+node_modules
+launch.json
+.idea
+.vscode
+.php_cs.cache
+.php_cs.legacy.cache
+.phpactor.yml
+grumphp.yml
+phpstan.neon
+.phpunit.result.cache

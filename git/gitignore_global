@@ -1,9 +1,0 @@
-*~
-.DS_Store
-.tags
-.tags_sorted_by_file
-logo.png
-.ctags
-tags
-node_modules
-/.vscode
