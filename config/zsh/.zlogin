@@ -1,0 +1,1 @@
+/Users/gjanzen/.dotfiles/zprezto/runcoms/zlogin

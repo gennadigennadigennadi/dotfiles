@@ -9,9 +9,10 @@
 [push]
 	default = simple
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [merge]
 	tool = vimdiff
 [mergetool]
@@ -20,3 +21,6 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[user]
+	name = Gennadi Janzen
+	email = gjanzen@eos-uptrade.de

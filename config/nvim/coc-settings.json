@@ -1,0 +1,19 @@
+{
+    "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
+        "intelephense": {
+            "command": "intelephense",
+            "args": ["--stdio"],
+            "filetypes": ["php"]
+        }
+    },
+    "diagnostic.enable": false,
+    "coc.preferences.formatOnSaveFiletypes": ["php"],
+    "coc.preferences.hoverTarget": "float",
+    "html.format.enable": true
+}
