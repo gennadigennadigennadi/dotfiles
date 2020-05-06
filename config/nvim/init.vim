@@ -16,7 +16,6 @@ Plug 'machakann/vim-highlightedyank' " highlights yanked lines
 " Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
 " Plug 'janko/vim-test' " quick test execution
 
-" Plug 'ervandew/supertab'
 Plug 'rking/ag.vim'
 " Plug 'swekaj/php-foldexpr.vim'
 
@@ -26,6 +25,9 @@ Plug 'liuchengxu/vista.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'wincent/ferret' " <leader> + a 
+
+" Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
+Plug 'moll/vim-bbye'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -37,7 +39,7 @@ Plug 'neomake/neomake'
 Plug 'tpope/vim-commentary' " gcc
 
 " [],(), {}, <> Auto Sourrinding mapping, Try cs"'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 
 " Language
 Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
@@ -50,18 +52,16 @@ Plug 'junegunn/gv.vim'
 " Gbrowse for bitbuckett
 Plug 'https://github.com/kmARC/vim-fubitive.git'
 
-" Plug 'joonty/vdebug'
-" Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'} " <leader> + pcf
-" Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
+Plug 'joonty/vdebug'
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'} " <leader> + pcf
+Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
+Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
 " Plug 'tobyS/pdv' " php Documentor der schon etwas älter ist
 
 " Auto completion
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-" Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Distraction free writing // Zenmode
 " Plug 'junegunn/goyo.vim'
@@ -89,10 +89,6 @@ nmap <silent> <esc> :nohlsearch<cr>
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shortmess=filnxtToOI        " see :help shortmess
-
-" Set relevant filetypes
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.php_cs.dist set filetype=php
 
 " Appearance
 " ==========
@@ -177,6 +173,19 @@ set number
 set breakindent " Make word wrapping behave like it does in every other sane text editor
 " set wrap linebreak
 set nowrap
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 
 " Turn Off Swap Files
 " ===================
@@ -203,7 +212,6 @@ set mouse=a
 
 " Search Settings
 " ===============
-
 set ignorecase       " Ignore case when searching...
 set smartcase        " ...except if we input a capital letter
 
@@ -223,7 +231,7 @@ set noshowmode          " Le airline handle the mode display
 map <leader>rr :source $MYVIMRC<CR>
 
 " close the buffer
-nmap <leader>q :bdelete!<cr>
+nmap <leader>q :Bdelete!<cr>
 nmap <c-s> :w!<cr>
 
 " arrow keys resize windows
