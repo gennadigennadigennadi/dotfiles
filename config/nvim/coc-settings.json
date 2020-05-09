@@ -13,6 +13,7 @@
         }
     },
     "diagnostic.enable": false,
+    "coc.preferences.formatOnSaveFiletypes": ["php", "Markdown"],
     "coc.preferences.hoverTarget": "float",
     "html.format.enable": true
 }
