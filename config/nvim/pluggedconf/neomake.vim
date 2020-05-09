@@ -14,9 +14,8 @@ let g:neomake_message_sign = {
             \ }
 let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
-" update neomake when save file
 if isdirectory($HOME . "/.local/share/nvim/plugged/neomake")
-    call neomake#configure#automake('w')
+    call neomake#configure#automake('nrwi', 500)
 endif
 
 " display warning for phpcs error
@@ -32,9 +31,8 @@ function! SetMessageType(entry)
     let a:entry.type = 'M'
 endfunction
 
-let g:neomake_php_phpcs_args_standard = 'PSR12'
-let g:neomake_php_enabled_makers = ['phpcs', 'psalm', 'php', 'phpstan']
-let g:neomake_php_enabled_makers = ['phpmd', 'phpcs', 'phpstan', 'php', 'psalm']
+" let g:neomake_php_phpcs_args_standard = 'PSR12'
+let g:neomake_php_enabled_makers = ['phpmd', 'phpstan', 'php', 'psalm']
 
 let g:neomake_php_phpcs_maker = {
             \ 'args': ['--report=csv', '--standard=PSR2'],
@@ -65,15 +63,15 @@ let g:neomake_php_php_maker = {
             \ }
 
 let g:neomake_php_phpmd_maker = {
-            \ 'args': ['%:p', 'text', 'cleancode,codesize,design,unusedcode,naming'],
+            \ 'args': ['%:p', 'text', 'cleancode,codesize,design,unusedcode'],
             \ 'errorformat': '%W%f:%l%\s%\s%#%m',
             \ 'postprocess': function('SetMessageType'),
             \ }
 
 let g:neomake_php_psalm_maker = {
-        \ 'args': [
+            \ 'args': [
             \ '--output-format=pylint'
-        \ ],
-        \ 'errorformat': '%A%f:%l:%\s[%t%n]%\s%m',
-        \ 'postprocess': function('SetWarningType'),
-        \ }
+            \ ],
+            \ 'errorformat': '%A%f:%l:%\s[%t%n]%\s%m',
+            \ 'postprocess': function('SetWarningType'),
+            \ }

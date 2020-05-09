@@ -1,7 +1,11 @@
 {
   "dependencies": {
-    "coc-git": ">=1.7.11",
+    "coc-git": ">=1.7.12",
+    "coc-java": ">=1.4.10",
     "coc-json": ">=1.2.5",
-    "coc-vimlsp": ">=0.5.2"
+    "coc-pairs": ">=1.2.21",
+    "coc-phpls": ">=2.1.8",
+    "coc-vimlsp": ">=0.6.0",
+    "coc-xml": ">=1.11.1"
   }
 }

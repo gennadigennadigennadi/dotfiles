@@ -1,10 +1,8 @@
 call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " # Theme
-Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'joshdick/onedark.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'mhinz/vim-startify' " fancy vim bootscreen
@@ -13,44 +11,36 @@ Plug 'itchyny/lightline.vim' " simple powerline tool
 Plug 'wakatime/vim-wakatime'
 Plug 'machakann/vim-highlightedyank' " highlights yanked lines
 
-" Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
-" Plug 'janko/vim-test' " quick test execution
+Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
+Plug 'janko/vim-test' " quick test execution
 
-Plug 'rking/ag.vim'
-" Plug 'swekaj/php-foldexpr.vim'
+Plug 'swekaj/php-foldexpr.vim'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator' " tmux like pane switching ctrl + hjkl
 Plug 'liuchengxu/vista.vim'
+ 
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'wincent/ferret' " <leader> + a 
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} | Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
+Plug 'wincent/ferret'  " Ack multi file search
 
-" Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
-Plug 'moll/vim-bbye'
+Plug 'moll/vim-bbye' " Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Asynchronous linting for every languages
-Plug 'neomake/neomake'
+Plug 'neomake/neomake' " Asynchronous linting for every languages
 
-" Commenting out
 Plug 'tpope/vim-commentary' " gcc
 
 " [],(), {}, <> Auto Sourrinding mapping, Try cs"'
 " Plug 'tpope/vim-surround'
 
-" Language
 Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
 
-" Git Wrapper for Vim
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-
-" Gbrowse for bitbuckett
-Plug 'https://github.com/kmARC/vim-fubitive.git'
+Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify' " Git Wrapper for Vim + Gutter
+Plug 'https://github.com/kmARC/vim-fubitive.git' " Gbrowse for bitbucket
+Plug 'junegunn/gv.vim' " Git History Browser
 
 Plug 'joonty/vdebug'
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'} " <leader> + pcf
@@ -63,8 +53,6 @@ Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Distraction free writing // Zenmode
-" Plug 'junegunn/goyo.vim'
 call plug#end()      
 
 " source every plugin configs
@@ -93,41 +81,23 @@ set shortmess=filnxtToOI        " see :help shortmess
 " Appearance
 " ==========
 
-" "Syntax highlighting should be in 256 colors
-" Limit line-length to 80 columns by highlighting col 81
-if exists("+colorcolumn")
-    set colorcolumn=121
-endif
-
 set cursorline " Highlight current line
 
 " Show current line and column position in file
 " Show file title in terminal tab
 set title
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-    if (has("nvim"))
-        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
-    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-endif
-" let g:onedark_termcolors=256
-" set background=dark
-set t_Co=256t 
-" colorscheme onedark
 
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
+" set background=dark " for the dark version
+set background=light " for the light version
+let g:one_allow_italics = 1 " I love italic for comments
+colorscheme one
+
+" set background=dark " for the dark version
+" set background=light " for the light version
+" let g:onedark_hide_endofbuffer=1
+" let g:onedark_terminal_italics=1
+" let g:onedark_termcolors=256
+" colorscheme onedark
 " Sanity Config (Don't edit text like an animal)
 " ==============================================
 
@@ -288,3 +258,11 @@ autocmd BufReadPost *
 
 
 let g:fubitive_domain_pattern = 'bitbucket\.uptrade\.de'
+
+" highlight Comment cterm=italic
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
+set t_8b=^[[48;2;%lu;%lu;%lum
+set t_8f=^[[38;2;%lu;%lu;%lum
+
