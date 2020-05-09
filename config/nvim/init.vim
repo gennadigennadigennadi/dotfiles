@@ -228,11 +228,14 @@ set noshowmode          " Le airline handle the mode display
 
 " Custom commands
 " ===============
-map <leader>rr :source $MYVIMRC<CR>
+nmap <leader>rr :source $MYVIMRC<CR>
 
 " close the buffer
 nmap <leader>q :Bdelete!<cr>
-nmap <c-s> :w!<cr>
+
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
 
 " arrow keys resize windows
 nnoremap <Left> :vertical resize -5<CR>
