@@ -3,7 +3,7 @@ function! CocCurrentFunction()
 endfunction
 " let g:airline_theme='one'
 let g:lightline = { 
-            \ 'colorscheme' : 'one',
+            \ 'colorscheme' : 'github',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \           [ 'gitbranch' ], 
