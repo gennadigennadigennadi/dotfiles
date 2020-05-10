@@ -3,6 +3,7 @@ call plug#begin($HOME . '/.local/share/nvim/plugged')
 " # Theme
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
+Plug 'cormacrelf/vim-colors-github'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'mhinz/vim-startify' " fancy vim bootscreen
@@ -38,7 +39,8 @@ Plug 'tpope/vim-commentary' " gcc
 
 Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
 
-Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify' " Git Wrapper for Vim + Gutter
+Plug 'tpope/vim-fugitive'  
+Plug 'mhinz/vim-signify' " Git Wrapper for Vim + Gutter
 Plug 'https://github.com/kmARC/vim-fubitive.git' " Gbrowse for bitbucket
 Plug 'junegunn/gv.vim' " Git History Browser
 
@@ -89,8 +91,18 @@ set title
 
 " set background=dark " for the dark version
 set background=light " for the light version
-let g:one_allow_italics = 1 " I love italic for comments
-colorscheme one
+" let g:one_allow_italics = 1 " I love italic for comments
+colorscheme github
+
+" hi DiffDelete ctermfg=red ctermbg=NONE cterm=NONE
+" hi DiffChange ctermfg=blue ctermbg=NONE cterm=NONE
+" hi DiffAdd ctermfg=white ctermbg=NONE cterm=NONE
+" hi DiffText ctermfg=yellow ctermbg=NONE cterm=NONE
+
+highlight LineNr ctermbg=NONE 
+highlight clear SignColumn
+
+let g:signify_sign_show_text = 0
 
 " set background=dark " for the dark version
 " set background=light " for the light version
@@ -148,7 +160,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -229,23 +241,6 @@ tnoremap <Esc> <C-\><C-n>
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
-" Put this function at the very end of your vimrc file.
-function! PhpSyntaxOverride()
-    " Put snippet overrides in this function.
-    hi! link phpDocTags phpDefine
-    hi! link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
-
-" Dollar is part of the variable // color wise
-let php_var_selector_is_identifier=1
-
-hi phpUseNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
-hi phpClassNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
 
 syn match phpParentOnly "[()]" contained containedin=phpParent
 hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE
@@ -260,9 +255,14 @@ autocmd BufReadPost *
 let g:fubitive_domain_pattern = 'bitbucket\.uptrade\.de'
 
 " highlight Comment cterm=italic
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
 
-set t_8b=^[[48;2;%lu;%lu;%lum
-set t_8f=^[[38;2;%lu;%lu;%lum
+" set t_8b=^[[48;2;%lu;%lu;%lum
+" set t_8f=^[[38;2;%lu;%lu;%lum
+
+highlight SignColumn ctermbg=none
+highlight SignifySignAdd    ctermfg=white ctermbg=red
+highlight SignifySignDelete ctermfg=white ctermbg=red  
+highlight SignifySignChange ctermfg=white ctermbg=yellow
 
