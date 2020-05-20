@@ -40,6 +40,6 @@ let NERDTreeMapPreviewVSplit='gv'
 let g:NERDTreeMouseMode=3
 
 
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
 

@@ -1,61 +1,4 @@
-call plug#begin($HOME . '/.local/share/nvim/plugged')
-
-" # Theme
-Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'ryanoasis/vim-devicons'
-
-Plug 'mhinz/vim-startify' " fancy vim bootscreen
-Plug 'itchyny/lightline.vim' " simple powerline tool
-
-Plug 'wakatime/vim-wakatime'
-Plug 'machakann/vim-highlightedyank' " highlights yanked lines
-
-Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
-Plug 'janko/vim-test' " quick test execution
-
-Plug 'swekaj/php-foldexpr.vim'
-
-" Navigation
-Plug 'christoomey/vim-tmux-navigator' " tmux like pane switching ctrl + hjkl
-Plug 'liuchengxu/vista.vim'
- 
-Plug 'yuttie/comfortable-motion.vim'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} | Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
-Plug 'wincent/ferret'  " Ack multi file search
-
-Plug 'moll/vim-bbye' " Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'neomake/neomake' " Asynchronous linting for every languages
-
-Plug 'tpope/vim-commentary' " gcc
-
-" [],(), {}, <> Auto Sourrinding mapping, Try cs"'
-" Plug 'tpope/vim-surround'
-
-Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
-
-Plug 'tpope/vim-fugitive'  
-Plug 'mhinz/vim-signify' " Git Wrapper for Vim + Gutter
-Plug 'https://github.com/kmARC/vim-fubitive.git' " Gbrowse for bitbucket
-Plug 'junegunn/gv.vim' " Git History Browser
-
-Plug 'joonty/vdebug'
-Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'} " <leader> + pcf
-Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
-Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
-" Plug 'tobyS/pdv' " php Documentor der schon etwas älter ist
-
-" Auto completion
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()      
+source ~/.config/nvim/plug.vim
 
 " source every plugin configs
 for file in split(glob("~/.config/nvim/pluggedconf/*.vim"), '\n')
@@ -84,33 +27,35 @@ set shortmess=filnxtToOI        " see :help shortmess
 " ==========
 
 set cursorline " Highlight current line
+set title " Show file title in terminal tab
 
-" Show current line and column position in file
-" Show file title in terminal tab
-set title
-
-" set background=dark " for the dark version
-set background=light " for the light version
-" let g:one_allow_italics = 1 " I love italic for comments
-colorscheme github
-
-" hi DiffDelete ctermfg=red ctermbg=NONE cterm=NONE
-" hi DiffChange ctermfg=blue ctermbg=NONE cterm=NONE
-" hi DiffAdd ctermfg=white ctermbg=NONE cterm=NONE
-" hi DiffText ctermfg=yellow ctermbg=NONE cterm=NONE
-
-highlight LineNr ctermbg=NONE 
-highlight clear SignColumn
-
-let g:signify_sign_show_text = 0
-
-" set background=dark " for the dark version
+set background=dark " for the dark version
 " set background=light " for the light version
+let g:one_allow_italics = 1 " I love italic for comments
+" colorscheme github
+colorscheme one
+
+hi clear SignColumn
+hi SignColumn ctermbg=none
+
+hi SignifySignAdd    ctermfg=white ctermbg=red guibg=none guifg=blue
+hi SignifySignDelete ctermfg=white ctermbg=red  guibg=none guifg=red
+hi SignifySignChange ctermfg=white ctermbg=none guibg=none guifg=orange
+
+" hi DiffDelete ctermfg=red ctermbg=NONE cterm=NONE guifg=red guibg=none
+" hi DiffChange ctermfg=blue ctermbg=NONE cterm=NONE guifg=orange guibg=none
+" hi DiffAdd ctermfg=white ctermbg=NONE cterm=NONE guifg=blue guibg=none
+" hi DiffText ctermfg=yellow ctermbg=NONE cterm=NONE guifg=black guibg=none
+
+ hi LineNr ctermbg=NONE  guibg=NONE
+
+" let g:signify_sign_show_text = 0
+
 " let g:onedark_hide_endofbuffer=1
 " let g:onedark_terminal_italics=1
 " let g:onedark_termcolors=256
 " colorscheme onedark
-" Sanity Config (Don't edit text like an animal)
+
 " ==============================================
 
 set relativenumber              " prefer absolute #
@@ -129,8 +74,8 @@ set re=1                        "Use a non-broken regex engine for syntax highli
 " INTERACTIONS
 
 " Start scrolling slightly before the cursor reaches an edge
-set scrolloff=5
-set sidescrolloff=5
+set scrolloff=10
+set sidescrolloff=10
 set sidescroll=1
 
 set iskeyword+=- "Makes foo-bar considered one word
@@ -215,6 +160,7 @@ nmap <leader>rr :source $MYVIMRC<CR>
 " close the buffer
 nmap <leader>q :Bdelete!<cr>
 
+" save file, only if it was edit
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
@@ -241,10 +187,6 @@ tnoremap <Esc> <C-\><C-n>
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
-
-syn match phpParentOnly "[()]" contained containedin=phpParent
-hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE
-
 " Restore cursor position when opening file
 autocmd BufReadPost *
             \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -255,14 +197,10 @@ autocmd BufReadPost *
 let g:fubitive_domain_pattern = 'bitbucket\.uptrade\.de'
 
 " highlight Comment cterm=italic
-" let &t_ZH="\e[3m"
-" let &t_ZR="\e[23m"
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
-" set t_8b=^[[48;2;%lu;%lu;%lum
-" set t_8f=^[[38;2;%lu;%lu;%lum
-
-highlight SignColumn ctermbg=none
-highlight SignifySignAdd    ctermfg=white ctermbg=red
-highlight SignifySignDelete ctermfg=white ctermbg=red  
-highlight SignifySignChange ctermfg=white ctermbg=yellow
-
+" set Vim-specific sequences for RGB colors                                                                                                                                                               
+" set termguicolors                                                                                                                                                                                         
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"                                                                                                                                                                    
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"   
