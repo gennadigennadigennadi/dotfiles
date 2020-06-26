@@ -14,6 +14,12 @@ let g:neomake_message_sign = {
             \ }
 let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
+augroup neomake
+    au!
+    autocmd ColorScheme *
+                \ hi NeomakeErrorSign ctermfg=red guifg=red
+                " \ hi NeomakeWarningSign ctermfg=blue guifg=blue
+augroup END
 if isdirectory($HOME . "/.local/share/nvim/plugged/neomake")
     call neomake#configure#automake('nrwi', 500)
 endif
@@ -35,7 +41,7 @@ endfunction
 let g:neomake_php_enabled_makers = ['phpmd', 'phpstan', 'php', 'psalm']
 
 let g:neomake_php_phpcs_maker = {
-            \ 'args': ['--report=csv', '--standard=PSR2'],
+            \ 'args': ['--report=csv', '--standard=PSR12'],
             \ 'errorformat':
             \ '%-GFile\,Line\,Column\,Type\,Message\,Source\,Severity%.%#,'.
             \ '"%f"\,%l\,%c\,%t%*[a-zA-Z]\,"%m"\,%*[a-zA-Z0-9_.-]\,%*[0-9]%.%#',

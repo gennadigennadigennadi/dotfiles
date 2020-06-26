@@ -10,7 +10,7 @@ nnoremap <Leader>tl :TestLast<CR>
 
 
 " make test commands execute using dispatch.vim
-let test#strategy = "dispatch"
+let test#strategy = "neovim"
 let test#php#phpunit#options = '--testdox'
 
 " augroup test

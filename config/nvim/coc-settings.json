@@ -3,5 +3,13 @@
     "diagnostic.enable": false,
     "coc.preferences.formatOnSaveFiletypes": ["php"],
     "coc.preferences.hoverTarget": "float",
-    "html.format.enable": true
+    "html.format.enable": true,
+
+    "snippets.userSnippetsDirectory": "$XDG_CONFIG_HOME/nvim/ultisnips",
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "gosnippets/UltiSnips"
+    ],
+
+    "suggest.snippetIndicator": " ►"
 }

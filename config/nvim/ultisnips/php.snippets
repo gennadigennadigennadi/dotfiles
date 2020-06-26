@@ -1,0 +1,36 @@
+snippet class "Class declaration template with strict mode" b
+<?php 
+
+declare(strict_types=1);
+
+namespace App;
+
+final class $1
+{
+	$0
+}
+endsnippet
+
+snippet pub "Public function" b
+public function ${1:name}(${2:params})
+{
+	$0${VISUAL}${3:return null;}
+}
+endsnippet
+
+snippet pro "Protected function" b
+protected function ${1:name}()
+{
+	${VISUAL}${5:return null;}
+}
+$0
+endsnippet
+
+snippet pri "Private function" b
+private function ${1:name}()
+{
+	${VISUAL}${5:return null;}
+}
+$0
+endsnippet
+

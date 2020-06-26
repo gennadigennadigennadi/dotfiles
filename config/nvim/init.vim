@@ -1,4 +1,5 @@
 source ~/.config/nvim/plug.vim
+source ~/.config/nvim/keymapping.vim
 
 " source every plugin configs
 for file in split(glob("~/.config/nvim/pluggedconf/*.vim"), '\n')
@@ -23,39 +24,65 @@ set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shortmess=filnxtToOI        " see :help shortmess
 
+set formatoptions-=cro "
+set pumheight=10
+
 " Appearance
 " ==========
-
+set conceallevel=0
 set cursorline " Highlight current line
 set title " Show file title in terminal tab
 
+" highlight Comment cterm=italic
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
+" set Vim-specific sequences for RGB colors                                                                                                                                                               
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"                                                                                                                                                                    
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"   
+ 
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 set background=dark " for the dark version
 " set background=light " for the light version
-let g:one_allow_italics = 1 " I love italic for comments
-" colorscheme github
-colorscheme one
 
-hi clear SignColumn
-hi SignColumn ctermbg=none
 
-hi SignifySignAdd    ctermfg=white ctermbg=red guibg=none guifg=blue
-hi SignifySignDelete ctermfg=white ctermbg=red  guibg=none guifg=red
-hi SignifySignChange ctermfg=white ctermbg=none guibg=none guifg=orange
+let g:onedark_hide_endofbuffer=1
+let g:onedark_terminal_italics=1
+let g:onedark_termcolors=256
 
+colorscheme onedark
+"
+" use a slightly darker background, like GitHub inline code blocks
+" let g:github_colors_soft = 0
+
+" colorscheme github 
+
+" Theme
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
+"
+" i have to overwrite my own styling after setting a colorscheme
+highlight clear SignColumn "resets the color form the github colorscheme
 " hi DiffDelete ctermfg=red ctermbg=NONE cterm=NONE guifg=red guibg=none
 " hi DiffChange ctermfg=blue ctermbg=NONE cterm=NONE guifg=orange guibg=none
 " hi DiffAdd ctermfg=white ctermbg=NONE cterm=NONE guifg=blue guibg=none
 " hi DiffText ctermfg=yellow ctermbg=NONE cterm=NONE guifg=black guibg=none
 
- hi LineNr ctermbg=NONE  guibg=NONE
+hi LineNr ctermbg=NONE  guibg=NONE
 
-" let g:signify_sign_show_text = 0
+" hi clear DbgCurrentSign
+" hi clear DbgCurrentLine
+" hi clear DbgBreakptSign
+" hi clear DbgBreakptLine
 
-" let g:onedark_hide_endofbuffer=1
-" let g:onedark_terminal_italics=1
-" let g:onedark_termcolors=256
-" colorscheme onedark
-
+hi DbgBreakptSign gui=bold
+hi link DbgBreakptLine DbgBreakptSign
+hi DbgCurrentSign gui=underline
+hi link DbgCurrentLine DbgCurrentSign
 " ==============================================
 
 set relativenumber              " prefer absolute #
@@ -64,11 +91,8 @@ set listchars=space:·,nbsp:·,trail:·,precedes:«,extends:»,tab:▸·,eol:¬
 " set list
 set autowrite
 set hidden                      " Buffers can exist in the background
-" Allow motions and back-spacing over line-endings etc
-set whichwrap=h,l,b,<,>,~,[,]
-
-"Don't dump distracting text to terminal during searches!
-set shellpipe=2>/dev/null>
+set whichwrap=h,l,b,<,>,~,[,] " Allow motions and back-spacing over line-endings etc
+set shellpipe=2>/dev/null> "Don't dump distracting text to terminal during searches!
 set re=1                        "Use a non-broken regex engine for syntax highlighting
 
 " INTERACTIONS
@@ -79,7 +103,7 @@ set sidescrolloff=10
 set sidescroll=1
 
 set iskeyword+=- "Makes foo-bar considered one word
-set iskeyword+=$
+" set iskeyword+=$ " $ is part of the Name
 
 " Indentation and Display
 " =======================
@@ -88,20 +112,15 @@ filetype plugin indent on
 
 set shiftwidth=4
 set smartindent " show existing tab with 4 spaces width
-set tabstop=4
-" " when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" " On pressing tab, insert 4 spaces
-set expandtab
-" when at 3 spaces, and I hit > ... go to 4, not 7
+set tabstop=4 " when indenting with '>', use 4 spaces width
+set shiftwidth=4 " On pressing tab, insert 4 spaces
+set expandtab " when at 3 spaces, and I hit > ... go to 4, not 7
 set shiftround
 
 set number
 set breakindent " Make word wrapping behave like it does in every other sane text editor
-" set wrap linebreak
-set nowrap
-" Give more space for displaying messages.
-set cmdheight=2
+set nowrap " set wrap linebreak
+set cmdheight=2 " Give more space for displaying messages.
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -150,42 +169,11 @@ set nofoldenable        " Don't fold by default
 
 " Plugin Options
 " ==============
-set linespace=1
 set noshowmode          " Le airline handle the mode display
-
-" Custom commands
-" ===============
-nmap <leader>rr :source $MYVIMRC<CR>
-
-" close the buffer
-nmap <leader>q :Bdelete!<cr>
-
-" save file, only if it was edit
-noremap <silent> <C-S> :update<CR>
-vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
-
-" arrow keys resize windows
-nnoremap <Left> :vertical resize -5<CR>
-nnoremap <Right> :vertical resize +5<CR>
-nnoremap <Up> :resize -5<CR>
-nnoremap <Down> :resize +5<CR>
-
-" deactivate arrow keys
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
-"keep visual mode after indent
-vnoremap > >gv
-vnoremap < <gv
-
-" escape terminal mode 
-tnoremap <Esc> <C-\><C-n> 
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
+" set wildmode=longest,full
 
 " Restore cursor position when opening file
 autocmd BufReadPost *
@@ -193,14 +181,4 @@ autocmd BufReadPost *
             \   execute "normal! g`\"" |
             \ endif
 
-
 let g:fubitive_domain_pattern = 'bitbucket\.uptrade\.de'
-
-" highlight Comment cterm=italic
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-
-" set Vim-specific sequences for RGB colors                                                                                                                                                               
-" set termguicolors                                                                                                                                                                                         
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"                                                                                                                                                                    
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"   

@@ -6,10 +6,8 @@ let g:fzf_layout = { 'window': '10new' }
 " +---------+
 " | Mappings |
 " +---------+
-
 nmap <Leader>; :Buffers<CR>
-nnoremap <c-p> :FZF<cr>
-
 nmap <Leader>ff :Files<CR>
 nmap <Leader>ft :Tags<CR>
 nmap <Leader>fh :History<CR>
+nmap <Leader>fr :Rg! 

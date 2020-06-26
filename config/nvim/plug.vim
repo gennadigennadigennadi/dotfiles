@@ -1,11 +1,12 @@
 call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " # Theme
-Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'joshdick/onedark.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'rakr/vim-one'
 
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'mhinz/vim-startify' " fancy vim bootscreen
 Plug 'itchyny/lightline.vim' " simple powerline tool
@@ -22,14 +23,13 @@ Plug 'janko/vim-test' " quick test execution
 " Navigation
 Plug 'christoomey/vim-tmux-navigator' " tmux like pane switching ctrl + hjkl
 Plug 'liuchengxu/vista.vim'
- 
+
+" Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' " if i want to use the os.path stuf i do need this
+
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} 
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
-
-" Plug 'wincent/ferret'  " Ack multi file search. Right now I do only use the
-" Rg! command from fzf
-
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
 Plug 'moll/vim-bbye' " Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -45,11 +45,10 @@ Plug 'tpope/vim-commentary' " gcc
 " +---------+
 " | Language Highlighting |
 " +---------+
-" Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
-Plug 'StanAngeloff/php.vim'
+Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
 
 Plug 'tpope/vim-fugitive'  
-Plug 'mhinz/vim-signify' " Git Wrapper for Vim + Gutter
+Plug 'airblade/vim-gitgutter'
 Plug 'https://github.com/kmARC/vim-fubitive.git' " Gbrowse for bitbucket
 Plug 'junegunn/gv.vim' " Git History Browser
 
