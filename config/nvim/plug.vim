@@ -11,7 +11,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify' " fancy vim bootscreen
 Plug 'itchyny/lightline.vim' " simple powerline tool
 
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'machakann/vim-highlightedyank' " highlights yanked lines
 
 Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
