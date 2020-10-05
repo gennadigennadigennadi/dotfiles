@@ -1,4 +1,4 @@
-call plug#begin($HOME . '/.local/share/nvim/plugged')
+call plug#begin($HOME . '/.config/nvim/plugged')
 
 " # Theme
 Plug 'cormacrelf/vim-colors-github'

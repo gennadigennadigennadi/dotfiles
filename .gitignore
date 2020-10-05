@@ -8,3 +8,4 @@ config/configstore
 config/coc/extensions
 config/karabiner/automatic_backups
 config/configstore
+config/nvim/plugged
