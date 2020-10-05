@@ -6,8 +6,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'rakr/vim-one'
 
-Plug 'ryanoasis/vim-devicons'
-
 Plug 'mhinz/vim-startify' " fancy vim bootscreen
 Plug 'itchyny/lightline.vim' " simple powerline tool
 
@@ -31,8 +29,8 @@ Plug 'liuchengxu/vista.vim'
 " Plug 'yuttie/comfortable-motion.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'simeji/winresizer'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} 
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} | Plug 'tiagofumo/vim-nerdtree-syntax-highlight' | Plug 'ryanoasis/vim-devicons'
+
 Plug 'moll/vim-bbye' " Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
