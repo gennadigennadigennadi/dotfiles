@@ -45,20 +45,20 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-set background=dark " for the dark version
+" set background=dark " for the dark version
 " set background=light " for the light version
 
 
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-let g:onedark_termcolors=256
+" let g:onedark_hide_endofbuffer=1
+" let g:onedark_terminal_italics=1
+" let g:onedark_termcolors=256
 
-colorscheme onedark
+" colorscheme onedark
 "
 " use a slightly darker background, like GitHub inline code blocks
 " let g:github_colors_soft = 0
 
-" colorscheme github 
+colorscheme github 
 
 " Theme
 " let g:oceanic_next_terminal_bold = 1
