@@ -12,10 +12,10 @@ inoremap <silent> <C-S> <C-C>:update<CR>
 nmap <silent> <leader>x :q!<CR>
 
 " arrow keys resize windows
-nnoremap ¬ :vertical resize -2<CR> " alt+l
-nnoremap ˙ :vertical resize +2<CR> " alt+h
-nnoremap ˚ :resize -2<CR> " alt+k
-nnoremap ∆ :resize +2<CR> " alt+j
+" nnoremap ¬ :vertical resize -2<CR> " alt+l
+" nnoremap ˙ :vertical resize +2<CR> " alt+h
+" nnoremap ˚ :resize -2<CR> " alt+k
+" nnoremap ∆ :resize +2<CR> " alt+j
 
 " deactivate arrow keys
 imap <up> <nop>

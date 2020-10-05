@@ -30,6 +30,7 @@ Plug 'liuchengxu/vista.vim'
 
 " Plug 'yuttie/comfortable-motion.vim'
 Plug 'psliwka/vim-smoothie'
+Plug 'simeji/winresizer'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
 Plug 'moll/vim-bbye' " Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
