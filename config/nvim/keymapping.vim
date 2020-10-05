@@ -27,5 +27,25 @@ imap <right> <nop>
 vnoremap > >gv
 vnoremap < <gv
 
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
 " escape terminal mode 
 tnoremap <Esc> <C-\><C-n> 
+
+" tabs
+nnoremap th :tabfirst<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap tl :tablast<CR>
+nnoremap tn :tabnew<CR>
+
+" move tab to first position
+nnoremap tF :tabm 0<CR>
+nnoremap tL :tabm<CR>
+
+" Disable anoying ex mode
+nnoremap Q <Nop>
+
+" Save files as root
+cnoremap w!! execute ':w suda://%'
