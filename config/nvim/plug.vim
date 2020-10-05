@@ -27,7 +27,9 @@ Plug 'liuchengxu/vista.vim'
 " Plug 'honza/vim-snippets'
 " Plug 'SirVer/ultisnips' " if i want to use the os.path stuf i do need this
 
-Plug 'yuttie/comfortable-motion.vim'
+
+" Plug 'yuttie/comfortable-motion.vim'
+Plug 'psliwka/vim-smoothie'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']} 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree + modifications 
 Plug 'moll/vim-bbye' " Close the current buffer :Bdelete and :Bwipeout (remove buffer from jumplist)
