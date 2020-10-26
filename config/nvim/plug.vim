@@ -57,7 +57,7 @@ Plug 'https://github.com/kmARC/vim-fubitive.git' " Gbrowse for bitbucket
 
 Plug 'joonty/vdebug'
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'} " <leader> + pcf
-Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
+" Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 " Auto completion
 " Plug 'Shougo/neco-vim'

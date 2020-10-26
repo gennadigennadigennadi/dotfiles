@@ -26,5 +26,5 @@ nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
 vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 
 " Extract method from selection
-" vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 
