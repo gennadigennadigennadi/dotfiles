@@ -1,1 +1,1 @@
-/Users/gjanzen/.dotfiles/zprezto/runcoms/zshrc
+../../zprezto/runcoms/zshrc

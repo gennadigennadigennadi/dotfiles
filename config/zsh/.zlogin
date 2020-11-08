@@ -1,1 +1,1 @@
-/Users/gjanzen/.dotfiles/zprezto/runcoms/zlogin
+../../zprezto/runcoms/zlogin

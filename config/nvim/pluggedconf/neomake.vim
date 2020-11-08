@@ -38,7 +38,7 @@ function! SetMessageType(entry)
 endfunction
 
 " let g:neomake_php_phpcs_args_standard = 'PSR12'
-let g:neomake_php_enabled_makers = ['phpmd', 'phpstan', 'php', 'psalm']
+let g:neomake_php_enabled_makers = ['php', 'psalm']
 
 let g:neomake_php_phpcs_maker = {
             \ 'args': ['--report=csv', '--standard=PSR12'],
