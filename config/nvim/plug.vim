@@ -27,6 +27,7 @@ Plug 'janko/vim-test' " quick test execution
 " Plug 'rayburgemeestre/phpfolding.vim' folds whole functions only
 
 " Navigation
+Plug 'szw/vim-maximizer'
 Plug 'christoomey/vim-tmux-navigator' " tmux like pane switching ctrl + hjkl
 Plug 'liuchengxu/vista.vim'
 
