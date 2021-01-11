@@ -46,7 +46,7 @@ if (has("termguicolors"))
 endif
 
 " set background=dark " for the dark version
-" set background=light " for the light version
+set background=light " for the light version
 
 
 " let g:onedark_hide_endofbuffer=1
@@ -181,4 +181,3 @@ autocmd BufReadPost *
             \   execute "normal! g`\"" |
             \ endif
 
-let g:fubitive_domain_pattern = 'bitbucket\.uptrade\.de'

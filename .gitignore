@@ -10,3 +10,4 @@ config/karabiner/automatic_backups
 config/configstore
 config/nvim/plugged
 config/zsh/.zsh_history
+config/zsh/.zsh_sessions

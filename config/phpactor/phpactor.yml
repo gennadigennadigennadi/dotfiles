@@ -1,1 +1,1 @@
-composer.autoloader_path: "%project_root%\/www\/vendor\/autoload.php"
+composer.autoloader_path: "%project_root%\/vendor\/autoload.php"

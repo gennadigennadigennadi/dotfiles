@@ -11,15 +11,17 @@ brew tap caskroom/cask
 brew install brew-cask
 
 apps=(
-    'google-chrome'
-    'macpass'
-    'dropbox'
-    'iterm22'
-    'virtualbox'
-    'sublime-text3'
-    'sourcetree'
-    'spotify'
-    'forklift'
+    'iterm2'
+    'docker'
+    'postman'
+    'clipy'
+    'font-jetbrains-mono-nerd-font'
+    'fork'
+    'phpstorm'
+    'tableplus'
+    'visual-studio-code'
+    'slack'
+    'zoom'
 )
 
 echo "Install Core Apps"
