@@ -12,18 +12,7 @@ declare -a FILES_TO_SYMLINK=(
     "zprezto/runcoms/zlogout"
     "zprezto/runcoms/zshenv"
 
-    "git/gitconfig"
-    "git/gitignore"
-    "git/gitignore_global"
-
-    "vim/vim"
-    "vim/vimrc"
-
-    "nvim/nvimrc"
     "tmux/tmux.conf"
-
-    "ag/agignore"
-
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

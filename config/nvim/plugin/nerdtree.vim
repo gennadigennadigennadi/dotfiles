@@ -1,7 +1,7 @@
 " nerdtree configuration
 
 " close vim if nerdtree is the last open buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 function! NERDTreeToggleInCurDir()
     " If NERDTree is open in the current buffer
@@ -16,7 +16,8 @@ function! NERDTreeToggleInCurDir()
     endif
 endfunction
 
-nmap <leader>n :call NERDTreeToggleInCurDir()<CR>
+nmap <leader>nt :call NERDTreeToggleInCurDir()<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 
 " don't display informations (type ? for help and so on)
 let g:NERDTreeMinimalUI = 1
@@ -39,6 +40,8 @@ let NERDTreeMapOpenVSplit = 'v'
 let NERDTreeMapPreviewVSplit='gv'
 let g:NERDTreeMouseMode=3
 
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeHighlightCursorline = 0
 
 " let g:NERDTreeDirArrowExpandable = ''
 " let g:NERDTreeDirArrowCollapsible = ''

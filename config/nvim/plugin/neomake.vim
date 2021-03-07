@@ -20,7 +20,8 @@ augroup neomake
                 \ hi NeomakeErrorSign ctermfg=red guifg=red
                 " \ hi NeomakeWarningSign ctermfg=blue guifg=blue
 augroup END
-if isdirectory($HOME . "/.local/share/nvim/plugged/neomake")
+
+if isdirectory($HOME . "/.config/nvim/plugged/neomake")
     call neomake#configure#automake('nrwi', 500)
 endif
 
@@ -37,9 +38,8 @@ function! SetMessageType(entry)
     let a:entry.type = 'M'
 endfunction
 
-" let g:neomake_php_phpcs_args_standard = 'PSR12'
-let g:neomake_php_enabled_makers = ['php', 'psalm']
-
+let g:neomake_php_enabled_makers = ['php',  'phpmd', 'phpcs', 'psalm']
+let g:gitgutter_preview_win_floating = 1
 let g:neomake_php_phpcs_maker = {
             \ 'args': ['--report=csv', '--standard=PSR12'],
             \ 'errorformat':

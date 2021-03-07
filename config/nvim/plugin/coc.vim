@@ -5,6 +5,7 @@ let g:coc_global_extensions = [
     \ 'coc-css', 
     \ 'coc-html',
     \ 'coc-yaml',
+    \ 'coc-phpactor'
     \]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -54,7 +55,7 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-nmap <space>e :CocCommand explorer<CR>
+" nmap <space>e :CocCommand explorer<CR>
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)

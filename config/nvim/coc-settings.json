@@ -1,15 +1,5 @@
 {
     "languageserver": {
-        "phpactor": {
-            "trace.server": "verbose",
-            "command": "~/.config/nvim/plugged/phpactor/bin/phpactor",
-            "args": ["language-server"],
-            "filetypes": ["php","cucumber"],
-            "initializationOptions": {
-            },
-            "settings": {
-            }
-        }
     },
     "diagnostic.enable": false,
     "coc.preferences.formatOnSaveFiletypes": ["php"],

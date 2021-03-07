@@ -11,5 +11,3 @@ echo 'init _shell'
 echo 'init symlinks'
 . "$dir/_create_symbolic_links.sh"
 
-echo 'setup vim plugins'
-. "$dir/_setup_vim_plugins.sh"
