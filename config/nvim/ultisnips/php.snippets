@@ -3,9 +3,14 @@ snippet class "Class declaration template with strict mode" b
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\\${`!p
+relpath = os.path.relpath(path)
+m = re.search(r'[A-Z].+(?=/)', relpath)
+if m:
+	snip.rv = m.group().replace('/', '\\')
+`};
 
-final class $1
+final class ${2:`!p snip.rv=snip.basename`}
 {
 	$0
 }
