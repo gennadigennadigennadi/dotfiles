@@ -9,15 +9,17 @@ nmap <Leader>nn :call phpactor#Navigate()<CR>
 
 " Goto definition of class or class member under the cursor
 nmap <Leader>gd :call phpactor#GotoDefinition()<CR>
+nmap <Leader>gv :call phpactor#GotoDefinition('vsplit')<CR>
+nmap <Leader>gh :call phpactor#GotoDefinition('hsplit')<CR>
 
 " Show brief information about the symbol under the cursor
 nmap <Leader>K :call phpactor#Hover()<CR>
 
 " Transform the classes in the current file
-nmap <Leader>tt :call phpactor#Transform()<CR>
+nmap <Leader>pt :call phpactor#Transform()<CR>
 
 " Generate a new class (replacing the current file)
-nmap <Leader>cc :call phpactor#ClassNew()<CR>
+nmap <Leader>pc :call phpactor#ClassNew()<CR>
 
 " Extract expression (normal mode)
 nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>

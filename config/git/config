@@ -1,7 +1,16 @@
 [core]
 	fileMode = false
 	precomposeunicode = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
+[pager]
+    diff = delta
+    show = delta
+    log = delta
+[delta]
+    syntax-theme = GitHub
+    features = line-numbers 
+[interactive]
+    diffFilter = delta --color-only
 [color]
 	ui = auto
 [credential]
@@ -22,5 +31,5 @@
 [rebase]
 	autoStash = true
 [user]
-	name = gennadigennadigennadi
-	email = gennadijanzen@icloud.com
+	name = Gennadi Janzen
+	email = gennadi.janzen@qossmic.com

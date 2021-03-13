@@ -5,7 +5,9 @@ let g:coc_global_extensions = [
     \ 'coc-css', 
     \ 'coc-html',
     \ 'coc-yaml',
-    \ 'coc-phpactor'
+    \ 'coc-phpactor',
+    \ 'coc-tsserver',
+    \ 'coc-clangd'
     \]
 
 " Use tab for trigger completion with characters ahead and navigate.

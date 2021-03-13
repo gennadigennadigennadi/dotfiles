@@ -103,3 +103,4 @@ let g:netrw_banner = 0
 " use updatetime instead if not defined
 let g:cursorhold_updatetime = 100
 let g:vimsyn_embed = 'l' "activate in line lua highlighting
+let g:vimspector_enable_mappings = 'HUMAN'

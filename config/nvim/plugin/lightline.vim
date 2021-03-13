@@ -1,7 +1,6 @@
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
-" let g:airline_theme='one'
 let g:lightline = { 
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],

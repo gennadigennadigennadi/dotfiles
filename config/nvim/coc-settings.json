@@ -1,6 +1,7 @@
 {
-    "languageserver": {
-    },
+    "languageserver": { },
+    "phpactor.enable": true,
+    "phpactor.path": "/Users/gennadijanzen/.composer/vendor/bin/phpactor",
     "diagnostic.enable": false,
     "coc.preferences.formatOnSaveFiletypes": ["php"],
     "coc.preferences.hoverTarget": "float",
@@ -11,6 +12,32 @@
         "UltiSnips",
         "gosnippets/UltiSnips"
     ],
-
-    "suggest.snippetIndicator": " ►"
+    "suggest.snippetIndicator": " ►",
+    "suggest.completionItemKindLabels": {
+        "method": "  ",
+        "function": "  ",
+        "variable": "[]",
+        "field": "  ",
+        "typeParameter": "<>",
+        "constant": "  ",
+        "class": " פּ ",
+        "interface": " 蘒",
+        "struct": "  ",
+        "event": "  ",
+        "operator": "  ",
+        "module": "  ",
+        "property": "  ",
+        "enum": " 練",
+        "reference": "  ",
+        "keyword": "  ",
+        "file": "  ",
+        "folder": " ﱮ ",
+        "color": "  ",
+        "unit": " 塞 ",
+        "snippet": "  ",
+        "text": "  ",
+        "constructor": "  ",
+        "value": "  ",
+        "enumMember": "  "
+    },
 }
