@@ -1,10 +1,5 @@
 let php_var_selector_is_identifier=1
+set iskeyword+=$
 
-function! PhpSyntaxOverride()
-    " Put snippet overrides in this function.
-    hi! link phpDocTags phpDefine
-    autocmd FileType php set iskeyword+=$
-    " hi! phpFunctions guifg=red guibg=NONE gui=NONE
-    " hi! phpMemberSelector guifg=red guibg=NONE gui=NONE   
-    hi! link phpDocParam phpType
-endfunction
+hi! link phpDocTags phpDefine
+hi! link phpDocParam phpType

@@ -5,28 +5,17 @@ map <space> <leader>
 map <space> <localleader>
 
 nmap <silent> <esc> :nohlsearch<cr>
-"" Custom commands
-"" ===============
 nmap <leader>rr :source $MYVIMRC<CR>
+nmap <leader>rs :source %<CR>
 
-"" close the buffer
-nmap <leader>q :Bdelete!<CR>
-
-"" save file, only if it was edit
-noremap <silent><c-s> <C-C>:update<CR>
-
-nmap <silent> <leader>x :q!<CR>
+nnoremap <silent> <leader>x <cmd>bp <bar>bd #<cr> " close the buffer
+nnoremap <silent> <c-q> :q!<CR>
+noremap <silent><c-s> <C-C>:update<CR> " save file, only if it was edit
 
 "noremap <silent> :vsplit<CR>
 "noremap <silent> :split<CR>
 
-"" arrow keys resize windows
-"" nnoremap ¬ :vertical resize -2<CR> " alt+l
-"" nnoremap ˙ :vertical resize +2<CR> " alt+h
-"" nnoremap ˚ :resize -2<CR> " alt+k
-"" nnoremap ∆ :resize +2<CR> " alt+j
-
-"" deactivate arrow keys
+" deactivate arrow keys
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
@@ -36,13 +25,9 @@ imap <right> <nop>
 vnoremap > >gv
 vnoremap < <gv
 
-"" Keep the cursor in place while joining lines
-nnoremap J mzJ`z
+nnoremap J mzJ`z " Keep the cursor in place while joining lines
 
-"" escape terminal mode 
-"" tnoremap <Esc> <C-\><C-n> 
-
-"" close Terminal/fzf Windows/Overlays 
+""" close Terminal/fzf Windows/Overlays 
 :augroup terminal-close
   :au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
   :au FileType fzf tunmap <buffer> <Esc>
@@ -66,13 +51,15 @@ nnoremap Q <Nop>
 "" Save files as root 
 cnoremap w!! execute ':w suda://%'
 
-"" open File Drawer
-nmap <silent><leader>1 :call NERDTreeToggleInCurDir()<CR>
-nmap <silent><leader>nf :NERDTreeFind<CR>
 "" nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-""
+
 nmap <Leader>; :Buffers<CR>
-nmap <Leader>ff :Files<CR>
-nmap <Leader>ft :Tags<CR>
-nmap <Leader>fh :History<CR>
-nmap <Leader>fr :Rg<CR> 
+nmap <silent><Leader>ff :Files<CR>
+nmap <silent><Leader>ft :Tags<CR>
+nmap <silent><Leader>fh :History<CR>
+nmap <silent><Leader>fr :Rg<CR> 
+
+nmap <leader>H :TSHighlightCapturesUnderCursor<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>

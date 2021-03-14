@@ -21,9 +21,7 @@ augroup neomake
                 " \ hi NeomakeWarningSign ctermfg=blue guifg=blue
 augroup END
 
-if isdirectory($HOME . "/.config/nvim/plugged/neomake")
-    call neomake#configure#automake('nrwi', 500)
-endif
+call neomake#configure#automake('nrwi', 500)
 
 " display warning for phpcs error
 function! SetWarningType(entry)

@@ -3,9 +3,11 @@ function! CocCurrentFunction()
 endfunction
 let g:lightline = { 
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \           [ 'gitbranch' ], 
-            \           [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+            \   'left': [ 
+            \               [ 'mode', 'paste' ],
+            \               [ 'gitbranch' ], 
+            \               [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ]
+            \           ]
             \ },
             \ 'component_function': {
             \   'cocstatus': 'coc#status',
@@ -13,19 +15,6 @@ let g:lightline = {
             \   'gitbranch': 'FugitiveHead'
             \ },
             \ }
+" let g:lightline.separator = { 'left': '', 'right': '' }
+" let g:lightline.subseparator = { 'left': '', 'right': '' }
 
-" let g:lightline = {
-"             \ 'mode_map': {
-"             \ 'n' : 'N',
-"             \ 'i' : 'I',
-"             \ 'R' : 'R',
-"             \ 'v' : 'V',
-"             \ 'V' : 'VL',
-"             \ "\<C-v>": 'VB',
-"             \ 'c' : 'C',
-"             \ 's' : 'S',
-"             \ 'S' : 'SL',
-"             \ "\<C-s>": 'SB',
-"             \ 't': 'T',
-"             \ },
-"             \ }

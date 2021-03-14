@@ -8,8 +8,6 @@ nnoremap <Leader>tt :TestSuite<CR>
 nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <Leader>tl :TestLast<CR>
 
-
-" make test commands execute using dispatch.vim
 let test#strategy = "neovim"
 let test#php#phpunit#options = '--testdox'
 

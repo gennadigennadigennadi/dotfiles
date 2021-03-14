@@ -5,10 +5,10 @@ nmap <Leader>u :call phpactor#UseAdd()<CR>
 nmap <Leader>mm :call phpactor#ContextMenu()<CR>
 
 " Invoke the navigation menu
-nmap <Leader>nn :call phpactor#Navigate()<CR>
+nmap <Leader>pn :call phpactor#Navigate()<CR>
 
 " Goto definition of class or class member under the cursor
-nmap <Leader>gd :call phpactor#GotoDefinition()<CR>
+nmap <Leader>gd :call phpactor#GotoDefinition()<CR> " this own is not the one from the lsp!!!
 nmap <Leader>gv :call phpactor#GotoDefinition('vsplit')<CR>
 nmap <Leader>gh :call phpactor#GotoDefinition('hsplit')<CR>
 
