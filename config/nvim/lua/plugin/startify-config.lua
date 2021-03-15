@@ -1,20 +1,27 @@
-vim.g.startify_change_to_dir = 1
-vim.g.startify_change_to_vcs_root = 1
-vim.g.startify_custom_header = 'startify#center(startify#fortune#cowsay())'
+local M = {}
 
-vim.g.startify_lists = {
-    { type = 'bookmarks', header = {'Bookmarks'} },
-    { type = 'sessions', header = {'Sessions'} },
-    { type = 'commands', header = {'Commands'} },
-    { type = 'files', header = {'MRU'} },
-    { type = 'dir', header = {'MRU ' .. vim.fn.getcwd()} }
-}
-vim.g.startify_bookmarks = {
-    { vi = '$MYVIMRC' }, 
-    { df = '$HOME/workspace/dotfiles/' },
-    { pdc = '/Volumes/development/dmk/core/README.md' },
-    { pdj = '/Volumes/development/dmk/jpxo/README.md' }
-}
-vim.g.startify_commands = {
-    { du = { 'start docker', '!docker-compose up -d' } }
-}
+function M.setup() 
+    vim.g.startify_change_to_dir = true
+    vim.g.startify_change_to_vcs_root = true
+    vim.g.startify_custom_header = 'startify#center(startify#fortune#cowsay())'
+
+    vim.g.startify_lists = {
+        { type = 'bookmarks', header = {'Bookmarks'} },
+        { type = 'sessions', header = {'Sessions'} },
+        { type = 'commands', header = {'Commands'} },
+        { type = 'files', header = {'MRU'} },
+        { type = 'dir', header = {'MRU ' .. vim.fn.getcwd()} }
+    }
+    vim.g.startify_bookmarks = {
+        { vi = '$MYVIMRC' }, 
+        { df = '$HOME/workspace/dotfiles/' },
+        { pdc = '/Volumes/development/dmk/core/README.md' },
+        { pdj = '/Volumes/development/dmk/jpxo/README.md' }
+    }
+    vim.g.startify_commands = {
+        { du = { 'start docker', '!docker-compose up -d' } }
+    }
+end
+
+
+return M

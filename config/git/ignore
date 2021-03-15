@@ -11,13 +11,13 @@ launch.json
 
 .idea
 .vscode
+.vimspector.json
 
 .phpunit.result.cache
 
 .php_cs.cache
 .php_cs.legacy.cache
 
-psalm.xml
 .phpactor.yml
 grumphp.yml
 phpstan.neon
