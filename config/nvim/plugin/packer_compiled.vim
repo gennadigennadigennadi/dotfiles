@@ -173,6 +173,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
+  ["vim-strip-trailing-whitespace"] = {
+    loaded = true,
+    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-strip-trailing-whitespace"
+  },
   ["vim-superman"] = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-superman"
@@ -210,7 +214,7 @@ try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
-vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-php-cs-fixer', 'phpactor'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'phpactor', 'vim-php-cs-fixer'}, { ft = "php" }, _G.packer_plugins)]]
 vim.cmd("augroup END")
 END
 

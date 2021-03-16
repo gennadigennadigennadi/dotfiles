@@ -29,7 +29,7 @@ return require('packer').startup(function()
   use {'wellle/targets.vim'} -- add new text object (can delete between comma with di, for example)
   use {'jiangmiao/auto-pairs'} -- makes vim autocomplete (), [], {}, '', \"\", etc
   use {'lambdalisue/suda.vim'} -- Write file with sudo
-
+  use 'axelf4/vim-strip-trailing-whitespace'
   use {'christoomey/vim-tmux-navigator'} -- tmux like pane switching ctrl + hjkl
   use {'liuchengxu/vista.vim'} -- <leader>oo
   use {'editorconfig/editorconfig-vim', config = function() require 'plugin/editor-config' end} -- editorconfig for vim
