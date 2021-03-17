@@ -207,14 +207,14 @@ _G.packer_plugins = {
   }
 }
 
--- Config for: editorconfig-vim
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugin/editor-config\frequire\0", "config", "editorconfig-vim")
 -- Config for: vim-startify
 try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27plugin/startify-config\frequire\0", "config", "vim-startify")
+-- Config for: editorconfig-vim
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugin/editor-config\frequire\0", "config", "editorconfig-vim")
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
-vim.cmd [[au FileType php ++once lua require("packer.load")({'phpactor', 'vim-php-cs-fixer'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-php-cs-fixer', 'phpactor'}, { ft = "php" }, _G.packer_plugins)]]
 vim.cmd("augroup END")
 END
 
