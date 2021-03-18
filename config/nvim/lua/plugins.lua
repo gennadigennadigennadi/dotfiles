@@ -2,7 +2,7 @@
 
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+-- vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
@@ -57,7 +57,7 @@ return require('packer').startup(function()
   use {'phpactor/phpactor', ft = 'php'}
   use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter'}
   use {'nvim-treesitter/playground' }
 
 
