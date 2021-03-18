@@ -1,9 +1,10 @@
 nmap <silent> <esc> :nohlsearch<cr>
 nmap <leader>rr :source $MYVIMRC<CR>
 nmap <leader>rs :source %<CR>
+nmap <leader>rl :luafile %<CR>
 
-nnoremap <silent> <c-w> <cmd>bp <bar>bd #<cr> " close the buffer
-nnoremap <silent> <c-q> :q!<CR>
+nnoremap <silent> <c-q> <cmd>bp <bar>bd #<cr> " close the buffer
+nnoremap <silent> <c-x> :q!<CR>
 
 noremap <silent><c-s> <C-C>:update<CR> " save file, only if it was edit
 
