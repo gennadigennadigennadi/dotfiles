@@ -1,16 +1,44 @@
 local map = vim.api.nvim_set_keymap
-options = {noremap = true}
-
--- let mapleader = " "
--- let maplocalleader = " "
-
--- map <space> <leader>
--- map <space> <localleader>
+options = {noremap = true, silent = true}
 
 map('n', '<Space>', ' ', {}) -- map the leader key
 vim.g.mapleader = ' '  -- 'vim.g' sets global variables
+
+map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root 
 
 -- keep visual mode after indent
 map('v', '>', '>gv', options)
 map('v', '<', '<gv', options)
 
+map('n', '<esc>', ':nohlsearch<CR>', options)
+map('n', 'J', 'mzJ`z', options) -- Keep the cursor in place while joining lines
+
+map('n', '<c-s>', '<C-C>:update!<CR>', options)
+map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
+map('n', '<c-x>', '<cmd>q!<CR>', options)
+map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
+
+map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', options)
+
+map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', options)
+map('n', '<leader>rl', ':luafile %<CR>', options)
+map('n', '<leader>rs', ':source %<CR>', options)
+----------------
+-- Find stuff --
+----------------
+map('n', '<leader>;', '<cmd>Buffers<CR>', options)
+map('n', '<leader>ff', '<cmd>Files<CR>', options)
+map('n', '<leader>fh', '<cmd>History<CR>', options)
+map('n', '<leader>fr', '<cmd>Rg<CR>', options)
+
+------------------
+-- tab handling --
+------------------
+map('n', 'th', '<cmd>tabfirst<cr>', options)
+map('n', 'tk', '<cmd>tabprev<cr>', options)
+map('n', 'tj', '<cmd>tabnext<cr>', options)
+map('n', 'tl', '<cmd>tablast<cr>', options)
+map('n', 'tn', '<cmd>tabnew<cr>', options)
+map('n', 'tx', '<cmd>tabclose<cr>', options)
+map('n', 'tH', '<cmd>tabm 0<cr>', options)
+map('n', 'tL', '<cmd>tabm<cr>', options)

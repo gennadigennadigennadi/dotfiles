@@ -27,9 +27,11 @@ return require('packer').startup(function()
   use {'tpope/vim-abolish'} -- easily search, substitute, abbreviate multiple version of words, coercion to camel case / snake case / dote case / title case...
   use {'machakann/vim-swap'} -- g<, g>, gs
   use {'wellle/targets.vim'} -- add new text object (can delete between comma with di, for example)
-  use {'jiangmiao/auto-pairs'} -- makes vim autocomplete (), [], {}, '', \"\", etc
+  -- use {'jiangmiao/auto-pairs'} -- makes vim autocomplete (), [], {}, '', \"\", etc
   use {'lambdalisue/suda.vim'} -- Write file with sudo
-  use 'axelf4/vim-strip-trailing-whitespace'
+
+  -- use 'axelf4/vim-strip-trailing-whitespace'
+
   use {'christoomey/vim-tmux-navigator'} -- tmux like pane switching ctrl + hjkl
   use {'liuchengxu/vista.vim'} -- <leader>oo
   use {'editorconfig/editorconfig-vim', config = function() require 'plugin/editor-config' end} -- editorconfig for vim
@@ -48,7 +50,11 @@ return require('packer').startup(function()
 
   use {'junegunn/gv.vim'} -- Git History Browser
   use {'tpope/vim-fugitive'}  
-  use {'airblade/vim-gitgutter'}
+  -- use {'airblade/vim-gitgutter'}
+  use {
+    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+    config = function() require('gitsigns').setup() end
+  }
   use {'shumphrey/fugitive-gitlab.vim'} -- GBrowse for gitlab
 
   use {'puremourning/vimspector'} -- Debugger
@@ -63,11 +69,6 @@ return require('packer').startup(function()
 
   -- use {'kosayoda/nvim-lightbulb'} i don't know if this one works with php
   -- Use dependency and run lua function after load
-  -- use {
-  --     'lewis6991/gitsigns.nvim', 
-  --     requires = { 'nvim-lua/plenary.nvim'},
-  --     config = function() require('gitsigns').setup() end
-  -- }
 
   -- Load on an autocommand event
   -- use {'andymass/vim-matchup', event = 'VimEnter'}

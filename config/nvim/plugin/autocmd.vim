@@ -12,3 +12,8 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=500 }
     " au TextYankPost * silent! lua vim.highlight.on_yank { higroup='HighlightedyankRegion', timeout=500 }
 augroup END
+
+:augroup terminal-close
+  :au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+  :au FileType fzf tunmap <buffer> <Esc>
+:augroup END
