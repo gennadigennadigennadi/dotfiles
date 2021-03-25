@@ -45,7 +45,12 @@ window.relativenumber = true
 window.list = false -- show invisible chars
 window.wrap = false -- don't wrap lines 
 
+window.foldmethod = 'expr'
+window.foldexpr = 'nvim_treesitter#foldexpr()'
+window.foldnestmax = 3
+
 buffer.swapfile = false
 buffer.undofile = true -- Keep undo history across sessions, by storing in file
 
 vim.g.fugitive_gitlab_domains = { 'https://repo.dmknet.de/' }
+

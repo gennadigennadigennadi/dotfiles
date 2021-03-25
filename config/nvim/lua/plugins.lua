@@ -7,16 +7,17 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
-  use {'cormacrelf/vim-colors-github' }
-  use {'gruvbox-community/gruvbox'}
+  use {'cormacrelf/vim-colors-github'}
   use {'joshdick/onedark.vim'}
   use {'sainnhe/sonokai'}
   use {'sainnhe/gruvbox-material'}
   use {'sainnhe/edge'}
+  use 'rktjmp/lush.nvim'
 
   use { 'mhinz/vim-startify' , config = function() require('plugin/startify-config').setup() end} -- fancy vim bootscreen
   use {'itchyny/lightline.vim'} -- simple powerline tool
   use {'simeji/winresizer'} -- <c-w> + hjkl for resizing
+  use 'norcalli/nvim-colorizer.lua'
 
   use {'jez/vim-superman'} -- manpage pager
 
@@ -41,7 +42,7 @@ return require('packer').startup(function()
   use {'airblade/vim-rooter'} -- changes the directory to surrounding .git/root 
   use {'google/vim-searchindex'} -- displays found matches count
 
-  use {'junegunn/fzf' }
+  use {'junegunn/fzf'}
   use {'junegunn/fzf.vim'}
 
   use {'neomake/neomake'} -- Asynchronous linting for every languages
@@ -59,15 +60,15 @@ return require('packer').startup(function()
 
   use {'puremourning/vimspector'} -- Debugger
 
-  use {'stephpy/vim-php-cs-fixer', ft = 'php'} -- <leader> + pcf
+  -- use {'stephpy/vim-php-cs-fixer', ft = 'php'} -- <leader> + pcf
   use {'phpactor/phpactor', ft = 'php'}
   use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
 
-  use { 'nvim-treesitter/nvim-treesitter'}
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/playground' }
 
 
-  -- use {'kosayoda/nvim-lightbulb'} i don't know if this one works with php
+  use {'kosayoda/nvim-lightbulb'} -- i don't know if this one works with php
   -- Use dependency and run lua function after load
 
   -- Load on an autocommand event
@@ -77,9 +78,7 @@ return require('packer').startup(function()
   -- use '9mm/vim-closer'
 
   -- You can specify multiple plugins in a single call
-  -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
   -- Plug 'blueyed/vim-diminactive' " Plug to dim colors of not-focused windows
-  -- Plug 'lewis6991/gitsigns.nvim' -- try this
   -- Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
   -- Plug 'janko/vim-test' " quick test execution
 end)

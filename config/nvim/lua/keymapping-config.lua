@@ -4,6 +4,9 @@ options = {noremap = true, silent = true}
 map('n', '<Space>', ' ', {}) -- map the leader key
 vim.g.mapleader = ' '  -- 'vim.g' sets global variables
 
+map('n', 'Q', '<nop>', options)
+map('n', 'q', '<nop>', {silent = true}) -- currently im not using macros
+
 map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root 
 
 -- keep visual mode after indent
@@ -20,9 +23,9 @@ map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
 
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', options)
 
-map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', options)
-map('n', '<leader>rl', ':luafile %<CR>', options)
-map('n', '<leader>rs', ':source %<CR>', options)
+map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', {})
+map('n', '<leader>rl', ':luafile %<CR>', {})
+map('n', '<leader>rs', ':source %<CR>', {})
 ----------------
 -- Find stuff --
 ----------------
@@ -30,7 +33,7 @@ map('n', '<leader>;', '<cmd>Buffers<CR>', options)
 map('n', '<leader>ff', '<cmd>Files<CR>', options)
 map('n', '<leader>fh', '<cmd>History<CR>', options)
 map('n', '<leader>fr', '<cmd>Rg<CR>', options)
-
+map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
 ------------------
 -- tab handling --
 ------------------

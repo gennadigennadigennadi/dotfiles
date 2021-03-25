@@ -6,7 +6,7 @@ let g:lightline = {
             \   'left': [ 
             \               [ 'mode', 'paste' ],
             \               [ 'gitbranch' ], 
-            \               [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ]
+            \               [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] 
             \           ]
             \ },
             \ 'component_function': {
@@ -15,6 +15,7 @@ let g:lightline = {
             \   'gitbranch': 'FugitiveHead'
             \ },
             \ }
-" let g:lightline.separator = { 'left': '', 'right': '' }
-" let g:lightline.subseparator = { 'left': '', 'right': '' }
+
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
 

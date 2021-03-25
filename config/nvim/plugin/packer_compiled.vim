@@ -32,10 +32,6 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
-  ["auto-pairs"] = {
-    loaded = true,
-    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/auto-pairs"
-  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/coc.nvim"
@@ -61,9 +57,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
-  gruvbox = {
+  ["gitsigns.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
-    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/gruvbox"
+    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   ["gruvbox-material"] = {
     loaded = true,
@@ -77,9 +74,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/lightline.vim"
   },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/lush.nvim"
+  },
   neomake = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/neomake"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+  },
+  ["nvim-lightbulb"] = {
+    loaded = true,
+    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -111,6 +120,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/playground"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
   sonokai = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/sonokai"
@@ -139,15 +152,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
-  },
-  ["vim-php-cs-fixer"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/opt/vim-php-cs-fixer"
-  },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-polyglot"
@@ -172,10 +176,6 @@ _G.packer_plugins = {
     config = { "\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27plugin/startify-config\frequire\0" },
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-startify"
-  },
-  ["vim-strip-trailing-whitespace"] = {
-    loaded = true,
-    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-strip-trailing-whitespace"
   },
   ["vim-superman"] = {
     loaded = true,
@@ -211,10 +211,12 @@ _G.packer_plugins = {
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugin/editor-config\frequire\0", "config", "editorconfig-vim")
 -- Config for: vim-startify
 try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27plugin/startify-config\frequire\0", "config", "vim-startify")
+-- Config for: gitsigns.nvim
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
-vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-php-cs-fixer', 'phpactor'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'phpactor'}, { ft = "php" }, _G.packer_plugins)]]
 vim.cmd("augroup END")
 END
 

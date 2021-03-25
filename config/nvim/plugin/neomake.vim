@@ -37,7 +37,7 @@ function! SetMessageType(entry)
 endfunction
 
 let g:neomake_php_phpstan_exe = '/Volumes/development/dmk/core/bin/phpstan'
-let g:neomake_php_enabled_makers = ['php',  'phpmd', 'phpcs',  'psalm', 'phpstan']
+let g:neomake_php_enabled_makers = ['php', 'psalm', 'phpstan']
 let g:gitgutter_preview_win_floating = 1
 let g:neomake_php_phpcs_maker = {
             \ 'args': ['--report=csv', '--standard=PSR12'],
