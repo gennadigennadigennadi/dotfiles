@@ -23,7 +23,6 @@ global.shiftround = true
 global.ignorecase = true -- Ignore case when searching...
 global.smartcase = true --...except if we input a capital letter
 
-global.foldenable = false -- Don't fold by default
 global.scrolloff = 10
 global.sidescroll = 10
 global.sidescrolloff = 10
@@ -45,9 +44,10 @@ window.relativenumber = true
 window.list = false -- show invisible chars
 window.wrap = false -- don't wrap lines 
 
+window.foldenable = false -- Don't fold by default
 window.foldmethod = 'expr'
 window.foldexpr = 'nvim_treesitter#foldexpr()'
-window.foldnestmax = 3
+window.foldnestmax = 3 
 
 buffer.swapfile = false
 buffer.undofile = true -- Keep undo history across sessions, by storing in file

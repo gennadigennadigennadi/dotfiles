@@ -1,4 +1,7 @@
-    local map = vim.api.nvim_set_keymap
+local M = {}
+local map = vim.api.nvim_set_keymap
+
+function M.setup()
     options = {noremap = true}
 
     map('n', '<leader>pu', ':call phpactor#UseAdd()<CR>', options) -- import use statements
@@ -11,3 +14,7 @@
     map('n', '<leader>gd', ':call phpactor#GotoDefinition()<CR>', options) -- this own is not the one from the lsp!!!
     map('n', '<leader>gv', ':call phpactor#GotoDefinition("vsplit")<CR>', options)
     map('n', '<leader>gh', ':call phpactor#GotoDefinition("jsplit")<CR>', options)
+
+end
+
+return M

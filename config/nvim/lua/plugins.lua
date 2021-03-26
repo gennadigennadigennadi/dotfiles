@@ -2,7 +2,7 @@
 
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
--- vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
@@ -14,7 +14,12 @@ return require('packer').startup(function()
   use {'sainnhe/edge'}
   use 'rktjmp/lush.nvim'
 
-  use { 'mhinz/vim-startify' , config = function() require('plugin/startify-config').setup() end} -- fancy vim bootscreen
+  -- fancy vim bootscreen
+  use { 
+    'mhinz/vim-startify', 
+    config = function() require('plugin/startify-config').setup() end
+  } 
+
   use {'itchyny/lightline.vim'} -- simple powerline tool
   use {'simeji/winresizer'} -- <c-w> + hjkl for resizing
   use 'norcalli/nvim-colorizer.lua'
@@ -35,7 +40,13 @@ return require('packer').startup(function()
 
   use {'christoomey/vim-tmux-navigator'} -- tmux like pane switching ctrl + hjkl
   use {'liuchengxu/vista.vim'} -- <leader>oo
-  use {'editorconfig/editorconfig-vim', config = function() require 'plugin/editor-config' end} -- editorconfig for vim
+
+ -- editorconfig for vim
+  use {
+    'editorconfig/editorconfig-vim', 
+    config = function() require 'plugin/editor-config' end
+  }
+  
   use {'psliwka/vim-smoothie'} -- has problems with nerdtree ans smooth scrolling
   use {'kyazdani42/nvim-web-devicons'} -- for file icons
   use {'kyazdani42/nvim-tree.lua' }
@@ -53,7 +64,8 @@ return require('packer').startup(function()
   use {'tpope/vim-fugitive'}  
   -- use {'airblade/vim-gitgutter'}
   use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+    'lewis6991/gitsigns.nvim', 
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
   }
   use {'shumphrey/fugitive-gitlab.vim'} -- GBrowse for gitlab
@@ -61,7 +73,12 @@ return require('packer').startup(function()
   use {'puremourning/vimspector'} -- Debugger
 
   -- use {'stephpy/vim-php-cs-fixer', ft = 'php'} -- <leader> + pcf
-  use {'phpactor/phpactor', ft = 'php'}
+  use {
+    'phpactor/phpactor', 
+    ft = 'php', 
+    config = function() require('plugin/phpactor-config').setup() end
+  }
+
   use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
