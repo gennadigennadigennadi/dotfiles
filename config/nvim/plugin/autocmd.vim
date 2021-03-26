@@ -13,6 +13,7 @@ augroup highlight_yank
 augroup END
 
 augroup terminal_close
+  autocmd!
   au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
   au FileType fzf tunmap <buffer> <Esc>
 augroup END

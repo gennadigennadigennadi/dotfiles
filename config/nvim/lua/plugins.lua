@@ -8,7 +8,6 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
   use {'cormacrelf/vim-colors-github'}
-  use {'joshdick/onedark.vim'}
   use {'sainnhe/sonokai'}
   use {'sainnhe/gruvbox-material'}
   use {'sainnhe/edge'}
@@ -39,7 +38,12 @@ return require('packer').startup(function()
   -- use 'axelf4/vim-strip-trailing-whitespace'
 
   use {'christoomey/vim-tmux-navigator'} -- tmux like pane switching ctrl + hjkl
-  use {'liuchengxu/vista.vim'} -- <leader>oo
+
+  -- <leader>oo
+  use {
+    'liuchengxu/vista.vim',
+    config = function() require 'plugin/vista-config' end
+  } 
 
  -- editorconfig for vim
   use {
@@ -48,8 +52,12 @@ return require('packer').startup(function()
   }
   
   use {'psliwka/vim-smoothie'} -- has problems with nerdtree ans smooth scrolling
-  use {'kyazdani42/nvim-web-devicons'} -- for file icons
-  use {'kyazdani42/nvim-tree.lua' }
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = function() require 'plugin/nvim-tree-config' end
+  }
   use {'airblade/vim-rooter'} -- changes the directory to surrounding .git/root 
   use {'google/vim-searchindex'} -- displays found matches count
 
@@ -70,7 +78,11 @@ return require('packer').startup(function()
   }
   use {'shumphrey/fugitive-gitlab.vim'} -- GBrowse for gitlab
 
-  use {'puremourning/vimspector'} -- Debugger
+  -- Debugger
+  use {
+    'puremourning/vimspector', 
+    config = function() require('plugin/vim-spector-config').setup() end
+  }
 
   -- use {'stephpy/vim-php-cs-fixer', ft = 'php'} -- <leader> + pcf
   use {
@@ -81,8 +93,12 @@ return require('packer').startup(function()
 
   use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'nvim-treesitter/playground' }
+  use { 
+    'nvim-treesitter/nvim-treesitter', 
+    config = function() require 'plugin/treesitter-config' end,
+    run = ':TSUpdate'
+  }
+  use {'nvim-treesitter/playground'}
 
 
   use {'kosayoda/nvim-lightbulb'} -- i don't know if this one works with php

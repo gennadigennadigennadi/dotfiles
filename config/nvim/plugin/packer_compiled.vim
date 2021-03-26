@@ -91,20 +91,18 @@ _G.packer_plugins = {
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
   },
   ["nvim-tree.lua"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugin/nvim-tree-config\frequire\0" },
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugin/treesitter-config\frequire\0" },
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/onedark.vim"
   },
   ["packer.nvim"] = {
     loaded = false,
@@ -195,10 +193,12 @@ _G.packer_plugins = {
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
   },
   vimspector = {
+    config = { "\27LJ\2\nG\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\30plugin/vim-spector-config\frequire\0" },
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vimspector"
   },
   ["vista.vim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugin/vista-config\frequire\0" },
     loaded = true,
     path = "/Users/gennadijanzen/.local/share/nvim/site/pack/packer/start/vista.vim"
   },
@@ -208,12 +208,20 @@ _G.packer_plugins = {
   }
 }
 
--- Config for: vim-startify
-try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27plugin/startify-config\frequire\0", "config", "vim-startify")
--- Config for: gitsigns.nvim
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 -- Config for: editorconfig-vim
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugin/editor-config\frequire\0", "config", "editorconfig-vim")
+-- Config for: vimspector
+try_loadstring("\27LJ\2\nG\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\30plugin/vim-spector-config\frequire\0", "config", "vimspector")
+-- Config for: gitsigns.nvim
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+-- Config for: vim-startify
+try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27plugin/startify-config\frequire\0", "config", "vim-startify")
+-- Config for: nvim-treesitter
+try_loadstring("\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugin/treesitter-config\frequire\0", "config", "nvim-treesitter")
+-- Config for: nvim-tree.lua
+try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugin/nvim-tree-config\frequire\0", "config", "nvim-tree.lua")
+-- Config for: vista.vim
+try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugin/vista-config\frequire\0", "config", "vista.vim")
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

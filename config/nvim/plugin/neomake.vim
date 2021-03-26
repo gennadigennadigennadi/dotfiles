@@ -1,7 +1,3 @@
-" +---------+
-" | General |
-" +---------+
-
 " Neomake signs in the gutter
 let g:neomake_error_sign = {'text': '', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {
