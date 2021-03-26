@@ -5,7 +5,7 @@ function! s:gruvbox_material_custom() abort
     hi GitGutterDelete guifg=#ff2222 ctermfg=1 guibg=none
     hi! VertSplit guibg=NONE
     hi! LineNr guibg=NONE
-    hi! EndOfmBuffer guibg=NONE guifg=NONE
+    hi! EndOfmBuffer guibg=NONE guifg=white
 endfunction
 
 function! s:github_custom() abort
@@ -24,12 +24,12 @@ augroup END
 
 " colorscheme onedark
 
-" let g:sonokai_cursor = 'green'
-" let g:sonokai_style = 'andromeda'
-" let g:sonokai_enable_italic = 1
-" let g:sonokai_disable_italic_comment = 0
-" let g:lightline.colorscheme = 'sonokai'
-" colorscheme sonokai 
+let g:sonokai_cursor = 'green'
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 0
+let g:lightline.colorscheme = 'sonokai'
+colorscheme sonokai 
 
 " set background=light
 " let g:edge_style = 'aura'
@@ -38,15 +38,17 @@ augroup END
 " let g:lightline.colorscheme = 'edge'
 " colorscheme edge
 
- set background=light
+ " set background=light
 " let g:gruvbox_material_enable_italic = 1
 " let g:gruvbox_material_background = 'hard'
 " let g:lightline.colorscheme = 'gruvbox_material'
 " let g:gruvbox_material_enable_bold = 1
 " colorscheme gruvbox-material
 
-let g:lightline.colorscheme = 'github'
-colorscheme github 
+" let g:github_colors_soft = 1
+
+" let g:lightline.colorscheme = 'github'
+" colorscheme github 
 
 " i have to overwrite my own styling after setting a colorscheme
 
