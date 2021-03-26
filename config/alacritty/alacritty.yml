@@ -1,0 +1,70 @@
+window:
+  decorations: buttonless
+  dimensions:
+    columns: 210
+    lines: 34
+
+  padding:
+    x: 10
+    y: 10
+  dynamic_padding: true
+  title: a
+  dynamic_title: true
+
+  # background_opacity: 0.5
+font:
+  use_thin_strokes: true
+  normal:
+    family: 'JetBrainsMono Nerd Font'
+    style: Regular
+  bold:
+    family: 'JetBrainsMono Nerd Font'
+    style: Bold
+  italic:
+    family: 'JetBrainsMono Nerd Font'
+    style: Italic
+  size: 15
+  offset:
+    x: 0
+    y: 20
+
+  glyph_offset:
+    x: 0
+    y: 10
+
+key_bindings:
+  - { key: Key0,   mods: Command, action: ResetFontSize    }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Minus,  mods: Command, action: DecreaseFontSize }
+  - { key: K,      mods: Command, action: ClearHistory     }
+  - { key: K,      mods: Command, chars: "\x0c"            }
+  - { key: V,      mods: Command, action: Paste            }
+  - { key: C,      mods: Command, action: Copy             }
+  - { key: H,      mods: Command, action: Hide             }
+  - { key: Q,      mods: Command, action: Quit             }
+  - { key: W,      mods: Command, action: Quit             }
+
+colors:
+  primary:
+    background: "0x2b2d3a"
+    foreground: "0xe1e3e4"
+
+  normal:
+    black: "0x181a1c"
+    red: "0xfb617e"
+    green: "0x9ed06c"
+    yellow: "0xedc763"
+    blue: "0x6dcae8"
+    magenta: "0xbb97ee"
+    cyan: "0xf89860"
+    white: "0xe1e3e4"
+
+  bright:
+    black: "0x181a1c"
+    red: "0xfb617e"
+    green: "0x9ed06c"
+    yellow: "0xedc763"
+    blue: "0x6dcae8"
+    magenta: "0xbb97ee"
+    cyan: "0xf89860"
+    white: "0xe1e3e4"
