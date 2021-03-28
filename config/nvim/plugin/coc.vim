@@ -36,8 +36,8 @@ inoremap <silent><expr> <c-space> coc#refresh() " Use <c-space> to trigger compl
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -45,10 +45,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+" scroll inside of pum
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>" 
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
 inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
 vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
@@ -69,11 +72,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>rn <Plug>(coc-rename) " not working with php (2021-03-28)
 
 " Formatting selected code.
-xmap <leader>cf <Plug>(coc-format-selected)
-nmap <leader>cf <Plug>(coc-format-selected)
+" xmap <leader>cf <Plug>(coc-format-selected)
+" nmap <leader>cf <Plug>(coc-format-selected)
 
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac <Plug>(coc-codeaction)
@@ -92,10 +95,10 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+" command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')

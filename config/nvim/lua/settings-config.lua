@@ -13,8 +13,12 @@ global.autowrite = true -- write file with focus lost
 global.hidden = true -- keep buffers open
 
 global.whichwrap = 'h,l,,<,>,~,[,]' -- allow motions and back-spacing over line-endings
+
 global.tabstop = 4 -- when indenting with '>', use 4 spaces width
 global.shiftwidth = 4  -- On pressing tab, insert 4 spaces
+buffer.tabstop = 4 -- when indenting with '>', use 4 spaces width
+buffer.shiftwidth = 4  -- On pressing tab, insert 4 spaces
+
 global.autoindent = true
 global.smartindent  = true -- show existing tab with 4 spaces width
 global.expandtab = true -- when at 3 spaces, and I hit > ... go to 4, not 7

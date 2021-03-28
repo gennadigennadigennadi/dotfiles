@@ -23,26 +23,37 @@ return require('packer').startup(function()
   use {'simeji/winresizer'} -- <c-w> + hjkl for resizing
   use 'norcalli/nvim-colorizer.lua'
 
-  use {'jez/vim-superman'} -- manpage pager
+  use {'jez/vim-superman', opt = true} -- manpage pager
 
   use {'tpope/vim-commentary'} -- gcc
 
-  use {'tpope/vim-repeat'} -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-  use {'tpope/vim-surround'} -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping, Try cs\"'
-  use {'tpope/vim-abolish'} -- easily search, substitute, abbreviate multiple version of words, coercion to camel case / snake case / dote case / title case...
+  -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
+  use {'tpope/vim-repeat'} 
+  
+  -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping, 
+  -- Try *cs"'* (change surrounding " -> ')
+  use {'tpope/vim-surround'}
+
   use {'machakann/vim-swap'} -- g<, g>, gs
-  use {'wellle/targets.vim'} -- add new text object (can delete between comma with di, for example)
+
+  -- add new text object (can delete between comma with di, for example)
+  -- or *cin)* (change in next braces)
+  use {'wellle/targets.vim'} 
+
   -- use {'jiangmiao/auto-pairs'} -- makes vim autocomplete (), [], {}, '', \"\", etc
   use {'lambdalisue/suda.vim'} -- Write file with sudo
 
-  -- use 'axelf4/vim-strip-trailing-whitespace'
+  use 'axelf4/vim-strip-trailing-whitespace'
 
   use {'christoomey/vim-tmux-navigator'} -- tmux like pane switching ctrl + hjkl
 
   -- <leader>oo
   use {
     'liuchengxu/vista.vim',
+    opt = true,
+    cmd = 'Vista',
     config = function() require 'plugin/vista-config' end
+
   } 
 
  -- editorconfig for vim
@@ -51,7 +62,7 @@ return require('packer').startup(function()
     config = function() require 'plugin/editor-config' end
   }
   
-  use {'psliwka/vim-smoothie'} -- has problems with nerdtree ans smooth scrolling
+  use {'psliwka/vim-smoothie'}
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -64,13 +75,18 @@ return require('packer').startup(function()
   use {'junegunn/fzf'}
   use {'junegunn/fzf.vim'}
 
-  use {'neomake/neomake'} -- Asynchronous linting for every languages
+  use {'neomake/neomake', ft = 'php'} -- Asynchronous linting for every languages
 
   use {'sheerun/vim-polyglot'} -- A collection of language packs for Vim
 
-  use {'junegunn/gv.vim'} -- Git History Browser
+  use {
+    'junegunn/gv.vim',
+    opt = true,
+    cmd = 'GV'
+  } -- Git History Browser
+
   use {'tpope/vim-fugitive'}  
-  -- use {'airblade/vim-gitgutter'}
+
   use {
     'lewis6991/gitsigns.nvim', 
     requires = { 'nvim-lua/plenary.nvim' },
@@ -98,10 +114,14 @@ return require('packer').startup(function()
     config = function() require 'plugin/treesitter-config' end,
     run = ':TSUpdate'
   }
-  use {'nvim-treesitter/playground'}
+  use {
+    'nvim-treesitter/playground',
+    opt = true,
+    cmd = 'TSPlaygroundToggle'
+  }
 
 
-  use {'kosayoda/nvim-lightbulb'} -- i don't know if this one works with php
+  -- use {'kosayoda/nvim-lightbulb'} -- i don't know if this one works with php
   -- Use dependency and run lua function after load
 
   -- Load on an autocommand event

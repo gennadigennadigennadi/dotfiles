@@ -4,13 +4,6 @@ cd "$(dirname "${BASH_SOURCE}")" && source "_utils.sh"
 
 declare -a FILES_TO_SYMLINK=(
     "config"
-    "zprezto"
-    "zprezto/runcoms/zshrc"
-    "zprezto/runcoms/zpreztorc"
-    "zprezto/runcoms/zprofile"
-    "zprezto/runcoms/zlogin"
-    "zprezto/runcoms/zlogout"
-    "zprezto/runcoms/zshenv"
 
     "tmux/tmux.conf"
 )

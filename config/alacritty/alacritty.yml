@@ -1,5 +1,5 @@
 window:
-  decorations: buttonless
+  # decorations: buttonless
   dimensions:
     columns: 210
     lines: 34
@@ -23,14 +23,14 @@ font:
   italic:
     family: 'JetBrainsMono Nerd Font'
     style: Italic
-  size: 15
+  size: 16
   offset:
     x: 0
-    y: 20
+    y: 3
 
   glyph_offset:
     x: 0
-    y: 10
+    y: 3
 
 key_bindings:
   - { key: Key0,   mods: Command, action: ResetFontSize    }
@@ -44,27 +44,111 @@ key_bindings:
   - { key: Q,      mods: Command, action: Quit             }
   - { key: W,      mods: Command, action: Quit             }
 
-colors:
-  primary:
-    background: "0x2b2d3a"
-    foreground: "0xe1e3e4"
+schemes:  
 
-  normal:
-    black: "0x181a1c"
-    red: "0xfb617e"
-    green: "0x9ed06c"
-    yellow: "0xedc763"
-    blue: "0x6dcae8"
-    magenta: "0xbb97ee"
-    cyan: "0xf89860"
-    white: "0xe1e3e4"
+  ### Edge (Light variant)
+  edge_light:	  &edge_light
+    primary:
+      background: "0xfafafa"
+      foreground: "0x4b505b"
+  
+    normal:
+      black: "0x4b505b"
+      red: "0xd05858"
+      green: "0x608e32"
+      yellow: "0xbe7e05"
+      blue: "0x5079be"
+      magenta: "0xb05ccc"
+      cyan: "0x3a8b84"
+      white: "0xfafafa"
+  
+    bright:
+      black: "0x4b505b"
+      red: "0xd05858"
+      green: "0x608e32"
+      yellow: "0xbe7e05"
+      blue: "0x5079be"
+      magenta: "0xb05ccc"
+      cyan: "0x3a8b84"
+      white: "0xfafafa"
 
-  bright:
-    black: "0x181a1c"
-    red: "0xfb617e"
-    green: "0x9ed06c"
-    yellow: "0xedc763"
-    blue: "0x6dcae8"
-    magenta: "0xbb97ee"
-    cyan: "0xf89860"
-    white: "0xe1e3e4"
+  ### Edge (Dark Default variant)
+  edge_dark_def:  &edge_dark_default
+    primary:
+      background: "0x2c2e34"
+      foreground: "0xc5cdd9"
+  
+    normal:
+      black: "0x3e4249"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+  
+    bright:
+      black: "0x3e4249"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+  ### Edge (Dark Aura variant)
+  edge_dark_aura:  &edge_dark_aura
+    primary:
+      background: "0x2b2d37"
+      foreground: "0xc5cdd9"
+  
+    normal:
+      black: "0x363a49"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+  
+    bright:
+      black: "0x363a49"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+  ### Edge (Dark Neon variant)
+  edge_dark_neon:  &edge_dark_neon
+    primary:
+      background: "0x2b2d3a"
+      foreground: "0xc5cdd9"
+  
+    normal:
+      black: "0x363a4e"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+  
+    bright:
+      black: "0x363a4e"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+### Choose one of the & tags from the schemes listed above
+colors: *edge_dark_aura

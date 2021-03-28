@@ -18,25 +18,20 @@ augroup custom_theme
     autocmd ColorScheme github call s:github_custom()
 augroup END
 
-" let g:onedark_hide_endofbuffer=1
-" let g:onedark_terminal_italics=1
-" let g:onedark_termcolors=256
+" let g:sonokai_cursor = 'green'
+" let g:sonokai_style = 'andromeda'
+" let g:sonokai_enable_italic = 1
+" let g:sonokai_disable_italic_comment = 0
+" let g:lightline.colorscheme = 'sonokai'
+" colorscheme sonokai 
 
-" colorscheme onedark
-
-let g:sonokai_cursor = 'green'
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 0
-let g:lightline.colorscheme = 'sonokai'
-colorscheme sonokai 
-
-" set background=light
+set background=dark
 " let g:edge_style = 'aura'
-" let g:edge_enable_italic = 1
-" let g:edge_disable_italic_comment = 0
-" let g:lightline.colorscheme = 'edge'
-" colorscheme edge
+let g:edge_style = 'neon'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 0
+let g:lightline.colorscheme = 'edge'
+colorscheme edge
 
  " set background=light
 " let g:gruvbox_material_enable_italic = 1
