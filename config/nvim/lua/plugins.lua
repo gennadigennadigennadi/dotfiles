@@ -1,5 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
@@ -19,7 +17,15 @@ return require('packer').startup(function()
     config = function() require('plugin/startify-config').setup() end
   } 
 
-  use {'itchyny/lightline.vim'} -- simple powerline tool
+  -- use {'itchyny/lightline.vim'} -- simple powerline tool
+  use {'glepnir/galaxyline.nvim',
+    branch = 'main',
+    -- your statusline
+    config = function() require'plugin/statusline-config' end,
+    -- some optional icons
+    requires = {'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   use {'simeji/winresizer'} -- <c-w> + hjkl for resizing
   use 'norcalli/nvim-colorizer.lua'
 
@@ -119,10 +125,6 @@ return require('packer').startup(function()
     opt = true,
     cmd = 'TSPlaygroundToggle'
   }
-
-
-  -- use {'kosayoda/nvim-lightbulb'} -- i don't know if this one works with php
-  -- Use dependency and run lua function after load
 
   -- Load on an autocommand event
   -- use {'andymass/vim-matchup', event = 'VimEnter'}
