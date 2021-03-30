@@ -29,7 +29,7 @@ return require('packer').startup(function()
   use {'simeji/winresizer'} -- <c-w> + hjkl for resizing
   use 'norcalli/nvim-colorizer.lua'
 
-  use {'jez/vim-superman', opt = true} -- manpage pager
+  use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
 
   use {'tpope/vim-commentary'} -- gcc
 
@@ -81,7 +81,7 @@ return require('packer').startup(function()
   use {'junegunn/fzf'}
   use {'junegunn/fzf.vim'}
 
-  use {'neomake/neomake', ft = 'php'} -- Asynchronous linting for every languages
+  use {'neomake/neomake'} -- Asynchronous linting for every languages
 
   use {'sheerun/vim-polyglot'} -- A collection of language packs for Vim
 

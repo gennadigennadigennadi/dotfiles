@@ -13,6 +13,7 @@ set -x VISUAL "nvim"
 set -xp CDPATH /Volumes/development .
 
 set -g fish_user_paths "/opt/homebrew/bin" $fish_user_paths
+set -g fish_user_paths "$HOME/.composer/vendor/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.local/share/nvim/site/pack/packer/opt/vim-superman/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.bin" $fish_user_paths
 set -g fish_user_paths "/opt/homebrew/opt/ncurses/bin" $fish_user_paths
