@@ -7,7 +7,7 @@
     show = delta
     log = delta
 [delta]
-    syntax-theme = GitHub
+    syntax-theme = OneHalfDark
     features = line-numbers 
 [interactive]
     diffFilter = delta --color-only

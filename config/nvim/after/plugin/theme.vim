@@ -18,20 +18,19 @@ augroup custom_theme
     autocmd ColorScheme github call s:github_custom()
 augroup END
 
-" let g:sonokai_cursor = 'green'
-" let g:sonokai_style = 'andromeda'
-" let g:sonokai_enable_italic = 1
-" let g:sonokai_disable_italic_comment = 0
-" let g:lightline.colorscheme = 'sonokai'
-" colorscheme sonokai 
-
 set background=dark
+let g:sonokai_cursor = 'green'
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 0
+colorscheme sonokai
+
+
 " let g:edge_style = 'aura'
-let g:edge_style = 'neon'
-let g:edge_enable_italic = 1
-let g:edge_disable_italic_comment = 0
-let g:lightline.colorscheme = 'edge'
-colorscheme edge
+" let g:edge_style = 'neon'
+" let g:edge_enable_italic = 1
+" let g:edge_disable_italic_comment = 0
+" colorscheme edge
 
  " set background=light
 " let g:gruvbox_material_enable_italic = 1
@@ -41,13 +40,4 @@ colorscheme edge
 " colorscheme gruvbox-material
 
 " let g:github_colors_soft = 1
-
-" let g:lightline.colorscheme = 'github'
 " colorscheme github 
-
-" i have to overwrite my own styling after setting a colorscheme
-
-" hi DiffDelete guifg=red guibg=none
-" hi DiffChange guifg=orange guibg=none
-" hi DiffAdd guifg=blue guibg=red
-" hi DiffText guifg=black guibg=red

@@ -26,11 +26,11 @@ font:
   size: 16
   offset:
     x: 0
-    y: 3
+    y: 16
 
   glyph_offset:
     x: 0
-    y: 3
+    y: 10
 
 key_bindings:
   - { key: Key0,   mods: Command, action: ResetFontSize    }
@@ -151,4 +151,4 @@ schemes:
       white: "0xc5cdd9"
 
 ### Choose one of the & tags from the schemes listed above
-colors: *edge_dark_aura
+colors: *edge_dark_neon

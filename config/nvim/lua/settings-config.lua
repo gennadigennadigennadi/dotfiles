@@ -53,7 +53,10 @@ window.foldmethod = 'expr'
 window.foldexpr = 'nvim_treesitter#foldexpr()'
 window.foldnestmax = 3 
 
+global.swapfile = false
 buffer.swapfile = false
+
+global.undofile = true -- Keep undo history across sessions, by storing in file
 buffer.undofile = true -- Keep undo history across sessions, by storing in file
 
 vim.g.fugitive_gitlab_domains = { 'https://repo.dmknet.de/' }

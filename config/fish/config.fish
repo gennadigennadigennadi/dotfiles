@@ -3,8 +3,7 @@ export KEYTIMEOUT=1
 set fish_greeting
 
 set -x XDG_CONFIG_HOME $HOME/.config
-set -x ZDOTDIR $XDG_CONFIG_HOME/zsh
-
+set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDEBUG_SESSION "gennadi"
 set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 set -x EDITOR "nvim"

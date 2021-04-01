@@ -5,10 +5,10 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
-  use {'cormacrelf/vim-colors-github'}
-  use {'sainnhe/sonokai'}
-  use {'sainnhe/gruvbox-material'}
-  use {'sainnhe/edge'}
+  use 'cormacrelf/vim-colors-github'
+  use 'sainnhe/sonokai'
+  use 'sainnhe/gruvbox-material'
+  use 'sainnhe/edge'
   use 'rktjmp/lush.nvim'
 
   -- fancy vim bootscreen
@@ -26,32 +26,32 @@ return require('packer').startup(function()
     requires = {'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use {'simeji/winresizer'} -- <c-w> + hjkl for resizing
+  use 'simeji/winresizer' -- <c-w> + hjkl for resizing
   use 'norcalli/nvim-colorizer.lua'
 
   use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
 
-  use {'tpope/vim-commentary'} -- gcc
+  use 'tpope/vim-commentary' -- gcc
 
   -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-  use {'tpope/vim-repeat'} 
+  use 'tpope/vim-repeat'
   
   -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping, 
   -- Try *cs"'* (change surrounding " -> ')
-  use {'tpope/vim-surround'}
+  use 'tpope/vim-surround'
 
-  use {'machakann/vim-swap'} -- g<, g>, gs
+  use 'machakann/vim-swap' -- g<, g>, gs
 
   -- add new text object (can delete between comma with di, for example)
   -- or *cin)* (change in next braces)
-  use {'wellle/targets.vim'} 
+  use 'wellle/targets.vim'
 
-  -- use {'jiangmiao/auto-pairs'} -- makes vim autocomplete (), [], {}, '', \"\", etc
-  use {'lambdalisue/suda.vim'} -- Write file with sudo
+  use 'lambdalisue/suda.vim' -- Write file with sudo
 
   use 'axelf4/vim-strip-trailing-whitespace'
+  use {'windwp/nvim-autopairs', config = require('nvim-autopairs').setup()}
 
-  use {'christoomey/vim-tmux-navigator'} -- tmux like pane switching ctrl + hjkl
+  use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
 
   -- <leader>oo
   use {
@@ -59,7 +59,6 @@ return require('packer').startup(function()
     opt = true,
     cmd = 'Vista',
     config = function() require 'plugin/vista-config' end
-
   } 
 
  -- editorconfig for vim
@@ -68,28 +67,28 @@ return require('packer').startup(function()
     config = function() require 'plugin/editor-config' end
   }
   
-  use {'psliwka/vim-smoothie'}
+  use 'psliwka/vim-smoothie'
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {'kyazdani42/nvim-web-devicons'},
     config = function() require 'plugin/nvim-tree-config' end
   }
-  use {'airblade/vim-rooter'} -- changes the directory to surrounding .git/root 
-  use {'google/vim-searchindex'} -- displays found matches count
+  use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
+  use 'google/vim-searchindex' -- displays found matches count
 
-  use {'junegunn/fzf'}
-  use {'junegunn/fzf.vim'}
+  use {'junegunn/fzf.vim', requires = '/opt/homebrew/bin/fzf'}
 
-  use {'neomake/neomake'} -- Asynchronous linting for every languages
+  use 'neomake/neomake' -- Asynchronous linting for every languages
 
-  use {'sheerun/vim-polyglot'} -- A collection of language packs for Vim
+  use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 
+ -- Git History Browser
   use {
     'junegunn/gv.vim',
     opt = true,
     cmd = 'GV'
-  } -- Git History Browser
+  }
 
   use {'tpope/vim-fugitive'}  
 
@@ -125,15 +124,4 @@ return require('packer').startup(function()
     opt = true,
     cmd = 'TSPlaygroundToggle'
   }
-
-  -- Load on an autocommand event
-  -- use {'andymass/vim-matchup', event = 'VimEnter'}
-
-  -- Simple plugins can be specified as strings
-  -- use '9mm/vim-closer'
-
-  -- You can specify multiple plugins in a single call
-  -- Plug 'blueyed/vim-diminactive' " Plug to dim colors of not-focused windows
-  -- Plug 'tpope/vim-dispatch' " maybe i do need it for dispatch unittest
-  -- Plug 'janko/vim-test' " quick test execution
 end)
