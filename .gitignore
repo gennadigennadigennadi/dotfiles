@@ -1,13 +1,4 @@
-
 config/nvim/.netrwhist
 config/coc/*
-config/zsh/.zcompcache
-config/zsh/.zcompdump
-config/zsh/.zcompdump.zwc
 config/configstore
-config/coc/extensions
 config/karabiner/automatic_backups
-config/configstore
-config/nvim/plugged
-config/zsh/.zsh_history
-config/zsh/.zsh_sessions

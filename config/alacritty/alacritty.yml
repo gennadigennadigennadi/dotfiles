@@ -43,6 +43,7 @@ key_bindings:
   - { key: H,      mods: Command, action: Hide             }
   - { key: Q,      mods: Command, action: Quit             }
   - { key: W,      mods: Command, action: Quit             }
+  - { key: C,      mods: Alt,     chars: "\x1bc"           }
 
 schemes:  
 
@@ -51,7 +52,7 @@ schemes:
     primary:
       background: "0xfafafa"
       foreground: "0x4b505b"
-  
+
     normal:
       black: "0x4b505b"
       red: "0xd05858"
@@ -61,7 +62,7 @@ schemes:
       magenta: "0xb05ccc"
       cyan: "0x3a8b84"
       white: "0xfafafa"
-  
+
     bright:
       black: "0x4b505b"
       red: "0xd05858"
@@ -72,12 +73,12 @@ schemes:
       cyan: "0x3a8b84"
       white: "0xfafafa"
 
-  ### Edge (Dark Default variant)
+      ### Edge (Dark Default variant)
   edge_dark_def:  &edge_dark_default
     primary:
       background: "0x2c2e34"
       foreground: "0xc5cdd9"
-  
+
     normal:
       black: "0x3e4249"
       red: "0xec7279"
@@ -87,7 +88,7 @@ schemes:
       magenta: "0xd38aea"
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
-  
+
     bright:
       black: "0x3e4249"
       red: "0xec7279"
@@ -98,12 +99,12 @@ schemes:
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
 
-  ### Edge (Dark Aura variant)
+      ### Edge (Dark Aura variant)
   edge_dark_aura:  &edge_dark_aura
     primary:
       background: "0x2b2d37"
       foreground: "0xc5cdd9"
-  
+
     normal:
       black: "0x363a49"
       red: "0xec7279"
@@ -113,7 +114,7 @@ schemes:
       magenta: "0xd38aea"
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
-  
+
     bright:
       black: "0x363a49"
       red: "0xec7279"
@@ -124,12 +125,12 @@ schemes:
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
 
-  ### Edge (Dark Neon variant)
+      ### Edge (Dark Neon variant)
   edge_dark_neon:  &edge_dark_neon
     primary:
       background: "0x2b2d3a"
       foreground: "0xc5cdd9"
-  
+
     normal:
       black: "0x363a4e"
       red: "0xec7279"
@@ -139,7 +140,7 @@ schemes:
       magenta: "0xd38aea"
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
-  
+
     bright:
       black: "0x363a4e"
       red: "0xec7279"
@@ -150,5 +151,5 @@ schemes:
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
 
-### Choose one of the & tags from the schemes listed above
+      ### Choose one of the & tags from the schemes listed above
 colors: *edge_dark_neon
