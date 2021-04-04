@@ -81,6 +81,9 @@ return require('packer').startup(function()
 
   use 'neomake/neomake' -- Asynchronous linting for every languages
 
+  use {
+    'vim-test/vim-test',
+  }
   use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 
  -- Git History Browser
