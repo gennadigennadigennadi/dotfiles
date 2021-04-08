@@ -1,8 +1,12 @@
-" let g:fzf_layout = { 'window': { 'width': 0.98, 'height': 0.95 } }
+function! RipgrepFzf(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--layout=reverse','--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
 
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:70%' --layout reverse --margin=1,1 --preview 'bat --color=always --theme=\"GitHub\" --style=header,grid --line-range :300 {}'"
-  
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+" always use Rg for every keypress instead of only using for the initial search request
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 

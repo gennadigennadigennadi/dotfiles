@@ -42,7 +42,7 @@ global.shortmess = vim.o.shortmess .. 'c' --  Don't pass messages to |ins-comple
 global.mouse = 'a'
 
 window.cursorline = true -- Highlight current line
-window.signcolumn = 'auto' -- Always show the signcolumn, otherwise it would shift the text each time
+window.signcolumn = 'auto:1-4' -- Always show the signcolumn, otherwise it would shift the text each time
 window.number = true -- show current linenumber 
 window.relativenumber = true
 window.list = false -- show invisible chars

@@ -23,7 +23,7 @@ font:
   italic:
     family: 'JetBrainsMono Nerd Font'
     style: Italic
-  size: 16
+  size: 15
   offset:
     x: 0
     y: 16
@@ -43,6 +43,7 @@ key_bindings:
   - { key: H,      mods: Command, action: Hide             }
   - { key: Q,      mods: Command, action: Quit             }
   - { key: W,      mods: Command, action: Quit             }
+  - { key: Slash,  mods: Control, chars: "\x1f"            }
   - { key: C,      mods: Alt,     chars: "\x1bc"           }
 
 schemes:  

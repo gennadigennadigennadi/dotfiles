@@ -19,7 +19,6 @@ augroup custom_theme
 augroup END
 
 set background=dark
-let g:sonokai_cursor = 'green'
 let g:sonokai_style = 'andromeda'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 0
@@ -27,15 +26,15 @@ colorscheme sonokai
 
 
 " let g:edge_style = 'aura'
+" set background=light
 " let g:edge_style = 'neon'
 " let g:edge_enable_italic = 1
 " let g:edge_disable_italic_comment = 0
 " colorscheme edge
 
- " set background=light
+" set background=dark
 " let g:gruvbox_material_enable_italic = 1
 " let g:gruvbox_material_background = 'hard'
-" let g:lightline.colorscheme = 'gruvbox_material'
 " let g:gruvbox_material_enable_bold = 1
 " colorscheme gruvbox-material
 

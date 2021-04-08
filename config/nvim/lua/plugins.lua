@@ -17,12 +17,9 @@ return require('packer').startup(function()
     config = function() require('plugin/startify-config').setup() end
   } 
 
-  -- use {'itchyny/lightline.vim'} -- simple powerline tool
   use {'glepnir/galaxyline.nvim',
     branch = 'main',
-    -- your statusline
     config = function() require'plugin/statusline-config' end,
-    -- some optional icons
     requires = {'kyazdani42/nvim-web-devicons', opt = true }
   }
 
@@ -67,7 +64,7 @@ return require('packer').startup(function()
     config = function() require 'plugin/editor-config' end
   }
   
-  use 'psliwka/vim-smoothie'
+  use 'psliwka/vim-smoothie' -- scrolling in a modern way, i am used to
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -76,14 +73,33 @@ return require('packer').startup(function()
   }
   use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
   use 'google/vim-searchindex' -- displays found matches count
+  use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
 
   use {'junegunn/fzf.vim', requires = '/opt/homebrew/bin/fzf'}
 
-  use 'neomake/neomake' -- Asynchronous linting for every languages
+  -- currently i am only using the linter and fixer feature
+  use {
+    'dense-analysis/ale',
+    config= function()
+      vim.g.ale_linters = { php = {'php','psalm'} }
+      vim.g.ale_sign_error = ''
+      vim.g.ale_sign_warning = ''
+      vim.g.ale_fixers = {
+        all = { 'remove_trailing_lines', 'trim_whitespace' },
+        php = { 'php_cs_fixer' }
+      }
+    end
+  }
 
   use {
     'vim-test/vim-test',
+    config = function()
+      vim.g["test#strategy"] = "neovim"
+      vim.g["test#enabled_runners"] = {"php#phpunit"}
+      vim.g["test#php#phpunit#executable"] = 'docker-compose run --rm php bin/phpunit'
+    end
   }
+
   use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 
  -- Git History Browser
@@ -108,7 +124,6 @@ return require('packer').startup(function()
     config = function() require('plugin/vim-spector-config').setup() end
   }
 
-  -- use {'stephpy/vim-php-cs-fixer', ft = 'php'} -- <leader> + pcf
   use {
     'phpactor/phpactor', 
     ft = 'php', 
