@@ -1,0 +1,38 @@
+key_bindings:
+  - { key: Key0,   mods: Command, action: ResetFontSize    }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Minus,  mods: Command, action: DecreaseFontSize }
+  - { key: K,      mods: Command, action: ClearHistory     }
+  - { key: K,      mods: Command, chars: "\x0c"            }
+  - { key: V,      mods: Command, action: Paste            }
+  - { key: C,      mods: Command, action: Copy             }
+  - { key: H,      mods: Command, action: Hide             }
+  - { key: Q,      mods: Command, action: Quit             }
+  - { key: W,      mods: Command, action: Quit             }
+  - { key: Slash,  mods: Control, chars: "\x1f"            }
+  - { key: A,         mods: Alt,       chars: "\x1ba"                       }
+  - { key: Q,         mods: Alt,       chars: "\x1bq"                       }
+  - { key: Key1,      mods: Alt,       chars: "\x1b1"                       }
+  - { key: Key2,      mods: Alt,       chars: "\x1b2"                       }
+  - { key: Key3,      mods: Alt,       chars: "\x1b3"                       }
+  - { key: Key4,      mods: Alt,       chars: "\x1b4"                       }
+  - { key: Key5,      mods: Alt,       chars: "\x1b5"                       }
+  - { key: Key6,      mods: Alt,       chars: "\x1b6"                       }
+  - { key: Key7,      mods: Alt,       chars: "\x1b7"                       }
+  - { key: Key8,      mods: Alt,       chars: "\x1b8"                       }
+  - { key: Key9,      mods: Alt,       chars: "\x1b9"                       }
+  - { key: Key0,      mods: Alt,       chars: "\x1b0"                       }
+  - { key: Space,     mods: Control,   chars: "\x00"                        } # Ctrl + Space
+  - { key: Grave,     mods: Alt,       chars: "\x1b`"                       } # Alt + `
+  - { key: Grave,     mods: Alt|Shift, chars: "\x1b~"                       } # Alt + ~
+  - { key: Period,    mods: Alt,       chars: "\x1b."                       } # Alt + .
+  - { key: Comma,     mods: Alt,       chars: "\x1b,"                       } # Alt + ,
+  - { key: Key8,      mods: Alt|Shift, chars: "\x1b*"                       } # Alt + *
+  - { key: Key3,      mods: Alt|Shift, chars: "\x1b#"                       } # Alt + #
+  - { key: Period,    mods: Alt|Shift, chars: "\x1b>"                       } # Alt + >
+  - { key: Comma,     mods: Alt|Shift, chars: "\x1b<"                       } # Alt + <
+  - { key: Minus,     mods: Alt|Shift, chars: "\x1b_"                       } # Alt + _
+  - { key: Key5,      mods: Alt|Shift, chars: "\x1b%"                       } # Alt + %
+  - { key: Key6,      mods: Alt|Shift, chars: "\x1b^"                       } # Alt + ^
+  - { key: Backslash, mods: Alt,       chars: "\x1b\\"                      } # Alt + \
+  - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + |

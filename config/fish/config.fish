@@ -21,4 +21,9 @@ set -g fish_user_paths "/opt/homebrew/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.local/share/nvim/site/pack/packer/opt/vim-superman/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.bin" $fish_user_paths
 
- alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
+# My aliases
+alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
+alias l='exa -gl --icons'
+alias la='l -a'
+alias v='nvim'
+alias brewu='brew update & brew upgrade'
