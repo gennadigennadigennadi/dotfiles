@@ -2,10 +2,10 @@ local map = vim.api.nvim_set_keymap
 options = {noremap = true, silent = true}
 
 map('n', '<Space>', ' ', {}) -- map the leader key
-vim.g.mapleader = ' '  -- 'vim.g' sets global variables
+vim.g.mapleader = ' '
 
 map('n', 'Q', '<nop>', options)
-map('n', 'q', '<nop>', {silent = true}) -- currently im not using macros
+map('n', 'q', '<nop>', options) -- currently im not using macros
 
 map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root 
 
@@ -13,16 +13,19 @@ map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root
 map('v', '>', '>gv', options)
 map('v', '<', '<gv', options)
 
-map('n', '<esc>', ':nohlsearch<CR>', options)
 map('n', 'J', 'mzJ`z', options) -- Keep the cursor in place while joining lines
 
-map('n', '<c-s>', '<C-C>:w!<CR>', options)
+-- Barbar includes bbye
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
+map('n', '<c-s>', '<C-C>:w!<CR>', options)
 
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', options)
 
+------------------
+-- Source Files --
+------------------
 map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', {})
 map('n', '<leader>rl', ':luafile %<CR>', {})
 map('n', '<leader>rs', ':source %<CR>', {})
@@ -31,10 +34,23 @@ map('n', '<leader>rs', ':source %<CR>', {})
 -- Find stuff --
 ----------------
 map('n', '<leader>;', '<cmd>Buffers<CR>', options)
-map('n', '<leader>ff', '<cmd>Files<CR>', options)
+map('n', '<leader>ff', '<cmd>GFiles<CR>', options)
 map('n', '<leader>fh', '<cmd>History<CR>', options)
 map('n', '<leader>fr', '<cmd>Rg<CR>', options)
 map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
+
+-----------------------------
+-- Tab (aka Buffer) stuff ---
+-----------------------------
+-- map('n', 'bh', '<cmd>BufferGoto 1<CR>', {})
+-- map('n', 'bk', '<cmd>BufferPrevious<CR>', {})
+-- map('n', 'bj', '<cmd>BufferNext<CR>', {})
+-- map('n', 'bl', '<cmd>BufferLast<CR>', {})
+-- map('n', 'bx', '<cmd>BufferClose<CR>', {})
+-- map('n', 'B', '<cmd>BufferPick<CR>', {})
+
+-- map('n', '<A-<>', '<cmd>BufferMovePrevious<CR>', {})
+-- map('n', '<A->>', '<cmd>BufferMoveNext<CR>', {})
 
 ------------------
 -- tab handling --

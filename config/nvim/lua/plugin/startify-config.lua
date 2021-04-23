@@ -19,9 +19,9 @@ function M.setup()
         { pdc = '/Volumes/development/dmk/core/README.md' },
         { pdj = '/Volumes/development/dmk/jpxo/README.md' }
     }
-    vim.g.startify_commands = {
-        { du = { 'start docker', '!docker-compose up -d' } }
-    }
+    -- vim.g.startify_commands = {
+    --     { du = { 'start docker', '!docker-compose up -d' } }
+    -- }
 end
 
 return M

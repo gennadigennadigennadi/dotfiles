@@ -3,143 +3,183 @@ vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
 return require('packer').startup(function()
-  use {'wbthomason/packer.nvim', opt = true}
+    use {'wbthomason/packer.nvim', opt = true}
 
-  use 'cormacrelf/vim-colors-github'
-  use 'sainnhe/sonokai'
-  use 'sainnhe/gruvbox-material'
-  use 'sainnhe/edge'
-  use 'rktjmp/lush.nvim'
+    -- use 'cormacrelf/vim-colors-github'
+    use 'sainnhe/sonokai'
+    use 'sainnhe/gruvbox-material'
+    use 'sainnhe/edge'
 
-  -- fancy vim bootscreen
-  use { 
-    'mhinz/vim-startify', 
-    config = function() require('plugin/startify-config').setup() end
-  } 
+    -- fancy vim bootscreen
+    use { 
+        'mhinz/vim-startify', 
+        config = function() require('plugin/startify-config').setup() end
+    } 
 
-  use {'glepnir/galaxyline.nvim',
-    branch = 'main',
-    config = function() require'plugin/statusline-config' end,
-    requires = {'kyazdani42/nvim-web-devicons', opt = true }
-  }
+    -- use {
+    --   'romgrk/barbar.nvim',
+    --   opt = true,
+    --   config = function()
+    --     vim.g.bufferline = { 
+    --       auto_hide = 'v:true',
+    --       animation = false
+    --     }
+    --   end,
+    --   requires = {'kyazdani42/nvim-web-devicons'},
+    -- }
 
-  use 'simeji/winresizer' -- <c-w> + hjkl for resizing
-  use 'norcalli/nvim-colorizer.lua'
+    use {'glepnir/galaxyline.nvim',
+        branch = 'main',
+        config = function() require'plugin/statusline-config' end,
+        requires = {'kyazdani42/nvim-web-devicons'}
+    }
 
-  use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
+    use 'simeji/winresizer' -- <c-w> + hjkl for resizing
+    -- use 'norcalli/nvim-colorizer.lua'
 
-  use 'tpope/vim-commentary' -- gcc
+    use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
 
-  -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-  use 'tpope/vim-repeat'
-  
-  -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping, 
-  -- Try *cs"'* (change surrounding " -> ')
-  use 'tpope/vim-surround'
+    use 'tpope/vim-commentary' -- gcc
 
-  use 'machakann/vim-swap' -- g<, g>, gs
+    -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
+    -- use 'tpope/vim-repeat'
 
-  -- add new text object (can delete between comma with di, for example)
-  -- or *cin)* (change in next braces)
-  use 'wellle/targets.vim'
+    -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping,
+    -- Try *cs"'* (change surrounding " -> ')
+    use 'tpope/vim-surround'
 
-  use 'lambdalisue/suda.vim' -- Write file with sudo
+    use 'machakann/vim-swap' -- g<, g>, gs
 
-  use 'axelf4/vim-strip-trailing-whitespace'
-  use {'windwp/nvim-autopairs', config = require('nvim-autopairs').setup()}
+    -- add new text object (can delete between comma with di, for example)
+    -- or *cin)* (change in next braces)
+    -- use 'wellle/targets.vim'
 
-  use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
+    -- use 'lambdalisue/suda.vim' -- Write file with sudo
 
-  -- <leader>oo
-  use {
-    'liuchengxu/vista.vim',
-    opt = true,
-    cmd = 'Vista',
-    config = function() require 'plugin/vista-config' end
-  } 
+    use {'windwp/nvim-autopairs', config = require('nvim-autopairs').setup()}
 
- -- editorconfig for vim
-  use {
-    'editorconfig/editorconfig-vim', 
-    config = function() require 'plugin/editor-config' end
-  }
-  
-  use 'psliwka/vim-smoothie' -- scrolling in a modern way, i am used to
+    use {
+        'akinsho/nvim-toggleterm.lua',
+        config = function() require"toggleterm".setup({
+            size = 10,
+            open_mapping = [[<leader>t]],
+            shade_filetypes = {},
+            shade_terminals = false,
+            -- shading_factor = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+            start_in_insert = true,
+            persist_size = true,
+            direction = 'horizontal'
+        }) end,
+        cmd = 'ToggleTerm',
+        keys = {[[<leader>t]]}
+    }
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    config = function() require 'plugin/nvim-tree-config' end
-  }
-  use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
-  use 'google/vim-searchindex' -- displays found matches count
-  use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
+    use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
 
-  use {'junegunn/fzf.vim', requires = '/opt/homebrew/bin/fzf'}
+    -- <leader>oo
+    use {
+        'liuchengxu/vista.vim',
+        opt = true,
+        cmd = 'Vista',
+        config = function() require 'plugin/vista-config' end
+    }
 
-  -- currently i am only using the linter and fixer feature
-  use {
-    'dense-analysis/ale',
-    config= function()
-      vim.g.ale_linters = { php = {'php','psalm'} }
-      vim.g.ale_sign_error = ''
-      vim.g.ale_sign_warning = ''
-      vim.g.ale_fixers = {
-        all = { 'remove_trailing_lines', 'trim_whitespace' },
-        php = { 'php_cs_fixer' }
-      }
-    end
-  }
+    -- editorconfig for vim
+    use {
+        'editorconfig/editorconfig-vim',
+        config = function() require 'plugin/editor-config' end
+    }
 
-  use {
-    'vim-test/vim-test',
-    config = function()
-      vim.g["test#strategy"] = "neovim"
-      vim.g["test#enabled_runners"] = {"php#phpunit"}
-      vim.g["test#php#phpunit#executable"] = 'docker-compose run --rm php bin/phpunit'
-    end
-  }
+    use {
+        'karb94/neoscroll.nvim',
+        config = function() require('neoscroll').setup({
+            -- All these keys will be mapped. Pass an empty table ({}) for no mappings
+            -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+            mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>'},
+            hide_cursor = true,          -- Hide cursor while crolling
+            stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+            respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+            cursor_scrolls_alone = true  -- The cursor will keep on scrolling even if the window cannot scroll further
+        }) end
+    }
 
-  use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {'kyazdani42/nvim-web-devicons'},
+        config = function() require 'plugin/nvim-tree-config' end
+    }
+    use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
+    use 'google/vim-searchindex' -- displays found matches count
+    use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
 
- -- Git History Browser
-  use {
-    'junegunn/gv.vim',
-    opt = true,
-    cmd = 'GV'
-  }
+    use {'junegunn/fzf.vim', requires = '/opt/homebrew/bin/fzf'}
 
-  use {'tpope/vim-fugitive'}  
+    -- currently i am only using the linter and fixer feature
+    use {
+        'dense-analysis/ale',
+        config= function()
+            vim.g.ale_linters = { php = {'php','psalm'} }
+            vim.g.ale_sign_error = ''
+            vim.g.ale_sign_warning = ''
+            vim.g.ale_fixers = {
+                all = { 'remove_trailing_lines', 'trim_whitespace' },
+                php = { 'php_cs_fixer' }
+            }
+            vim.g.ale_fix_on_save = true
+        end,
+        ft = {'php'}
+    }
 
-  use {
-    'lewis6991/gitsigns.nvim', 
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-  }
-  use {'shumphrey/fugitive-gitlab.vim'} -- GBrowse for gitlab
+    use {
+        'vim-test/vim-test',
+        config = function()
+            vim.g["test#strategy"] = "neovim"
+            vim.g["test#enabled_runners"] = {"php#phpunit"}
+            vim.g["test#php#phpunit#executable"] = 'docker-compose exec php bin/phpunit'
+        end,
+        ft= {'php'}
+    }
 
-  -- Debugger
-  use {
-    'puremourning/vimspector', 
-    config = function() require('plugin/vim-spector-config').setup() end
-  }
+    -- use {'sheerun/vim-polyglot', opt = true} -- A collection of language packs for Vim
 
-  use {
-    'phpactor/phpactor', 
-    ft = 'php', 
-    config = function() require('plugin/phpactor-config').setup() end
-  }
+    -- Git History Browser
+    use {
+        'junegunn/gv.vim',
+        opt = true,
+        cmd = 'GV'
+    }
 
-  use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
+    use {'tpope/vim-fugitive'}  
 
-  use { 
-    'nvim-treesitter/nvim-treesitter', 
-    config = function() require 'plugin/treesitter-config' end,
-    run = ':TSUpdate'
-  }
-  use {
-    'nvim-treesitter/playground',
-    opt = true,
-    cmd = 'TSPlaygroundToggle'
-  }
+    use {
+        'lewis6991/gitsigns.nvim', 
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function() require('gitsigns').setup() end
+    }
+
+    -- Debugger
+    use {
+        'puremourning/vimspector', 
+        config = function() require('plugin/vim-spector-config').setup() end,
+        ft = {'php'}
+    }
+
+    use {
+        'phpactor/phpactor', 
+        ft = 'php', 
+        config = function() require('plugin/phpactor-config').setup() end
+    }
+
+    use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
+
+    use { 
+        'nvim-treesitter/nvim-treesitter', 
+        config = function() require 'plugin/treesitter-config' end,
+        run = ':TSUpdate'
+    }
+    use {
+        'nvim-treesitter/playground',
+        opt = true,
+        cmd = 'TSPlaygroundToggle'
+    }
 end)

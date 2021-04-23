@@ -41,9 +41,10 @@ global.showmode = false -- don't show current mode
 global.shortmess = vim.o.shortmess .. 'c' --  Don't pass messages to |ins-completion-menu|
 global.mouse = 'a'
 
-window.cursorline = true -- Highlight current line
-window.signcolumn = 'auto:1-4' -- Always show the signcolumn, otherwise it would shift the text each time
-window.number = true -- show current linenumber 
+-- window.cursorline = true -- Highlight current line
+-- window.signcolumn = 'auto:1-4' -- Always show the signcolumn, otherwise it would shift the text each time
+window.signcolumn = 'yes:3' -- combine signcolumn with number
+window.number = true -- show current linenumber
 window.relativenumber = true
 window.list = false -- show invisible chars
 window.wrap = false -- don't wrap lines 
@@ -58,6 +59,4 @@ buffer.swapfile = false
 
 global.undofile = true -- Keep undo history across sessions, by storing in file
 buffer.undofile = true -- Keep undo history across sessions, by storing in file
-
-vim.g.fugitive_gitlab_domains = { 'https://repo.dmknet.de/' }
 

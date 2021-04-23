@@ -51,6 +51,6 @@ schemes:
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
 
-colors: *light
+colors: *dark
 # colors: *light
 
