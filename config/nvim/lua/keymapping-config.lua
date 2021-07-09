@@ -34,7 +34,8 @@ map('n', '<leader>rs', ':source %<CR>', {})
 -- Find stuff --
 ----------------
 map('n', '<leader>;', '<cmd>Buffers<CR>', options)
-map('n', '<leader>ff', '<cmd>GFiles<CR>', options)
+map('n', '<leader>ff', '<cmd>Files<CR>', options)
+map('n', '<leader>fg', '<cmd>GitFiles<CR>', options)
 map('n', '<leader>fh', '<cmd>History<CR>', options)
 map('n', '<leader>fr', '<cmd>Rg<CR>', options)
 map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})

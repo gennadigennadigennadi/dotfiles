@@ -9,10 +9,9 @@ window:
   dimensions:
     columns: 156
     lines: 28
-
   padding:
-    x: 5
-    y: 5
+    x: 4
+    y: 2
   dynamic_padding: true
   title: a
   dynamic_title: true

@@ -16,18 +16,6 @@ return require('packer').startup(function()
         config = function() require('plugin/startify-config').setup() end
     } 
 
-    -- use {
-    --   'romgrk/barbar.nvim',
-    --   opt = true,
-    --   config = function()
-    --     vim.g.bufferline = { 
-    --       auto_hide = 'v:true',
-    --       animation = false
-    --     }
-    --   end,
-    --   requires = {'kyazdani42/nvim-web-devicons'},
-    -- }
-
     use {'glepnir/galaxyline.nvim',
         branch = 'main',
         config = function() require'plugin/statusline-config' end,
@@ -39,7 +27,8 @@ return require('packer').startup(function()
 
     use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
 
-    use 'tpope/vim-commentary' -- gcc
+    -- use 'tpope/vim-commentary' -- gcc
+    use 'b3nj5m1n/kommentary'
 
     -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
     -- use 'tpope/vim-repeat'
@@ -112,7 +101,7 @@ return require('packer').startup(function()
     use 'google/vim-searchindex' -- displays found matches count
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
 
-    use {'junegunn/fzf.vim', requires = '/opt/homebrew/bin/fzf'}
+    use {'junegunn/fzf.vim', requires = 'junegunn/fzf'}
 
     -- currently i am only using the linter and fixer feature
     use {
@@ -135,12 +124,13 @@ return require('packer').startup(function()
         config = function()
             vim.g["test#strategy"] = "neovim"
             vim.g["test#enabled_runners"] = {"php#phpunit"}
-            vim.g["test#php#phpunit#executable"] = 'docker-compose exec php bin/phpunit'
+            vim.g["test#php#phpunit#executable"] = 'bin/phpunit'
         end,
-        ft= {'php'}
+        cmd = {'TestFile', 'TestLast', 'TestSuite', 'TestVisit', 'TestNearest'},
+        ft = {'php'}
     }
 
-    -- use {'sheerun/vim-polyglot', opt = true} -- A collection of language packs for Vim
+    use {'sheerun/vim-polyglot', opt = true} -- A collection of language packs for Vim
 
     -- Git History Browser
     use {
@@ -154,19 +144,26 @@ return require('packer').startup(function()
     use {
         'lewis6991/gitsigns.nvim', 
         requires = { 'nvim-lua/plenary.nvim' },
-        config = function() require('gitsigns').setup() end
+        config = function() require('gitsigns').setup({
+            signs = {
+                add = {text = "+"},
+                change = {text = "~"},
+                changedelete = {text = "="}
+            }
+        }) end
     }
 
     -- Debugger
     use {
         'puremourning/vimspector', 
         config = function() require('plugin/vim-spector-config').setup() end,
-        ft = {'php'}
+        -- ft = {'php'}
     }
 
     use {
         'phpactor/phpactor', 
         ft = 'php', 
+        run = 'composer install --no-dev -o',
         config = function() require('plugin/phpactor-config').setup() end
     }
 

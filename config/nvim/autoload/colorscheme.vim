@@ -1,16 +1,16 @@
-function! s:gruvbox_material_custom() abort
+function! s:custom() abort
     hi clear SignColumn "resets the color form the github colorscheme
-    hi GitGutterAdd    guifg=#009900 ctermfg=2 guibg=none
-    hi GitGutterChange guifg=#bbbb00 ctermfg=3 guibg=none
-    hi GitGutterDelete guifg=#ff2222 ctermfg=1 guibg=none
+    hi GitSignsAdd    guifg=#009900 guibg=none
+    hi GitSignsChange guifg=#bbbb00 guibg=none
+    hi GitSignsDelete guifg=#ff2222 guibg=none
     hi! VertSplit guibg=NONE
     hi! LineNr guibg=NONE
-    hi! EndOfmBuffer guibg=NONE guifg=white
+    " hi! EndOfmBuffer guibg=NONE guifg=white
 endfunction
 
 augroup custom_theme
     autocmd!
-    autocmd ColorScheme * call s:gruvbox_material_custom()
+    autocmd ColorScheme * call s:custom()
 augroup END
 
 function! colorscheme#selectColorschemeByMode() abort
