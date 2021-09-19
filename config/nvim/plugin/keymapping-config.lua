@@ -1,8 +1,8 @@
 local map = vim.api.nvim_set_keymap
+
 options = {noremap = true, silent = true}
 
-map('n', '<Space>', ' ', {}) -- map the leader key
-vim.g.mapleader = ' '
+map('', '<Space>', '<Nop>', options) -- map the leader key
 
 map('n', 'Q', '<nop>', options)
 map('n', 'q', '<nop>', options) -- currently im not using macros
@@ -15,7 +15,6 @@ map('v', '<', '<gv', options)
 
 map('n', 'J', 'mzJ`z', options) -- Keep the cursor in place while joining lines
 
--- Barbar includes bbye
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
@@ -30,28 +29,18 @@ map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', {})
 map('n', '<leader>rl', ':luafile %<CR>', {})
 map('n', '<leader>rs', ':source %<CR>', {})
 
+
+map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
+
 ----------------
 -- Find stuff --
 ----------------
-map('n', '<leader>ff', '<cmd>Files<CR>', options)
-map('n', '<leader>;', '<cmd>Buffers<CR>', options)
-map('n', '<leader>fr', '<cmd>Rg<CR>', options)
-
 -- map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', options)
-
--- map('n', '<leader>fh', '<cmd>History<CR>', options)
 -- map('n', '<leader>fg', '<cmd>GitFiles<CR>', options)
-
-map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
--------------------------------------------------   
--- Find files using Telescope command-line sugar.
-------------------------------------------------- 
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>',options)
 map('n', '<leader>fr', '<cmd>Telescope live_grep<cr>',options)
-map('n', '<leader>;', '<cmd>Telescope buffers<cr>',options)
--- nnoremap <leader>fg <cmd>Telescope live_grep<cr>
--- nnoremap <leader>fb <cmd>Telescope buffers<cr>
--- nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+map('n', '<leader><space>', '<cmd>Telescope buffers<cr>',options)
+map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>',options)
 -----------------------------
 -- Tab (aka Buffer) stuff ---
 -----------------------------

@@ -5,7 +5,7 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
 
-    use 'cormacrelf/vim-colors-github'
+    use 'projekt0n/github-nvim-theme'
     use 'sainnhe/sonokai'
     use 'sainnhe/gruvbox-material'
     use 'sainnhe/edge'
@@ -16,18 +16,15 @@ return require('packer').startup(function()
         config = function() require('plugin/startify-config').setup() end
     } 
 
-    use {'glepnir/galaxyline.nvim',
-        branch = 'main',
-        config = function() require'plugin/statusline-config' end,
-        requires = {'kyazdani42/nvim-web-devicons'}
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
     use 'simeji/winresizer' -- <c-w> + hjkl for resizing
     -- use 'norcalli/nvim-colorizer.lua'
 
     use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
-
-    -- use 'tpope/vim-commentary' -- gcc
     use 'b3nj5m1n/kommentary'
 
     -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
@@ -42,7 +39,6 @@ return require('packer').startup(function()
     -- add new text object (can delete between comma with di, for example)
     -- or *cin)* (change in next braces)
     -- use 'wellle/targets.vim'
-
     -- use 'lambdalisue/suda.vim' -- Write file with sudo
 
     use {'windwp/nvim-autopairs', config = require('nvim-autopairs').setup()}
@@ -94,13 +90,12 @@ return require('packer').startup(function()
 
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons'},
+        requires = {'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require 'plugin/nvim-tree-config' end
     }
     use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
     use 'google/vim-searchindex' -- displays found matches count
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
-    use {'junegunn/fzf.vim', requires = 'junegunn/fzf'}
 
     use {
         'nvim-telescope/telescope-fzf-native.nvim', 
@@ -173,7 +168,7 @@ return require('packer').startup(function()
     use {
         'puremourning/vimspector', 
         config = function() require('plugin/vim-spector-config').setup() end,
-        -- ft = {'php'}
+        ft = {'php'}
     }
     -- Install nvim-cmp, and buffer source as a dependency
     use {
@@ -189,10 +184,7 @@ return require('packer').startup(function()
     }
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    use {
-        'neovim/nvim-lspconfig',
-        config = function() require('plugin/lspconfig-config').setup() end
-    }
+    use { 'neovim/nvim-lspconfig' }
     use {'glepnir/lspsaga.nvim'}
     use {
         'phpactor/phpactor', 
@@ -200,8 +192,6 @@ return require('packer').startup(function()
         run = 'composer install --no-dev -o',
         config = function() require('plugin/phpactor-config').setup() end
     }
-
-    -- use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
 
     use { 
         'nvim-treesitter/nvim-treesitter', 
@@ -214,3 +204,4 @@ return require('packer').startup(function()
         cmd = 'TSPlaygroundToggle'
     }
 end)
+

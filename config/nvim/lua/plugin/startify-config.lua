@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup() 
-    vim.g.startify_change_to_dir = true
+    -- vim.g.startify_change_to_dir = true
     vim.g.startify_change_to_vcs_root = true
     vim.g.startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 
@@ -14,7 +14,7 @@ function M.setup()
     }
     vim.g.startify_bookmarks = {
         { vi = '$MYVIMRC' }, 
-        { vp = '$XDG_CONFIG_HOME/nvim/lua/plugins.lua' }, 
+        { vp = '$XDG_CONFIG_HOME/nvim/plugin/plugins.lua' }, 
         { df = '$HOME/workspace/dotfiles/' },
         { pdc = '/Volumes/development/dmk/core/README.md' },
         { pdj = '/Volumes/development/dmk/jpxo/README.md' }

@@ -1,4 +1,6 @@
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -16,6 +18,7 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
+
         ['<Tab>'] = function(fallback)
             if vim.fn.pumvisible() == 1 then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
@@ -25,6 +28,7 @@ cmp.setup {
                 fallback()
             end
         end,
+
         ['<S-Tab>'] = function(fallback)
             if vim.fn.pumvisible() == 1 then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
