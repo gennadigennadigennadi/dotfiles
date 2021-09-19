@@ -33,13 +33,25 @@ map('n', '<leader>rs', ':source %<CR>', {})
 ----------------
 -- Find stuff --
 ----------------
-map('n', '<leader>;', '<cmd>Buffers<CR>', options)
 map('n', '<leader>ff', '<cmd>Files<CR>', options)
-map('n', '<leader>fg', '<cmd>GitFiles<CR>', options)
-map('n', '<leader>fh', '<cmd>History<CR>', options)
+map('n', '<leader>;', '<cmd>Buffers<CR>', options)
 map('n', '<leader>fr', '<cmd>Rg<CR>', options)
-map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
 
+-- map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', options)
+
+-- map('n', '<leader>fh', '<cmd>History<CR>', options)
+-- map('n', '<leader>fg', '<cmd>GitFiles<CR>', options)
+
+map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
+-------------------------------------------------   
+-- Find files using Telescope command-line sugar.
+------------------------------------------------- 
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>',options)
+map('n', '<leader>fr', '<cmd>Telescope live_grep<cr>',options)
+map('n', '<leader>;', '<cmd>Telescope buffers<cr>',options)
+-- nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+-- nnoremap <leader>fb <cmd>Telescope buffers<cr>
+-- nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 -----------------------------
 -- Tab (aka Buffer) stuff ---
 -----------------------------

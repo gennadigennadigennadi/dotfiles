@@ -5,7 +5,7 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
 
-    -- use 'cormacrelf/vim-colors-github'
+    use 'cormacrelf/vim-colors-github'
     use 'sainnhe/sonokai'
     use 'sainnhe/gruvbox-material'
     use 'sainnhe/edge'
@@ -100,8 +100,24 @@ return require('packer').startup(function()
     use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
     use 'google/vim-searchindex' -- displays found matches count
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
-
     use {'junegunn/fzf.vim', requires = 'junegunn/fzf'}
+
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim', 
+        run = 'make',
+        config = function() require 'telescope'.load_extension('fzf') end
+    }
+
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function() require "telescope".load_extension("frecency") end,
+        requires = {"tami5/sqlite.lua"}
+    }
+
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
     -- currently i am only using the linter and fixer feature
     use {
@@ -159,7 +175,25 @@ return require('packer').startup(function()
         config = function() require('plugin/vim-spector-config').setup() end,
         -- ft = {'php'}
     }
-
+    -- Install nvim-cmp, and buffer source as a dependency
+    use {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/vim-vsnip",
+            "hrsh7th/cmp-buffer",
+        }
+    }
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        config = function() require 'plugin/cmp-config'.setup() end
+    }
+    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+    use 'L3MON4D3/LuaSnip' -- Snippets plugin
+    use {
+        'neovim/nvim-lspconfig',
+        config = function() require('plugin/lspconfig-config').setup() end
+    }
+    use {'glepnir/lspsaga.nvim'}
     use {
         'phpactor/phpactor', 
         ft = 'php', 
@@ -167,7 +201,7 @@ return require('packer').startup(function()
         config = function() require('plugin/phpactor-config').setup() end
     }
 
-    use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
+    -- use {'neoclide/coc.nvim', branch = 'release'} -- Auto completion
 
     use { 
         'nvim-treesitter/nvim-treesitter', 

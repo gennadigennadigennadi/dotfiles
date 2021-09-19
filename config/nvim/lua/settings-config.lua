@@ -1,4 +1,4 @@
-vim.opt.timeoutlen = 200 -- timeoutlen for e.g leader key
+vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
 vim.opt.ttimeoutlen = 0
 
 vim.opt.title = true -- show file title in terminal tab
