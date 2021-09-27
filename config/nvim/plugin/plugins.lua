@@ -18,13 +18,13 @@ return require('packer').startup(function()
 
     use {
         'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        requires = {'kyazdani42/nvim-web-devicons'}
     }
 
     use 'simeji/winresizer' -- <c-w> + hjkl for resizing
     -- use 'norcalli/nvim-colorizer.lua'
 
-    use {'jez/vim-superman', opt=true, cmd = 'SuperMan'} -- manpage pager
+    use {'jez/vim-superman', opt = true, cmd = 'SuperMan'} -- manpage pager
     use 'b3nj5m1n/kommentary'
 
     -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
@@ -45,18 +45,7 @@ return require('packer').startup(function()
 
     use {
         'akinsho/nvim-toggleterm.lua',
-        config = function() require"toggleterm".setup({
-            size = 10,
-            open_mapping = [[<leader>t]],
-            shade_filetypes = {},
-            shade_terminals = false,
-            -- shading_factor = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-            start_in_insert = true,
-            persist_size = true,
-            direction = 'horizontal'
-        }) end,
-        cmd = 'ToggleTerm',
-        keys = {[[<leader>t]]}
+        config = function() require"toggleterm".setup() end 
     }
 
     use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
@@ -82,7 +71,7 @@ return require('packer').startup(function()
             -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
             mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>'},
             hide_cursor = true,          -- Hide cursor while crolling
-            stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+            stop_eof = false,             -- Stop at <EOF> when scrolling downwards
             respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
             cursor_scrolls_alone = true  -- The cursor will keep on scrolling even if the window cannot scroll further
         }) end
@@ -93,6 +82,7 @@ return require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require 'plugin/nvim-tree-config' end
     }
+
     use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
     use 'google/vim-searchindex' -- displays found matches count
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
@@ -111,23 +101,7 @@ return require('packer').startup(function()
 
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    -- currently i am only using the linter and fixer feature
-    use {
-        'dense-analysis/ale',
-        config= function()
-            vim.g.ale_linters = { php = {'php','psalm'} }
-            vim.g.ale_sign_error = ''
-            vim.g.ale_sign_warning = ''
-            vim.g.ale_fixers = {
-                all = { 'remove_trailing_lines', 'trim_whitespace' },
-                php = { 'php_cs_fixer' }
-            }
-            vim.g.ale_fix_on_save = true
-        end,
-        ft = {'php'}
+        requires = { 'nvim-lua/plenary.nvim'} 
     }
 
     use {
@@ -141,7 +115,7 @@ return require('packer').startup(function()
         ft = {'php'}
     }
 
-    use {'sheerun/vim-polyglot', opt = true} -- A collection of language packs for Vim
+    -- use {'sheerun/vim-polyglot'} -- A collection of language packs for Vim
 
     -- Git History Browser
     use {
@@ -174,34 +148,35 @@ return require('packer').startup(function()
     use {
         "hrsh7th/nvim-cmp",
         requires = {
-            "hrsh7th/vim-vsnip",
             "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
         }
     }
     use {
         'hrsh7th/cmp-nvim-lsp',
         config = function() require 'plugin/cmp-config'.setup() end
     }
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+
+    use { "rafamadriz/friendly-snippets", module = { "luasnip" } }
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
+    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use { 'neovim/nvim-lspconfig' }
-    use {'glepnir/lspsaga.nvim'}
     use {
-        'phpactor/phpactor', 
-        ft = 'php', 
-        run = 'composer install --no-dev -o',
-        config = function() require('plugin/phpactor-config').setup() end
+        'onsails/lspkind-nvim' ,
     }
 
-    use { 
+    use {'glepnir/lspsaga.nvim'}
+--[[ use {
+'phpactor/phpactor', 
+ft = 'php', 
+run = 'composer install --no-dev -o',
+config = function() require('plugin/phpactor-config').setup() end
+    } ]]
+
+    use {
         'nvim-treesitter/nvim-treesitter', 
         config = function() require 'plugin/treesitter-config' end,
         run = ':TSUpdate'
-    }
-    use {
-        'nvim-treesitter/playground',
-        opt = true,
-        cmd = 'TSPlaygroundToggle'
     }
 end)
 

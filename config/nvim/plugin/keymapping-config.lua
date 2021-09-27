@@ -1,13 +1,13 @@
 local map = vim.api.nvim_set_keymap
 
-options = {noremap = true, silent = true}
+local options = {noremap = true, silent = true}
 
 map('', '<Space>', '<Nop>', options) -- map the leader key
 
 map('n', 'Q', '<nop>', options)
 map('n', 'q', '<nop>', options) -- currently im not using macros
 
-map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root 
+map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root
 
 -- keep visual mode after indent
 map('v', '>', '>gv', options)
@@ -21,38 +21,33 @@ map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
 map('n', '<c-s>', '<C-C>:w!<CR>', options)
 
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', options)
+map('n', 'SS', '<cmd>Startify<CR>', options)
 
 ------------------
 -- Source Files --
 ------------------
 map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', {})
 map('n', '<leader>rl', ':luafile %<CR>', {})
-map('n', '<leader>rs', ':source %<CR>', {})
 
-
-map('n', '<leader>oo', '<cmd>Vista!!<cr>', {})
+map('n', '<leader>oo', '<cmd>Vista!!<cr>', options)
+map('n', '<c-t>', '<cmd>ToggleTerm<cr>', options)
 
 ----------------
 -- Find stuff --
 ----------------
--- map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', options)
--- map('n', '<leader>fg', '<cmd>GitFiles<CR>', options)
+map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', options)
+map('n', '<leader>rn', '<cmd>lua require("lspsaga.rename").rename()<CR>', options)
+map('n', '<leader>ca', '<cmd>lua require("lspsaga.codeaction").code_action()<CR>', options)
+map('v', '<leader>ca', '<cmd><C-U>lua require("lspsaga.codeaction").range_code_action()<CR>', options)
+map('n', '<leader>gh', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>', options)
+-- gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+-- nnoremap <silent><leader>ca <CR>
+-- vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>',options)
 map('n', '<leader>fr', '<cmd>Telescope live_grep<cr>',options)
 map('n', '<leader><space>', '<cmd>Telescope buffers<cr>',options)
 map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>',options)
------------------------------
--- Tab (aka Buffer) stuff ---
------------------------------
--- map('n', 'bh', '<cmd>BufferGoto 1<CR>', {})
--- map('n', 'bk', '<cmd>BufferPrevious<CR>', {})
--- map('n', 'bj', '<cmd>BufferNext<CR>', {})
--- map('n', 'bl', '<cmd>BufferLast<CR>', {})
--- map('n', 'bx', '<cmd>BufferClose<CR>', {})
--- map('n', 'B', '<cmd>BufferPick<CR>', {})
-
--- map('n', '<A-<>', '<cmd>BufferMovePrevious<CR>', {})
--- map('n', '<A->>', '<cmd>BufferMoveNext<CR>', {})
 
 ------------------
 -- tab handling --

@@ -39,7 +39,7 @@ vim.opt.updatetime = 500 -- time vim waits before writing swap file/ also used f
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
-vim.opt.showmode = false -- don't show current mode 
+vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. 'c' --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = 'a'
 
@@ -48,14 +48,13 @@ vim.opt.signcolumn = 'yes:2' -- combine signcolumn with number
 vim.opt.number = true -- show current linenumber
 vim.opt.relativenumber = true
 vim.opt.list = false -- show invisible chars
-vim.opt.wrap = false -- don't wrap lines 
+vim.opt.wrap = false -- don't wrap lines
 vim.opt.lazyredraw = true
 
 vim.opt.foldenable = false -- Don't fold by default
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldnestmax = 3 
+vim.opt.foldnestmax = 3
 
 vim.opt.swapfile = false
 vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
-

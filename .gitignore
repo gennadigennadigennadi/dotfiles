@@ -3,3 +3,4 @@ config/coc/*
 config/configstore
 config/karabiner/automatic_backups
 config/nvim/plugin/packer_compiled.lua
+config/lazygit/state.yml
