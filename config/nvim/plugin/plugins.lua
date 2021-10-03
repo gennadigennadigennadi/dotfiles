@@ -5,20 +5,26 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
 
-    use 'projekt0n/github-nvim-theme'
-    use 'sainnhe/sonokai'
+    use {
+        'projekt0n/github-nvim-theme',
+    }
+
+    --[[ use 'sainnhe/sonokai'
     use 'sainnhe/gruvbox-material'
-    use 'sainnhe/edge'
+    use 'sainnhe/edge' ]]
 
     -- fancy vim bootscreen
-    use { 
-        'mhinz/vim-startify', 
-        config = function() require('plugin/startify-config').setup() end
-    } 
+    use { 'mhinz/vim-startify' }
 
     use {
         'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons'}
+        requires = {'kyazdani42/nvim-web-devicons'},
+        config = function() require('lualine').setup({
+            options = {
+                theme = "github",
+                dark_float = true,
+            }
+        }) end
     }
 
     use 'simeji/winresizer' -- <c-w> + hjkl for resizing
@@ -45,30 +51,29 @@ return require('packer').startup(function()
 
     use {
         'akinsho/nvim-toggleterm.lua',
-        config = function() require"toggleterm".setup() end 
+        config = function() require"toggleterm".setup({
+            shade_terminals = false,
+            shading_factor = 3,
+        }) end
     }
 
     use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
 
     -- <leader>oo
-    use {
+    --[[ use {
         'liuchengxu/vista.vim',
         opt = true,
         cmd = 'Vista',
         config = function() require 'plugin/vista-config' end
-    }
+    } ]]
 
     -- editorconfig for vim
-    use {
-        'editorconfig/editorconfig-vim',
-        config = function() require 'plugin/editor-config' end
-    }
+    use { 'editorconfig/editorconfig-vim' }
 
     use {
         'karb94/neoscroll.nvim',
         config = function() require('neoscroll').setup({
             -- All these keys will be mapped. Pass an empty table ({}) for no mappings
-            -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
             mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>'},
             hide_cursor = true,          -- Hide cursor while crolling
             stop_eof = false,             -- Stop at <EOF> when scrolling downwards
@@ -79,8 +84,7 @@ return require('packer').startup(function()
 
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() require 'plugin/nvim-tree-config' end
+        requires = {'kyazdani42/nvim-web-devicons', opt = true }
     }
 
     use 'airblade/vim-rooter' -- changes the directory to surrounding .git/root
@@ -157,26 +161,22 @@ return require('packer').startup(function()
         config = function() require 'plugin/cmp-config'.setup() end
     }
 
-    use { "rafamadriz/friendly-snippets", module = { "luasnip" } }
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    use { 'neovim/nvim-lspconfig' }
-    use {
-        'onsails/lspkind-nvim' ,
+    use { "rafamadriz/friendly-snippets", 
+        module = { "luasnip" } 
     }
 
-    use {'glepnir/lspsaga.nvim'}
---[[ use {
-'phpactor/phpactor', 
-ft = 'php', 
-run = 'composer install --no-dev -o',
-config = function() require('plugin/phpactor-config').setup() end
-    } ]]
+    use { 'L3MON4D3/LuaSnip' } -- Snippets plugin
+    use { 'saadparwaiz1/cmp_luasnip' } -- Snippets source for nvim-cmp
+    use { 'neovim/nvim-lspconfig' }
+    use { 'onsails/lspkind-nvim' }
+
+    use {
+        'glepnir/lspsaga.nvim',
+        config = function () require('lspsaga').init_lsp_saga() end
+    }
 
     use {
         'nvim-treesitter/nvim-treesitter', 
-        config = function() require 'plugin/treesitter-config' end,
         run = ':TSUpdate'
     }
 end)
-

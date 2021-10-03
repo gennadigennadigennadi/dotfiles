@@ -12,7 +12,7 @@ gui:
             - green
             - bold
         inactiveBorderColor:
-            - yellow
+            - black
         optionsTextColor:
             - blue
         selectedLineBgColor:
@@ -28,11 +28,11 @@ gui:
     showListFooter: true # for seeing the '5 of 20' message in list panels
     showRandomTip: true
     showCommandLog: true
-    commandLogSize: 8
+    commandLogSize: 3
 git:
     paging:
-        colorArg: always
-        useConfig: false
+      colorArg: always
+      useConfig: false
     merging:
         # only applicable to unix users
         manualCommit: false
@@ -42,8 +42,8 @@ git:
         mode: 'auto' # one of 'auto' | 'merge' | 'rebase' | 'ff-only', auto reads from git configuration
     skipHookPrefix: WIP
     autoFetch: true
-    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
-    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
+    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=oneline {{branchName}} --'
+    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=short'
     overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
     disableForcePushing: false
     parseEmoji: false

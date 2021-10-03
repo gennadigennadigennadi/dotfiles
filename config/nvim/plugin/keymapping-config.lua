@@ -21,6 +21,7 @@ map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
 map('n', '<c-s>', '<C-C>:w!<CR>', options)
 
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', options)
+map('n', '<leader>t', '<cmd>ToggleTerm<cr>', options)
 map('n', 'SS', '<cmd>Startify<CR>', options)
 
 ------------------
@@ -29,20 +30,16 @@ map('n', 'SS', '<cmd>Startify<CR>', options)
 map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', {})
 map('n', '<leader>rl', ':luafile %<CR>', {})
 
-map('n', '<leader>oo', '<cmd>Vista!!<cr>', options)
-map('n', '<c-t>', '<cmd>ToggleTerm<cr>', options)
+-- map('n', '<leader>oo', '<cmd>Vista!!<cr>', options)
 
 ----------------
 -- Find stuff --
 ----------------
-map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', options)
+-- map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', {})
 map('n', '<leader>rn', '<cmd>lua require("lspsaga.rename").rename()<CR>', options)
 map('n', '<leader>ca', '<cmd>lua require("lspsaga.codeaction").code_action()<CR>', options)
 map('v', '<leader>ca', '<cmd><C-U>lua require("lspsaga.codeaction").range_code_action()<CR>', options)
 map('n', '<leader>gh', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>', options)
--- gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
--- nnoremap <silent><leader>ca <CR>
--- vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
 
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>',options)
 map('n', '<leader>fr', '<cmd>Telescope live_grep<cr>',options)
