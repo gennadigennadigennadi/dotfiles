@@ -1,5 +1,5 @@
-require('github-theme').setup({
-    theme_style = 'light',
+--[[ require('github-theme').setup({
+    theme_style = 'dark',
     dark_float = true,
     transparent = false,
-})
+}) ]]

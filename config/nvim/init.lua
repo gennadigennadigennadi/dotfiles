@@ -9,7 +9,7 @@ vim.opt.termguicolors = true
 vim.opt.splitright = true -- Opens vertical split right of current window
 vim.opt.splitbelow = true -- Opens horizontal split below current window
 
-vim.opt.pumheight = 20 -- number Items in pum
+vim.opt.pumheight = 30 -- number Items in pum
 vim.opt.completeopt = 'menu,preview,noinsert,menuone,noselect'
 vim.opt.autowrite = true -- write file with focus lost
 vim.opt.hidden = true -- keep vim.opts open
@@ -43,7 +43,7 @@ vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. 'c' --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = 'a'
 
-vim.opt.cursorline = true -- Highlight current line
+vim.opt.cursorline = false -- Highlight current line
 vim.opt.signcolumn = 'yes:2' -- combine signcolumn with number
 vim.opt.number = true -- show current linenumber
 vim.opt.relativenumber = true
@@ -63,16 +63,15 @@ vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
 vim.cmd 'augroup my-stuff'
 vim.cmd 'autocmd!'
 
-vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Visual', timeout=700 } ]])
-vim.cmd([[autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>]])
-vim.cmd([[autocmd FileType fzf tunmap <buffer> <Esc>]])
+vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Visual', timeout=700 }]])
+
+-- vim.cmd([[autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>]])
 
 -- set cursor to lust know position
 vim.cmd([[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]])
-
+vim.cmd([[colorscheme sonokai]])
 vim.cmd('augroup END')
 
-
-
--- plugin config
+vim.g.sonokai_style = 'andromeda'
+vim.g.sonokai_enable_italic = true
 vim.g.vista_default_executive = 'nvim_lsp'

@@ -1,24 +1,24 @@
 gui:
     # stuff relating to the UI
-    scrollHeight: 2 # how many lines you scroll by
+    scrollHeight: 5 # how many lines you scroll by
     scrollPastBottom: true # enable scrolling past the bottom
     sidePanelWidth: 0.3333 # number from 0 to 1
     expandFocusedSidePanel: false
     mainPanelSplitMode: 'flexible' # one of 'horizontal' | 'flexible' | 'vertical'
     language: 'auto' # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
     theme:
-        lightTheme: true # For terminals with a light background
+        lightTheme: false # For terminals with a light background
         activeBorderColor:
             - green
             - bold
         inactiveBorderColor:
-            - black
+            - default
         optionsTextColor:
-            - blue
+            - default
         selectedLineBgColor:
             - default
         selectedRangeBgColor:
-            - blue
+            - default
     commitLength:
         show: true
     mouseEvents: true
@@ -32,7 +32,7 @@ gui:
 git:
     paging:
       colorArg: always
-      useConfig: false
+      useConfig: true
     merging:
         # only applicable to unix users
         manualCommit: false

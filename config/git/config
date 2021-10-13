@@ -1,18 +1,11 @@
 [core]
 	fileMode = false
 	precomposeunicode = false
-    pager = delta
-[pager]
-    diff = delta
-    show = delta
-    log = delta
-[delta]
-    syntax-theme = OneHalfLight
-    features = line-numbers 
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = diff-so-fancy --patch
 [color]
-	ui = auto
+    ui = auto
 [credential]
 	helper = osxkeychain
 [push]
@@ -29,7 +22,7 @@
 [pull]
 	rebase = true
 [rebase]
-	autoStash = true
+    autoStash = true
 [user]
-	name = Gennadi McKelvey
-	email = gennadi.mckelvey@qossmic.com
+    name = Gennadi McKelvey
+    email = gennadi.mckelvey@qossmic.com

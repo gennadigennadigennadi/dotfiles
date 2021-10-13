@@ -2,29 +2,24 @@
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
     use {'wbthomason/packer.nvim', opt = true}
 
-    use {
-        'projekt0n/github-nvim-theme',
-    }
-
-    --[[ use 'sainnhe/sonokai'
-    use 'sainnhe/gruvbox-material'
-    use 'sainnhe/edge' ]]
+    use {'projekt0n/github-nvim-theme'}
+    use {'sainnhe/sonokai'}
+    use {'sainnhe/gruvbox-material'}
+    use {'sainnhe/edge'}
+    use {'sainnhe/everforest'}
 
     -- fancy vim bootscreen
     use { 'mhinz/vim-startify' }
 
     use {
-        'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons'},
-        config = function() require('lualine').setup({
-            options = {
-                theme = "github",
-                dark_float = true,
-            }
-        }) end
+        'windwp/windline.nvim',
+        config = function()
+            require('wlsample.evil_line')
+            -- require('wlfloatline').setup()
+        end
     }
 
     use 'simeji/winresizer' -- <c-w> + hjkl for resizing
@@ -53,19 +48,17 @@ return require('packer').startup(function()
         'akinsho/nvim-toggleterm.lua',
         config = function() require"toggleterm".setup({
             shade_terminals = false,
-            shading_factor = 3,
         }) end
     }
 
     use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
 
     -- <leader>oo
-    --[[ use {
+    use {
         'liuchengxu/vista.vim',
         opt = true,
-        cmd = 'Vista',
-        config = function() require 'plugin/vista-config' end
-    } ]]
+        cmd = 'Vista'
+    }
 
     -- editorconfig for vim
     use { 'editorconfig/editorconfig-vim' }
@@ -92,7 +85,7 @@ return require('packer').startup(function()
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
 
     use {
-        'nvim-telescope/telescope-fzf-native.nvim', 
+        'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
         config = function() require 'telescope'.load_extension('fzf') end
     }
@@ -105,48 +98,40 @@ return require('packer').startup(function()
 
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim'} 
+        requires = { 'nvim-lua/plenary.nvim'}
     }
 
     use {
-        'vim-test/vim-test',
+        "rcarriga/vim-ultest",
+        requires = {"vim-test/vim-test"},
+        run = ":UpdateRemotePlugins",
         config = function()
             vim.g["test#strategy"] = "neovim"
             vim.g["test#enabled_runners"] = {"php#phpunit"}
             vim.g["test#php#phpunit#executable"] = 'bin/phpunit'
+            vim.g.ultest_virtual_text = true
         end,
-        cmd = {'TestFile', 'TestLast', 'TestSuite', 'TestVisit', 'TestNearest'},
-        ft = {'php'}
     }
 
     -- use {'sheerun/vim-polyglot'} -- A collection of language packs for Vim
 
-    -- Git History Browser
-    use {
-        'junegunn/gv.vim',
-        opt = true,
-        cmd = 'GV'
-    }
-
-    use {'tpope/vim-fugitive'}  
+    use {'tpope/vim-fugitive'}
 
     use {
-        'lewis6991/gitsigns.nvim', 
+        'lewis6991/gitsigns.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
-        config = function() require('gitsigns').setup({
-            signs = {
-                add = {text = "+"},
-                change = {text = "~"},
-                changedelete = {text = "="}
-            }
-        }) end
-    }
+        config = function() require('gitsigns').setup() end }
 
     -- Debugger
+    use {'Pocco81/DAPInstall.nvim'}
+    use { 'mfussenegger/nvim-dap' }
     use {
-        'puremourning/vimspector', 
-        config = function() require('plugin/vim-spector-config').setup() end,
-        ft = {'php'}
+        "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap"}
+    }
+    use {
+        'theHamsta/nvim-dap-virtual-text',
+        config = function() vim.g.dap_virtual_text = true end
     }
     -- Install nvim-cmp, and buffer source as a dependency
     use {
@@ -156,27 +141,26 @@ return require('packer').startup(function()
             "hrsh7th/cmp-path",
         }
     }
-    use {
-        'hrsh7th/cmp-nvim-lsp',
-        config = function() require 'plugin/cmp-config'.setup() end
-    }
+    use { 'hrsh7th/cmp-nvim-lsp' }
 
-    use { "rafamadriz/friendly-snippets", 
-        module = { "luasnip" } 
+    use {
+        "rafamadriz/friendly-snippets",
+        module = { "luasnip" }
     }
 
     use { 'L3MON4D3/LuaSnip' } -- Snippets plugin
     use { 'saadparwaiz1/cmp_luasnip' } -- Snippets source for nvim-cmp
     use { 'neovim/nvim-lspconfig' }
+
     use { 'onsails/lspkind-nvim' }
 
     use {
-        'glepnir/lspsaga.nvim',
-        config = function () require('lspsaga').init_lsp_saga() end
+        'rinx/lspsaga.nvim',
+        config = function () require('lspsaga').init_lsp_saga({ }) end
     }
 
     use {
-        'nvim-treesitter/nvim-treesitter', 
+        'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
 end)
