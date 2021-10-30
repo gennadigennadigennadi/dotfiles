@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
     -- use 'norcalli/nvim-colorizer.lua'
 
     use {'jez/vim-superman', opt = true, cmd = 'SuperMan'} -- manpage pager
-    use 'b3nj5m1n/kommentary'
+    use 'b3nj5m1n/kommentary' -- gcc/gc3
 
     -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
     -- use 'tpope/vim-repeat'
@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
     -- Try *cs"'* (change surrounding " -> ')
     use 'tpope/vim-surround'
 
-    use 'machakann/vim-swap' -- g<, g>, gs
+    -- use 'machakann/vim-swap' -- g<, g>, gs
 
     -- add new text object (can delete between comma with di, for example)
     -- or *cin)* (change in next braces)
@@ -54,11 +54,7 @@ return require('packer').startup(function(use)
     use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
 
     -- <leader>oo
-    use {
-        'liuchengxu/vista.vim',
-        opt = true,
-        cmd = 'Vista'
-    }
+    use { 'liuchengxu/vista.vim', opt = true, cmd = 'Vista' }
 
     -- editorconfig for vim
     use { 'editorconfig/editorconfig-vim' }
@@ -98,6 +94,27 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim',
+        config = function() require('telescope').setup{
+            defaults =  {
+                layout_config = {
+                    horizontal = {
+                        width = 0.9,
+                        height = 0.9,
+                        preview_width = 0.5
+                    }
+                }
+            },
+            pickers = {
+                buffers = {
+                    mappings = {
+                        i = {
+                            ["<c-d>"] = "delete_buffer",
+                        }
+                    }
+                }
+            }
+        }
+        end,
         requires = { 'nvim-lua/plenary.nvim'}
     }
 
@@ -123,7 +140,7 @@ return require('packer').startup(function(use)
         config = function() require('gitsigns').setup() end }
 
     -- Debugger
-    use {'Pocco81/DAPInstall.nvim'}
+    use { 'Pocco81/DAPInstall.nvim' }
     use { 'mfussenegger/nvim-dap' }
     use {
         "rcarriga/nvim-dap-ui",
@@ -133,7 +150,9 @@ return require('packer').startup(function(use)
         'theHamsta/nvim-dap-virtual-text',
         config = function() vim.g.dap_virtual_text = true end
     }
+
     -- Install nvim-cmp, and buffer source as a dependency
+    use {'kabouzeid/nvim-lspinstall'}
     use {
         "hrsh7th/nvim-cmp",
         requires = {
@@ -141,26 +160,29 @@ return require('packer').startup(function(use)
             "hrsh7th/cmp-path",
         }
     }
-    use { 'hrsh7th/cmp-nvim-lsp' }
-
     use {
-        "rafamadriz/friendly-snippets",
-        module = { "luasnip" }
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     }
 
+    use { 'ray-x/lsp_signature.nvim' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { "rafamadriz/friendly-snippets", module = { "luasnip" } }
     use { 'L3MON4D3/LuaSnip' } -- Snippets plugin
     use { 'saadparwaiz1/cmp_luasnip' } -- Snippets source for nvim-cmp
     use { 'neovim/nvim-lspconfig' }
-
     use { 'onsails/lspkind-nvim' }
-
     use {
         'rinx/lspsaga.nvim',
         config = function () require('lspsaga').init_lsp_saga({ }) end
     }
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)

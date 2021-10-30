@@ -6,20 +6,18 @@ dap.adapters.php = {
     args = { '/Volumes/development/open-source/vscode-php-debug/out/phpDebug.js' }
 }
 
-
 dap.configurations.php = {
   {
     type = 'php',
     request = 'launch',
     name = 'Listen for Xdebug',
     port = 9003,
-    stopOnEntry = true
+    stopOnEntry = false
   }
 }
 
 require('dap.ext.vscode').load_launchjs()
 
-vim.api.nvim_exec( [[ au FileType dap-repl lua require('dap.ext.autocompl').attach() ]], false)
+vim.api.nvim_exec([[ au FileType dap-repl lua require('dap.ext.autocompl').attach() ]], false)
 
 dap.defaults.fallback.exception_breakpoints = {''}
-

@@ -68,7 +68,7 @@ map('n', '<leader>rr', ':luafile $MYVIMRC<CR>', {})
 map('n', '<leader>rl', ':luafile %<CR>', {})
 
 map('n', '<leader>oo', '<cmd>Vista!!<cr>', options)
-
+map('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', options)
 ----------------
 -- Find stuff --
 ----------------
@@ -76,12 +76,11 @@ map('n', '<leader>oo', '<cmd>Vista!!<cr>', options)
 map('n', '<leader>rn', '<cmd>lua require("lspsaga.rename").rename()<CR>', options)
 map('n', '<leader>ca', '<cmd>lua require("lspsaga.codeaction").code_action()<CR>', options)
 map('v', '<leader>ca', '<cmd><C-U>lua require("lspsaga.codeaction").range_code_action()<CR>', options)
-map('n', '<leader>gh', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>', options)
 
-map('n', '<leader><space>', '<cmd>Telescope find_files<cr>', options)
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<leader>fr', '<cmd>Telescope live_grep<cr>', options)
 map('n', '<leader>;', '<cmd>Telescope buffers<cr>', options)
-map('n', '<leader>ff', '<cmd>Telescope frecency<cr>', options)
+map('n', '<leader>fo', '<cmd>Telescope frecency<cr>', options)
 map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>',options)
 
 ------------------
