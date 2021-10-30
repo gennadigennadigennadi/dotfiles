@@ -1,5 +1,5 @@
 -- following options are the default
-require'nvim-tree'.setup {
+return require'nvim-tree'.setup {
     -- disables netrw completely
     disable_netrw       = true,
     -- hijack netrw window on startup

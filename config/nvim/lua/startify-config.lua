@@ -11,7 +11,7 @@ vim.g.startify_lists = {
 }
 vim.g.startify_bookmarks = {
     { vi = '$MYVIMRC' }, 
-    { vp = '$XDG_CONFIG_HOME/nvim/plugin/plugins.lua' }, 
+    { vp = '$XDG_CONFIG_HOME/nvim/lua/plugins.lua' }, 
     { df = '$HOME/workspace/dotfiles/' },
     { pdc = '/Volumes/development/dmk/core/README.md' },
     { pdj = '/Volumes/development/dmk/jpxo/README.md' }

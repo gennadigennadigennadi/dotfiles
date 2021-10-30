@@ -25,6 +25,10 @@ map('v', 'Y', 'myY`y', options)
 map('n', 'n', 'nzzzv', options)
 map('n', 'N', 'Nzzzv', options)
 
+-- Moving text
+map('v', 'J', ":m '>+1<CR>gv=gv", { noremap=true })
+map('v', 'K', ":m '<-2<CR>gv=gv", { noremap=true })
+
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>', options)
