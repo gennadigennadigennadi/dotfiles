@@ -12,10 +12,18 @@ map('c', 'w!!', 'execute ":w suda://%"', {}) -- Save files as root
 map('v', '>', '>gv', options)
 map('v', '<', '<gv', options)
 
+map('n', 'J', 'mzJ`z', options) -- Keep the cursor in place while joining lines
+
 map('n', 'H', '^', options) -- goto the beginning of the line
 map('n', 'L', '$', options) -- go to the end of the line
 
-map('n', 'J', 'mzJ`z', options) -- Keep the cursor in place while joining lines
+map('n', 'Y', 'y$', options) -- yank to end of line
+map('v', 'y', 'myy`y', options) -- maintan the cursor position when yanking
+map('v', 'Y', 'myY`y', options)
+
+-- keep it centered
+map('n', 'n', 'nzzzv', options)
+map('n', 'N', 'Nzzzv', options)
 
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
@@ -69,6 +77,7 @@ map('n', '<leader>rl', ':luafile %<CR>', {})
 
 map('n', '<leader>oo', '<cmd>Vista!!<cr>', options)
 map('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', options)
+
 ----------------
 -- Find stuff --
 ----------------

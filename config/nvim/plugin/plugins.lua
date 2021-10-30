@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     }
 
     use 'simeji/winresizer' -- <c-w> + hjkl for resizing
-    -- use 'norcalli/nvim-colorizer.lua'
+    use 'norcalli/nvim-colorizer.lua'
 
     use {'jez/vim-superman', opt = true, cmd = 'SuperMan'} -- manpage pager
     use 'b3nj5m1n/kommentary' -- gcc/gc3
@@ -52,12 +52,8 @@ return require('packer').startup(function(use)
     }
 
     use 'christoomey/vim-tmux-navigator' -- tmux like pane switching ctrl + hjkl
-
-    -- <leader>oo
-    use { 'liuchengxu/vista.vim', opt = true, cmd = 'Vista' }
-
-    -- editorconfig for vim
-    use { 'editorconfig/editorconfig-vim' }
+    use { 'liuchengxu/vista.vim', opt = true, cmd = 'Vista' } -- <leader>oo
+    use { 'editorconfig/editorconfig-vim' } -- editorconfig for vim
 
     use {
         'karb94/neoscroll.nvim',

@@ -1,9 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
-vim.opt.ttimeoutlen = 0
-
 vim.opt.title = true -- show file title in terminal tab
 vim.opt.termguicolors = true
 vim.opt.splitright = true -- Opens vertical split right of current window
@@ -12,7 +9,8 @@ vim.opt.splitbelow = true -- Opens horizontal split below current window
 vim.opt.pumheight = 50 -- number Items in pum
 vim.opt.completeopt = 'menu,preview,noinsert,menuone,noselect'
 vim.opt.autowrite = true -- write file with focus lost
-vim.opt.hidden = true -- keep vim.opts open
+-- default is on for neovim
+-- vim.opt.hidden = true -- keep vim.opts open
 
 vim.opt.whichwrap = 'h,l,,<,>,~,[,]' -- allow motions and back-spacing over line-endings
 
@@ -34,30 +32,36 @@ vim.opt.sidescroll = 10
 vim.opt.sidescrolloff = 10
 
 vim.opt.cmdheight = 2
-vim.opt.updatetime = 500 -- time vim waits before writing swap file/ also used for CursorHold
 
 vim.opt.backup = false
 vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
+
 vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
 vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. 'c' --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = 'a'
 
-vim.opt.cursorline = true -- Highlight current line
-vim.opt.signcolumn = 'yes:2' -- combine signcolumn with number
-vim.opt.number = true -- show current linenumber
+vim.opt.cursorline = true
+vim.opt.signcolumn = 'yes:1'
+vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.list = false -- show invisible chars
-vim.opt.wrap = false -- don't wrap lines
-vim.opt.lazyredraw = true
+vim.opt.list = true -- show invisible chars
+vim.opt.listchars = {tab = '▸ ', trail='·'}
+vim.opt.wrap = false
 
-vim.opt.foldenable = false -- Don't fold by default
+vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
+vim.opt.ttimeoutlen = 0
+
+vim.opt.lazyredraw = true 
+vim.opt.updatetime = 300 -- time vim waits before writing swap file/ also used for CursorHold
+vim.opt.redrawtime = 10000
+
+vim.opt.foldenable = false 
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldnestmax = 3
-
-vim.opt.swapfile = false
-vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
 
 -- its ugly and i want to change it as soon as possible: @see https://github.com/neovim/neovim/pull/12378
 vim.cmd 'augroup my-stuff'
@@ -69,7 +73,9 @@ vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Vi
 vim.cmd([[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]])
 vim.cmd('augroup END')
 
-vim.cmd([[colorscheme gruvbox-material]])
+vim.cmd([[
+    colorscheme edge
+]])
 
 vim.g.vista_default_executive = 'nvim_lsp'
 
