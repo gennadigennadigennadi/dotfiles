@@ -137,7 +137,8 @@ return packer.startup({
         use { 'onsails/lspkind-nvim', before = "nvim-cmp" }
 
         use {
-            'rinx/lspsaga.nvim',
+            -- this is a working fork
+            'tami5/lspsaga.nvim',
             config = function()
                 require('lspsaga').init_lsp_saga({ code_action_keys = { quit = "<ESC>", exec = "<CR>" } })
             end,
@@ -145,10 +146,6 @@ return packer.startup({
 
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     end,
-    config = {
-        -- load order seems to be a problem here
-        compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua',
-        -- compile_path = require('packer.util').join_paths(vim.fn.stdpath{{}}('data'), 'plugin', 'packer_compiled.lua')
-    },
+    config = { compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua' },
 })
 

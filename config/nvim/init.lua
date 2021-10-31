@@ -13,7 +13,7 @@ require('config.startify')
 require('config.lazygit-terminal')
 require('config.dap-util')
 require('config.dap-ui')
-require('config.neoscroll')
+require('config.scroll')
 require('config.telescope')
 
 require('wlsample.evil_line')
