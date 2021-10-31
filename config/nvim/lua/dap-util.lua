@@ -1,18 +1,12 @@
-local M = {}
 local dap = require 'dap'
+dap.adapters.php = {type = 'executable', command = 'node', args = {'/Volumes/development/open-source/vscode-php-debug/out/phpDebug.js'}}
+dap.configurations.php = {{type = 'php', request = 'launch', name = 'Listen for Xdebug', port = 9003, stopOnEntry = false}}
 
-function M.reload_continue()
-    package.loaded['dap_config'] = nil
-    require('dap_config')
-    dap.continue()
-end
+vim.g.dap_virtual_text = true
 
-local opts = {noremap = false, silent = true}
+require('dap.ext.vscode').load_launchjs()
 
--- <Leader>ec to continue
-vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ec', '<cmd>lua require"dap".continue()<CR>', opts)
+vim.api.nvim_exec([[ au FileType dap-repl lua require('dap.ext.autocompl').attach() ]], false)
 
--- <Leader>eC to reload and then continue
-vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>eC', '<cmd>lua require"dap_setup".reload_continue()<CR>', opts)
+dap.defaults.fallback.exception_breakpoints = {''}
 
-return M

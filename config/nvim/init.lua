@@ -8,8 +8,11 @@ require('vista-config')
 require('startify-config')
 require('editor-config')
 require('lazygit-terminal-config')
-require('treesitter-config')
-require('dap-config')
+
+vim.g.vista_default_executive = 'nvim_lsp'
+vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
+
+require('dap-util')
 require('dap-ui-config')
 
 require('neoscroll-config')
@@ -25,5 +28,4 @@ require('telescope').setup({
 })
 require('telescope').load_extension('fzf')
 require("telescope").load_extension("frecency")
-
-vim.api.nvim_command('autocmd BufWritePost ~/.config/nvim/lua/dap-config.lua :luafile %')
+require('telescope').load_extension('dap')
