@@ -32,10 +32,10 @@ lsp_installer.on_server_ready(function(server)
 
     -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
     local server_opts = {
-        ["efm"] = function()
+        efm = function()
             return require('config.lsp.efm')
         end,
-        ['intelephense'] = function()
+        intelephense = function()
             local opts = require('config.lsp.intelephense')
             opts.on_attach = on_attach
             opts.capabilities = capabilities
