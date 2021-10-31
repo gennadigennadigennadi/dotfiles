@@ -1,4 +1,5 @@
 config/karabiner/automatic_backups
-config/nvim/plugin/packer_compiled.lua
+packer_compiled.lua
+
 config/lazygit/state.yml
-config/nvim/lua/packer_compiled.lua
+config/lazygit/*/*.patch
