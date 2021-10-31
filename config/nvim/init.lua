@@ -23,5 +23,5 @@ require('nvim-autopairs').setup()
 require("trouble").setup()
 
 vim.g.vista_default_executive = 'nvim_lsp'
-vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
+vim.g.EditorConfig_exclude_patterns = { 'fugitive://.*' }
 

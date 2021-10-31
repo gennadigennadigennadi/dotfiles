@@ -1,12 +1,5 @@
---[[ require('github-theme').setup({
-    theme_style = 'light_default',
-    dark_float = true,
-    transparent = false,
-    sidebars = {"qf", "vista_kind", "terminal", "packer"},
-}) ]]
-
+-- require('github-theme').setup({ theme_style = 'light_default', dark_float = true, transparent = false, sidebars = {"qf", "vista_kind", "terminal", "packer"}, }) 
 vim.cmd('colorscheme everforest')
-
 
 vim.g.sonokai_style = 'andromeda'
 vim.g.sonokai_enable_italic = true

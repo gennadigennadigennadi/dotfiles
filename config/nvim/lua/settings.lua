@@ -15,17 +15,17 @@ vim.opt.autowrite = true -- write file with focus lost
 vim.opt.whichwrap = 'h,l,,<,>,~,[,]' -- allow motions and back-spacing over line-endings
 
 vim.opt.tabstop = 4 -- when indenting with '>', use 4 spaces width
-vim.opt.shiftwidth = 4  -- On pressing tab, insert 4 spaces
+vim.opt.shiftwidth = 4 -- On pressing tab, insert 4 spaces
 vim.opt.tabstop = 4 -- when indenting with '>', use 4 spaces width
-vim.opt.shiftwidth = 4  -- On pressing tab, insert 4 spaces
+vim.opt.shiftwidth = 4 -- On pressing tab, insert 4 spaces
 
 vim.opt.autoindent = true
-vim.opt.smartindent  = true -- show existing tab with 4 spaces width
+vim.opt.smartindent = true -- show existing tab with 4 spaces width
 vim.opt.expandtab = true -- when at 3 spaces, and I hit > ... go to 4, not 7
 vim.opt.shiftround = true
 
 vim.opt.ignorecase = true -- Ignore case when searching...
-vim.opt.smartcase = true --...except if we input a capital letter
+vim.opt.smartcase = true -- ...except if we input a capital letter
 
 vim.opt.scrolloff = 10
 vim.opt.sidescroll = 10
@@ -48,17 +48,17 @@ vim.opt.signcolumn = 'yes:1'
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.list = true -- show invisible chars
-vim.opt.listchars = {tab = '▸ ', trail='·'}
+vim.opt.listchars = { tab = '▸ ', trail = '·' }
 vim.opt.wrap = false
 
 vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
 vim.opt.ttimeoutlen = 0
 
-vim.opt.lazyredraw = true 
+vim.opt.lazyredraw = true
 vim.opt.updatetime = 300 -- time vim waits before writing swap file/ also used for CursorHold
 vim.opt.redrawtime = 10000
 
-vim.opt.foldenable = false 
+vim.opt.foldenable = false
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldnestmax = 3

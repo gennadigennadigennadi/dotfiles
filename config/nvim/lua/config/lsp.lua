@@ -6,7 +6,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local function on_attach(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    local opts = {noremap = true, silent = true}
+    local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -33,38 +33,31 @@ local function on_attach(client, bufnr)
 end
 
 lsp_installer.on_server_ready(function(server)
-    local default_opts = {on_attach = on_attach, capabilities = capabilities}
+    local default_opts = { on_attach = on_attach, capabilities = capabilities }
 
     -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
     local server_opts = {
         ["efm"] = function()
             default_opts.settings = {
-                rootMarkers = {".git/"},
-                languages = {
-                    lua = {
-                        {
-                            formatCommand = "lua-format -i --spaces-before-call --no-keep-simple-function-one-line --no-keep-simple-control-block-one-line --no-break-after-operator --no-break-after-operator --column-limit=150 --break-after-table-lb",
-                            formatStdin = true
-                        }
-                    }
-                },
+                rootMarkers = { ".git/" },
+                languages = { lua = { { formatCommand = "lua-format -i", formatStdin = true } } },
                 runtime = {
                     -- LuaJIT in the case of Neovim
                     version = 'LuaJIT',
-                    path = vim.split(package.path, ';')
+                    path = vim.split(package.path, ';'),
                 },
                 diagnostics = {
                     -- Get the language server to recognize the `vim` global
-                    globals = {'vim'}
+                    globals = { 'vim' },
                 },
                 workspace = {
                     -- Make the server aware of Neovim runtime files
-                    library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
-                }
+                    library = { [vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true },
+                },
             }
-            default_opts.flags = {debounce_text_changes = 150}
-            default_opts.filetypes = {'lua'}
-            default_opts.init_options = {documentFormatting = true}
+            default_opts.flags = { debounce_text_changes = 150 }
+            default_opts.filetypes = { 'lua' }
+            default_opts.init_options = { documentFormatting = true }
             default_opts.on_attach = on_attach
             default_opts.capabilities = capabilities
 
@@ -72,17 +65,18 @@ lsp_installer.on_server_ready(function(server)
         end,
         ['intelephense'] = function()
             default_opts.settings = {
-                languages = {php = {}},
-                rootMarkers = {'composer.json'},
-                telemetry = {enabled = false},
-                completion = {fullyQualifyGlobalConstantsAndFunctions = true},
-                phpdoc = {returnVoid = true}
+                languages = { php = {} },
+                rootMarkers = { 'composer.json' },
+                telemetry = { enabled = false },
+                completion = { fullyQualifyGlobalConstantsAndFunctions = true },
+                phpdoc = { returnVoid = true },
             }
-            default_opts.filetypes = {'php'}
+            default_opts.filetypes = { 'php' }
             default_opts.on_attach = on_attach
             default_opts.capabilities = capabilities
+
             return default_opts
-        end
+        end,
     }
     -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
     server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)

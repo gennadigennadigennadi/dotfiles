@@ -1,5 +1,5 @@
 local map = vim.api.nvim_set_keymap
-local options = {noremap = true, silent = true}
+local options = { noremap = true, silent = true }
 
 map('', '<Space>', '<Nop>', options) -- map the leader key
 
@@ -26,8 +26,8 @@ map('n', 'n', 'nzzzv', options)
 map('n', 'N', 'Nzzzv', options)
 
 -- Moving text
-map('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true})
-map('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true})
+map('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true })
+map('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true })
 
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
@@ -38,7 +38,7 @@ map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>', options)
 map('n', '<leader>t', '<cmd>ToggleTerm<cr>', options)
 
 function _G.set_terminal_keymaps()
-    local opts = {noremap = true}
+    local opts = { noremap = true }
     vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
     vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
