@@ -43,7 +43,7 @@ lsp_installer.on_server_ready(function(server)
                 languages = {
                     lua = {
                         {
-                            formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-keep-simple-control-block-one-line --no-break-after-operator --no-break-after-operator --column-limit=150 --break-after-table-lb",
+                            formatCommand = "lua-format -i --spaces-before-call --no-keep-simple-function-one-line --no-keep-simple-control-block-one-line --no-break-after-operator --no-break-after-operator --column-limit=150 --break-after-table-lb",
                             formatStdin = true
                         }
                     }

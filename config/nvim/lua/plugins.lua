@@ -6,6 +6,7 @@ local packer = require('packer')
 return packer.startup({
     function(use)
         use {'wbthomason/packer.nvim', opt = true}
+        use {'lewis6991/impatient.nvim'} -- caches neovim configs
 
         use {'projekt0n/github-nvim-theme'}
         use {'sainnhe/sonokai'}
@@ -25,18 +26,18 @@ return packer.startup({
         use 'b3nj5m1n/kommentary' -- gcc/gc3
 
         -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-        use 'tpope/vim-repeat'
+        -- use 'tpope/vim-repeat'
 
         -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping,
         -- Try *cs"'* (change surrounding " -> ')
         use 'tpope/vim-surround'
 
-        use 'machakann/vim-swap' -- g<, g>, gs
+        -- use 'machakann/vim-swap' -- g<, g>, gs
 
         -- add new text object (can delete between comma with di, for example)
         -- or *cin)* (change in next braces)
-        use 'wellle/targets.vim'
-        use 'lambdalisue/suda.vim' -- Write file with sudo
+        -- use 'wellle/targets.vim'
+        -- use 'lambdalisue/suda.vim' -- Write file with sudo
 
         use {'windwp/nvim-autopairs'}
         use {
@@ -71,12 +72,12 @@ return packer.startup({
             config = function()
                 vim.g["test#strategy"] = "neovim"
                 vim.g["test#enabled_runners"] = {"php#phpunit"}
-                vim.g["test#php#phpunit#executable"] = 'bin/phpunit'
+                vim.g["test#php#phpunit#executable"] = 'vendor/bin/phpunit'
                 vim.g.ultest_virtual_text = true
             end
         }
 
-        use {'tpope/vim-fugitive'}
+        -- use {'tpope/vim-fugitive'}
 
         use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
@@ -94,11 +95,6 @@ return packer.startup({
         -- Install nvim-cmp, and buffer source as a dependency
         use {'williamboman/nvim-lsp-installer'}
         use {"folke/trouble.nvim"}
-
-        -- use {"hrsh7th/nvim-cmp", requires = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-path"}}
-        -- use {"rafamadriz/friendly-snippets", module = {"luasnip"}}
-        -- use {'L3MON4D3/LuaSnip'} -- Snippets plugin
-
         use {
             "hrsh7th/nvim-cmp",
             -- event = "InsertEnter",
@@ -149,7 +145,8 @@ return packer.startup({
     end,
     config = {
         -- load order seems to be a problem here
-        -- compile_path = require('packer.util').join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.lua')
+        compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua'
+        -- compile_path = require('packer.util').join_paths(vim.fn.stdpath{{}}('data'), 'plugin', 'packer_compiled.lua')
     }
 })
 

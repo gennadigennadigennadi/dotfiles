@@ -26,8 +26,8 @@ map('n', 'n', 'nzzzv', options)
 map('n', 'N', 'Nzzzv', options)
 
 -- Moving text
-map('v', 'J', ":m '>+1<CR>gv=gv", { noremap=true })
-map('v', 'K', ":m '<-2<CR>gv=gv", { noremap=true })
+map('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true})
+map('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true})
 
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
@@ -94,7 +94,7 @@ map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<leader>fr', '<cmd>Telescope live_grep<cr>', options)
 map('n', '<leader>;', '<cmd>Telescope buffers<cr>', options)
 map('n', '<leader>fo', '<cmd>Telescope frecency<cr>', options)
-map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>',options)
+map('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', options)
 
 ------------------
 -- tab handling --
