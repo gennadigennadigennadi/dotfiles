@@ -9,7 +9,6 @@ require('keymappings')
 
 require('config.theme')
 require('config.tree')
-require('config.vista')
 require('config.startify')
 require('config.lazygit-terminal')
 require('config.dap-util')
