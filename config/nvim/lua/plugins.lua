@@ -43,7 +43,7 @@ return packer.startup({
         use {
             'akinsho/nvim-toggleterm.lua',
             config = function()
-                require"toggleterm".setup({ shade_terminals = false })
+                require'toggleterm'.setup({ shade_terminals = false })
             end,
         }
 
@@ -56,23 +56,24 @@ return packer.startup({
         use { 'kyazdani42/nvim-web-devicons' }
         use { 'kyazdani42/nvim-tree.lua' }
 
-        use { 'airblade/vim-rooter' } -- changes the directory to surrounding .git/root
+        -- use { 'airblade/vim-rooter' } -- changes the directory to surrounding .git/root
+        use { 'ahmedkhalf/project.nvim' } -- changes the directory to surrounding .git/root
         use { 'google/vim-searchindex' } -- displays found matches count
         use { 'romainl/vim-cool' } -- disables search highlighting when you are done searching and re-enables it when you search again
 
         use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
         use { 'nvim-telescope/telescope-dap.nvim' }
-        use { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } }
+        use { 'nvim-telescope/telescope-frecency.nvim', requires = { 'tami5/sqlite.lua' } }
 
         use {
-            "rcarriga/vim-ultest",
-            requires = { "vim-test/vim-test" },
-            run = ":UpdateRemotePlugins",
+            'rcarriga/vim-ultest',
+            requires = { 'vim-test/vim-test' },
+            run = ':UpdateRemotePlugins',
             config = function()
-                vim.g["test#strategy"] = "neovim"
-                vim.g["test#enabled_runners"] = { "php#phpunit" }
-                vim.g["test#php#phpunit#executable"] = 'vendor/bin/phpunit'
+                vim.g['test#strategy'] = 'neovim'
+                vim.g['test#enabled_runners'] = { 'php#phpunit' }
+                vim.g['test#php#phpunit#executable'] = 'vendor/bin/phpunit'
                 vim.g.ultest_virtual_text = true
             end,
         }
@@ -84,63 +85,58 @@ return packer.startup({
         -- Debugger
         use { 'Pocco81/DAPInstall.nvim' }
         use { 'mfussenegger/nvim-dap' }
-        use { "rcarriga/nvim-dap-ui" }
-        use {
-            'theHamsta/nvim-dap-virtual-text',
-            config = function()
-                vim.g.dap_virtual_text = true
-            end,
-        }
+        use { 'rcarriga/nvim-dap-ui' }
+        use { 'theHamsta/nvim-dap-virtual-text' }
 
         -- Install nvim-cmp, and buffer source as a dependency
         use { 'williamboman/nvim-lsp-installer' }
-        use { "folke/trouble.nvim" }
+        use { 'folke/trouble.nvim' }
         use {
-            "hrsh7th/nvim-cmp",
+            'hrsh7th/nvim-cmp',
             -- event = "InsertEnter",
             config = function()
-                require("config.cmp").config()
+                require('config.cmp').config()
             end,
-            wants = { "LuaSnip" },
+            wants = { 'LuaSnip' },
             requires = {
                 {
-                    "L3MON4D3/LuaSnip",
+                    'L3MON4D3/LuaSnip',
                     -- event = "BufReadPre",
-                    wants = "friendly-snippets",
+                    wants = 'friendly-snippets',
                     config = function()
-                        require "config.snippets"
+                        require 'config.snippets'
                     end,
                 },
-                "rafamadriz/friendly-snippets",
+                'rafamadriz/friendly-snippets',
                 {
-                    "windwp/nvim-autopairs",
-                    event = "BufReadPre",
+                    'windwp/nvim-autopairs',
+                    event = 'BufReadPre',
                     config = function()
-                        require "config.autopairs"
+                        require 'config.autopairs'
                     end,
                 },
             },
         }
-        use { "hrsh7th/cmp-path", after = "nvim-cmp" }
-        use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
-        use { "hrsh7th/cmp-nvim-lsp" }
-        use { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }
+        use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
+        use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
+        use { 'hrsh7th/cmp-nvim-lsp' }
+        use { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
         -- Autocompletion plugin
         use { 'ray-x/lsp_signature.nvim' }
         use {
             'neovim/nvim-lspconfig',
             config = function()
-                require "config.lsp"
+                require 'config.lsp'
             end,
         }
 
-        use { 'onsails/lspkind-nvim', before = "nvim-cmp" }
+        use { 'onsails/lspkind-nvim', before = 'nvim-cmp' }
 
         use {
             -- this is a working fork
             'tami5/lspsaga.nvim',
             config = function()
-                require('lspsaga').init_lsp_saga({ code_action_keys = { quit = "<ESC>", exec = "<CR>" } })
+                require('lspsaga').init_lsp_saga({ code_action_keys = { quit = '<ESC>', exec = '<CR>' } })
             end,
         }
 

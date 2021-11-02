@@ -25,7 +25,7 @@ table_sep: ","
 extra_sep_at_table_end: true
 spaces_inside_table_braces: true
 break_after_operator: true
-double_quote_to_single_quote: false
+double_quote_to_single_quote: true
 single_quote_to_double_quote: false
 spaces_around_equals_in_field: true
 line_breaks_after_function_body: 1

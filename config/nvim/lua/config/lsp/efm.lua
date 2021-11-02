@@ -1,14 +1,14 @@
 local efm = {}
 
 efm.settings = {
-    rootMarkers = { ".git/" },
+    rootMarkers = { '.git/' },
     languages = {
-        lua = { { formatCommand = "lua-format -i", formatStdin = true } },
+        lua = { { formatCommand = 'lua-format -i', formatStdin = true } },
         php = {
-            { prefix = 'phpstan', lintCommand = "./vendor/bin/phpstan analyze --error-format raw --no-progress" },
+            { prefix = 'phpstan', lintCommand = './vendor/bin/phpstan analyze --error-format raw --no-progress' },
             {
                 prefix = 'psalm',
-                lintCommand = "./vendor/bin/psalm --output-format=emacs --no-progress",
+                lintCommand = './vendor/bin/psalm --output-format=emacs --no-progress',
                 lintFormats = { '%f:%l:%c:%trror - %m', '%f:%l:%c:%tarning - %m' },
             },
         },

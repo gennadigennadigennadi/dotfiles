@@ -26,8 +26,8 @@ map('n', 'n', 'nzzzv', options)
 map('n', 'N', 'Nzzzv', options)
 
 -- Moving text
-map('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true })
-map('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true })
+map('v', 'J', ':m \'>+1<CR>gv=gv', { noremap = true })
+map('v', 'K', ':m \'<-2<CR>gv=gv', { noremap = true })
 
 map('n', '<c-q>', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<c-x>', '<cmd>q!<CR>', options)
@@ -54,22 +54,22 @@ vim.cmd('autocmd! TermOpen term://*toggleterm#1* lua set_terminal_keymaps()')
 -- DAP Debugger --
 ------------------
 ------------------
-map("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", options)
+map('n', '<leader>b', ':lua require\'dap\'.toggle_breakpoint()<CR>', options)
 
-map("n", "<F5>", ":lua require'dap'.continue()<CR>", options)
-map("n", "<F10>", ":lua require'dap'.step_over()<CR>", options)
-map("n", "<F11>", ":lua require'dap'.step_into()<CR>", options)
-map("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
+map('n', '<F5>', ':lua require\'dap\'.continue()<CR>', options)
+map('n', '<F10>', ':lua require\'dap\'.step_over()<CR>', options)
+map('n', '<F11>', ':lua require\'dap\'.step_into()<CR>', options)
+map('n', '<F12>', ':lua require\'dap\'.step_out()<CR>', options)
 -- map("n", "<leader>dj", ":lua require'dap'.down()<CR>", options)
 -- map("n", "<leader>dk", ":lua require'dap'.up()<CR>", options)
 
-map("n", "<leader>dx", ":lua require'dap'.disconnect()<CR>:lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
+map('n', '<leader>dx', ':lua require\'dap\'.disconnect()<CR>:lua require\'dap\'.close()<CR>:lua require(\'dapui\').close()<CR>', options)
 
-map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
-map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
-map("n", "<leader>do", ":lua require'dap'.repl.open()<CR>", options)
+map('n', '<leader>dq', ':lua require\'dap\'.close()<CR>:lua require(\'dapui\').close()<CR>', options)
+map('n', '<leader>dK', [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
+map('n', '<leader>do', ':lua require\'dap\'.repl.open()<CR>', options)
 
-map("n", "<leader>D", ":lua require('dapui').toggle()<CR>", options)
+map('n', '<leader>D', ':lua require(\'dapui\').toggle()<CR>', options)
 
 map('n', 'SS', '<cmd>Startify<CR>', options)
 

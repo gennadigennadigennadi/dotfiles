@@ -18,7 +18,7 @@ require('config.tree')
 require('gitsigns').setup()
 require('wlsample.evil_line')
 require('nvim-autopairs').setup()
-require("trouble").setup()
+require('trouble').setup()
 
 vim.g.vista_default_executive = 'nvim_lsp'
 vim.g.EditorConfig_exclude_patterns = { 'fugitive://.*' }

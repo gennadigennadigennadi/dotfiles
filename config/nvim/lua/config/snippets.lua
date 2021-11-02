@@ -1,13 +1,13 @@
 -- local util = require "util"
-local luasnip = require "luasnip"
+local luasnip = require 'luasnip'
 
 luasnip.config.set_config {
     history = true,
     -- Update more often, :h events for more info.
-    updateevents = "TextChanged,TextChangedI",
+    updateevents = 'TextChanged,TextChangedI',
 }
 
-require("luasnip/loaders/from_vscode").load()
+require('luasnip/loaders/from_vscode').load()
 
 --- <tab> to jump to next snippet's placeholder
 --[[ local function on_tab()

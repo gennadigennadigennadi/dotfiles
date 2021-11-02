@@ -12,10 +12,7 @@ vim.g.startify_lists = {
 vim.g.startify_bookmarks = {
     { vi = '$MYVIMRC' },
     { vp = '$XDG_CONFIG_HOME/nvim/lua/plugins.lua' },
+    { vt = '$XDG_CONFIG_HOME/wezterm/wezterm.lua' },
+    { vt = '$XDG_CONFIG_HOME/fish/config.fish' },
     { df = '$HOME/workspace/dotfiles/' },
-    { pdc = '/Volumes/development/dmk/core/README.md' },
-    { pdj = '/Volumes/development/dmk/jpxo/README.md' },
 }
--- vim.g.startify_commands = {
---     { du = { 'start docker', '!docker-compose up -d' } }
--- }
