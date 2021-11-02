@@ -57,7 +57,12 @@ return packer.startup({
         use { 'kyazdani42/nvim-tree.lua' }
 
         -- use { 'airblade/vim-rooter' } -- changes the directory to surrounding .git/root
-        use { 'ahmedkhalf/project.nvim' } -- changes the directory to surrounding .git/root
+        use {
+            'ahmedkhalf/project.nvim',
+            config = function()
+                require('project_nvim').setup {}
+            end,
+        } -- changes the directory to surrounding .git/root
         use { 'google/vim-searchindex' } -- displays found matches count
         use { 'romainl/vim-cool' } -- disables search highlighting when you are done searching and re-enables it when you search again
 
@@ -93,7 +98,7 @@ return packer.startup({
         use { 'folke/trouble.nvim' }
         use {
             'hrsh7th/nvim-cmp',
-            -- event = "InsertEnter",
+            event = 'InsertEnter',
             config = function()
                 require('config.cmp').config()
             end,
@@ -101,7 +106,7 @@ return packer.startup({
             requires = {
                 {
                     'L3MON4D3/LuaSnip',
-                    -- event = "BufReadPre",
+                    event = 'BufReadPre',
                     wants = 'friendly-snippets',
                     config = function()
                         require 'config.snippets'

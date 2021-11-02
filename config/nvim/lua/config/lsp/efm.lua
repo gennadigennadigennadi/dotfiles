@@ -20,4 +20,3 @@ efm.filetypes = { 'lua', 'php' }
 efm.init_options = { documentFormatting = true }
 
 return efm
-

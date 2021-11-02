@@ -21,6 +21,13 @@ map('n', 'Y', 'y$', options) -- yank to end of line
 map('v', 'y', 'myy`y', options) -- maintan the cursor position when yanking
 map('v', 'Y', 'myY`y', options)
 
+-- Quicky escape to normal mode
+map('i', 'jj', '<esc>', options)
+
+-- Easy insertion of a trailing ; or , from insert mode
+map('i', ';;', '<esc>A;<esc>', options)
+map('i', ',,', '<esc>A,<esc>', options)
+
 -- keep it centered
 map('n', 'n', 'nzzzv', options)
 map('n', 'N', 'Nzzzv', options)
