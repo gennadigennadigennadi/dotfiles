@@ -30,36 +30,22 @@ end
 local null_ls = require('null-ls')
 
 null_ls.config({
-    sources = {
-        null_ls.builtins.formatting.phpcsfixer,
-        null_ls.builtins.diagnostics.phpstan,
-        null_ls.builtins.formatting.lua_format,
-    },
+    sources = { require('null-ls').builtins.formatting.phpcsfixer, null_ls.builtins.diagnostics.phpstan, null_ls.builtins.formatting.lua_format },
 })
+
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = {
-        sources = 'always',
-        -- prefix = '●', -- Could be '●', '▎', 'x'
+        source = 'always',
+        prefix = '●', -- Could be '●', '▎', 'x'
     },
 })
--- this is for 0.5
 local signs = { Error = ' ', Warning = ' ', Hint = ' ', Information = ' ' }
-for type, icon in pairs(signs) do
-    local hl = 'LspDiagnosticsSign' .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-end
--- thiss is for 0.6
---[[ local signs = {
-    Error = " ",
-    Warning = " ",
-    Hint = " ",
-    Information = " "
-}
 
 for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
-end ]]
+    local hl = 'DiagnosticSign' .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 require('lspconfig')['null-ls'].setup({ on_attach = on_attach, capabilities = capabilities })
 
 lsp_installer.on_server_ready(function(server)
