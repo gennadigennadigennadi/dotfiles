@@ -96,11 +96,11 @@ return packer.startup({
         -- Install nvim-cmp, and buffer source as a dependency
         use { 'williamboman/nvim-lsp-installer' }
         use { 'folke/trouble.nvim' }
+        use({ 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' } })
         use {
             'hrsh7th/nvim-cmp',
             event = 'InsertEnter',
             config = function()
-                require('config.cmp').config()
             end,
             wants = { 'LuaSnip' },
             requires = {
@@ -128,12 +128,7 @@ return packer.startup({
         use { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
         -- Autocompletion plugin
         use { 'ray-x/lsp_signature.nvim' }
-        use {
-            'neovim/nvim-lspconfig',
-            config = function()
-                require 'config.lsp'
-            end,
-        }
+        use { 'neovim/nvim-lspconfig' }
 
         use { 'onsails/lspkind-nvim', before = 'nvim-cmp' }
 
