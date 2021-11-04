@@ -21,6 +21,8 @@ map('n', 'Y', 'y$', options) -- yank to end of line
 map('v', 'y', 'myy`y', options) -- maintan the cursor position when yanking
 map('v', 'Y', 'myY`y', options)
 
+map('v', 'p', '"_dP', options) -- don't yank the text i paste stuff over
+
 -- Quicky escape to normal mode
 map('i', 'jj', '<esc>', options)
 
