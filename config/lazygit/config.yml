@@ -24,15 +24,15 @@ gui:
     mouseEvents: true
     skipUnstageLineWarning: false
     skipStashWarning: true
-    showFileTree: false # for rendering changes files in a tree format
+    showFileTree: true # for rendering changes files in a tree format
     showListFooter: true # for seeing the '5 of 20' message in list panels
     showRandomTip: true
-    showCommandLog: true
+    showCommandLog: false
     commandLogSize: 3
 git:
     paging:
       colorArg: always
-      useConfig: true
+      useConfig: false
     merging:
         # only applicable to unix users
         manualCommit: false
@@ -65,7 +65,7 @@ disableStartupPopups: false
 notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 keybinding:
     universal:
-        quit: 'q'
+        # quit: 'q'
         quit-alt1: '<c-c>' # alternative/alias of quit
         return: '<esc>' # return to previous menu, will quit if there's nowhere to return
         quitWithoutChangingDirectory: 'Q'

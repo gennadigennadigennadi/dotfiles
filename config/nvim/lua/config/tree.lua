@@ -1,4 +1,4 @@
-return require'nvim-tree'.setup {
+return require("nvim-tree").setup {
     -- disables netrw completely
     disable_netrw = true,
     -- hijack netrw window on startup
@@ -14,7 +14,7 @@ return require'nvim-tree'.setup {
     -- hijack the cursor in the tree to put it at the start of the filename
     hijack_cursor = false,
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
-    update_cwd = true,
+    update_cwd = false,
     diagnostics = { enable = true },
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
@@ -39,7 +39,7 @@ return require'nvim-tree'.setup {
         -- width of the window, can be either a number (columns) or a string in `%`
         width = 40,
         -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
-        side = 'left',
+        side = "left",
         -- if true the tree will resize itself after opening a file
         auto_resize = true,
         mappings = {

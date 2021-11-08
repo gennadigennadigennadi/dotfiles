@@ -1,7 +1,11 @@
 export KEYTIMEOUT=1
 
+# starship init fish | source
+
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_CACHE_HOME $HOME/.local/share
+
 set -x XDEBUG_SESSION "gennadi"
 set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 
