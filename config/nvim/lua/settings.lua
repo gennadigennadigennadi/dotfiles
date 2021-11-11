@@ -83,20 +83,5 @@ vim.cmd [[augroup END]]
 
 vim.g.did_load_filetypes = 1
 
-vim.g.sonokai_style = "andromeda"
-vim.g.sonokai_enable_italic = true
-vim.g.sonokai_show_eob = false
-vim.g.sonokai_sign_column_background = false
-
-vim.g.gruvbox_material_enable_italic = true
-
-vim.g.edge_style = "aura"
-vim.g.edge_enable_italic = true
-vim.g.edge_show_eob = false
-
-vim.g.everforest_show_eob = false
-vim.g.everforest_enable_italic = true
-vim.g.everforest_sign_column_background = false
-
 vim.g.vista_default_executive = "nvim_lsp"
 vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }
