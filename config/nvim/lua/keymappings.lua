@@ -76,15 +76,6 @@ map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close
 map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
 map("n", "<leader>do", ":lua require'dap'.repl.open()<CR>", options)
 
-----------------
--- Find stuff --
-----------------
--- map('n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', {})
-map("n", "<leader>rn", "<cmd>lua require(\"lspsaga.rename\").rename()<CR>", options)
-map("n", "<leader>ca", "<cmd>lua require(\"lspsaga.codeaction\").code_action()<CR>", options)
-map("v", "<leader>ca", "<cmd><C-U>lua require(\"lspsaga.codeaction\").range_code_action()<CR>", options)
--- vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
 ------------------
 -- tab handling --
 ------------------
