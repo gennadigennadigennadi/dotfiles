@@ -41,6 +41,7 @@ local function on_attach(client, bufnr)
             false
         )
     end
+    require("lsp_signature").on_attach() -- Note: add in lsp client on-attach
 end
 
 local null_ls = require "null-ls"
