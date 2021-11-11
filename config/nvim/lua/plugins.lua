@@ -129,6 +129,12 @@ return packer.startup {
                 require("renamer").setup()
             end,
         }
+
+        use {
+            "weilbith/nvim-code-action-menu",
+            cmd = "CodeActionMenu",
+        }
+
         use {
             "nvim-telescope/telescope.nvim",
             config = function()
