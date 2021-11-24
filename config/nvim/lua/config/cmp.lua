@@ -1,14 +1,6 @@
-local function check_backspace()
-    local col = vim.fn.col "." - 1
-    if col == 0 or vim.fn.getline("."):sub(col, col):match "%s" then
-        return true
-    else
-        return false
-    end
-end
-
-local function T(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
 -- vim.o.completeopt = "menuone,noselect"
@@ -16,26 +8,23 @@ end
 -- nvim-cmp setup
 local cmp = require "cmp"
 local luasnip = require "luasnip"
+local lspkind = require "lspkind"
 
 cmp.setup {
     experimental = { ghost_text = false, custom_menu = true },
     completion = { completeopt = "menu,menuone,noinsert" },
     formatting = {
         deprecated = true,
-        format = function(entry, vim_item)
-            vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
-            vim_item.menu = ({
-                nvim_lsp = "(LSP)",
-                emoji = "(Emoji)",
-                path = "(Path)",
-                calc = "(Calc)",
-                vsnip = "(Snippet)",
-                luasnip = "(Snippet)",
+        format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
                 buffer = "(Buffer)",
-            })[entry.source.name]
-            vim_item.dup = ({ buffer = 1, path = 1, nvim_lsp = 0 })[entry.source.name] or 0
-            return vim_item
-        end,
+                nvim_lsp = "(LSP)",
+                luasnip = "(LuaSnip)",
+                nvim_lua = "(Lua)",
+                path = "(path)",
+            },
+        },
     },
     snippet = {
         expand = function(args)
@@ -44,35 +33,34 @@ cmp.setup {
     },
     documentation = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } },
     mapping = {
-        ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-        ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
         ["<Down>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
         ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.close(),
+        -- ["<C-e>"] = cmp.mapping.close(),
         -- ["<ESC>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+                cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
-                vim.fn.feedkeys(T "<Plug>luasnip-expand-or-jump", "")
-            elseif check_backspace() then
-                vim.fn.feedkeys(T "<Tab>", "n")
+                luasnip.expand_or_jump()
+            elseif has_words_before() then
+                cmp.complete()
             else
-                vim.fn.feedkeys(T "<C-Space>") -- Manual trigger
+                fallback()
             end
         end, {
             "i",
             "s",
         }),
+
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
+                cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
-                vim.fn.feedkeys(T "<Plug>luasnip-jump-prev", "")
+                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -83,6 +71,8 @@ cmp.setup {
     },
     sources = {
         { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
         {
             name = "buffer",
             opts = {
@@ -95,8 +85,20 @@ cmp.setup {
                 end,
             },
         },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = "buffer" },
     },
 }
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline("/", {
+    sources = {
+        { name = "buffer" },
+    },
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(":", {
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline" },
+    }),
+})
