@@ -1,4 +1,4 @@
-vim.o.background = "light"
+vim.o.background = "dark"
 
 require("onenord").setup {
     borders = true, -- Split window borders
@@ -35,4 +35,5 @@ vim.g.everforest_sign_column_background = false
 vim.g.gruvbox_material_show_eob = false
 vim.g.gruvbox_material_enable_italic = true
 vim.g.gruvbox_material_sign_column_background = "none"
+
 vim.cmd "colorscheme onenord"

@@ -7,27 +7,49 @@ dap.adapters.php = {
     args = { "/Volumes/development/open-source/vscode-php-debug/out/phpDebug.js" },
 }
 
-dap.configurations.php = {
+--[[ dap.configurations.php = {
     { type = "php", request = "launch", name = "Listen for Xdebug", port = 9003, stopOnEntry = false },
-}
-
-dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-end
-
-require("nvim-dap-virtual-text").setup()
+} ]]
 
 require("dap.ext.vscode").load_launchjs()
 
--- vim.api.nvim_exec([[ au FileType dap-repl lua require('dap.ext.autocompl').attach() ]], false)
-vim.api.nvim_exec [[
-autocmd FileType dapui* set statusline=\
-autocmd FileType dap-repl set statusline=\
-]]
--- dap.defaults.fallback.exception_breakpoints = { "" }
+-- vim.cmd "augroup dap"
+-- vim.cmd "autocmd!"
+-- vim.cmd [[ autocmd FileType dap-repl lua require('dap.ext.autocompl').attach() ]]
+-- vim.cmd [[augroup END]]
+
+vim.notify = require "notify"
+
+dap.listeners.after.event_initialized["dapui_config"] = function(data)
+    vim.notify.notify({ data.config.name }, "info", { title = "DAP - initialized" })
+end
+dap.listeners.before.event_stopped["dapui_config"] = function()
+    dapui.open()
+end
+dapui.setup {
+    icons = { expanded = "▾", collapsed = "▸" },
+    mappings = {
+        -- Use a table to apply multiple mappings
+        expand = { "<CR>", "<1-LeftMouse>" },
+        open = "o",
+        remove = "d",
+        edit = "e",
+        repl = "r",
+    },
+    sidebar = {
+        -- You can change the order of elements in the sidebar
+        elements = {
+            -- Provide as ID strings or tables with "id" and "size" keys
+            { id = "stacks", size = 0.4 },
+            { id = "scopes", size = 0.4 },
+            { id = "breakpoints", size = 0.2 },
+            -- { id = "watches", size = -01.25 },
+        },
+        size = 9,
+        position = "bottom", -- Can be "left", "right", "top", "bottom"
+    },
+    tray = {
+        elements = {},
+    },
+    windows = { indent = 0 },
+}

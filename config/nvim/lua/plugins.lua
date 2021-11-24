@@ -18,7 +18,6 @@ return packer.startup {
         -- fancy vim bootscreen
         use {
             "goolord/alpha-nvim",
-            requires = { "kyazdani42/nvim-web-devicons" },
             config = function()
                 local startify = require "alpha.themes.startify"
                 startify.section.top_buttons.val = {
@@ -36,12 +35,21 @@ return packer.startup {
                 require("alpha").setup(startify.opts)
             end,
         }
-        use {
+        --[[ use {
             "nvim-lualine/lualine.nvim",
             config = function()
                 require("lualine").setup()
             end,
+        } ]]
+
+        use {
+            "windwp/windline.nvim",
+            config = function()
+                require "wlsample.evil_line"
+            end,
         }
+
+        use { "rcarriga/nvim-notify" }
 
         use { "simeji/winresizer" }
         use { "folke/lua-dev.nvim" }
@@ -79,7 +87,7 @@ return packer.startup {
         use { "christoomey/vim-tmux-navigator" }
         use { "liuchengxu/vista.vim" }
         use { "editorconfig/editorconfig-vim" }
-        use {
+        --[[ use {
             "lukas-reineke/indent-blankline.nvim",
             config = function()
                 require("indent_blankline").setup {
@@ -88,7 +96,7 @@ return packer.startup {
                     filetype_exclude = { "alpha", "help", "vista_kind", "packer" },
                 }
             end,
-        }
+        } ]]
         use {
             "karb94/neoscroll.nvim",
             config = function()
@@ -111,7 +119,7 @@ return packer.startup {
                 require("project_nvim").setup {}
             end,
         }
-        use "nathom/filetype.nvim"
+        use { "nathom/filetype.nvim" }
         use { "google/vim-searchindex" }
         use { "romainl/vim-cool" }
         -- fixes the delay for 'j j/ j k'
@@ -146,8 +154,7 @@ return packer.startup {
         use {
             "nvim-telescope/telescope-dap.nvim",
             config = function()
-                require "config.dap-ui"
-                require "config.dap-util"
+                require "config.dap"
             end,
         }
         use { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } }
@@ -175,10 +182,9 @@ return packer.startup {
         }
 
         -- Debugger
-        use { "Pocco81/DAPInstall.nvim" }
         use { "mfussenegger/nvim-dap" }
         use { "rcarriga/nvim-dap-ui" }
-        use { "theHamsta/nvim-dap-virtual-text" }
+        -- use { "theHamsta/nvim-dap-virtual-text" }
 
         -- Install nvim-cmp, and buffer source as a dependency
         use { "williamboman/nvim-lsp-installer" }
@@ -216,13 +222,12 @@ return packer.startup {
         }
 
         use { "hrsh7th/cmp-path", after = "nvim-cmp" }
+        use { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }
         use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
         use { "hrsh7th/cmp-nvim-lsp" }
         use { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }
-        -- Autocompletion plugin
         use { "ray-x/lsp_signature.nvim" }
         use { "neovim/nvim-lspconfig" }
-
         use { "onsails/lspkind-nvim", before = "nvim-cmp" }
 
         use {
@@ -234,7 +239,6 @@ return packer.startup {
         }
 
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-        use { "nvim-treesitter/playground" }
     end,
     config = { compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua" },
 }

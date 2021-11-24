@@ -43,7 +43,7 @@ vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. "c" --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = "a"
 
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -75,9 +75,9 @@ vim.cmd [[autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Vi
 
 -- set cursor to lust know position
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]]
-vim.cmd [[autocmd FocusLost * nested wa!]]
-vim.cmd [[autocmd BufWritePre *.php lua vim.lsp.buf.formatting_sync(nil, 99)]]
-vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 99)]]
+-- vim.cmd [[autocmd FocusLost * nested wa!]]
+vim.cmd [[autocmd BufWritePre *.php lua vim.lsp.buf.formatting_sync(nil, 500)]]
+vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 500)]]
 vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile ]]
 vim.cmd [[augroup END]]
 

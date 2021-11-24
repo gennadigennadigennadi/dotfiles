@@ -58,8 +58,8 @@ vim.cmd "autocmd! TermOpen term://*toggleterm#1* lua set_terminal_keymaps()"
 ------------------
 -- DAP Debugger --
 ------------------
-------------------
 map("n", "<F5>", ":lua require'dap'.continue()<CR>", options)
+map("n", "<F9>", ":lua require'dap'.run_to_cursor()<CR>", options)
 map("n", "<F10>", ":lua require'dap'.step_over()<CR>", options)
 map("n", "<F11>", ":lua require'dap'.step_into()<CR>", options)
 map("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
