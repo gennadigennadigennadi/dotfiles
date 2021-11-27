@@ -69,11 +69,15 @@ map("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
 map(
     "n",
     "<leader>dx",
-    ":lua require'dap'.disconnect()<CR>:lua require'dap'.close()<CR>:lua require('dapui').close()<CR>",
+    ":lua require'dap'.terminate()<CR>:lua require'dap'.close()<CR>:lua require('dapui').close()<CR>",
     options
 )
-map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
-map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
+-- map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
+-- map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
+map("n", "<leader>dK", [[:lua  <Cmd>lua require("dap.ui.widgets").hover()<CR>]], options)
+
+map("n", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
+map("v", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
 map("n", "<leader>do", ":lua require'dap'.repl.open()<CR>", options)
 
 ------------------
