@@ -43,7 +43,7 @@ vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. "c" --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = "a"
 
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -79,9 +79,7 @@ vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
 vim.cmd [[autocmd BufWritePre *.php lua vim.lsp.buf.formatting_sync(nil, 500)]]
 vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 500)]]
 vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile ]]
+
 vim.cmd [[augroup END]]
 
-vim.g.did_load_filetypes = 1
-
-vim.g.vista_default_executive = "nvim_lsp"
 vim.g.EditorConfig_exclude_patterns = { "fugitive://.*" }

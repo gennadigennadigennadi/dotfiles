@@ -52,9 +52,6 @@ map("t", "<C-j>", [[<C-\><C-n><C-W>j]], options)
 map("t", "<C-k>", [[<C-\><C-n><C-W>k]], options)
 map("t", "<C-l>", [[<C-\><C-n><C-W>l]], options)
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd "autocmd! TermOpen term://*toggleterm#1* lua set_terminal_keymaps()"
-
 ------------------
 -- DAP Debugger --
 ------------------

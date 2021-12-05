@@ -5,8 +5,10 @@ local packer = require "packer"
 return packer.startup {
     function(use)
         use { "wbthomason/packer.nvim", opt = true }
-        use { "dstein64/vim-startuptime", disable = true }
         use { "lewis6991/impatient.nvim" }
+        use { "nvim-lua/plenary.nvim" }
+
+        use { "dstein64/vim-startuptime", disable = true }
 
         use { "projekt0n/github-nvim-theme" }
         use { "sainnhe/sonokai" }
@@ -35,26 +37,26 @@ return packer.startup {
                 require("alpha").setup(startify.opts)
             end,
         }
-        --[[ use {
-            "nvim-lualine/lualine.nvim",
-            config = function()
-                require("lualine").setup()
-            end,
-        } ]]
 
         use {
             "windwp/windline.nvim",
             config = function()
                 require "wlsample.evil_line"
             end,
+            use { "simeji/winresizer" },
         }
 
         use { "rcarriga/nvim-notify" }
 
-        use { "simeji/winresizer" }
         use { "folke/lua-dev.nvim" }
         use { "jez/vim-superman", opt = true, cmd = "SuperMan" }
-        use { "b3nj5m1n/kommentary" }
+        use {
+            "numToStr/Comment.nvim",
+            config = function()
+                require("Comment").setup()
+            end,
+        }
+
         use {
             "folke/which-key.nvim",
             config = function()
@@ -64,19 +66,17 @@ return packer.startup {
         -- use "yamatsum/nvim-cursorline"
 
         -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-        use { "tpope/vim-repeat" }
+        -- use { "tpope/vim-repeat" }
 
         -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping,
         -- Try *cs"'* (change surrounding " -> ')
-        use { "tpope/vim-surround" }
-
-        use { "machakann/vim-swap" }
+        -- use { "tpope/vim-surround" }
+        -- use { "machakann/vim-swap" }
 
         -- add new text object (can delete between comma with di, for example)
         -- or *cin)* (change in next braces)
-        use { "wellle/targets.vim" }
+        -- use { "wellle/targets.vim" }
 
-        -- use { 'windwp/nvim-autopairs' }
         use {
             "akinsho/nvim-toggleterm.lua",
             config = function()
@@ -85,18 +85,7 @@ return packer.startup {
         }
 
         use { "christoomey/vim-tmux-navigator" }
-        use { "liuchengxu/vista.vim" }
         use { "editorconfig/editorconfig-vim" }
-        --[[ use {
-            "lukas-reineke/indent-blankline.nvim",
-            config = function()
-                require("indent_blankline").setup {
-                    char = "│",
-                    buftype_exclude = { "terminal" },
-                    filetype_exclude = { "alpha", "help", "vista_kind", "packer" },
-                }
-            end,
-        } ]]
         use {
             "karb94/neoscroll.nvim",
             config = function()
@@ -119,7 +108,6 @@ return packer.startup {
                 require("project_nvim").setup {}
             end,
         }
-        use { "nathom/filetype.nvim" }
         use { "google/vim-searchindex" }
         use { "romainl/vim-cool" }
         -- fixes the delay for 'j j/ j k'
@@ -132,7 +120,6 @@ return packer.startup {
         use {
             "filipdutescu/renamer.nvim",
             branch = "master",
-            requires = { "nvim-lua/plenary.nvim" },
             config = function()
                 require("renamer").setup()
             end,
@@ -148,7 +135,6 @@ return packer.startup {
             config = function()
                 require "config.telescope"
             end,
-            requires = { "nvim-lua/plenary.nvim" },
         }
         use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
         use {
@@ -157,7 +143,6 @@ return packer.startup {
                 require "config.dap"
             end,
         }
-        use { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } }
 
         use {
             "rcarriga/vim-ultest",
@@ -171,20 +156,21 @@ return packer.startup {
             end,
         }
 
-        -- use {'tpope/vim-fugitive'}
-
         use {
             "lewis6991/gitsigns.nvim",
             config = function()
                 require "config.gitsigns"
             end,
-            requires = { "nvim-lua/plenary.nvim" },
         }
 
         -- Debugger
-        use { "mfussenegger/nvim-dap" }
-        use { "rcarriga/nvim-dap-ui" }
-        -- use { "theHamsta/nvim-dap-virtual-text" }
+        use {
+            "mfussenegger/nvim-dap",
+            requires = {
+                "theHamsta/nvim-dap-virtual-text",
+                "rcarriga/nvim-dap-ui",
+            },
+        }
 
         -- Install nvim-cmp, and buffer source as a dependency
         use { "williamboman/nvim-lsp-installer" }
@@ -199,7 +185,6 @@ return packer.startup {
         use {
             "hrsh7th/nvim-cmp",
             -- event = 'InsertEnter',
-            config = function() end,
             wants = { "LuaSnip" },
             requires = {
                 {
@@ -210,7 +195,7 @@ return packer.startup {
                         require "config.snippets"
                     end,
                 },
-                "rafamadriz/friendly-snippets",
+                { "rafamadriz/friendly-snippets" },
                 {
                     "windwp/nvim-autopairs",
                     event = "BufReadPre",
@@ -231,14 +216,17 @@ return packer.startup {
         use { "onsails/lspkind-nvim", before = "nvim-cmp" }
 
         use {
-            -- this is a working fork
-            "tami5/lspsaga.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate",
             config = function()
-                require("lspsaga").init_lsp_saga { code_action_keys = { quit = "<ESC>", exec = "<CR>" } }
+                require "config.treesitter"
             end,
         }
-
-        use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     end,
-    config = { compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua" },
+    config = {
+        compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+        display = {
+            open_fn = require("packer.util").float,
+        },
+    },
 }
