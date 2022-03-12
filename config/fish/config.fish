@@ -18,6 +18,8 @@ set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_DEFAULT_OPTS '--reverse'
 
 set -xp CDPATH /Volumes/development .
+
+set -g fish_user_paths "$HOME/.local/share/nvim/site/pack/packer/opt/vim-superman/bin"
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.composer/vendor/bin" $fish_user_paths
 set -g fish_user_paths "/opt/homebrew/opt/ncurses/bin" $fish_user_paths
