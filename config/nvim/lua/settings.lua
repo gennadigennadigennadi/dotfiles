@@ -31,7 +31,7 @@ vim.opt.scrolloff = 10
 vim.opt.sidescroll = 10
 vim.opt.sidescrolloff = 10
 
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 2
 
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -43,7 +43,7 @@ vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. "c" --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = "a"
 
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -54,7 +54,7 @@ vim.opt.wrap = false
 vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
 vim.opt.ttimeoutlen = 0
 
-vim.opt.lazyredraw = true
+-- vim.opt.lazyredraw = true
 vim.opt.updatetime = 300 -- time vim waits before writing swap file/ also used for CursorHold
 vim.opt.redrawtime = 10000
 

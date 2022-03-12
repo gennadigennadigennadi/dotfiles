@@ -7,11 +7,10 @@ return {
     font_size = 13,
     line_height = 1.5, -- themes : "Github", "GitHub Dark", "Gruvbox Dark", "OneHalfDark",
     color_scheme = "nord",
-    -- colors = { background = "#fdf7e7" },
     window_padding = {
-        -- left = 20,
+        left = 20,
         right = 0,
-        -- top = 20,
+        top = 20,
         bottom = 0,
     },
 }

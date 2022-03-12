@@ -1,5 +1,4 @@
-vim.o.background = "dark"
-
+-- vim.o.background = "light"
 require("onenord").setup {
     borders = true, -- Split window borders
     italics = {
@@ -36,4 +35,4 @@ vim.g.gruvbox_material_show_eob = false
 vim.g.gruvbox_material_enable_italic = true
 vim.g.gruvbox_material_sign_column_background = "none"
 
-vim.cmd "colorscheme onenord"
+-- vim.cmd "colorscheme onenord"

@@ -5,45 +5,27 @@ local packer = require "packer"
 return packer.startup {
     function(use)
         use { "wbthomason/packer.nvim", opt = true }
-        use { "lewis6991/impatient.nvim" }
         use { "nvim-lua/plenary.nvim" }
-
-        use { "dstein64/vim-startuptime", disable = true }
 
         use { "projekt0n/github-nvim-theme" }
         use { "sainnhe/sonokai" }
-        use { "sainnhe/gruvbox-material" }
-        use { "sainnhe/edge" }
-        use { "sainnhe/everforest" }
         use { "rmehri01/onenord.nvim" }
 
         -- fancy vim bootscreen
         use {
             "goolord/alpha-nvim",
             config = function()
-                local startify = require "alpha.themes.startify"
-                startify.section.top_buttons.val = {
-                    startify.button("e", "New file", ":ene <bar> startinsert <cr>"),
-                    startify.button("pu", "Packer Update", ":PackerSync<cr>"),
-                    startify.file_button("$MYVIMRC", "vi", "init.lua"),
-                    startify.file_button("$XDG_CONFIG_HOME/nvim/lua/plugins.lua", "ep", "plugins.lua"),
-                    startify.file_button("$XDG_CONFIG_HOME/nvim/lua/keymappings.lua", "ek", "keymappings.lua"),
-                    startify.file_button("$XDG_CONFIG_HOME/fish/config.fish", "ef", "config.fish"),
-                    startify.file_button("$XDG_CONFIG_HOME/wezterm/wezterm.lua", "ew", "wezterm.lua"),
-                }
-                startify.section.header.val = require "alpha.fortune"()
-                startify.section.header.opts = { position = "center" }
-
-                require("alpha").setup(startify.opts)
+                require "config.alpha"
             end,
         }
+
+        use { "simeji/winresizer" }
 
         use {
             "windwp/windline.nvim",
             config = function()
                 require "wlsample.evil_line"
             end,
-            use { "simeji/winresizer" },
         }
 
         use { "rcarriga/nvim-notify" }
@@ -63,20 +45,7 @@ return packer.startup {
                 require "config.which-key"
             end,
         }
-        -- use "yamatsum/nvim-cursorline"
-
-        -- the . command can repeat whatever you want! See http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-        -- use { "tpope/vim-repeat" }
-
-        -- surrounding text objects with paranthesis, quotes, html tags...[],(), {}, <> Auto Sourrinding mapping,
-        -- Try *cs"'* (change surrounding " -> ')
-        -- use { "tpope/vim-surround" }
-        -- use { "machakann/vim-swap" }
-
-        -- add new text object (can delete between comma with di, for example)
-        -- or *cin)* (change in next braces)
-        -- use { "wellle/targets.vim" }
-
+        use "yamatsum/nvim-cursorline"
         use {
             "akinsho/nvim-toggleterm.lua",
             config = function()
@@ -99,7 +68,7 @@ return packer.startup {
             config = function()
                 require "config.tree"
             end,
-            cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+            -- cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
         }
         -- changes the directory to surrounding .git/root
         use {
@@ -116,18 +85,6 @@ return packer.startup {
             config = function()
                 require("better_escape").setup()
             end,
-        }
-        use {
-            "filipdutescu/renamer.nvim",
-            branch = "master",
-            config = function()
-                require("renamer").setup()
-            end,
-        }
-
-        use {
-            "weilbith/nvim-code-action-menu",
-            cmd = "CodeActionMenu",
         }
 
         use {
@@ -175,21 +132,15 @@ return packer.startup {
         -- Install nvim-cmp, and buffer source as a dependency
         use { "williamboman/nvim-lsp-installer" }
         use {
-            "folke/trouble.nvim",
-            config = function()
-                require("trouble").setup()
-            end,
-            cmd = { "Trouble", "TroubleToggle" },
-        }
-        use { "jose-elias-alvarez/null-ls.nvim" }
-        use {
             "hrsh7th/nvim-cmp",
             -- event = 'InsertEnter',
             wants = { "LuaSnip" },
+            config = function()
+                require "config.cmp"
+            end,
             requires = {
                 {
                     "L3MON4D3/LuaSnip",
-                    -- event = 'BufReadPre',
                     wants = "friendly-snippets",
                     config = function()
                         require "config.snippets"
@@ -206,14 +157,36 @@ return packer.startup {
             },
         }
 
+        use { "jose-elias-alvarez/null-ls.nvim" }
+        use {
+            "neovim/nvim-lspconfig",
+            config = function()
+                require "config.lsp"
+            end,
+        }
+        use { "hrsh7th/cmp-nvim-lsp" }
         use { "hrsh7th/cmp-path", after = "nvim-cmp" }
         use { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }
         use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
-        use { "hrsh7th/cmp-nvim-lsp" }
         use { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }
         use { "ray-x/lsp_signature.nvim" }
-        use { "neovim/nvim-lspconfig" }
         use { "onsails/lspkind-nvim", before = "nvim-cmp" }
+
+        use {
+            "folke/trouble.nvim",
+            config = function()
+                require("trouble").setup()
+            end,
+            cmd = { "Trouble", "TroubleToggle" },
+        }
+
+        use {
+            -- this is a working fork
+            "tami5/lspsaga.nvim",
+            config = function()
+                require("lspsaga").init_lsp_saga { code_action_keys = { quit = "<ESC>", exec = "<CR>" } }
+            end,
+        }
 
         use {
             "nvim-treesitter/nvim-treesitter",
@@ -224,7 +197,6 @@ return packer.startup {
         }
     end,
     config = {
-        compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
         display = {
             open_fn = require("packer.util").float,
         },
