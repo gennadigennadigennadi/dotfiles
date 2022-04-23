@@ -25,7 +25,6 @@ local function on_attach(client, bufnr)
     end
 
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-    require("lsp_signature").on_attach() -- Note: add in lsp client on-attach
 end
 
 lsp_installer.on_server_ready(function(server)
@@ -35,6 +34,7 @@ lsp_installer.on_server_ready(function(server)
     local server_opts = {
         intelephense = function()
             local opts = require "config.lsp.intelephense"
+            require("lsp_signature").setup()
 
             opts.capabilities = capabilities
             opts.on_attach = function(client, bufnr)
