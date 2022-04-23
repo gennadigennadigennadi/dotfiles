@@ -47,7 +47,7 @@ return packer.startup {
         }
         use "yamatsum/nvim-cursorline"
         use {
-            "akinsho/nvim-toggleterm.lua",
+            "akinsho/toggleterm.nvim",
             config = function()
                 require("toggleterm").setup { shade_terminals = false }
             end,
