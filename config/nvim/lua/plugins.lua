@@ -9,6 +9,8 @@ return packer.startup {
 
         use { "projekt0n/github-nvim-theme" }
         use { "sainnhe/sonokai" }
+        use { "sainnhe/everforest" }
+        use { "sainnhe/gruvbox-material" }
         use { "rmehri01/onenord.nvim" }
 
         -- fancy vim bootscreen
@@ -46,12 +48,7 @@ return packer.startup {
             end,
         }
         use "yamatsum/nvim-cursorline"
-        use {
-            "akinsho/toggleterm.nvim",
-            config = function()
-                require("toggleterm").setup { shade_terminals = false }
-            end,
-        }
+        use { "akinsho/toggleterm.nvim" }
 
         use { "christoomey/vim-tmux-navigator" }
         use { "editorconfig/editorconfig-vim" }
@@ -157,7 +154,12 @@ return packer.startup {
             },
         }
 
-        use { "jose-elias-alvarez/null-ls.nvim" }
+        use {
+            "jose-elias-alvarez/null-ls.nvim",
+            config = function()
+                require "config.null-ls"
+            end,
+        }
         use {
             "neovim/nvim-lspconfig",
             config = function()

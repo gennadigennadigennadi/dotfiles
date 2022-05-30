@@ -1,10 +1,14 @@
-local lsp_installer = require "nvim-lsp-installer"
+require("nvim-lsp-installer").setup {
+    automatic_installation = true,
+}
+
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local function on_attach(client, bufnr)
     local map = vim.api.nvim_buf_set_keymap
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    require("lsp_signature").setup()
 
     local opts = { noremap = true, silent = true }
 
@@ -24,40 +28,73 @@ local function on_attach(client, bufnr)
         )
     end
 
+    if client.name == "sumneko_lua" or client.name == "intelephense" then
+        client.resolved_capabilities.document_formatting = false
+    end
+
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-lsp_installer.on_server_ready(function(server)
-    local default_opts = { on_attach = on_attach, capabilities = capabilities }
+local lspconfig = require "lspconfig"
+lspconfig.intelephense.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        languages = { php = {} },
+        rootMarkers = { "composer.json" },
+        telemetry = { enabled = false },
+        -- format = { enabled = false },
+        completion = { fullyQualifyGlobalConstantsAndFunctions = true },
+        phpdoc = { returnVoid = true },
+    },
+}
 
-    -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
-    local server_opts = {
-        intelephense = function()
-            local opts = require "config.lsp.intelephense"
-            require("lsp_signature").setup()
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
 
-            opts.capabilities = capabilities
-            opts.on_attach = function(client, bufnr)
-                client.resolved_capabilities.document_formatting = false
-                client.resolved_capabilities.document_range_formatting = false
+require("lspconfig").sumneko_lua.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = "LuaJIT",
+                -- Setup your lua path
+                path = runtime_path,
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { "vim" },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+}
 
-                on_attach(client, bufnr)
-            end
+local signs = {
+    Error = " ",
+    Warning = " ",
+    Hint = " ",
+    Information = " ",
+}
 
-            return opts
-        end,
-        sumneko_lua = function()
-            local opts = require("lua-dev").setup()
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
-            opts.on_attach = on_attach
-            opts.capabilities = capabilities
-
-            return opts
-        end,
-    }
-    server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
-
-require "config.lsp.null-ls"
-require "config.lsp.config"
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = {
+        source = "always",
+        -- prefix = "●", -- Could be '●', '▎', 'x'
+    },
+})
