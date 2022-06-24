@@ -31,7 +31,7 @@ vim.opt.scrolloff = 10
 vim.opt.sidescroll = 10
 vim.opt.sidescrolloff = 10
 
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 
 vim.opt.backup = false
