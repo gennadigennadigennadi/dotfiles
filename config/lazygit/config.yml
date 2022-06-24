@@ -33,6 +33,7 @@ git:
     paging:
       colorArg: always
       useConfig: false
+      pager: delta --dark --paging=never
     merging:
         # only applicable to unix users
         manualCommit: false
@@ -150,7 +151,7 @@ keybinding:
         setUpstream: 'u' # set as upstream of checked-out branch
         fetchRemote: 'f'
     comits:
-    m  squashDown: 's'
+    squashDown: 's'
     renameCommit: 'r'
     renameCommitWithEditor: 'R'
     viewResetOptions: 'g'

@@ -1,9 +1,9 @@
 [core]
 	fileMode = false
 	precomposeunicode = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
 [color]
     ui = auto
 [credential]
@@ -15,10 +15,12 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[delta]
+    navigate = true  # use n and N to move between diff sections
 [merge]
-	tool = vimdiff
-[mergetool]
-	path = nvim
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [pull]
 	rebase = true
 [rebase]
