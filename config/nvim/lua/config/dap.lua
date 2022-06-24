@@ -13,11 +13,6 @@ dap.adapters.php = {
 
 require("dap.ext.vscode").load_launchjs()
 
--- vim.cmd "augroup dap"
--- vim.cmd "autocmd!"
--- vim.cmd [[ autocmd FileType dap-repl lua require('dap.ext.autocompl').attach() ]]
--- vim.cmd [[augroup END]]
-
 vim.notify = require "notify"
 
 dap.listeners.after.event_initialized["dapui_config"] = function(data)
@@ -47,9 +42,6 @@ dapui.setup {
         },
         size = 9,
         position = "bottom", -- Can be "left", "right", "top", "bottom"
-    },
-    tray = {
-        elements = {},
     },
     windows = { indent = 0 },
 }
