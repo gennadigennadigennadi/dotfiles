@@ -21,7 +21,7 @@ local function on_attach(client, bufnr)
     map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 
     -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
         vim.api.nvim_exec(
             "augroup lsp_document_highlight autocmd! * <buffer> autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() augroup END",
             false
@@ -29,10 +29,10 @@ local function on_attach(client, bufnr)
     end
 
     if client.name == "sumneko_lua" or client.name == "intelephense" then
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
 
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 local lspconfig = require "lspconfig"

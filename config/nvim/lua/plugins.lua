@@ -99,18 +99,6 @@ return packer.startup {
         }
 
         use {
-            "rcarriga/vim-ultest",
-            requires = { "vim-test/vim-test" },
-            run = ":UpdateRemotePlugins",
-            config = function()
-                vim.g["test#strategy"] = "neovim"
-                vim.g["test#enabled_runners"] = { "php#phpunit" }
-                vim.g["test#php#phpunit#executable"] = "vendor/bin/phpunit"
-                vim.g.ultest_virtual_text = true
-            end,
-        }
-
-        use {
             "lewis6991/gitsigns.nvim",
             config = function()
                 require "config.gitsigns"

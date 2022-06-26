@@ -31,17 +31,5 @@ dapui.setup {
         edit = "e",
         repl = "r",
     },
-    sidebar = {
-        -- You can change the order of elements in the sidebar
-        elements = {
-            -- Provide as ID strings or tables with "id" and "size" keys
-            { id = "stacks", size = 0.5 },
-            { id = "scopes", size = 0.5 },
-            -- { id = "breakpoints", size = 0.2 },
-            -- { id = "watches", size = -01.25 },
-        },
-        size = 9,
-        position = "bottom", -- Can be "left", "right", "top", "bottom"
-    },
     windows = { indent = 0 },
 }

@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.php", "*.lua" },
     group = "personal",
     callback = function()
-        vim.lsp.buf.formatting_sync(nil, 500)
+        vim.lsp.buf.format { async = true }
     end,
 })
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {

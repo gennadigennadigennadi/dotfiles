@@ -4,3 +4,5 @@ packer_compiled.lua
 config/lazygit/state.yml
 config/lazygit/*/*.patch
 config/AWSVPNClient
+config/op/config
+config/fish/fish_variables
