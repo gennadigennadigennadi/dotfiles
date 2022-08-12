@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 vim.opt.splitright = true -- Opens vertical split right of current window
 vim.opt.splitbelow = true -- Opens horizontal split below current window
 
-vim.opt.pumheight = 30 -- number Items in pum
+vim.opt.pumheight = 50 -- number Items in pum
 vim.opt.completeopt = "menu,preview,noinsert,menuone,noselect"
 vim.opt.autowrite = true -- write file with focus lost
 -- default is on for neovim
@@ -55,7 +55,7 @@ vim.opt.wrap = false
 vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
 vim.opt.ttimeoutlen = 0
 
--- vim.opt.lazyredraw = true
+vim.opt.lazyredraw = true
 vim.opt.updatetime = 300 -- time vim waits before writing swap file/ also used for CursorHold
 vim.opt.redrawtime = 10000
 
@@ -63,5 +63,3 @@ vim.opt.foldenable = false
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldnestmax = 3
-
-vim.o.guifont = "JetBrainsMono Nerd Font"
