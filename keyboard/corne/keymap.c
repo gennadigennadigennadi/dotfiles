@@ -4,6 +4,7 @@
 #define L1_SPC LT(1, KC_SPC)
 #define L2_DEL LT(2, KC_BSPC)
 #define L2_TAB LT(2, KC_TAB)
+
 #define L3_ESC LT(3, KC_ESC)
 
 // homerow mod
@@ -16,6 +17,10 @@
 #define MOD_I RCTL_T(KC_I)
 #define MOD_E RALT_T(KC_E)
 #define MOD_N RGUI_T(KC_N)
+
+#define COPY LGUI(KC_C)
+#define CUT LGUI(KC_X)
+#define PASTE LGUI(KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x5_3(
@@ -41,13 +46,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______, _______, _______,    _______, _______, _______
                              //`--------------------------'  `--------------------------'
   ),
+
   [2] = LAYOUT_split_3x5_3(
   //,--------------------------------------------.                    ,--------------------------------------------.
       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       KC_TILD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+      XXXXXXX,     CUT,    COPY, XXXXXXX,   PASTE,                     KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
                                  _______, _______, _______,     _______, KC_ENT, _______
                              //`--------------------------'  `--------------------------'

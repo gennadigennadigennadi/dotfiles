@@ -16,8 +16,6 @@ vim.opt.whichwrap = "h,l,,<,>,~,[,]" -- allow motions and back-spacing over line
 
 vim.opt.tabstop = 4 -- when indenting with '>', use 4 spaces width
 vim.opt.shiftwidth = 4 -- On pressing tab, insert 4 spaces
-vim.opt.tabstop = 4 -- when indenting with '>', use 4 spaces width
-vim.opt.shiftwidth = 4 -- On pressing tab, insert 4 spaces
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true -- show existing tab with 4 spaces width
@@ -49,13 +47,13 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.list = true -- show invisible chars
-vim.opt.listchars = { tab = "▸ ", trail = "·" }
+vim.opt.listchars = { tab = "▸ ", space = "·", trail = "·" }
 vim.opt.wrap = false
 
 vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
 vim.opt.ttimeoutlen = 0
 
-vim.opt.lazyredraw = true
+vim.opt.lazyredraw = false
 vim.opt.updatetime = 300 -- time vim waits before writing swap file/ also used for CursorHold
 vim.opt.redrawtime = 10000
 

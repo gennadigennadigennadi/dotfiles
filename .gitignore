@@ -6,3 +6,4 @@ config/lazygit/*/*.patch
 config/AWSVPNClient
 config/op/config
 config/fish/fish_variables
+keyboard/build
