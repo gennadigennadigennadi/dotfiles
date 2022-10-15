@@ -1,6 +1,11 @@
 require("telescope").setup {
     defaults = { layout_config = { horizontal = { width = 0.95, height = 0.95, preview_width = 0.5 } } },
-    pickers = { buffers = { mappings = { i = { ["<c-d>"] = "delete_buffer" } } } },
+    pickers = {
+        buffers = { mappings = { i = { ["<c-d>"] = "delete_buffer" } } },
+        find_files = {
+            find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+        },
+    },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
@@ -12,5 +17,6 @@ require("telescope").setup {
 }
 
 require("telescope").load_extension "fzf"
-require("telescope").load_extension "dap"
-require("telescope").load_extension "projects"
+require("telescope").load_extension "file_browser"
+-- require("telescope").load_extension "dap"
+-- require("telescope").load_extension "projects"

@@ -2,9 +2,6 @@ require "settings"
 require "plugins"
 require "autocmd"
 require "keymappings"
-
 require "theme"
 
-require("toggleterm").setup {
-    shade_terminals = false,
-}
+-- require("vim.treesitter.query").set_query("php", "highlights", "\"$\" @keyword")

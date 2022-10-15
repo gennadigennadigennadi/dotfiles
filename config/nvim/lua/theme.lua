@@ -1,25 +1,31 @@
-vim.o.background = "light"
-require("onenord").setup {
-    borders = true, -- Split window borders
-    italics = {
-        comments = true, -- Italic comments
-        strings = false, -- Italic strings
-        keywords = false, -- Italic keywords
-        functions = false, -- Italic functions
-        variables = false, -- Italic variables
-    },
-    disable = {
-        background = false, -- Disable setting the background color
-        cursorline = false, -- Disable the cursorline
-        eob_lines = true, -- Hide the end-of-buffer lines
-    },
-    custom_highlights = {}, -- Overwrite default highlight groups
+-- require("onenord").setup {
+--     borders = true, -- Split window borders
+--     italics = {
+--         comments = true, -- Italic comments
+--         strings = false, -- Italic strings
+--         keywords = false, -- Italic keywords
+--         functions = false, -- Italic functions
+--         variables = false, -- Italic variables
+--     },
+--     disable = {
+--         background = false, -- Disable setting the background color
+--         cursorline = false, -- Disable the cursorline
+--         eob_lines = true, -- Hide the end-of-buffer lines
+--     },
+--     custom_highlights = {}, -- Overwrite default highlight groups
+-- }
+
+require("github-theme").setup {
+    theme_style = "light",
+    comment_style = "italic",
+    function_style = "bolditalic",
+    keyword_style = "bold",
+    transparent = false,
+    dark_sidebar = false,
+    colors = {hint = "orange", error = "#ff0000", },
+    overrides = function(c)
+        return {
+            CursorLine = { bg = "#FFFBDD"}
+        }
+    end
 }
-
-vim.g.edge_style = "aura"
-vim.g.edge_enable_italic = true
-vim.g.edge_show_eob = false
-
-vim.g.everforest_show_eob = false
-vim.g.everforest_enable_italic = true
-vim.g.everforest_sign_column_background = false

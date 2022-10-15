@@ -26,7 +26,7 @@ map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
 -- No yank on delete
 map("v", "d", "\"_d", options)
 map("n", "d", "\"_d", options)
-map("n", "D", "\"_D", options)
+-- map("n", "D", "\"_D", options)
 
 map("i", "jj", "<esc>", options) -- Quicky escape to normal mode
 
@@ -38,7 +38,7 @@ map("i", ",,", "<esc>A,<esc>", options)
 map("n", "n", "nzzzv", options)
 map("n", "N", "Nzzzv", options)
 
--- Moving text
+-- Move a line
 map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 
@@ -64,18 +64,18 @@ map("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
 -- map("n", "<leader>dk", ":lua require'dap'.up()<CR>", options)
 
 map(
-    "n",
-    "<leader>dx",
-    ":lua require'dap'.terminate()<CR>:lua require'dap'.close()<CR>:lua require('dapui').close()<CR>",
-    options
+	"n",
+	"<leader>dx",
+	":lua require'dap'.terminate()<CR> :lua require'dap'.close()<CR> :lua require('dapui').close()<CR>",
+	options
 )
 -- map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
 -- map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
-map("n", "<leader>dK", [[:lua  <Cmd>lua require("dap.ui.widgets").hover()<CR>]], options)
+-- map("n", "<leader>dK", [[:lua  <Cmd>lua require("dap.ui.widgets").hover()<CR>]], options)
 
-map("n", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
-map("v", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
-map("n", "<leader>do", ":lua require'dap'.repl.open()<CR>", options)
+-- map("n", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
+-- map("v", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
+-- map("n", "<leader>do", ":lua require'dap'.repl.open()<CR>", options)
 
 ------------------
 -- tab handling --
@@ -88,13 +88,3 @@ map("n", "tn", "<cmd>tabnew<cr>", options)
 map("n", "tx", "<cmd>tabclose<cr>", options)
 map("n", "tH", "<cmd>tabm 0<cr>", options)
 map("n", "tL", "<cmd>tabm<cr>", options)
-
------------
--- test ---
------------
-map("n", "t<c-f>", ":Ultest<CR>", {})
-map("n", "t<c-n>", ":UltestNearest<CR>", {})
-map("n", "t<c-l>", ":UltestLast<CR>", {})
-
-map("n", "t<c-s>", ":TestSuite<CR>", {})
-map("n", "t<c-v>", ":TestVisit<CR>", {})
