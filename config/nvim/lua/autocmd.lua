@@ -12,7 +12,10 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     end,
 })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*.php", "*.lua" },
+    pattern = {
+        -- "*.php",
+        "*.lua",
+    },
     group = "personal",
     callback = function()
         vim.lsp.buf.format { async = true }

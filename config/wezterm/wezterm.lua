@@ -6,12 +6,12 @@ return {
     hide_tab_bar_if_only_one_tab = true,
     font_size = 13,
     line_height = 1.5, -- themes : "Github", "GitHub Dark", "Gruvbox Dark", "OneHalfDark",
-    color_scheme = "Github (base16)",
-    -- color_scheme = "GitHub Dark",
+    -- color_scheme = "Github (base16)",
+    color_scheme = "GitHub Dark",
     keys = {
         {
-            key = 'r',
-            mods = 'CMD|SHIFT',
+            key = "r",
+            mods = "CMD|SHIFT",
             action = wezterm.action.ReloadConfiguration,
         },
     },

@@ -49,7 +49,7 @@ vim.opt.relativenumber = true
 vim.opt.list = false -- show invisible chars
 vim.opt.listchars = { tab = "▸ ", space = "·", trail = "·" }
 vim.opt.wrap = false
-vim.opt.iskeyword:append "$"
+-- vim.opt.iskeyword:append "$"
 
 vim.opt.timeoutlen = 500 -- timeoutlen for e.g leader key
 vim.opt.ttimeoutlen = 0

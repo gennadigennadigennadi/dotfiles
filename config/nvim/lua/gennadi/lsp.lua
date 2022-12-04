@@ -18,7 +18,8 @@ local function on_attach(client, bufnr)
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
         vim.api.nvim_exec(
-            "augroup lsp_document_highlight autocmd! * <buffer> autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() augroup END",
+            "augroup lsp_document_highlight autocmd! * <buffer> autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() augroup END"
+            ,
             false
         )
     end
@@ -30,17 +31,24 @@ local function on_attach(client, bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
-lspconfig.intelephense.setup {
-    on_attach = on_attach,
+-- lspconfig.intelephense.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     settings = {
+--         languages = { php = {} },
+--         rootMarkers = { "composer.json" },
+--         telemetry = { enabled = false },
+--         format = { enabled = false },
+--         completion = { fullyQualifyGlobalConstantsAndFunctions = true },
+--         phpdoc = { returnVoid = true },
+--     },
+-- }
+
+lspconfig.phpactor.setup {
     capabilities = capabilities,
-    settings = {
-        languages = { php = {} },
-        rootMarkers = { "composer.json" },
-        telemetry = { enabled = false },
-        format = { enabled = false },
-        completion = { fullyQualifyGlobalConstantsAndFunctions = true },
-        phpdoc = { returnVoid = true },
-    },
+    filetypes = { "php", "cucumber" },
+    on_attach = on_attach,
+    init_options = {},
 }
 
 local runtime_path = vim.split(package.path, ";")

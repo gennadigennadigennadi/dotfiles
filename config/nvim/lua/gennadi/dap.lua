@@ -3,23 +3,21 @@ local dapui = require "dapui"
 
 dap.adapters.php = {
     type = "executable",
-    command = "node",
-    args = { vim.fn.stdpath "cache" .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" },
+    command = "bash",
+    args = { vim.fn.stdpath "cache" .. "/mason/bin/php-debug-adapter" },
 }
 
 dap.configurations.php = {
     { type = "php", request = "launch", name = "Listen for Xdebug", port = 9003, stopOnEntry = false },
 }
 
--- require("dap.ext.vscode").load_launchjs()
-require("nvim-dap-virtual-text").setup({
-    enabled = true
-})
+require("dap.ext.vscode").load_launchjs()
 
-vim.notify = require "notify"
+require("nvim-dap-virtual-text").setup {
+    enabled = true,
+}
 
-dap.listeners.after.event_initialized["dapui_config"] = function(data)
-    -- vim.notify.notify({ data.config.name }, "info", { title = "DAP - initialized" })
+dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open {}
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
@@ -28,7 +26,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close {}
 end
-
 
 dapui.setup {
     icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },

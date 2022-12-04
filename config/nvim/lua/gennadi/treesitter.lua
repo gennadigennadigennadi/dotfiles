@@ -1,8 +1,21 @@
 require("nvim-treesitter.configs").setup {
-    ensure_installed = { "php", "html", "c", "json", "lua", "clojure", "yaml" },
-    highlight = {
-        enable = true,
+    ensure_installed = {
+        "bash",
+        "c",
+        "clojure",
+        "css",
+        "html",
+        "json",
+        "lua",
+        "make",
+        "php",
+        "scheme",
+        "sql",
+        "toml",
+        "twig",
+        "yaml",
     },
+    highlight = { enable = true },
     indent = { enable = true },
     incremental_selection = {
         enable = true,

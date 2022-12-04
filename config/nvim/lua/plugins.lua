@@ -68,7 +68,8 @@ return packer.startup {
             end,
         }
 
-        use { "editorconfig/editorconfig-vim" }
+        use { "gpanders/editorconfig.nvim" }
+
         use {
             "karb94/neoscroll.nvim",
             config = function()
@@ -203,6 +204,14 @@ return packer.startup {
         use { "rcarriga/cmp-dap", after = "nvim-cmp" }
         use { "onsails/lspkind-nvim", before = "nvim-cmp" }
 
+        -- use {
+        --     "gbprod/phpactor.nvim",
+        --     run = require "phpactor.handler.update", -- To install/update phpactor when installing this plugin
+        --     requires = {
+        --         "nvim-lua/plenary.nvim", -- required to update phpactor
+        --         "neovim/nvim-lspconfig", -- required to automaticly register lsp serveur
+        --     },
+        -- }
         use {
             "glepnir/lspsaga.nvim",
             config = function()
