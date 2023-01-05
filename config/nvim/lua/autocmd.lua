@@ -1,19 +1,14 @@
 vim.api.nvim_create_augroup("personal", { clear = true })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    pattern = { "plugins.lua" },
-    group = "personal",
-    command = "source <afile> | PackerCompile",
-})
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     pattern = { "*" },
     group = "personal",
     callback = function()
-        vim.highlight.on_yank { higroup = "Visual", timeout = 700 }
+        vim.highlight.on_yank { timeout = 700 }
     end,
 })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = {
-        -- "*.php",
+        "*.php",
         "*.lua",
     },
     group = "personal",

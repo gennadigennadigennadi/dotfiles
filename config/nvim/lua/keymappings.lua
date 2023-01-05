@@ -21,11 +21,11 @@ map("n", "Y", "y$", options) -- yank to end of line
 map("v", "y", "myy`y", options) -- maintan the cursor position when yanking
 map("v", "Y", "myY`y", options)
 
+-- No yank on delete
 map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
 
--- No yank on delete
-map("v", "d", "\"_d", options)
-map("n", "d", "\"_d", options)
+-- map("v", "d", "\"_d", options)
+-- map("n", "d", "\"_d", options)
 -- map("n", "D", "\"_D", options)
 
 map("i", "jj", "<esc>", options) -- Quicky escape to normal mode
@@ -64,10 +64,10 @@ map("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
 -- map("n", "<leader>dk", ":lua require'dap'.up()<CR>", options)
 
 map(
-	"n",
-	"<leader>dx",
-	":lua require'dap'.terminate()<CR> :lua require'dap'.close()<CR> :lua require('dapui').close()<CR>",
-	options
+    "n",
+    "<leader>dx",
+    ":lua require'dap'.terminate()<CR> :lua require'dap'.close()<CR> :lua require('dapui').close()<CR>",
+    options
 )
 -- map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
 -- map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)

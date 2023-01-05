@@ -5,9 +5,9 @@ return {
     font = wezterm.font "JetBrainsMono Nerd Font Mono",
     hide_tab_bar_if_only_one_tab = true,
     font_size = 13,
-    line_height = 1.5, -- themes : "Github", "GitHub Dark", "Gruvbox Dark", "OneHalfDark",
-    -- color_scheme = "Github (base16)",
-    color_scheme = "GitHub Dark",
+    line_height = 1.75, -- themes : "Github", "GitHub Dark", "Gruvbox Dark", "OneHalfDark",
+    color_scheme = "Github Dark",
+    -- color_scheme = "Github",
     keys = {
         {
             key = "r",
@@ -16,9 +16,9 @@ return {
         },
     },
     window_padding = {
-        left = 10,
+        left = 0,
         right = 0,
-        top = 10,
+        top = 0,
         bottom = 0,
     },
 }
