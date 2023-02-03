@@ -35,3 +35,5 @@ alias v='nvim'
 alias lg='lazygit'
 alias ld='lazydocker'
 alias brewu='brew update && brew upgrade'
+alias dotfiles='/opt/homebrew/bin/git --git-dir=/Volumes/development/private/dotfiles/ --work-tree=$HOME'
+
