@@ -1,11 +1,12 @@
 return {
     'kyazdani42/nvim-tree.lua',
-    cmd = {'NvimTreeFindFile', 'NvimTreeToggle'},
+    cmd = { 'NvimTreeFindFile', 'NvimTreeToggle', 'NvimTreeOpen' },
+    event = "BufReadPost",
     config = function()
         require("nvim-tree").setup {
             view = {
-                adaptive_size = true,
-                width = 40,
+                adaptive_size = false,
+                width = 30,
             },
             git = {
                 enable = true,

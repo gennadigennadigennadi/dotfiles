@@ -1,10 +1,11 @@
 return {
     "jose-elias-alvarez/null-ls.nvim",
-    config = function ()
+    event = "BufReadPost",
+    config = function()
         local null_ls = require "null-ls"
 
         null_ls.setup {
-  --          capabilities = capabilities,
+            --          capabilities = capabilities,
             on_attach = function() end,
             sources = {
                 null_ls.builtins.diagnostics.php,

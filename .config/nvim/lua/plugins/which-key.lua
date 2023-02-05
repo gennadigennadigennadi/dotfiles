@@ -35,15 +35,6 @@ function M.config()
             k = { "<cmd>lua require'dap.ui.widgets'.hover()<CR>", "hover" },
             q = { "<cmd>lua require'dap'.terminate()<CR>", "stop" },
         },
-        f = {
-            name = "+telescope",
-            f = { "<cmd>Telescope find_files<cr>", "Find files" },
-            s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Find Symbols" },
-            g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-            h = { "<cmd>Telescope oldfiles<cr>", "Oldfiles" },
-            r = { "<cmd>Telescope frecency<cr>", "Frecency" },
-            b = { "<cmd>Telescope buffers<cr>", "Live grep" },
-        },
         r = {
             name = "+reload",
             r = { "<cmd>source $MYVIMRC<cr>", "Reload init.lua" },

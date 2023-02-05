@@ -1,8 +1,8 @@
 return {
     "williamboman/mason.nvim",
     -- event = 'InsertEnter',
-    event = "BufReadPre",
-    -- cmd = 'Mason',
+    -- event = "BufReadPre",
+    cmd = 'Mason',
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
