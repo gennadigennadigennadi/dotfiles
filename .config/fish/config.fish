@@ -17,15 +17,15 @@ set -x FZF_DEFAULT_COMMAND 'fd --type file --follow --hidden --exclude .git'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_DEFAULT_OPTS '--reverse'
 
-set -xp CDPATH /Volumes/development .
+set -xp CDPATH /Volumes/dev .
 
 set -g fish_user_paths "$HOME/.local/share/nvim/site/pack/packer/opt/vim-superman/bin"
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.composer/vendor/bin" $fish_user_paths
-set -g fish_user_paths "/opt/homebrew/opt/ncurses/bin" $fish_user_paths
-set -g fish_user_paths "/opt/homebrew/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/.local/share/nvim/site/pack/packer/opt/vim-superman/bin" $fish_user_paths
+# set -g fish_user_paths "/opt/homebrew/opt/ncurses/bin" $fish_user_paths
+# set -g fish_user_paths "/opt/homebrew/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/bin/python3/bin" $fish_user_paths
 
 # My aliases
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
@@ -35,5 +35,8 @@ alias v='nvim'
 alias lg='lazygit'
 alias ld='lazydocker'
 alias brewu='brew update && brew upgrade'
-alias dotfiles='/opt/homebrew/bin/git --git-dir=/Volumes/development/private/dotfiles/ --work-tree=$HOME'
+alias dotfiles='git --git-dir=/Volumes/code/dotfiles/ --work-tree=$HOME'
 
+alias dev='cd /Volumes/code/docker-mac-vagrant/'
+alias dev-up='cd /Volumes/code/docker-mac-vagrant/ && vagrant up && cd -'
+alias dev-ssh='cd /Volumes/code/docker-mac-vagrant/ && vagrant ssh'

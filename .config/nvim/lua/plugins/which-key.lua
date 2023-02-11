@@ -1,6 +1,6 @@
 local M = {
     "folke/which-key.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
 }
 
 function M.config()

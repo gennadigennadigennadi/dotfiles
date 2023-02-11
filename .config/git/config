@@ -4,8 +4,6 @@
 	pager = delta 
 [interactive]
 	diffFilter = delta --color-only
-[color]
-    ui = auto
 [credential]
 	helper = osxkeychain
 [push]
@@ -17,6 +15,9 @@
 	process = git-lfs filter-process
 [delta]
     navigate = true  # use n and N to move between diff sections
+    theme = GitHub
+    light = false
+    line-numbers = true
 [merge]
     conflictstyle = diff3
 [diff]
@@ -27,4 +28,4 @@
     autoStash = true
 [user]
     name = Gennadi McKelvey
-    email = gennadi.mckelvey@qossmic.com
+    email = gennadijanzen@icloud.com

@@ -26,7 +26,7 @@ map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
 
 -- map("v", "d", "\"_d", options)
 -- map("n", "d", "\"_d", options)
--- map("n", "D", "\"_D", options)
+map("n", "D", "\"_D", options)
 
 map("i", "jj", "<esc>", options) -- Quicky escape to normal mode
 
@@ -38,12 +38,12 @@ map("i", ",,", "<esc>A,<esc>", options)
 map("n", "n", "nzzzv", options)
 map("n", "N", "Nzzzv", options)
 
+map('n', '<c-d>', '<c-d>zz', options)
+map('n', '<c-u>', '<c-u>zz', options)
 -- Move a line
 map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 
--- map('n', '<c-s>', '<C-C>:w!<CR>', options)
-map("n", "<c-n>", "<cmd>NvimTreeFindFile<CR>", options)
 
 map("t", "<esc>", [[<C-\><C-n>]], options)
 map("t", "jj", [[<C-\><C-n>]], options)

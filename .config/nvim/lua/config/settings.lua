@@ -26,8 +26,8 @@ vim.opt.shiftround = true
 vim.opt.ignorecase = true -- Ignore case when searching...
 vim.opt.smartcase = true -- ...except if we input a capital letter
 
-vim.opt.scrolloff = 10
-vim.opt.sidescroll = 10
+vim.opt.scrolloff = 5
+vim.opt.sidescroll = 5
 vim.opt.sidescrolloff = 10
 
 vim.opt.cmdheight = 0

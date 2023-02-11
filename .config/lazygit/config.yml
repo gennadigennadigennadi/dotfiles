@@ -6,21 +6,30 @@ gui:
     expandFocusedSidePanel: false
     mainPanelSplitMode: 'flexible' # one of 'horizontal' | 'flexible' | 'vertical'
     language: 'auto' # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
+    commitLengthlightTheme: false 
     theme:
-        lightTheme: true # For terminals with a light background
-        activeBorderColor:
-            - green
-            - bold
-        inactiveBorderColor:
-            - default
-        optionsTextColor:
-            - default
-        selectedLineBgColor:
-            - default
-        selectedRangeBgColor:
-            - default
-    commitLength:
-        show: true
+      lightTheme: false
+      activeBorderColor:
+        - red
+        - bold
+      inactiveBorderColor:
+        - white
+      optionsTextColor:
+        - red
+      selectedLineBgColor:
+        - blue # set to `default` to have no background colour
+        - bold
+      selectedRangeBgColor:
+        - yellow
+      cherryPickedCommitBgColor:
+        - red
+      cherryPickedCommitFgColor:
+        - red
+      unstagedChangesColor:
+        - red
+      defaultFgColor:
+        - default    
+    show: true
     mouseEvents: true
     skipUnstageLineWarning: false
     skipStashWarning: true

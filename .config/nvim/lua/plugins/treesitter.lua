@@ -3,8 +3,9 @@ return {
     event = 'VeryLazy',
     config = function()
         require("nvim-treesitter.configs").setup {
-            ensure_installed = { "bash", "c", "clojure", "css", "html", "json", "lua", "make", "php", "scheme", "sql",
-                "toml", "twig", "yaml", },
+            ensure_installed = { 
+                "bash", "c", "clojure", "css", "html", "json", "lua", "make", "markdown", "php",
+                "scheme", "sql", "toml", "twig", "yaml", },
             highlight = { enable = true },
             indent = { enable = true },
             sync_root_with_cwd = true,

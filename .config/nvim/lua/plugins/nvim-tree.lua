@@ -1,9 +1,15 @@
 return {
     'kyazdani42/nvim-tree.lua',
-    cmd = { 'NvimTreeFindFile', 'NvimTreeToggle', 'NvimTreeOpen' },
-    event = "BufReadPost",
+    lazy = false,
+    cmd = { 'NvimTreeFindFile', 'NvimTreeToggle', 'NvimTreeOpen'},
     config = function()
         require("nvim-tree").setup {
+            sync_root_with_cwd = true,
+            respect_buf_cwd = true,
+            update_focused_file = {
+                enable = true,
+                update_root = true
+            },
             view = {
                 adaptive_size = false,
                 width = 30,
@@ -13,7 +19,6 @@ return {
                 ignore = false,
                 timeout = 1500,
             },
-            sync_root_with_cwd = true,
         }
     end,
 }

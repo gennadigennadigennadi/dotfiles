@@ -1,14 +1,16 @@
 return {
     "williamboman/mason.nvim",
-    -- event = 'InsertEnter',
-    -- event = "BufReadPre",
+    event = "BufReadPre",
     cmd = 'Mason',
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+        "folke/neodev.nvim"
     },
     config = function()
-        require "neodev".setup()
+        require "neodev".setup({
+            library = { plugins = { "nvim-dap-ui" }, types = true },
+        })
         require("mason").setup()
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -16,15 +18,15 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         local servers = {
-            sumneko_lua = {
-                Lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                },
-            },
+            -- sumneko_lua = {
+            --     Lua = {
+            --         workspace = { checkThirdParty = false },
+            --         telemetry = { enable = false },
+            --         diagnostics = {
+            --             globals = { "vim" },
+            --         },
+            --     },
+            -- },
             intelephense = {
                 format = { enabled = false },
                 telemetry = { enabled = false }
