@@ -6,34 +6,22 @@ local M = {
 function M.config()
     local wk = require "which-key"
 
-    wk.setup { plugins = { spelling = { enabled = true } } }
+    wk.setup {
+        plugins = {
+            spelling = {
+                enabled = true
+            }
+        }
+    }
 
     wk.register({
         q = { "<cmd>bp<bar>bd #<CR>", "close buffer" },
         x = { "<cmd>q!<cr>", "Exit" },
         s = { "<cmd>w!<cr>", "Save" },
-        W = { "<cmd>wqa!<cr>", "Write and quit" },
-        b = { name = "+buffer", e = "sort-extension", d = "sort-directory", l = "next", h = "prev", q = "quit" },
-        h = { name = "+gitsign", b = "blame", s = "stage hunk" },
-        t = {
-            name = "+toggle",
-            t = { "<cmd>ToggleTerm<cr>", "Term" },
-            s = { "<cmd>Alpha<cr>", "Alpha" },
-            n = { "<cmd>NvimTreeToggle<CR>", "NvimTree" },
-            f = { "<cmd>NvimTreeFindFileToggle<CR>", "NvimTree" },
-            d = { "<cmd>lua require('dapui').toggle()<cr>", "DAPui" },
-            -- o = { "<cmd>Vista!!<cr>", "Vista" },
-            x = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble" },
-        },
-        d = {
-            name = "+dap",
-            b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "add breakpoint" },
-            d = { "<cmd>lua require'dap'.continue()<CR>", "debug" },
-            n = { "<cmd>lua require'dap'.step_over()<CR>", "step_over" },
-            i = { "<cmd>lua require'dap'.step_into()<CR>", "step_into" },
-            o = { "<cmd>lua require'dap'.step_out()<CR>", "step_out" },
-            k = { "<cmd>lua require'dap.ui.widgets'.hover()<CR>", "hover" },
-            q = { "<cmd>lua require'dap'.terminate()<CR>", "stop" },
+        Q = { "<cmd>wqa!<cr>", "Write and quit" },
+        h = { name = "+gitsign",
+            b = "blame",
+            s = "stage hunk"
         },
         r = {
             name = "+reload",

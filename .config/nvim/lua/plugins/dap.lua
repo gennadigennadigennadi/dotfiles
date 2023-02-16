@@ -1,7 +1,12 @@
 return {
     "mfussenegger/nvim-dap",
-    lazy = false,
-    -- event = "BufReadPost",
+    lazy = true,
+    keys = {
+        { "<leader>dd", function() require('dap').continue() end,              desc = "Dap continue" },
+        { "<leader>b",  function() require('dap').toggle_breakpoint() end,     desc = "Dap DapBreakpointToggle" },
+        { "<leader>de", function() require('dapui').float_element('Repl') end, desc = "Dap Repl" },
+        { "<M-k>",      function() require("dapui").eval() end,                desc = "Dap Eval" },
+    },
     dependencies = {
         "theHamsta/nvim-dap-virtual-text", -- does not support php, yet
         "rcarriga/nvim-dap-ui",
@@ -21,11 +26,21 @@ return {
             enabled = true,
         }
 
-        dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open {} end
-        dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close {} end
-        dap.listeners.before.event_exited["dapui_config"] = function() dapui.close {} end
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+            vim.keymap.set('n', '<leader>k', function() require("dap.ui.widgets").hover() end)
+            vim.keymap.set('n', '<leader>dn', function() require('dap').step_over() end)
+            vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end)
+            vim.keymap.set('n', '<leader>do', function() require('dap').step_out() end)
+            vim.keymap.set('n', '<leader>dx', function() require('dap').terminate() end)
+            dapui.open {}
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close {}
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close {}
+        end
         dap.listeners.before.disconnect["dapui_config"] = function()
-            dap.repl.close()
             dapui.close()
         end
 
@@ -39,7 +54,35 @@ return {
                 edit = "e",
                 repl = "r",
             },
-            windows = { indent = 0 },
+            controls = {
+                element = "scopes",
+                enabled = true,
+                icons = {
+                    disconnect = "",
+                    pause = "",
+                    play = "",
+                    run_last = "",
+                    step_back = "",
+                    step_into = "",
+                    step_out = "",
+                    step_over = "",
+                    terminate = ""
+                }
+            },
+            -- windows = { indent = 0 },
+            layouts = {
+                {
+                    elements = { {
+                        id = "scopes",
+                        size = 0.75
+                    }, {
+                        id = "stacks",
+                        size = 0.25
+                    } },
+                    position = "left",
+                    size = 40
+                },
+            },
         }
         vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "blue", linehl = "", numhl = "" })
         vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })

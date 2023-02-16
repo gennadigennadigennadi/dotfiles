@@ -18,3 +18,4 @@ for _, plugin in ipairs(builtins) do
 end
 
 require("config.theme")
+require("config.lazygit")

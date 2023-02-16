@@ -18,19 +18,11 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         local servers = {
-            -- sumneko_lua = {
-            --     Lua = {
-            --         workspace = { checkThirdParty = false },
-            --         telemetry = { enable = false },
-            --         diagnostics = {
-            --             globals = { "vim" },
-            --         },
-            --     },
-            -- },
             intelephense = {
                 format = { enabled = false },
                 telemetry = { enabled = false }
-            }
+            },
+            -- phpactor = { }
         }
 
         local function on_attach(client, bufnr)
@@ -40,7 +32,8 @@ return {
             vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
             map(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-            map(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+            -- map(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+            map(bufnr, "n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
             map(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
             map(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
             map(bufnr, "n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)

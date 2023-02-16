@@ -13,7 +13,7 @@ require("lazy").setup({
         lazy = false
     },
     install = {
-        colorscheme = { "tokyonight", "habamax" }
+        colorscheme = { "tokyonight" }
     },
     diff = {
         cmd = "terminal_git",

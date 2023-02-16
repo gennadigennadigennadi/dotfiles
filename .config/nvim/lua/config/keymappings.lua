@@ -6,8 +6,6 @@ map("", "<Space>", "<Nop>", options) -- map the leader key
 map("n", "Q", "<nop>", options)
 map("n", "q", "<nop>", options) -- currently im not using macros
 
-map("c", "w!!", "execute \":w suda://%\"", {}) -- Save files as root
-
 -- keep visual mode after indent
 map("v", ">", ">gv", options)
 map("v", "<", "<gv", options)
@@ -23,12 +21,10 @@ map("v", "Y", "myY`y", options)
 
 -- No yank on delete
 map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
-
 -- map("v", "d", "\"_d", options)
--- map("n", "d", "\"_d", options)
+map("n", "x", "\"_x", options)
 map("n", "D", "\"_D", options)
 
-map("i", "jj", "<esc>", options) -- Quicky escape to normal mode
 
 -- Easy insertion of a trailing ; or , from insert mode
 map("i", ";;", "<esc>A;<esc>", options)
@@ -46,22 +42,10 @@ map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 
 
 map("t", "<esc>", [[<C-\><C-n>]], options)
-map("t", "jj", [[<C-\><C-n>]], options)
 map("t", "<C-h>", [[<C-\><C-n><C-W>h]], options)
 map("t", "<C-j>", [[<C-\><C-n><C-W>j]], options)
 map("t", "<C-k>", [[<C-\><C-n><C-W>k]], options)
 map("t", "<C-l>", [[<C-\><C-n><C-W>l]], options)
-
-------------------
--- DAP Debugger --
-------------------
-map("n", "<F5>", ":lua require'dap'.continue()<CR>", options)
-map("n", "<F9>", ":lua require'dap'.run_to_cursor()<CR>", options)
-map("n", "<F10>", ":lua require'dap'.step_over()<CR>", options)
-map("n", "<F11>", ":lua require'dap'.step_into()<CR>", options)
-map("n", "<F12>", ":lua require'dap'.step_out()<CR>", options)
--- map("n", "<leader>dj", ":lua require'dap'.down()<CR>", options)
--- map("n", "<leader>dk", ":lua require'dap'.up()<CR>", options)
 
 map(
     "n",
@@ -81,10 +65,10 @@ map(
 -- tab handling --
 ------------------
 -- map('n', 'th', '<cmd>tabfirst<cr>', options)
-map("n", "tk", "<cmd>tabprev<cr>", options)
-map("n", "tj", "<cmd>tabnext<cr>", options)
-map("n", "tl", "<cmd>tablast<cr>", options)
-map("n", "tn", "<cmd>tabnew<cr>", options)
-map("n", "tx", "<cmd>tabclose<cr>", options)
-map("n", "tH", "<cmd>tabm 0<cr>", options)
-map("n", "tL", "<cmd>tabm<cr>", options)
+-- map("n", "tk", "<cmd>tabprev<cr>", options)
+-- map("n", "tj", "<cmd>tabnext<cr>", options)
+-- map("n", "tl", "<cmd>tablast<cr>", options)
+-- map("n", "tn", "<cmd>tabnew<cr>", options)
+-- map("n", "tx", "<cmd>tabclose<cr>", options)
+-- map("n", "tH", "<cmd>tabm 0<cr>", options)
+-- map("n", "tL", "<cmd>tabm<cr>", options)

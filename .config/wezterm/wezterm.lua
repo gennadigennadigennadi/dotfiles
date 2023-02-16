@@ -8,10 +8,12 @@ end
 
 return {
     -- font = wezterm.font "JetBrainsMono Nerd Font Mono",
+    color_scheme_dirs = { '/Users/gennadi/.local/share/nvim/lazy/tokyonight.nvim/extras/wezterm/' },
+    default_cursor_style = 'SteadyBlock',
     hide_tab_bar_if_only_one_tab = true,
     font_size = 16,
     line_height = 1.5,
-    color_scheme = "TokyoNight (Gogh)",
+    color_scheme = "tokyonight_moon",
     scrollback_lines = 10000,
     keys = {
         {
@@ -55,7 +57,6 @@ return {
             }),
         },
     },
-
     window_frame = {
         -- The font used in the tab bar.
         -- Roboto Bold is the default; this font is bundled
@@ -104,5 +105,4 @@ return {
             },
         },
     },
-
 }
