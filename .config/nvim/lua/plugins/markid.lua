@@ -1,5 +1,6 @@
 return {
     'David-Kunz/markid',
+    event = "BufReadPre",
     config = function()
         m = require 'markid'
         m.queries = {

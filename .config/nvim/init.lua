@@ -1,12 +1,7 @@
 require("config.settings")
 require("config.lazy")
-vim.api.nvim_create_autocmd("User", {
-    pattern = "VeryLazy",
-    callback = function()
-        require("config.keymappings")
-        require("config.autocmd")
-    end,
-})
+require("config.keymappings")
+require("config.autocmd")
 
 -- don't load the plugins below
 local builtins = { "gzip", "zip", "zipPlugin", "fzf", "tar", "tarPlugin", "getscript", "getscriptPlugin", "vimball",

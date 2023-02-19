@@ -67,3 +67,13 @@ vim.o.foldlevelstart   = 99
 vim.o.foldenable       = true
 vim.o.fillchars        = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.guicursor        = 'n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert'
+
+
+-- don't load the plugins below
+local builtins = { "gzip", "zip", "zipPlugin", "fzf", "tar", "tarPlugin", "getscript", "getscriptPlugin", "vimball",
+    "vimballPlugin", "2html_plugin", "matchit", "matchparen", "logiPat", "rrhelper", "netrw", "netrwPlugin",
+    "netrwSettings", "netrwFileHandlers", }
+
+for _, plugin in ipairs(builtins) do
+    vim.g["loaded_" .. plugin] = 1
+end

@@ -1,9 +1,8 @@
-config/karabiner/automatic_backups
-packer_compiled.lua
+.config/lazygit/state.yml
+.config/lazygit/*/*.patch
+.config/fish/conf.d/*
+.config/fish/fish_variables
 
-config/lazygit/state.yml
-config/lazygit/*/*.patch
-config/AWSVPNClient
-config/op/config
-config/fish/fish_variables
-keyboard/build
+.config/AWSVPNClient
+.config/op/config
+
