@@ -1,3 +1,5 @@
+[init]
+    defaultBranch = main
 [core]
 	fileMode = false
 	precomposeunicode = false
@@ -14,7 +16,7 @@
 	required = true
 	process = git-lfs filter-process
 [delta]
-    navigate = true  # use n and N to move between diff sections
+    navigate = true
     theme = GitHub
     line-numbers = true
 [merge]
