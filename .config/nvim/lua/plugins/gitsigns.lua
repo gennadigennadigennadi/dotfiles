@@ -3,7 +3,7 @@ return {
     event = "BufReadPre",
     config = function()
         require("gitsigns").setup {
-            signs = {
+            signs                   = {
                 untracked    = {
                     text = "┆",
                 },
@@ -23,8 +23,14 @@ return {
                     text = "▍",
                 },
             },
-            current_line_blame = true,
-            on_attach = function(bufnr)
+            current_line_blame      = true,
+            current_line_blame_opts = {
+                virt_text         = true,
+                -- virt_text_pos     = "right_align",
+                delay             = 20,
+                ignore_whitespace = false,
+            },
+            on_attach               = function(bufnr)
                 local gs = package.loaded.gitsigns
 
                 local function map(mode, l, r, opts)

@@ -3,12 +3,17 @@ return {
     config = function()
         require('toggleterm').setup({
             direction = 'float',
+            float_opts = {
+                border = "single",
+                width = math.floor(vim.o.columns * 0.98),
+                height = math.floor(vim.o.lines * 0.95),
+            },
         })
-        require("config.lazy")
+        require("config.lazygit")
     end,
     cmd = { 'ToggleTerm' },
     keys = {
-        { '<leader>gg', function() Lazygit_toggle() end, desc = 'lazygit', mode = { 'n', 't' } },
-        -- { '<leader>tt', function() vim.cmd('ToggleTerm<cr>') end, desc = 'toggleterm', mode = { 'n', 't' } }
+        { '<c-g>', function() Lazygit_toggle() end,          desc = 'lazygit',    mode = { 'n', 't' } },
+        { '<c-t>', function() vim.cmd('ToggleTerm<cr>') end, desc = 'toggleterm', mode = { 'n', 't' } }
     }
 }

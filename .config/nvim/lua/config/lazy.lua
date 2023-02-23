@@ -13,7 +13,7 @@ require("lazy").setup({
         lazy = false
     },
     install = {
-        colorscheme = { "tokyonight" }
+        colorscheme = { "tokyonight", "sonokai" }
     },
     diff = {
         cmd = "terminal_git",
@@ -36,9 +36,10 @@ require("lazy").setup({
             },
         },
     },
-    debug = false,
+    change_detection = {
+        notify = false,
+    },
 })
-
 
 -- don't load the plugins below
 local builtins = { "gzip", "zip", "zipPlugin", "fzf", "tar", "tarPlugin", "getscript", "getscriptPlugin", "vimball",
@@ -48,4 +49,3 @@ local builtins = { "gzip", "zip", "zipPlugin", "fzf", "tar", "tarPlugin", "getsc
 for _, plugin in ipairs(builtins) do
     vim.g["loaded_" .. plugin] = 1
 end
-

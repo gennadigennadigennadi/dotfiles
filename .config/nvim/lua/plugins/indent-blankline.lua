@@ -7,9 +7,8 @@ return {
             char = "▏",
             filetype_exclude = { "mason" },
             show_current_context = true,
-            -- show_current_context_start = true,
             max_indent_increase = 1,
-            show_first_indent_level = true,
+            show_first_indent_level = false,
         })
     end
 }

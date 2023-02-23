@@ -64,11 +64,11 @@ map(
 ------------------
 -- tab handling --
 ------------------
--- map('n', 'th', '<cmd>tabfirst<cr>', options)
--- map("n", "tk", "<cmd>tabprev<cr>", options)
--- map("n", "tj", "<cmd>tabnext<cr>", options)
--- map("n", "tl", "<cmd>tablast<cr>", options)
--- map("n", "tn", "<cmd>tabnew<cr>", options)
--- map("n", "tx", "<cmd>tabclose<cr>", options)
--- map("n", "tH", "<cmd>tabm 0<cr>", options)
--- map("n", "tL", "<cmd>tabm<cr>", options)
+map('n', 'th', '<cmd>tabfirst<cr>', options)
+map("n", "tk", "<cmd>tabprev<cr>", options)
+map("n", "tj", "<cmd>tabnext<cr>", options)
+map("n", "tl", "<cmd>tablast<cr>", options)
+map("n", "tn", "<cmd>tabnew<cr>", options)
+map("n", "tx", "<cmd>tabclose<cr>", options)
+map("n", "tH", "<cmd>tabm 0<cr>", options)
+map("n", "tL", "<cmd>tabm<cr>", options)

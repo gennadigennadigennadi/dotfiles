@@ -38,6 +38,7 @@ return {
             map(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
             map(bufnr, "n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)
             map(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
+            map(bufnr, "v", "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
             map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 
             -- Set autocommands conditional on server_capabilities

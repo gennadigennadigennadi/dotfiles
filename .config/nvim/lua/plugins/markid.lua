@@ -2,11 +2,12 @@ return {
     'David-Kunz/markid',
     event = "BufReadPre",
     config = function()
-        m = require 'markid'
+        local m = require 'markid'
         m.queries = {
             default = '(identifier) @markid',
             php = [[
                 (variable_name) @markid
+                (member_access_expression) @markid
             ]]
         }
 

@@ -8,7 +8,9 @@ return {
                 require("statuscol").setup(
                     {
                         foldfunc = "builtin",
-                        setopt = true
+                        setopt = true,
+                        order = "SNsFs",
+                        relculright = true
                     }
                 )
             end

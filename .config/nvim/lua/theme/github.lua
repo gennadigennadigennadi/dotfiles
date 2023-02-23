@@ -4,5 +4,5 @@ require('github-theme').setup({
     keyword_style = "italic",
     function_style = "bold",
     variable_style = "none",
-    sidebars = { "qf" },
+    sidebars = { "qf", "Outline", "neo-tree" },
 })

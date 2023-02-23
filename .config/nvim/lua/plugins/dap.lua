@@ -1,12 +1,17 @@
 return {
     "mfussenegger/nvim-dap",
-    lazy = true,
     keys = {
         { "<leader>dd", function() require('dap').continue() end,              desc = "Dap continue" },
+        { "<leader>dx", function()
+            require 'dap'.close()
+            require('dapui').close()
+            require 'dap'.terminate()
+        end, desc = "Dap continue" },
         { "<leader>b",  function() require('dap').toggle_breakpoint() end,     desc = "Dap DapBreakpointToggle" },
         { "<leader>de", function() require('dapui').float_element('Repl') end, desc = "Dap Repl" },
-        { "<M-k>",      function() require("dapui").eval() end,                desc = "Dap Eval" },
+        { "<M-k>",      function() require("dapui").eval(nil, {}) end,         desc = "Dap Eval" },
     },
+    ft = { 'php' },
     dependencies = {
         "theHamsta/nvim-dap-virtual-text", -- does not support php, yet
         "rcarriga/nvim-dap-ui",
@@ -16,12 +21,20 @@ return {
         local dapui = require "dapui"
         dap.adapters.php = {
             type = 'executable',
-            command = 'node',
-            args = { os.getenv('HOME') .. '/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js' }
+            command = 'php-debug-adapter',
         }
 
-        require("dap.ext.vscode").load_launchjs()
-
+        dap.configurations.php = {
+            {
+                type = 'php',
+                request = 'launch',
+                name = 'Listen for Xdebug',
+                port = 9003,
+                pathMappings = {
+                    ['/var/www/html'] = "${workspaceFolder}",
+                },
+            }
+        }
         require("nvim-dap-virtual-text").setup {
             enabled = true,
         }
