@@ -3,8 +3,12 @@ local options = { noremap = true, silent = true }
 
 map("", "<Space>", "<Nop>", options) -- map the leader key
 
+map('n', '<leader>R', '<cmd>source $MYVIMRC<cr>', options)
+map('n', '<leader>s', ':w!<cr>', options)
+map('n', '<leader>Q', ':wqa!<cr>', options)
+map('n', '<leader>q', '<cmd>bp<bar>bd #<CR>', options)
+
 map("n", "Q", "<nop>", options)
-map("n", "q", "<nop>", options) -- currently im not using macros
 
 -- keep visual mode after indent
 map("v", ">", ">gv", options)
@@ -25,10 +29,11 @@ map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
 map("n", "x", "\"_x", options)
 map("n", "D", "\"_D", options)
 
-
--- Easy insertion of a trailing ; or , from insert mode
+-- Easy insertion of a trailing ; or ,
 map("i", ";;", "<esc>A;<esc>", options)
+map("n", ";;", "<esc>A;<esc>", options)
 map("i", ",,", "<esc>A,<esc>", options)
+map("n", ",,", "<esc>A,<esc>", options)
 
 -- keep it centered
 map("n", "n", "nzzzv", options)
@@ -39,27 +44,6 @@ map('n', '<c-u>', '<c-u>zz', options)
 -- Move a line
 map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
-
-
-map("t", "<esc>", [[<C-\><C-n>]], options)
-map("t", "<C-h>", [[<C-\><C-n><C-W>h]], options)
-map("t", "<C-j>", [[<C-\><C-n><C-W>j]], options)
-map("t", "<C-k>", [[<C-\><C-n><C-W>k]], options)
-map("t", "<C-l>", [[<C-\><C-n><C-W>l]], options)
-
-map(
-    "n",
-    "<leader>dx",
-    ":lua require'dap'.terminate()<CR> :lua require'dap'.close()<CR> :lua require('dapui').close()<CR>",
-    options
-)
--- map("n", "<leader>dq", ":lua require'dap'.close()<CR>:lua require('dapui').close()<CR>", options)
--- map("n", "<leader>dK", [[:lua  require('dap.ui.variables').visual_hover()<CR>]], options)
--- map("n", "<leader>dK", [[:lua  <Cmd>lua require("dap.ui.widgets").hover()<CR>]], options)
-
--- map("n", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
--- map("v", "<leader>de", ":lua require'dapui'.eval()<CR>", options)
--- map("n", "<leader>do", ":lua require'dap'.repl.open()<CR>", options)
 
 ------------------
 -- tab handling --

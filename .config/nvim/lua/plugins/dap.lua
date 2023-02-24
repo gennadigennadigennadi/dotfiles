@@ -1,15 +1,16 @@
 return {
     "mfussenegger/nvim-dap",
     keys = {
-        { "<leader>dd", function() require('dap').continue() end,              desc = "Dap continue" },
+        { "<leader>dd", function() require('dap').continue() end,                                                desc = "Dap continue" },
         { "<leader>dx", function()
             require 'dap'.close()
             require('dapui').close()
             require 'dap'.terminate()
-        end, desc = "Dap continue" },
-        { "<leader>b",  function() require('dap').toggle_breakpoint() end,     desc = "Dap DapBreakpointToggle" },
-        { "<leader>de", function() require('dapui').float_element('Repl') end, desc = "Dap Repl" },
-        { "<M-k>",      function() require("dapui").eval(nil, {}) end,         desc = "Dap Eval" },
+        end,                                                                                                     desc = "Dap continue" },
+        { "<leader>b",  function() require('dap').toggle_breakpoint() end,                                       desc = "Dap DapBreakpointToggle" },
+        { "<F5>",       function() require('dap').continue() end,                                                desc = "Debug continue" },
+        { "<leader>de", function() require('dapui').float_element('Repl') end,                                   desc = "Dap Repl" },
+        { "<M-k>",      function() require("dapui").eval(nil, {}) end,                                           desc = "Dap Eval" },
     },
     ft = { 'php' },
     dependencies = {
@@ -40,11 +41,16 @@ return {
         }
 
         dap.listeners.after.event_initialized["dapui_config"] = function()
-            vim.keymap.set('n', '<leader>k', function() require("dap.ui.widgets").hover() end)
-            vim.keymap.set('n', '<leader>dn', function() require('dap').step_over() end)
-            vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end)
-            vim.keymap.set('n', '<leader>do', function() require('dap').step_out() end)
-            vim.keymap.set('n', '<leader>dx', function() require('dap').terminate() end)
+            vim.keymap.set({ 'n', 'i' }, '<leader>k', function() require("dap.ui.widgets").hover() end)
+            vim.keymap.set('n', '<F7>', function() require('dap').step_over() end)
+            vim.keymap.set('n', '<F8>', function() require('dap').step_into() end)
+            vim.keymap.set('n', '<F9>', function() require('dap').step_out() end)
+
+            vim.keymap.set({ 'n', 'i' }, '<leader>dn', function() require('dap').step_over() end)
+            vim.keymap.set({ 'n', 'i' }, '<leader>di', function() require('dap').step_into() end)
+            vim.keymap.set({ 'n', 'i' }, '<leader>do', function() require('dap').step_out() end)
+
+            vim.keymap.set({ 'n', 'i' }, '<leader>dx', function() require('dap').terminate() end)
             dapui.open {}
         end
         dap.listeners.before.event_terminated["dapui_config"] = function()

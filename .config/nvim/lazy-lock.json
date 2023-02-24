@@ -35,6 +35,7 @@
   "nvim-ufo": { "branch": "main", "commit": "b70c9ef0f8e2673a11387a39185ff249e00df19f" },
   "nvim-web-devicons": { "branch": "master", "commit": "4709a504d2cd2680fb511675e64ef2790d491d36" },
   "onenord.nvim": { "branch": "main", "commit": "71bdcdf105a8feb16cd5248b40e44c88832f75ca" },
+  "php-enhanced-treesitter.nvim": { "branch": "main", "commit": "c7300b57bbc07b2c652d362f3e3f22c4f112bc9f" },
   "phpactor.nvim": { "branch": "main", "commit": "994e513f4627fd448c360391d002326f52b074bd" },
   "playground": { "branch": "master", "commit": "4044b53c4d4fcd7a78eae20b8627f78ce7dc6f56" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
