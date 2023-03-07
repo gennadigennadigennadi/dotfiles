@@ -1,18 +1,20 @@
 return {
     "nvim-telescope/telescope.nvim",
-    cmd = {'Telescope'},
+    cmd = { 'Telescope' },
     keys = {
-        {"<leader>ff" ,"<cmd>Telescope find_files<cr>", desc="Find files" },
-        {"<leader>fs","<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc="Find Symbols" },
-        {"<leader>fg", "<cmd>Telescope live_grep<cr>", desc="Live grep" },
-        {"<leader>fh", "<cmd>Telescope oldfiles<cr>", desc="Oldfiles" },
-        {"<leader>fr", "<cmd>Telescope frecency<cr>", desc="Frecency" },
-        {"<leader>fb", "<cmd>Telescope buffers<cr>", desc="Find buffers" },
-        {"<leader>fp", "<cmd>Telescope projects<cr>", desc="Projects" },
+        { "<leader>ff", "<cmd>Telescope find_files<cr>",                    desc = "Find files" },
+        { "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Find Symbols" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>",                     desc = "Live grep" },
+        { "<leader>fh", "<cmd>Telescope oldfiles<cr>",                      desc = "Oldfiles" },
+        { "<leader>fr", "<cmd>Telescope frecency<cr>",                      desc = "Frecency" },
+        { "<leader>fb", "<cmd>Telescope buffers theme=dropdown<cr>",        desc = "Find buffers" },
+        { "<leader>fp", "<cmd>Telescope projects<cr>",                      desc = "Projects" },
     },
     dependencies = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-telescope/telescope-project.nvim",
+        'nvim-telescope/telescope-frecency.nvim',
+        "kkharji/sqlite.lua"
     },
     config = function()
         require("telescope").setup {
@@ -35,5 +37,6 @@ return {
 
         require("telescope").load_extension "fzf"
         require("telescope").load_extension "projects"
+        require("telescope").load_extension("frecency")
     end
 }

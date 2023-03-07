@@ -56,11 +56,6 @@ vim.wo.number          = true
 vim.o.breakindent      = true
 vim.o.updatetime       = 250
 
--- vim.o.foldmethod       = 'expr'
--- vim.o.foldlevel        = 99
--- vim.o.foldexpr         = 'nvim_treesitter#foldexpr()'
--- vim.o.foldenable       = false --Disable folding at startup.
---
 vim.o.foldcolumn       = "1" -- '0' is not bad
 vim.o.foldlevel        = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart   = 99

@@ -12,5 +12,4 @@ for _, plugin in ipairs(builtins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
-require("config.statuscolumn")
 require("config.theme")

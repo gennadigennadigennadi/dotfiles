@@ -1,8 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     event = 'VeryLazy',
-    dependencies = { 
-        'nvim-treesitter/playground' ,
+    dependencies = {
+        'nvim-treesitter/playground',
         'gbprod/php-enhanced-treesitter.nvim'
     },
     config = function()
@@ -32,8 +32,8 @@ return {
                 "css",
                 "dockerfile",
                 "fish",
-                "gitignore",
                 "gitcommit",
+                "gitignore",
                 "help",
                 "html",
                 "ini",
@@ -43,10 +43,12 @@ return {
                 "markdown",
                 "php",
                 "phpdoc",
+                "regex",
                 "scheme",
                 "sql",
                 "toml",
                 "twig",
+                "vim",
                 "yaml",
             },
             highlight = { enable = true },

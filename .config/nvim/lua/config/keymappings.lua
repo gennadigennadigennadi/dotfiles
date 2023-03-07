@@ -7,6 +7,7 @@ map('n', '<leader>R', '<cmd>source $MYVIMRC<cr>', options)
 map('n', '<leader>s', ':w!<cr>', options)
 map('n', '<leader>Q', ':wqa!<cr>', options)
 map('n', '<leader>q', '<cmd>bp<bar>bd #<CR>', options)
+map('n', '<leader>x', '<cmd>q!<CR>', options)
 
 map("n", "Q", "<nop>", options)
 
@@ -56,3 +57,9 @@ map("n", "tn", "<cmd>tabnew<cr>", options)
 map("n", "tx", "<cmd>tabclose<cr>", options)
 map("n", "tH", "<cmd>tabm 0<cr>", options)
 map("n", "tL", "<cmd>tabm<cr>", options)
+
+-- window navigation
+map("n", "<C-H>", "<C-W><C-H>", options)
+map("n", "<C-J>", "<C-W><C-J>", options)
+map("n", "<C-K>", "<C-W><C-K>", options)
+map("n", "<C-L>", "<C-W><C-L>", options)
