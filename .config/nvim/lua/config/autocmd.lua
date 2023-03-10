@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = {
-        -- "*.php",
+        "*.php",
         "*.lua",
     },
     group = "personal",

@@ -5,18 +5,20 @@ return {
         {
             "luukvbaal/statuscol.nvim",
             config = function()
-                require("statuscol").setup(
-                    {
-                        foldfunc = "builtin",
-                        setopt = true,
-                        order = "SNsFs",
-                        relculright = true
+                local builtin = require("statuscol.builtin")
+                require("statuscol").setup({
+                    relculright = true,
+                    segments = {
+                        { text = { "%s" },                       click = "v:lua.ScSa" },
+                        { text = { builtin.lnumfunc },           click = "v:lua.ScLa", },
+                        { text = { " ", builtin.foldfunc, " " }, click = "v:lua.ScFa" },
                     }
-                )
+                })
             end
         }
     },
-    event = "BufReadPost",
+    lazy = false,
+    -- event = "BufRead",
     opts = {},
     init = function()
         -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself

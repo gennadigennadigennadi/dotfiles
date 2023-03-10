@@ -8,6 +8,7 @@ set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 
 set -x EDITOR "nvim"
 set -x VISUAL "nvim"
+set -x PHP_CS_FIXER_IGNORE_ENV 1
 
 set -x FZF_DEFAULT_COMMAND 'fd --type file --follow --hidden --exclude .git'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
@@ -35,4 +36,5 @@ abbr lg 'lazygit'
 
 abbr code 'cd /Volumes/code/docker-mac-vagrant/'
 abbr up 'cd /Volumes/code/docker-mac-vagrant/ && vagrant up && cd -'
+abbr down 'cd /Volumes/code/docker-mac-vagrant/ && vagrant halt && cd -'
 abbr workbox 'ssh -t vagrant@workbox "cd /Volumes/code/ ; bash"'

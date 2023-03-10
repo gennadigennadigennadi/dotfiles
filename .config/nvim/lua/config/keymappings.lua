@@ -17,10 +17,10 @@ map("v", "<", "<gv", options)
 
 map("n", "J", "mzJ`z", options) -- Keep the cursor in place while joining lines
 
-map("n", "H", "^", options) -- goto the beginning of the line
-map("n", "L", "g_", options) -- go to the end of the line
+map("n", "H", "^", options)     -- goto the beginning of the line
+map("n", "L", "g_", options)    -- go to the end of the line
 
-map("n", "Y", "y$", options) -- yank to end of line
+map("n", "Y", "y$", options)    -- yank to end of line
 map("v", "y", "myy`y", options) -- maintan the cursor position when yanking
 map("v", "Y", "myY`y", options)
 
@@ -43,8 +43,8 @@ map("n", "N", "Nzzzv", options)
 map('n', '<c-d>', '<c-d>zz', options)
 map('n', '<c-u>', '<c-u>zz', options)
 -- Move a line
-map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
-map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
+map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 ------------------
 -- tab handling --
