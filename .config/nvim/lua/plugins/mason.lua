@@ -18,11 +18,11 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         local servers = {
-            intelephense = {
-                format = { enabled = false },
-                telemetry = { enabled = false }
-            },
-            -- phpactor = { }
+            -- intelephense = {
+            --     format = { enabled = false },
+            --     telemetry = { enabled = false }
+            -- },
+            phpactor = {}
         }
 
         local function on_attach(client, bufnr)
@@ -70,6 +70,16 @@ return {
                     settings = servers[server_name],
                 })
             end,
+        })
+
+        require("phpactor").setup({
+            lspconfig = {
+                enabled = false,
+                options = {
+                    -- on_attach = on_attach,
+                    -- capabilities = capabilities,
+                },
+            },
         })
 
 
