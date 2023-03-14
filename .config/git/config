@@ -17,7 +17,7 @@
 	process = git-lfs filter-process
 [delta]
     navigate = true
-    theme = GitHub
+    syntax-theme = GitHub
     line-numbers = true
 [merge]
     conflictstyle = diff3

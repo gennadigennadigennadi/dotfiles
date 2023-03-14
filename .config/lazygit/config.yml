@@ -6,29 +6,29 @@ gui:
     expandFocusedSidePanel: false
     mainPanelSplitMode: 'flexible' # one of 'horizontal' | 'flexible' | 'vertical'
     language: 'auto' # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
-    commitLengthlightTheme: false 
+    commitLengthlightTheme: false
     theme:
-      lightTheme: false
-      activeBorderColor:
-        - red
-        - bold
-      inactiveBorderColor:
-        - white
-      optionsTextColor:
-        - red
-      selectedLineBgColor:
-        - blue # set to `default` to have no background colour
-        - bold
-      selectedRangeBgColor:
-        - yellow
-      cherryPickedCommitBgColor:
-        - red
-      cherryPickedCommitFgColor:
-        - red
-      unstagedChangesColor:
-        - red
-      defaultFgColor:
-        - default    
+      lightTheme: true
+      # activeBorderColor:
+      #   - red
+      #   - bold
+      # inactiveBorderColor:
+      #   - white
+      # optionsTextColor:
+      #   - red
+      # selectedLineBgColor:
+      #   - blue # set to `default` to have no background colour
+      #   - bold
+      # selectedRangeBgColor:
+      #   - yellow
+      # cherryPickedCommitBgColor:
+      #   - red
+      # cherryPickedCommitFgColor:
+      #   - red
+      # unstagedChangesColor:
+      #   - red
+      # defaultFgColor:
+      #   - black
     show: true
     mouseEvents: true
     skipUnstageLineWarning: false
@@ -40,9 +40,9 @@ gui:
     commandLogSize: 3
 git:
     paging:
-      colorArg: always
+      # colorArg: always
       useConfig: false
-      pager: delta --dark --paging=never
+      pager: delta --paging=never --syntax-theme=GitHub
     merging:
         # only applicable to unix users
         manualCommit: false

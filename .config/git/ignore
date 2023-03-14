@@ -12,9 +12,7 @@ launch.json
 
 .idea
 .vscode
-
 .phpunit.result.cache
-
-.phpactor.yml
+.phpactor.json
 .vsls.json
 
