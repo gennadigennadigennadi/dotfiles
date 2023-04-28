@@ -35,7 +35,7 @@ return {
                 "gitcommit",
                 "gitignore",
                 "gitignore",
-                "help",
+                "vimdoc",
                 "html",
                 "ini",
                 "json",
