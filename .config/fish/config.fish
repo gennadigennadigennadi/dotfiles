@@ -22,9 +22,8 @@ set -g fish_user_paths "$HOME/.bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/bin/python3/bin" $fish_user_paths
 
 # My aliases
-alias tmux 'tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
-alias dotfiles 'git --git-dir=/Volumes/code/dotfiles/ --work-tree=$HOME'
-alias dot 'lazygit --git-dir=/Volumes/code/dotfiles/ --work-tree=$HOME'
+# alias dotfiles 'git --git-dir=/Volumes/code/dotfiles/ --work-tree=$HOME'
+# alias dot 'lazygit --git-dir=/Volumes/code/dotfiles/ --work-tree=$HOME'
 abbr brewu 'brew update && brew upgrade'
 
 abbr ll 'exa -gla --icons'
