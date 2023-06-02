@@ -31,4 +31,12 @@ abbr v 'nvim'
 abbr lg 'lazygit'
 abbr ports 'sudo lsof -i -P -n | grep LISTEN'
 
+# alias hmd='cd ~/.dotfiles/nix/home-manager'
+# alias hmp='home-manager packages'
+# alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad'
+# alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
+
+abbr hms 'home-manager switch --flake ~/Code/dotfiles/.config/home-manager/#gennadi'
+abbr hmu 'nix flake update ~/Code/dotfiles/.config/home-manager/ && home-manager switch --flake ~/Code/dotfiles/.config/home-manager/#gennadi'
+
 cat $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh | babelfish | source
