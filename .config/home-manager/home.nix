@@ -8,6 +8,7 @@
 
   home.packages = with pkgs;  [
     babelfish
+    bat
     bottom
     delta
     docker
@@ -16,6 +17,7 @@
     fzf
     git
     go
+    jq
     lazygit
     php
     ripgrep
