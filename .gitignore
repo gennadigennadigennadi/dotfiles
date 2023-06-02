@@ -6,3 +6,5 @@
 .config/AWSVPNClient
 .config/op/config
 
+.config/tmux/plugins
+.config/home-manager/result
