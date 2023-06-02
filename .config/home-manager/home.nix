@@ -24,5 +24,9 @@
     tmux
   ];
 
+  home.file."${config.xdg.configHome}" = {
+    source = ../../.config;
+    recursive = true;
+  };
   programs.home-manager.enable = true;
 }
