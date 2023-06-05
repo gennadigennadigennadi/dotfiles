@@ -22,10 +22,11 @@
     php
     ripgrep
     tmux
+    nix
   ];
 
   home.file."${config.xdg.configHome}" = {
-    source = ../../.config;
+    source = ../../config;
     recursive = true;
   };
   programs.home-manager.enable = true;
