@@ -3,7 +3,6 @@
 {
   home.username = "gennadi";
   home.homeDirectory = "/home/gennadi/";
-  xdg.cacheHome = "/home/gennadi/.cache/";
   home.stateVersion = "23.05"; 
 
   home.packages = with pkgs;  [

@@ -43,6 +43,7 @@ return {
                 "make",
                 "markdown",
                 "markdown_inline",
+                "nix",
                 "php",
                 "regex",
                 "scheme",
