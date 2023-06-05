@@ -36,7 +36,7 @@ abbr ports 'sudo lsof -i -P -n | grep LISTEN'
 # alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad'
 # alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
 
-abbr hms 'home-manager switch --flake ~/Code/dotfiles/config/home-manager/#gennadi'
-abbr hmu 'nix flake update ~/Code/dotfiles/config/home-manager/ && home-manager switch --flake ~/Code/dotfiles/config/home-manager/#gennadi'
+abbr hms 'home-manager switch --flake ~/Code/dotfiles/home-manager/#gennadi'
+abbr hmu 'nix flake update ~/Code/dotfiles/home-manager/ && home-manager switch --flake ~/Code/dotfiles/home-manager/#gennadi'
 
 cat $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh | babelfish | source
