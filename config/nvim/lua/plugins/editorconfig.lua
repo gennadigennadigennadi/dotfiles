@@ -1,4 +1,4 @@
 return {
-    "gpanders/editorconfig.nvim",
-    event = "VeryLazy"
+	"gpanders/editorconfig.nvim",
+	event = "VeryLazy",
 }

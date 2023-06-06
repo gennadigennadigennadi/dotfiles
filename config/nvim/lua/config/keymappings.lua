@@ -3,11 +3,11 @@ local options = { noremap = true, silent = true }
 
 map("", "<Space>", "<Nop>", options) -- map the leader key
 
-map('n', '<leader>R', '<cmd>source $MYVIMRC<cr>', options)
-map('n', '<leader>update', ':w!<cr>', options)
-map('n', '<leader>Q', ':wqa!<cr>', options)
-map('n', '<leader>q', '<cmd>bp<bar>bd #<CR>', options)
-map('n', '<leader>x', '<cmd>q!<CR>', options)
+map("n", "<leader>R", "<cmd>source $MYVIMRC<cr>", options)
+map("n", "<leader>s", ":w!<cr>", options)
+map("n", "<leader>Q", ":wqa!<cr>", options)
+map("n", "<leader>q", "<cmd>bp<bar>bd #<CR>", options)
+map("n", "<leader>x", "<cmd>q!<CR>", options)
 
 map("n", "Q", "<nop>", options)
 
@@ -17,18 +17,18 @@ map("v", "<", "<gv", options)
 
 map("n", "J", "mzJ`z", options) -- Keep the cursor in place while joining lines
 
-map("n", "H", "^", options)     -- goto the beginning of the line
-map("n", "L", "g_", options)    -- go to the end of the line
+map("n", "H", "^", options) -- goto the beginning of the line
+map("n", "L", "g_", options) -- go to the end of the line
 
-map("n", "Y", "y$", options)    -- yank to end of line
+map("n", "Y", "y$", options) -- yank to end of line
 map("v", "y", "myy`y", options) -- maintan the cursor position when yanking
 map("v", "Y", "myY`y", options)
 
 -- No yank on delete
-map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
+map("v", "p", '"_dP', options) -- don't yank the text i paste stuff over
 -- map("v", "d", "\"_d", options)
-map("n", "x", "\"_x", options)
-map("n", "D", "\"_D", options)
+map("n", "x", '"_x', options)
+map("n", "D", '"_D', options)
 
 -- Easy insertion of a trailing ; or ,
 map("i", ";;", "<esc>A;<esc>", options)
@@ -40,8 +40,8 @@ map("n", ",,", "<esc>A,<esc>", options)
 map("n", "n", "nzzzv", options)
 map("n", "N", "Nzzzv", options)
 
-map('n', '<c-d>', '<c-d>zz', options)
-map('n', '<c-u>', '<c-u>zz', options)
+map("n", "<c-d>", "<c-d>zz", options)
+map("n", "<c-u>", "<c-u>zz", options)
 -- Move a line
 map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
@@ -49,7 +49,7 @@ map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 ------------------
 -- tab handling --
 ------------------
-map('n', 'th', '<cmd>tabfirst<cr>', options)
+map("n", "th", "<cmd>tabfirst<cr>", options)
 map("n", "tk", "<cmd>tabprev<cr>", options)
 map("n", "tj", "<cmd>tabnext<cr>", options)
 map("n", "tl", "<cmd>tablast<cr>", options)
