@@ -33,6 +33,7 @@ return {
                 port = 9003,
                 pathMappings = {
                     ['/var/www/html'] = "${workspaceFolder}",
+                    ['/var/www/deptrac'] = "${workspaceFolder}",
                 },
             }
         }

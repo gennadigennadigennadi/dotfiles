@@ -48,6 +48,7 @@
         EDITOR = "nvim";
         VISUAL = "nvim";
         KEYTIMEOUT = 1;
+        SHELL = "/home/gennadi/.nix-profile/bin/fish";
     };
 
     programs = {

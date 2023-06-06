@@ -4,9 +4,9 @@ return {
         require('toggleterm').setup({
             direction = 'float',
             float_opts = {
-                border = "double",
-                -- width = math.floor(vim.o.columns * 0.98),
-                -- height = math.floor(vim.o.lines * 0.95),
+                -- border = "double",
+                width = math.floor(vim.o.columns * 0.98),
+                height = math.floor(vim.o.lines * 0.95),
             },
         })
         require("config.lazygit")
