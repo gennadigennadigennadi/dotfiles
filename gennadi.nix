@@ -4,7 +4,6 @@
     nixpkgs = {
         config = {
             allowUnfree = true;
-            allowUnfreePredicate = (_: true);
         };
     };
     home.username = "gennadi";
@@ -37,11 +36,11 @@
     ];
 
     home.file."${config.xdg.configHome}" = {
-        source = ../config;
+        source = ./config;
         recursive = true;
     };
 
-    home.file.".editorconfig".source = ../.editorconfig;
+    home.file.".editorconfig".source = ./.editorconfig;
     home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";
