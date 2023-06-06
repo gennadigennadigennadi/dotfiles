@@ -12,9 +12,10 @@ return {
     color_scheme = "Github (base16)",
     default_cursor_style = 'SteadyBlock',
     hide_tab_bar_if_only_one_tab = true,
-    font_size = 15,
+    font_size = 12,
     line_height = 1.5,
     scrollback_lines = 10000,
+    enable_wayland = true,
     keys = {
         {
             key = "r",
@@ -28,7 +29,7 @@ return {
         top = 0,
         bottom = 0,
     },
-    font = font("FiraCode Nerd Font"),
+    font = font("JetBrainsMono Nerd Font Mono"),
     font_rules = {
         {
             italic = true,

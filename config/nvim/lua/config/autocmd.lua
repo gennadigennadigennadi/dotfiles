@@ -28,16 +28,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         vim.highlight.on_yank { timeout = 700 }
     end,
 })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = {
-        "*.php",
-        "*.lua",
-    },
-    group = "personal",
-    callback = function()
-        vim.lsp.buf.format { async = true }
-    end,
-})
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     pattern = { "*" },
     group = "personal",

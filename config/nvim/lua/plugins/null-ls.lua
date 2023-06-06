@@ -9,7 +9,7 @@ return {
             end,
             sources = {
                 null_ls.builtins.diagnostics.php.with({
-                    -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+                    method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
                 }),
                 null_ls.builtins.diagnostics.phpstan.with({}),
                 -- null_ls.builtins.diagnostics.psalm,

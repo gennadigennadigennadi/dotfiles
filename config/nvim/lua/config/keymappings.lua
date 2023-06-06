@@ -4,7 +4,7 @@ local options = { noremap = true, silent = true }
 map("", "<Space>", "<Nop>", options) -- map the leader key
 
 map('n', '<leader>R', '<cmd>source $MYVIMRC<cr>', options)
-map('n', '<leader>s', ':w!<cr>', options)
+map('n', '<leader>update', ':w!<cr>', options)
 map('n', '<leader>Q', ':wqa!<cr>', options)
 map('n', '<leader>q', '<cmd>bp<bar>bd #<CR>', options)
 map('n', '<leader>x', '<cmd>q!<CR>', options)
