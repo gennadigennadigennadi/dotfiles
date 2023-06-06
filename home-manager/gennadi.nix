@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-     nixpkgs = {
+    nixpkgs = {
         config = {
             allowUnfree = true;
             allowUnfreePredicate = (_: true);
@@ -35,6 +35,7 @@
         ripgrep
         tmux
         zsh
+        nerdfonts
     ];
 
     home.file."${config.xdg.configHome}" = {
