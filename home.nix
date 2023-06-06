@@ -40,7 +40,7 @@
         recursive = true;
     };
 
-    home.file.".editorconfig".source = ./.editorconfig;
+    home.file.".editorconfig".source = ./editorconfig;
     home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";

@@ -18,7 +18,7 @@
         homeConfigurations."gennadi" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
 
-            modules = [ ./gennadi.nix ];
+            modules = [ ./home.nix ];
         };
     };
 }
