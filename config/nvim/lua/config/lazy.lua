@@ -6,6 +6,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    lockfile =  "/Volumes/Code/dotfiles/config/nvim/lazy-lock.json",
 	spec = {
 		{ import = "plugins" },
 	},
