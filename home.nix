@@ -1,35 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  # to add channel; nix-channel --add https://github.com/guibou/nixGL/archive/main.tar.gz nixgl
-  # to customise packages in config; https://gsc.io/70266391-48a6-49be-ab5d-acb5d7f17e76-nixos/doc/nixos-manual/html/sec-package-management.html#sec-customising-packages
-
-  # the motivation for nixGL; https://discourse.nixos.org/t/design-discussion-about-nixgl-opengl-cuda-opencl-wrapper-for-nix/2453
-  # nixgl = import <nixgl> {} ;
-  nixGuiWrap = pkg: pkgs.runCommand "${pkg.name}-nixgui-wrapper" {} ''
-    mkdir $out
-    ln -s ${pkg}/* $out
-    rm $out/bin
-    mkdir $out/bin
-    # nixGL/Home Manager issue; https://github.com/guibou/nixGL/issues/44
-    # nixGL/Home Manager issue; https://github.com/guibou/nixGL/issues/114
-    # nixGL causes all software ran under it to gain nixGL status; https://github.com/guibou/nixGL/issues/116
-    # we wrap packages with nixGL; it customizes LD_LIBRARY_PATH and related
-    # envs so that nixpkgs find a compatible OpenGL driver
-    nixgl_bin="${lib.getExe pkgs.nixgl.auto.nixGLDefault}"
-    # Similar to OpenGL, the executables installed by nix cannot find the GTK modules
-    # required by the environment. The workaround is to unset the GTK_MODULES and
-    # GTK3_MODULES so that it does not reach for system GTK modules.
-    # We also need to modify the GTK_PATH to point to libcanberra-gtk3 installed via Nix
-    gtk_path="${lib.getLib pkgs.libcanberra-gtk3}/lib/gtk-3.0"
-    for bin in ${pkg}/bin/*; do
-      wrapped_bin=$out/bin/$(basename $bin)
-      echo "exec env GTK_MODULES= GTK3_MODULES= GTK_PATH=\"$gtk_path\" $nixgl_bin  $bin \"\$@\"" > $wrapped_bin
-      chmod +x $wrapped_bin
-    done
-  '';
-
-in {
+{
     nixpkgs = {
         config = {
             allowUnfree = true;
@@ -49,7 +20,7 @@ in {
          bat
          bottom
          delta
-         docker
+         # docker
          du-dust
          exa
          fd
@@ -61,32 +32,16 @@ in {
          jq
          lazygit
          neovim
-         nerdfonts
+         # nerdfonts
          nodejs_20
-         php82
+         # php82
          php82Packages.composer
          podman
          podman-compose
          ripgrep
          wl-clipboard
          zsh
-         nixgl.auto.nixGLDefault
-
-        # GUI   
-        (nixGuiWrap alacritty)
-        gnome.nautilus
-        gnome.gnome-tweaks
-        gnome.gnome-terminal
-        gnome.gnome-calendar
-        gnome.gedit
-        gnome.geary
-        cider
-        dbeaver
-        ungoogled-chromium
-        slack
-        signal-desktop
-        insomnia
-        jetbrains.phpstorm
+        symfony-cli
     ];
 
     home.file."${config.xdg.configHome}" = {

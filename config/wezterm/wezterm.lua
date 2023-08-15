@@ -1,4 +1,4 @@
-local wezterm = require("wezterm")
+local wezterm = require "wezterm"
 local function font(opts)
     return wezterm.font_with_fallback({
         opts,
@@ -6,24 +6,14 @@ local function font(opts)
     })
 end
 
-local mux = wezterm.mux
-
-wezterm.on("gui-startup", function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
-end)
-
 return {
-    font = wezterm.font("JetBrainsMono Nerd Font Mono"),
-    -- color_scheme = "Github",
+    font = wezterm.font "JetBrainsMono Nerd Font",
     color_scheme = "Github (base16)",
-    default_cursor_style = "SteadyBlock",
+    default_cursor_style = 'SteadyBlock',
     hide_tab_bar_if_only_one_tab = true,
     font_size = 12,
     line_height = 1.5,
     scrollback_lines = 10000,
-    enable_wayland = true,
-    -- window_decorations = "RESIZE",
     keys = {
         {
             key = "r",
@@ -32,12 +22,12 @@ return {
         },
     },
     window_padding = {
-        left = 0,
-        right = 0,
-        top = 0,
-        bottom = 0,
+        left = 10,
+        right = 10,
+        top = 10,
+        bottom = 10,
     },
-    font = font("JetBrainsMono Nerd Font Mono"),
+    -- font = font("FiraCode Nerd Font"),
     font_rules = {
         {
             italic = true,

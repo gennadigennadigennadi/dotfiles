@@ -13,8 +13,6 @@ return {
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-project.nvim",
-		"nvim-telescope/telescope-frecency.nvim",
-		"kkharji/sqlite.lua",
 	},
 	config = function()
 		require("telescope").setup({
@@ -37,6 +35,5 @@ return {
 
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("projects")
-		require("telescope").load_extension("frecency")
 	end,
 }
