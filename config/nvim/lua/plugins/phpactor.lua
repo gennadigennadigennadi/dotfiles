@@ -1,9 +1,11 @@
 return {
 	"gbprod/phpactor.nvim",
 	lazy = false,
-	build = function()
-		require("phpactor.handler.update")()
-	end,
+    opts = {
+      install = {
+        path = vim.fn.stdpath("data") .. "/mason/phpactor",
+      },
+    },
 	ft = "php",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
