@@ -1,4 +1,5 @@
 return {
-	"folke/trouble.nvim",
-	config = true,
+    "folke/trouble.nvim",
+    enabled = false,
+    config = true,
 }

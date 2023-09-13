@@ -47,7 +47,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.list = false -- show invisible chars
+vim.opt.list = true -- show invisible chars
 vim.opt.listchars = { tab = "▸ ", space = "·", trail = "·" }
 vim.opt.wrap = false
 
