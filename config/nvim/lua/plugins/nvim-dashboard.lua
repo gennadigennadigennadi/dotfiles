@@ -1,7 +1,7 @@
 return {
-	{
-		"glepnir/dashboard-nvim",
-		event = "VimEnter",
-		opts = {},
-	},
+    {
+        "glepnir/dashboard-nvim",
+        event = "VimEnter",
+        opts = {},
+    },
 }

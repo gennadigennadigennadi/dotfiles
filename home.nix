@@ -41,7 +41,8 @@
          ripgrep
          wl-clipboard
          zsh
-        symfony-cli
+         symfony-cli
+         stylua
     ];
 
     home.file."${config.xdg.configHome}" = {

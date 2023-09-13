@@ -1,14 +1,14 @@
 return {
-	"gbprod/phpactor.nvim",
-	lazy = false,
+    "gbprod/phpactor.nvim",
+    lazy = false,
     opts = {
-      install = {
-        path = vim.fn.stdpath("data") .. "/mason/phpactor",
-      },
+        install = {
+            path = vim.fn.stdpath("data") .. "/mason/phpactor",
+        },
     },
-	ft = "php",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"neovim/nvim-lspconfig",
-	},
+    ft = "php",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "neovim/nvim-lspconfig",
+    },
 }
