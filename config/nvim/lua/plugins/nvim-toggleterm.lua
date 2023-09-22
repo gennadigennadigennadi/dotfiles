@@ -1,14 +1,7 @@
 return {
     "akinsho/toggleterm.nvim",
     config = function()
-        require("toggleterm").setup({
-            direction = "float",
-            float_opts = {
-                -- border = "double",
-                width = math.floor(vim.o.columns * 0.98),
-                height = math.floor(vim.o.lines * 0.95),
-            },
-        })
+        require("toggleterm").setup()
         require("config.lazygit")
     end,
     cmd = { "ToggleTerm" },

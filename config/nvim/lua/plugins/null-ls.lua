@@ -10,7 +10,7 @@ return {
                 null_ls.builtins.diagnostics.php.with({
                     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
                 }),
-                null_ls.builtins.diagnostics.phpstan.with({}),
+                -- null_ls.builtins.diagnostics.phpstan.with({}),
                 -- null_ls.builtins.diagnostics.psalm,
                 null_ls.builtins.formatting.phpcsfixer,
                 null_ls.builtins.formatting.stylua,

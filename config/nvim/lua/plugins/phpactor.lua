@@ -1,4 +1,5 @@
 return {
+    enabled = false,
     "gbprod/phpactor.nvim",
     lazy = false,
     opts = {

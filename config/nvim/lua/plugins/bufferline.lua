@@ -1,14 +1,5 @@
 return {
     "akinsho/bufferline.nvim",
-    enabled = false,
+    version = "*",
     config = true,
-    lazy = false,
-    -- event = "VeryLazy",
-    opts = function()
-        return {
-            options = {
-                always_show_bufferline = true,
-            },
-        }
-    end,
 }

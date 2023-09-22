@@ -34,7 +34,6 @@ return {
                 "fish",
                 "gitcommit",
                 "gitignore",
-                "gitignore",
                 "go",
                 "html",
                 "ini",

@@ -14,7 +14,10 @@ return {
         local lspkind = require("lspkind")
 
         cmp.setup({
-            experimental = { ghost_text = false, custom_menu = true },
+            experimental = {
+                ghost_text = false,
+                custom_menu = true,
+            },
             completion = { completeopt = "menu,menuone,noinsert" },
             formatting = {
                 deprecated = true,
@@ -37,7 +40,6 @@ return {
                     require("luasnip").lsp_expand(args.body)
                 end,
             },
-            -- documentation = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } },
             mapping = {
                 ["<C-d>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -59,24 +61,6 @@ return {
                 { name = "dap" },
             },
         })
-
-        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-        -- cmp.setup.cmdline("/", {
-        --     mapping = cmp.mapping.preset.cmdline(),
-        --     sources = {
-        --         { name = "buffer" },
-        --     },
-        -- })
-
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        -- cmp.setup.cmdline(":", {
-        --     mapping = cmp.mapping.preset.cmdline(),
-        --     sources = cmp.config.sources({
-        --         { name = "path" },
-        --     }, {
-        --         { name = "cmdline" },
-        --     }),
-        -- })
 
         local luasnip = require("luasnip")
 

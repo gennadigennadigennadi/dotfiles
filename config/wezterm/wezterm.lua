@@ -7,7 +7,6 @@ local function font(opts)
 end
 
 return {
-    font = wezterm.font "JetBrainsMono Nerd Font",
     color_scheme = "Github (base16)",
     default_cursor_style = 'SteadyBlock',
     hide_tab_bar_if_only_one_tab = true,
@@ -27,7 +26,7 @@ return {
         top = 10,
         bottom = 10,
     },
-    -- font = font("FiraCode Nerd Font"),
+    font = font("JetBrainsMono Nerd Font"),
     font_rules = {
         {
             italic = true,
