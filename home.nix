@@ -22,7 +22,7 @@
          delta
          # docker
          du-dust
-         exa
+         eza
          fd
          fzf
          gcc
@@ -36,8 +36,7 @@
          nodejs_20
          # php82
          php82Packages.composer
-         podman
-         podman-compose
+         pv
          ripgrep
          wl-clipboard
          zsh
