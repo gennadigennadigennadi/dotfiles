@@ -19,6 +19,8 @@ return {
 
         local servers = {
             phpactor = {},
+            dockerls = {},
+            docker_compose_language_service = {},
             lua_ls = {
                 settings = {
                     Lua = {
@@ -30,6 +32,8 @@ return {
             },
         }
 
+        -- require("lspconfig")["docker_compose_language_service"].setup({})
+
         local function on_attach(client, bufnr)
             local map = vim.api.nvim_buf_set_keymap
             local opts = { noremap = true, silent = true }
@@ -37,14 +41,13 @@ return {
             vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
             map(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-            -- map(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-            map(bufnr, "n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
+            map(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
             map(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
             map(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-            map(bufnr, "n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)
-            map(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
-            map(bufnr, "v", "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
-            map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+            vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+            vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+            -- map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
             vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
         end
@@ -63,16 +66,6 @@ return {
                 })
             end,
         })
-
-        -- require("phpactor").setup({
-        --     lspconfig = {
-        --         enabled = false,
-        --         options = {
-        --             -- on_attach = on_attach,
-        --             -- capabilities = capabilities,
-        --         },
-        --     },
-        -- })
 
         local signs = {
             Error = " ",

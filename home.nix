@@ -14,13 +14,12 @@
     fonts.fontconfig.enable = true;
 
     # See https://discourse.nixos.org/t/home-manager-installed-apps-dont-show-up-in-applications-launcher/8523/2.
-    targets.genericLinux.enable = true;
+    targets.genericLinux.enable = false;
 
     home.packages = with pkgs;  [
          bat
          bottom
          delta
-         # docker
          du-dust
          eza
          fd
@@ -31,6 +30,7 @@
          go
          jq
          lazygit
+        mysql80
          neovim
          # nerdfonts
          nodejs_20

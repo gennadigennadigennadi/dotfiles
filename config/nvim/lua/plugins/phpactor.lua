@@ -1,10 +1,12 @@
 return {
-    enabled = false,
     "gbprod/phpactor.nvim",
-    lazy = false,
+    enabled = false,
     opts = {
         install = {
-            path = vim.fn.stdpath("data") .. "/mason/phpactor",
+            bin = vim.fn.stdpath("data") .. "/mason/bin/phpactor",
+        },
+        lspconfig = {
+            enabled = false,
         },
     },
     ft = "php",

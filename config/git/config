@@ -6,8 +6,6 @@
 	pager = delta 
 [interactive]
 	diffFilter = delta --color-only
-[credential]
-	helper = osxkeychain
 [push]
 	default = simple
 [filter "lfs"]

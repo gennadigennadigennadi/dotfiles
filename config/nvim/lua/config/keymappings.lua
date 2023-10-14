@@ -2,7 +2,7 @@ local map = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }
 
 map("", "<Space>", "<Nop>", options) -- map the leader key
- 
+
 map("n", "<leader>R", "<cmd>source $MYVIMRC<cr>", options)
 map("n", "<leader>s", ":update!<cr>", options)
 
@@ -26,10 +26,10 @@ map("v", "y", "myy`y", options) -- maintan the cursor position when yanking
 map("v", "Y", "myY`y", options)
 
 -- No yank on delete
-map("v", "p", '"_dP', options) -- don't yank the text i paste stuff over
+map("v", "p", "\"_dP", options) -- don't yank the text i paste stuff over
 -- map("v", "d", "\"_d", options)
-map("n", "x", '"_x', options)
-map("n", "D", '"_D', options)
+map("n", "x", "\"_x", options)
+map("n", "D", "\"_D", options)
 
 -- Easy insertion of a trailing ; or ,
 map("i", ";;", "<esc>A;<esc>", options)
