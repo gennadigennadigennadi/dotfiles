@@ -48,8 +48,6 @@ return {
             vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
             -- map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-            vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
         end
 
         local mason_lspconfig = require("mason-lspconfig")
