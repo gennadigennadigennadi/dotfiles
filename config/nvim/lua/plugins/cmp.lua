@@ -25,6 +25,7 @@ return {
                     with_text = true,
                     menu = {
                         buffer = "(Buffer)",
+                        ["vim-dadbod-completion"] = "(DB)",
                         nvim_lsp = "(LSP)",
                         luasnip = "(LuaSnip)",
                         nvim_lua = "(Lua)",
@@ -50,6 +51,7 @@ return {
             },
             sources = {
                 { name = "nvim_lsp" },
+                { name = "vim-dadbod-completion" },
                 { name = "treesitter" },
                 { name = "luasnip" },
                 { name = "path" },
