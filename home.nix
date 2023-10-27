@@ -114,6 +114,9 @@
         starship = {
             enable = true;
             enableFishIntegration = true;
+            settings = {
+                add_newline = true;
+            };
         };
         fish = {
             enable = true;
@@ -131,6 +134,9 @@
                 ports= "sudo lsof -i -P -n | grep LISTEN";
                 hm = "home-manager switch --flake ~/Code/dotfiles/";
             };
+              interactiveShellInit = ''
+              set -g fish_greeting
+            '';
         };
     };
 }

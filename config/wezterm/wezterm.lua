@@ -8,12 +8,12 @@ end
 
 return {
     -- window_decorations = "RESIZE",
-    -- color_scheme = "Github (base16)",
-    color_scheme = "Catppuccin Frappe",
+    color_scheme = "Github (base16)",
+    -- color_scheme = "Catppuccin Frappe",
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
-    font_size = 11,
-    line_height = 1.25,
+    font_size = 12,
+    line_height = 1.0,
     scrollback_lines = 10000,
     keys = {
         {

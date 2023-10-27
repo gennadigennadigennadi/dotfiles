@@ -3,4 +3,4 @@ require("config.lazy")
 require("config.keymappings")
 require("config.autocmd")
 
-vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("catppuccin")
