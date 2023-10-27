@@ -17,8 +17,10 @@
     targets.genericLinux.enable = true;
 
     home.packages = with pkgs;  [
-         bat
+         # nerdfonts
+         # php82
          babelfish
+         bat
          bottom
          delta
          du-dust
@@ -31,16 +33,14 @@
          go
          jq
          lazygit
-        mysql80
          neovim
-         # nerdfonts
          nodejs_20
-         # php82
          php82Packages.composer
          pv
          ripgrep
-         wl-clipboard
          symfony-cli
+         wl-clipboard
+         mysql80
     ];
 
     home.file."${config.xdg.configHome}" = {
@@ -111,8 +111,15 @@
                 set-option -g status-position top
             '';
         };
+        starship = {
+            enable = true;
+            enableFishIntegration = true;
+        };
         fish = {
             enable = true;
+            plugins = [
+              { name = "z"; src = pkgs.fishPlugins.z.src; }
+            ];
             shellAbbrs = {
                 vim = "nvim";
                 ll = "exa -gla --icons";
