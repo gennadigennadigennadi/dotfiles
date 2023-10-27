@@ -14,7 +14,7 @@ return {
         require("nvim-treesitter.configs").setup({
             markid = {
                 enable = true,
-                colors = m.colors.dark,
+                colors = m.colors.bright,
                 queries = m.queries,
             },
         })

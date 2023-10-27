@@ -19,9 +19,7 @@ return {
         },
         {
             "<leader>b",
-            function()
-                require("dap").toggle_breakpoint()
-            end,
+            "<cmd>PBToggleBreakpoint<cr>",
             desc = "Dap DapBreakpointToggle",
         },
         {
@@ -50,8 +48,13 @@ return {
     dependencies = {
         "theHamsta/nvim-dap-virtual-text", -- does not support php, yet
         "rcarriga/nvim-dap-ui",
+        "Weissle/persistent-breakpoints.nvim",
     },
     config = function()
+        require("persistent-breakpoints").setup({
+            load_breakpoints_event = { "BufReadPost" },
+        })
+
         local dap = require("dap")
         local dapui = require("dapui")
         dap.adapters.php = {
@@ -140,22 +143,22 @@ return {
                 },
             },
             -- windows = { indent = 0 },
-            layouts = {
-                {
-                    elements = {
-                        {
-                            id = "scopes",
-                            size = 0.75,
-                        },
-                        {
-                            id = "stacks",
-                            size = 0.25,
-                        },
-                    },
-                    position = "left",
-                    size = 40,
-                },
-            },
+            -- layouts = {
+            --     {
+            --         elements = {
+            --             {
+            --                 id = "scopes",
+            --                 size = 0.75,
+            --             },
+            --             {
+            --                 id = "stacks",
+            --                 size = 0.25,
+            --             },
+            --         },
+            --         position = "left",
+            --         size = 40,
+            --     },
+            -- },
         })
         vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "blue", linehl = "", numhl = "" })
         vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })

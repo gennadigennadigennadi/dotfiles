@@ -8,6 +8,8 @@
 	diffFilter = delta --color-only
 [push]
 	default = simple
+[branch]
+    autoSetupMerge = simple
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

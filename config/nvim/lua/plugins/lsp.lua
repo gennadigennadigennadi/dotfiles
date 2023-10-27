@@ -42,12 +42,13 @@ return {
 
             map(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
             map(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-            map(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-            map(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-            vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-            vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-            -- map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            -- map(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+            -- map(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+            vim.keymap.set('n', "gr", ":Lspsaga finder ref<cr>", opts)
+            vim.keymap.set('n', "gi", ":Lspsaga finder imp<cr>", opts)
+            vim.keymap.set("n", "<space>rn", ':Lspsaga rename<cr>', opts)
+            vim.keymap.set({ "n", "v" }, "<space>ca", 'Lspsaga code_action<cr>', opts)
+            -- vim.keymap.set({ "n" }, "K", 'Lspsaga hover_doc<cr>', opts)
         end
 
         local mason_lspconfig = require("mason-lspconfig")

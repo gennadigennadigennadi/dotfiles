@@ -14,10 +14,11 @@
     fonts.fontconfig.enable = true;
 
     # See https://discourse.nixos.org/t/home-manager-installed-apps-dont-show-up-in-applications-launcher/8523/2.
-    targets.genericLinux.enable = false;
+    targets.genericLinux.enable = true;
 
     home.packages = with pkgs;  [
          bat
+         babelfish
          bottom
          delta
          du-dust
@@ -39,9 +40,7 @@
          pv
          ripgrep
          wl-clipboard
-         zsh
          symfony-cli
-         stylua
     ];
 
     home.file."${config.xdg.configHome}" = {
@@ -92,7 +91,7 @@
                     extraConfig = ''
                         set -g @catppuccin_left_separator "█"
                         set -g @catppuccin_right_separator "█"
-                        set -g @catppuccin_flavour "latte"
+                        set -g @catppuccin_flavour "frappe"
                     '';
                 }
                 {
@@ -123,6 +122,7 @@
                 v= "nvim";
                 lg= "lazygit";
                 ports= "sudo lsof -i -P -n | grep LISTEN";
+                hm = "home-manager switch --flake ~/Code/dotfiles/";
             };
         };
     };

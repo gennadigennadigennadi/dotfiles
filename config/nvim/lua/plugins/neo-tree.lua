@@ -2,11 +2,9 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = { "Neotree" },
     keys = {
-        { "<leader>tn", "<cmd>NeoTreeFocusToggle<Cr>", desc = "NavigationToggle" },
-        { "<leader>tf", "<cmd>NeoTreeRevealToggle<Cr>", desc = "NavigationRevealToggle" },
-        { "<c-n>", "<cmd>NeoTreeReveal<Cr>", desc = "NavigationRevealToggle" },
+        { "<c-n>", "<cmd>Neotree reveal toggle<Cr>", desc = "Neotree Reveal Toggle" },
     },
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
         "MunifTanjim/nui.nvim",
     },
