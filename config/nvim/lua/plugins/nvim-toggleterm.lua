@@ -1,7 +1,9 @@
 return {
     "akinsho/toggleterm.nvim",
     config = function()
-        require("toggleterm").setup({})
+        require("toggleterm").setup({
+            shade_terminals = false,
+        })
 
         function _G.set_terminal_keymaps()
             local opts = { buffer = 0 }
@@ -44,6 +46,7 @@ return {
                     name = "terminal",
                     id = 99,
                     hidden = true,
+                    shade_terminals = false,
                 })
 
                 terminal:toggle()
