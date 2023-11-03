@@ -1,6 +1,7 @@
 return {
     "folke/edgy.nvim",
     event = "VeryLazy",
+    enabled = false,
     opts = {
         animate = {
             enabled = false,
@@ -15,7 +16,13 @@ return {
                 end,
                 size = { height = 0.5, width = 0.225 },
             },
-            { ft = "dapui_scopes", title = "Scopes" },
+            {
+                ft = "dapui_scopes",
+                title = "Scopes",
+                size = {
+                    width = 0.225,
+                },
+            },
             { ft = "dapui_breakpoints", title = "Breakpoints" },
             { ft = "dapui_stacks", title = "Stacks" },
         },
@@ -25,22 +32,22 @@ return {
                 pinned = true,
                 open = "SymbolsOutline",
             },
-            "dapui_scopes",
         },
         bottom = {
             {
                 ft = "toggleterm",
                 ping = true,
-                size = { height = 0.3, width = 0.9 },
+                size = { height = 0.3 },
                 -- exclude floating windows
                 filter = function(buf, win)
                     return vim.api.nvim_win_get_config(win).relative == ""
                 end,
             },
+            { ft = "spectre_panel", size = { height = 0.4 } },
             "Trouble",
-            { ft = "dapui_watches", title = "Watches" },
-            { ft = "dap-repl", title = "Debug REPL" },
-            { ft = "dapui_console", title = "Debug Console" },
+            -- { ft = "dap-repl", title = "Debug REPL" },
+            -- { ft = "dapui_watches", title = "Watches" },
+            -- { ft = "dapui_console", title = "Debug Console" },
         },
     },
     init = function()

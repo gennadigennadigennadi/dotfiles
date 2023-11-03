@@ -38,12 +38,17 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             return
         end
         -- get position of last saved edit
-        local markpos = vim.api.nvim_buf_get_mark(0, '"')
+        local markpos = vim.api.nvim_buf_get_mark(0, "\"")
         local line = markpos[1]
         local col = markpos[2]
         -- if in range, go there
         if (line > 1) and (line <= vim.api.nvim_buf_line_count(0)) then
             vim.api.nvim_win_set_cursor(0, { line, col })
         end
+    end,
+})
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
+    callback = function()
+        require("lint").try_lint()
     end,
 })

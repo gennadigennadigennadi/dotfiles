@@ -1,9 +1,19 @@
 return {
     "projekt0n/github-nvim-theme",
-    event = "VimEnter",
-    enabled = true,
+    lazy = false,
     config = function()
-        require("github-theme").setup({})
-        vim.cmd("colorscheme github_light")
+        require("github-theme").setup({
+            options = {
+                terminal_colors = false,
+                darken = { -- Darken floating windows and sidebar-like windows
+                    floats = false,
+                    sidebars = {
+                        enabled = false,
+                        list = {}, -- Apply dark background to specific windows
+                    },
+                },
+            },
+        })
+        vim.cmd("colorscheme github_dark")
     end,
 }

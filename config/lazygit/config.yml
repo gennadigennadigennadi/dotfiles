@@ -1,6 +1,6 @@
 git:
-    paging:
-      useConfig: false
-      pager: delta --paging=never
-    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=oneline {{branchName}} --'
-    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=short'
+  paging:
+    useConfig: false
+    pager: delta --paging=never --syntax-theme="Catppuccin-frappe"
+  branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=oneline {{branchName}} --'
+  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=short'

@@ -29,6 +29,7 @@
          fzf
          gcc
          git
+         git-lfs
          gnumake
          go
          jq
@@ -41,6 +42,10 @@
          symfony-cli
          wl-clipboard
          mysql80
+         zellij
+
+        # gui tools
+         jetbrains-toolbox
     ];
 
     home.file."${config.xdg.configHome}" = {

@@ -62,18 +62,20 @@ return {
             command = "php-debug-adapter",
         }
 
-        dap.configurations.php = {
-            {
-                type = "php",
-                request = "launch",
-                name = "Listen for Xdebug",
-                port = 9003,
-                pathMappings = {
-                    ["/var/www/html"] = "${workspaceFolder}",
-                    ["/var/www/deptrac"] = "${workspaceFolder}",
-                },
-            },
-        }
+        -- dap.configurations.php = {
+        --     {
+        --         type = "php",
+        --         request = "launch",
+        --         name = "Listen for Xdebug",
+        --         port = 9003,
+        --         -- pathMappings = {
+        --         --     ["/var/www/html"] = "${workspaceFolder}",
+        --         --     ["/var/www/deptrac"] = "${workspaceFolder}",
+        --         -- },
+        --     },
+        -- }
+        require("dap.ext.vscode").load_launchjs()
+
         require("nvim-dap-virtual-text").setup({
             enabled = true,
         })
@@ -143,22 +145,44 @@ return {
                 },
             },
             -- windows = { indent = 0 },
-            -- layouts = {
-            --     {
-            --         elements = {
-            --             {
-            --                 id = "scopes",
-            --                 size = 0.75,
-            --             },
-            --             {
-            --                 id = "stacks",
-            --                 size = 0.25,
-            --             },
-            --         },
-            --         position = "left",
-            --         size = 40,
-            --     },
-            -- },
+            layouts = {
+                {
+                    elements = {
+                        {
+                            id = "scopes",
+                            size = 0.30,
+                        },
+                        {
+                            id = "breakpoints",
+                            size = 0.20,
+                        },
+                        {
+                            id = "stacks",
+                            size = 0.25,
+                        },
+                        -- {
+                        --     id = "watches",
+                        --     size = 0.25,
+                        -- },
+                    },
+                    position = "left",
+                    size = 70,
+                },
+                {
+                    elements = {
+                        -- {
+                        --     id = "repl",
+                        --     size = 0.5,
+                        -- },
+                        -- {
+                        --     id = "console",
+                        --     size = 0.5,
+                        -- },
+                    },
+                    position = "bottom",
+                    size = 10,
+                },
+            },
         })
         vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "blue", linehl = "", numhl = "" })
         vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
