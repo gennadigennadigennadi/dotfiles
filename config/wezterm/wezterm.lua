@@ -16,13 +16,6 @@ return {
     font_size = 12,
     line_height = 1.25,
     scrollback_lines = 10000,
-    keys = {
-        {
-            key = "r",
-            mods = "CMD|SHIFT",
-            action = wezterm.action.ReloadConfiguration,
-        },
-    },
     window_padding = {
         left = 0,
         right = 0,

@@ -52,14 +52,17 @@ return {
         right = {
             {
                 ft = "Outline",
-                pinned = true,
                 open = "SymbolsOutline",
+                size = { width = 0.225 },
+            },
+            {
+                ft = "dbui",
+                size = { width = 0.225 },
             },
         },
         bottom = {
             {
                 ft = "toggleterm",
-                ping = true,
                 size = { height = 0.3 },
                 -- exclude floating windows
                 filter = function(buf, win)
@@ -72,6 +75,12 @@ return {
             -- { ft = "dapui_watches", title = "Watches" },
             -- { ft = "dapui_console", title = "Debug Console" },
         },
+        -- top = {
+        --     {
+        --         ft = "dbout",
+        --         size = { height = 0.775 },
+        --     },
+        -- },
     },
     init = function()
         vim.opt.laststatus = 3

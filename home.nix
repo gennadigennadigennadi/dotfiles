@@ -42,6 +42,7 @@
          symfony-cli
          wl-clipboard
          mysql80
+         qmk
          zellij
 
         # gui tools
