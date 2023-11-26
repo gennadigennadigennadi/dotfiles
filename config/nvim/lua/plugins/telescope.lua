@@ -12,12 +12,34 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
+        local actions = require("telescope.actions")
+        local trouble = require("trouble.providers.telescope")
+
         require("telescope").setup({
-            defaults = { layout_config = { horizontal = { width = 0.95, height = 0.95, preview_width = 0.5 } } },
+            defaults = {
+                layout_config = {
+                    horizontal = {
+                        width = 0.95,
+                        height = 0.95,
+                        preview_width = 0.5,
+                    },
+                },
+                mappings = {
+                    i = { ["<c-t>"] = trouble.open_with_trouble },
+                    n = { ["<c-t>"] = trouble.open_with_trouble },
+                },
+            },
             pickers = {
                 buffers = { mappings = { i = { ["<c-d>"] = "delete_buffer" } } },
                 find_files = {
-                    find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+                    find_command = {
+                        "rg",
+                        "--files",
+                        "--hidden",
+                        "--no-ignore-vcs",
+                        "--glob",
+                        "!.git/*"
+                    },
                 },
             },
             extensions = {
@@ -31,5 +53,6 @@ return {
         })
 
         require("telescope").load_extension("fzf")
+        require("telescope").load_extension("file_browser")
     end,
 }

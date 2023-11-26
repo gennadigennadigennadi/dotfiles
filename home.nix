@@ -22,6 +22,7 @@
          babelfish
          bat
          bottom
+         coreutils
          delta
          du-dust
          eza
@@ -32,6 +33,7 @@
          git-lfs
          gnumake
          go
+         just
          jq
          lazygit
          neovim
@@ -43,6 +45,7 @@
          wl-clipboard
          mysql80
          qmk
+         yarn
          zellij
 
         # gui tools

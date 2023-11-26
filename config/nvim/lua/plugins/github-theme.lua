@@ -4,7 +4,6 @@ return {
     config = function()
         require("github-theme").setup({
             options = {
-                terminal_colors = false,
                 darken = { -- Darken floating windows and sidebar-like windows
                     floats = false,
                     sidebars = {
@@ -14,6 +13,6 @@ return {
                 },
             },
         })
-        -- vim.cmd("colorscheme github_dark")
+        vim.cmd("colorscheme github_light")
     end,
 }

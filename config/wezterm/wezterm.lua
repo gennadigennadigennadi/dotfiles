@@ -8,18 +8,18 @@ end
 
 return {
     window_decorations = "RESIZE",
-    -- color_scheme = "Github (base16)",
+    color_scheme = "Github (base16)",
     -- color_scheme = "OneHalfDark",
-    color_scheme = "Catppuccin Frappe",
+    -- color_scheme = "Catppuccin Frappe",
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
     font_size = 12,
     line_height = 1.25,
     scrollback_lines = 10000,
     window_padding = {
-        left = 0,
-        right = 0,
-        top = 0,
+        left = 10,
+        right = 10,
+        top = 10,
         bottom = 0,
     },
     font = font("JetBrainsMono Nerd Font"),
