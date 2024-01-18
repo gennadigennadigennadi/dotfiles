@@ -7,10 +7,8 @@ local function font(opts)
 end
 
 return {
-    window_decorations = "RESIZE",
+    -- window_decorations = "RESIZE",
     color_scheme = "Github (base16)",
-    -- color_scheme = "OneHalfDark",
-    -- color_scheme = "Catppuccin Frappe",
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
     font_size = 12,

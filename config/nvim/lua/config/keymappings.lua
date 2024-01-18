@@ -1,7 +1,10 @@
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }
 
-map("", "<Space>", "<Nop>", options) -- map the leader key
+--Remap space as leader key
+vim.keymap.set("", "<Space>", "<Nop>", options)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.keymap.set({ "n", "v", "i" }, "<c-s>", "<esc>:write!<cr>", options)
 vim.keymap.set({ "n"}, "<leader>s>", "<esc>:write!<cr>", options)
@@ -11,7 +14,7 @@ map("n", "<leader>Q", ":wqa!<cr>", options)
 map("n", "<leader>q", "<cmd>bp<bar>bd #<CR>", options)
 map("n", "<leader>x", "<cmd>q!<CR>", options)
 
-map("n", "Q", "<nop>", options)
+-- map("n", "Q", "<nop>", options)
 
 -- keep visual mode after indent
 map("v", ">", ">gv", options)

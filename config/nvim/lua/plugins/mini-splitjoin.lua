@@ -1,5 +1,5 @@
 return {
-    'echasnovski/mini.splitjoin',
-    version = '*',
-    opts = {}
+    "echasnovski/mini.splitjoin",
+    version = "*",
+    opts = {},
 }

@@ -61,7 +61,8 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"
+-- vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"
+vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 -- don't load the plugins below
 local builtins = {

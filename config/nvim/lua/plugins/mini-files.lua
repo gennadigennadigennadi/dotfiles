@@ -20,11 +20,11 @@ return {
     opts = {
         windows = {
             preview = true,
-            width_focus = 30,
+            width_focus = 40,
             width_preview = 60,
         },
         options = {
-            use_as_default_explorer = true
+            use_as_default_explorer = true,
         },
     },
 }

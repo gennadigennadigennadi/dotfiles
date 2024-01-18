@@ -1,6 +1,7 @@
 return {
     "David-Kunz/markid",
     event = "BufReadPre",
+    -- enabled = false,
     config = function()
         local m = require("markid")
         m.queries = {
@@ -14,8 +15,8 @@ return {
         require("nvim-treesitter.configs").setup({
             markid = {
                 enable = true,
-                colors = m.colors.bright,
-                -- colors = m.colors.dark,
+                -- colors = m.colors.bright,
+                colors = m.colors.medium,
                 queries = m.queries,
             },
         })

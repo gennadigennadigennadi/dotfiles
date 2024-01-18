@@ -22,7 +22,7 @@ return {
     cmd = { "ToggleTerm" },
     keys = {
         {
-            "<leader>gg",
+            "<leader>g",
             function()
                 local Terminal = require("toggleterm.terminal").Terminal
                 local lazygit = Terminal:new({
