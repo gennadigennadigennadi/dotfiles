@@ -38,7 +38,7 @@ return {
             mode = { "n" },
         },
         {
-            "<leader>tt",
+            "<c-`>",
             function()
                 local Terminal = require("toggleterm.terminal").Terminal
                 local terminal = Terminal:new({
@@ -51,6 +51,7 @@ return {
 
                 terminal:toggle()
             end,
+            mode = { "n", "t" },
             desc = "Open Toggleterm",
         },
     },

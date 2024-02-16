@@ -7,11 +7,11 @@ local function font(opts)
 end
 
 return {
-    -- window_decorations = "RESIZE",
+    window_decorations = "TITLE|RESIZE",
     color_scheme = "Github (base16)",
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
-    font_size = 12,
+    font_size = 13,
     line_height = 1.25,
     scrollback_lines = 10000,
     window_padding = {

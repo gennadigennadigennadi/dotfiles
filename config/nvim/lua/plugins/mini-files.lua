@@ -1,6 +1,6 @@
 return {
     "echasnovski/mini.files",
-    version = "*",
+    version = false,
     keys = {
         {
             "<leader>fm",

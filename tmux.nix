@@ -1,4 +1,5 @@
-pkgs: {
+pkgs: 
+{
     enable = true;
     shortcut = "a";
     aggressiveResize = true;
@@ -11,34 +12,44 @@ pkgs: {
     keyMode = "vi";
     prefix = "c-a";
     historyLimit = 10000;
-    shell = "${pkgs.fish}/bin/fish";
 
-    plugins = with pkgs; [
-        tmuxPlugins.better-mouse-mode
+    plugins = with pkgs.tmuxPlugins; [
+        better-mouse-mode
         {
-            plugin = tmuxPlugins.catppuccin;
-            extraConfig = ''
-                set -g @catppuccin_left_separator "█"
-                set -g @catppuccin_right_separator "█"
-                set -g @catppuccin_flavour "frappe"
-                '';
-        }
-    {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-            set -g @continuum-boot 'on'
-            set -g @continuum-restore 'on'
-            set -g @continuum-save-interval '5' # minutes
-            '';
-    }            
-    tmuxPlugins.resurrect
-        tmuxPlugins.vim-tmux-navigator
-        tmuxPlugins.yank
-        ];
+            plugin = catppuccin;
+            extraConfig= ''
+            set -g @catppuccin_flavour 'latte'
+            set -g @catppuccin_window_left_separator '█'
+            set -g @catppuccin_window_right_separator '█'
+            set -g @catppuccin_status_left_separator '█'
+            set -g @catppuccin_status_right_separator '█'
 
+            # set -g @catppuccin_window_current_text "#{pane_current_path}"
+            set -g @catppuccin_directory_text "#{pane_current_path}"
+            '';
+        }
+        {
+            plugin = resurrect;
+            extraConfig = ''
+            set -g @resurrect-strategy-vim 'session'
+            set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-capture-pane-contents 'on'
+            '';
+        }
+        {
+            plugin = continuum;
+            extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-boot 'on'
+            set -g @continuum-save-interval '10'
+            '';
+        }
+        vim-tmux-navigator
+        yank
+    ];
     extraConfig = ''
-        set-option -g status-position top
-        '';
+    set -g status-position top
+    '';
 }
 
 

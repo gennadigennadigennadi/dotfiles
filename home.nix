@@ -23,6 +23,7 @@ in {
          bottom
          coreutils
          delta
+         dfu-programmer
          du-dust
          fd
          gcc
@@ -42,6 +43,7 @@ in {
          ripgrep
          symfony-cli
          wl-clipboard
+         openssl
          mysql80
          qmk
     ];
@@ -91,6 +93,7 @@ in {
         zoxide = {
             enable = true;
             enableFishIntegration = true;
+            options = [ "--cmd cd" ];
         };
         tmux = tmux pkgs;
         fish = fish pkgs;

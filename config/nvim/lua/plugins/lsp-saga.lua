@@ -5,9 +5,9 @@ return {
     ft = { "lua", "php" },
     -- enabled = false,
     opts = {
-        lightbulb = {
-            enable = false,
-            debounce = 120,
-        },
+        -- lightbulb = {
+        --     enable = false,
+        --     debounce = 120,
+        -- },
     },
 }

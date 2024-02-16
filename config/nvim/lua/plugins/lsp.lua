@@ -44,11 +44,11 @@ return {
             map(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
             -- map(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
             -- map(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-            vim.keymap.set('n', "gr", ":Lspsaga finder ref<cr>", opts)
-            vim.keymap.set('n', "gi", ":Lspsaga finder imp<cr>", opts)
-            vim.keymap.set("n", "<leader>rn", ':Lspsaga rename<cr>', opts)
-            vim.keymap.set({ "n", "v" }, "<leader>ca", ':Lspsaga code_action<cr>', opts)
-            -- vim.keymap.set({ "n" }, "K", 'Lspsaga hover_doc<cr>', opts)
+            vim.keymap.set("n", "gr", ":Lspsaga finder ref<cr>", opts)
+            vim.keymap.set("n", "gi", ":Lspsaga finder imp<cr>", opts)
+            vim.keymap.set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
+            vim.keymap.set({ "n", "v" }, "<leader>ca", ":Lspsaga code_action<cr>", opts)
+            vim.keymap.set({ "n" }, "K", ":Lspsaga hover_doc<cr>", opts)
         end
 
         local mason_lspconfig = require("mason-lspconfig")

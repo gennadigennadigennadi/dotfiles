@@ -7,14 +7,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.keymap.set({ "n", "v", "i" }, "<c-s>", "<esc>:write!<cr>", options)
-vim.keymap.set({ "n"}, "<leader>s>", "<esc>:write!<cr>", options)
+vim.keymap.set({ "n" }, "<leader>s>", "<esc>:write!<cr>", options)
 vim.keymap.set("i", "jk", "<Esc>", options)
 
 map("n", "<leader>Q", ":wqa!<cr>", options)
-map("n", "<leader>q", "<cmd>bp<bar>bd #<CR>", options)
-map("n", "<leader>x", "<cmd>q!<CR>", options)
-
--- map("n", "Q", "<nop>", options)
+map("n", "<leader>x", "<cmd>bd!<CR>", options)
 
 -- keep visual mode after indent
 map("v", ">", ">gv", options)
