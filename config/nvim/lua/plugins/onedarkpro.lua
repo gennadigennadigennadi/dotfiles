@@ -1,7 +1,7 @@
 return {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first,
-    enabled = false,
+    enabled = true,
     config = function()
         require("onedarkpro").setup({
             styles = { -- For example, to apply bold and italic, use "bold,italic"
