@@ -37,8 +37,9 @@ in {
          lazygit
          neovim
          nodejs_20
-         php
-         phpPackages.composer
+         # php
+         php81Packages.composer
+         php81
          pv
          ripgrep
          symfony-cli

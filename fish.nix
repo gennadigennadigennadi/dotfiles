@@ -1,18 +1,19 @@
 pkgs: 
 {
     enable = true;
-    # plugins = [
-    #     { name = "z"; src = pkgs.fishPlugins.z.src; }
-    # ];
     shellAbbrs = {
-        vv = "/usr/bin/nvim";
         vim = "nvim";
-        # ll = "exa -gla --icons";
-        # l = "exa -gl --icons";
+        ll = "eza -gla --icons";
+        l = "eza -gl --icons";
         ip = "ipconfig getifaddr en1";
         g= "git";
-        v= "nvim";
+        vv= "nvim";
+        v= "/usr/bin/nvim";
         lg= "lazygit";
+        m= "make";
+        d= "docker";
+        dc= "docker compose";
+        tree= "eza --tree --group-directories-first";
         ports= "sudo lsof -i -P -n | grep LISTEN";
         hm = "home-manager switch --flake ~/Code/dotfiles/";
     };

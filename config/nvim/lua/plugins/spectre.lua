@@ -17,7 +17,7 @@ return {
             desc = "Search current word",
         },
         {
-            "<leader>sw",
+            "<leader>sW",
             function()
                 require("spectre").open_visual()
             end,

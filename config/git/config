@@ -1,20 +1,16 @@
 [init]
     defaultBranch = main
 [core]
-	fileMode = false
-	precomposeunicode = false
-	pager = delta 
+    fileMode = false
+    precomposeunicode = false
+    pager = delta 
+    editor = nvim
 [interactive]
 	diffFilter = delta --color-only
 [push]
 	default = simple
 [branch]
     autoSetupMerge = simple
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
 [delta]
     navigate = true
     syntax-theme = GitHub
@@ -24,9 +20,11 @@
 [diff]
     colorMoved = default
 [pull]
-	rebase = true
+    rebase = true
 [rebase]
     autoStash = true
+[rerere]
+    enabled = true
 [user]
     name = Gennadi McKelvey
     email = gennadijanzen@icloud.com

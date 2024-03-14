@@ -38,7 +38,7 @@ return {
             mode = { "n" },
         },
         {
-            "<c-`>",
+            "<c-t>",
             function()
                 local Terminal = require("toggleterm.terminal").Terminal
                 local terminal = Terminal:new({
