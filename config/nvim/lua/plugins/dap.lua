@@ -49,6 +49,7 @@ return {
         "theHamsta/nvim-dap-virtual-text", -- does not support php, yet
         "rcarriga/nvim-dap-ui",
         "Weissle/persistent-breakpoints.nvim",
+        "nvim-neotest/nvim-nio",
     },
     config = function()
         require("persistent-breakpoints").setup({
