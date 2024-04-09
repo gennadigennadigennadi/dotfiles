@@ -2,6 +2,7 @@
 
 let
     php = pkgs.php83.buildEnv { extraConfig = "memory_limit = 4G"; };
+    php81 = pkgs.php81.buildEnv { extraConfig = "memory_limit = 4G"; };
     fish = import ./fish.nix;
     tmux = import ./tmux.nix;
 in {
@@ -28,25 +29,26 @@ in {
          fd
          gcc
          git
-         git-lfs
+         # git-lfs
          gnumake
          gnupg
          go
          just
          jq
-         lazygit
+         # lazygit
          neovim
          nodejs_20
-         # php
-         php81Packages.composer
-         php81
+         php
+         phpPackages.composer
+         # php81Packages.composer
+         # php81
          pv
          ripgrep
          symfony-cli
          wl-clipboard
          openssl
          mysql80
-         qmk
+         # qmk
     ];
 
     home.file."${config.xdg.configHome}" = {
@@ -78,7 +80,7 @@ in {
         };
         eza = {
             enable = true;
-            enableAliases = true;
+            enableFishIntegration = true;
         };
         fzf = {
             enableFishIntegration = true;

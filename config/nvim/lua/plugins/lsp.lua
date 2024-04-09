@@ -48,6 +48,9 @@ return {
             vim.keymap.set("n", "gi", ":Lspsaga finder imp<cr>", opts)
             vim.keymap.set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
             vim.keymap.set({ "n", "v" }, "<leader>ca", ":Lspsaga code_action<cr>", opts)
+            vim.keymap.set({ "n" }, "<leader>cm", function()
+                require("phpactor").rpc("context_menu", {})
+            end, opts)
             vim.keymap.set({ "n" }, "K", ":Lspsaga hover_doc<cr>", opts)
         end
 

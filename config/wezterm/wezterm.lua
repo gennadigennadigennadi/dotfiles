@@ -12,7 +12,7 @@ return {
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
     font_size = 13,
-    line_height = 1.25,
+    line_height = 1.5,
     scrollback_lines = 10000,
     window_padding = {
         left = 10,
@@ -20,7 +20,10 @@ return {
         top = 10,
         bottom = 0,
     },
-    font = font("JetBrainsMono Nerd Font"),
+    font = font({
+        family = "JetBrainsMono Nerd Font",
+        weight = 600,
+    }),
     font_rules = {
         {
             italic = true,

@@ -5,7 +5,7 @@ return {
     config = function()
         local m = require("markid")
         m.queries = {
-            default = "(identifier) @markid",
+            -- default = "(identifier) @markid",
             php = [[
                 (variable_name) @markid
                 (member_access_expression) @markid
