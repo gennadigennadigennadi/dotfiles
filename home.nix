@@ -35,7 +35,7 @@ in {
          go
          just
          jq
-         # lazygit
+         lazygit
          neovim
          nodejs_20
          php
