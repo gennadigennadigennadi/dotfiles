@@ -20,6 +20,7 @@ in {
 
     home.packages = with pkgs;  [
          # nerdfonts
+         (nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
          babelfish
          bottom
          coreutils
@@ -101,4 +102,33 @@ in {
         tmux = tmux pkgs;
         fish = fish pkgs;
     };
+
+    dconf.settings = {
+        "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };    
+        "org/gnome/desktop/interface" = { show-battery-percentage = true; };
+        "org/gnome/desktop/input-sources" = { 
+            xkb-options = ["compose:ralt" "caps:escape"];
+        };
+        "org/gnome/mutter" = {
+              # Enable window snapping to the edges of the screen
+              # edge-tiling = true;
+              # Enable fractional scaling
+              experimental-features = [ "scale-monitor-framebuffer" ];
+              # dynamic-workspaces = cfg.desktop.gnome.workspaces.dynamicWorkspaces;
+        };
+        "org/gnome/shell" = {
+            favorite-apps = [
+                "org.gnome.Nautilus.desktop"
+                "org.gnome.Calendar.desktop"
+                "google-chrome.desktop"
+                "org.gnome.Epiphany.desktop"
+                "phpstorm.desktop"
+                "org.gnome.Console.desktop"
+                "org.wezfurlong.wezterm.desktop"
+                "teams-for-linux.desktop"
+                "slack.desktop"
+                "spotify.desktop"
+            ];
+        };
+   };
 }
