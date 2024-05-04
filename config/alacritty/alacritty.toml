@@ -1,5 +1,8 @@
+[shell]
+program = "/home/gennadi/.nix-profile/bin/fish"
+
 [font]
-size = 13
+size = 16
 
 [font.glyph_offset]
 y = 4

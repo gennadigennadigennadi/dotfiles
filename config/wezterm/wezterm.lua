@@ -7,6 +7,7 @@ local function font(opts)
 end
 
 return {
+    default_prog = {'fish', '-l'},
     window_decorations = "TITLE|RESIZE",
     color_scheme = "Github (base16)",
     default_cursor_style = "SteadyBlock",

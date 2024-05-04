@@ -20,6 +20,7 @@ pkgs:
     interactiveShellInit = ''
         set -g fish_greeting
         set -Ux MANPAGER "nvim +Man!"
+        set -gx XCURSOR_THEME Adwaita
         # set -Ux MANWIDTH 999
         '';
 }

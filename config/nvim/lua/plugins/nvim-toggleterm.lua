@@ -3,6 +3,7 @@ return {
     config = function()
         require("toggleterm").setup({
             shade_terminals = false,
+            shell = "fish"
         })
 
         function _G.set_terminal_keymaps()

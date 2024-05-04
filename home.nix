@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 let
     php = pkgs.php83.buildEnv { extraConfig = "memory_limit = 4G"; };
@@ -6,7 +6,12 @@ let
     fish = import ./fish.nix;
     tmux = import ./tmux.nix;
 in {
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs = {
+        config.allowUnfree = true;
+        overlays = [
+            inputs.neovim-nightly-overlay.overlay
+        ];
+    };
 
     home.username = "gennadi";
     home.homeDirectory = "/home/gennadi";
@@ -20,7 +25,8 @@ in {
 
     home.packages = with pkgs;  [
          # nerdfonts
-         (nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
+         (nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono"  ]; })
+         monaspace
          babelfish
          bottom
          coreutils
@@ -38,6 +44,7 @@ in {
          jq
          lazygit
          neovim
+         neovim-nightly
          nodejs_20
          php
          phpPackages.composer
@@ -63,12 +70,18 @@ in {
         EDITOR = "nvim";
         VISUAL = "nvim";
         KEYTIMEOUT = 1;
-        SHELL = "/home/gennadi/.nix-profile/bin/fish";
+        # SHELL = "/home/gennadi/.nix-profile/bin/fish";
     };
 
     programs = {
-        bash = {
-            enable = false;
+        # bash = {
+        #     enable = false;
+        # };
+        zsh = {
+            enable = true;
+            enableCompletion = true;
+            autosuggestion.enable = true;
+            syntaxHighlighting.enable = true;
         };
         bat = {
             enable = true;
@@ -82,14 +95,17 @@ in {
         eza = {
             enable = true;
             enableFishIntegration = true;
+            enableZshIntegration = true;
         };
         fzf = {
-            enableFishIntegration = true;
             enable = true;
+            enableFishIntegration = true;
+            enableZshIntegration = true;
         };
         starship = {
             enable = true;
             enableFishIntegration = true;
+            enableZshIntegration = true;
             settings = {
                 add_newline = true;
             };
@@ -97,10 +113,12 @@ in {
         zoxide = {
             enable = true;
             enableFishIntegration = true;
+            enableZshIntegration = true;
             options = [ "--cmd cd" ];
         };
         tmux = tmux pkgs;
         fish = fish pkgs;
+
     };
 
     dconf.settings = {
@@ -113,7 +131,7 @@ in {
               # Enable window snapping to the edges of the screen
               # edge-tiling = true;
               # Enable fractional scaling
-              experimental-features = [ "scale-monitor-framebuffer" ];
+              # experimental-features = [ "scale-monitor-framebuffer" ];
               # dynamic-workspaces = cfg.desktop.gnome.workspaces.dynamicWorkspaces;
         };
         "org/gnome/shell" = {

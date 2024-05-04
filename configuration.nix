@@ -83,8 +83,10 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gennadi = {
+    # shell = pkgs.zsh;
     isNormalUser = true;
     description = "gennadi";
     extraGroups = [ "networkmanager" "wheel" "docker"];
@@ -92,6 +94,7 @@ in {
       bruno
       dbeaver
       firefox
+      alacritty
       wezterm
       jetbrains.phpstorm
       teams-for-linux
@@ -99,6 +102,7 @@ in {
       slack
       google-chrome
       _1password-gui
+      steam
     ];
   };
 
@@ -109,11 +113,8 @@ in {
 	};
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
 	
 	docker-buildx
@@ -125,14 +126,17 @@ in {
 	gnomeExtensions.forge
 	gnomeExtensions.gsconnect
 
-	gnumake
+	# gnumake
 	php83
+    zip
+    unzip
   	curl
   	docker
-  	git
-  	neovim
-  	wl-clipboard
-        wget
+  	# git
+  	# neovim
+  	# wl-clipboard
+    wget
+    cargo
   ];
 
 environment.gnome.excludePackages = (with pkgs; [
@@ -141,6 +145,7 @@ environment.gnome.excludePackages = (with pkgs; [
 ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
+    gnome-software
     #gnome-terminal
     #gedit # text editor
     #epiphany # web browser
@@ -162,6 +167,7 @@ environment.gnome.excludePackages = (with pkgs; [
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.fish.enable = true;
 
   # List services that you want to enable:
 
