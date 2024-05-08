@@ -13,14 +13,12 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
+  boot.extraModulePackages = [
+   config.boot.kernelPackages.v4l2loopback
+  ];
   networking.hostName = "thinkpad"; # Define your hostname.
   
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -102,7 +100,6 @@ in {
       slack
       google-chrome
       _1password-gui
-      steam
     ];
   };
 
@@ -115,12 +112,30 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
+  environment.variables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
-	
+    # hyprland stuff start
+    rofi-wayland
+    waybar
+    networkmanagerapplet
+    blueman
+    pavucontrol
+    dunst
+    nwg-look
+    xdg-desktop-portal-gtk
+    hyprpaper
+    hyprlock
+    # hyprland stuff end
+
+	onlyoffice-bin
+    libreoffice
 	docker-buildx
+
+    gnome-console
 
 	gnome.dconf-editor
 	gnome.gnome-tweaks
+
 	gnomeExtensions.blur-my-shell
 	gnomeExtensions.clipboard-history
 	gnomeExtensions.forge
@@ -128,13 +143,14 @@ in {
 
 	# gnumake
 	php83
+    python3
     zip
     unzip
   	curl
   	docker
   	# git
   	# neovim
-  	# wl-clipboard
+  	wl-clipboard
     wget
     cargo
   ];
@@ -163,11 +179,19 @@ environment.gnome.excludePackages = (with pkgs; [
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   programs.fish.enable = true;
+
+  programs.steam.enable = true;
 
   # List services that you want to enable:
 

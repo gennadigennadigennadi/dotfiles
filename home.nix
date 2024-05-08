@@ -56,7 +56,7 @@ in {
          wl-clipboard
          openssl
          mysql80
-         # qmk
+        whitesur-cursors
     ];
 
     home.file."${config.xdg.configHome}" = {
