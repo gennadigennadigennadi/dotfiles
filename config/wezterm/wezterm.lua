@@ -16,9 +16,9 @@ return {
     line_height = 1.5,
     scrollback_lines = 10000,
     window_padding = {
-        left = 10,
-        right = 10,
-        top = 10,
+        left = 0,
+        right = 0,
+        top = 0,
         bottom = 0,
     },
     font = font({

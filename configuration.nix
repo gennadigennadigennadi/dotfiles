@@ -50,7 +50,7 @@ in {
   
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -59,27 +59,37 @@ in {
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.bluetooth.enable = true;
+  hardware.opengl.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+    ];
+  };
+  services.blueman.enable = true;
+  services.hardware.bolt.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -116,10 +126,13 @@ in {
   environment.systemPackages = with pkgs; [
     # hyprland stuff start
     rofi-wayland
+    wofi
     waybar
     networkmanagerapplet
-    blueman
+    # bluez
+    # blueman
     pavucontrol
+    gnome.nautilus
     dunst
     nwg-look
     xdg-desktop-portal-gtk
@@ -131,15 +144,15 @@ in {
     libreoffice
 	docker-buildx
 
-    gnome-console
+    # gnome-console
 
 	gnome.dconf-editor
-	gnome.gnome-tweaks
+	# gnome.gnome-tweaks
 
-	gnomeExtensions.blur-my-shell
-	gnomeExtensions.clipboard-history
-	gnomeExtensions.forge
-	gnomeExtensions.gsconnect
+	# gnomeExtensions.blur-my-shell
+	# gnomeExtensions.clipboard-history
+	# gnomeExtensions.forge
+	# gnomeExtensions.gsconnect
 
 	# gnumake
 	php83
@@ -148,33 +161,33 @@ in {
     unzip
   	curl
   	docker
-  	# git
+  	git
   	# neovim
   	wl-clipboard
     wget
     cargo
   ];
 
-environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-    gnome-software
-    #gnome-terminal
-    #gedit # text editor
-    #epiphany # web browser
-    geary # email reader
-    #evince # document viewer
-    #gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    yelp # help
-]);
+# environment.gnome.excludePackages = (with pkgs; [
+#     gnome-photos
+#     gnome-tour
+# ]) ++ (with pkgs.gnome; [
+#     cheese # webcam tool
+#     gnome-music
+#     gnome-software
+#     #gnome-terminal
+#     #gedit # text editor
+#     #epiphany # web browser
+#     geary # email reader
+#     #evince # document viewer
+#     #gnome-characters
+#     totem # video player
+#     tali # poker game
+#     iagno # go game
+#     hitori # sudoku game
+#     atomix # puzzle game
+#     yelp # help
+# ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

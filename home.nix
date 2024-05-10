@@ -8,9 +8,9 @@ let
 in {
     nixpkgs = {
         config.allowUnfree = true;
-        overlays = [
-            inputs.neovim-nightly-overlay.overlay
-        ];
+        # overlays = [
+        #     inputs.neovim-nightly-overlay.overlay
+        # ];
     };
 
     home.username = "gennadi";
@@ -44,7 +44,7 @@ in {
          jq
          lazygit
          neovim
-         neovim-nightly
+         # neovim-nightly
          nodejs_20
          php
          phpPackages.composer
@@ -56,7 +56,7 @@ in {
          wl-clipboard
          openssl
          mysql80
-        whitesur-cursors
+         whitesur-cursors
     ];
 
     home.file."${config.xdg.configHome}" = {
