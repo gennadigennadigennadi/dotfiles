@@ -91,8 +91,6 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # programs.zsh.enable = true;
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gennadi = {
     # shell = pkgs.zsh;
     isNormalUser = true;
@@ -103,7 +101,6 @@ in {
       dbeaver
       firefox
       alacritty
-      wezterm
       jetbrains.phpstorm
       teams-for-linux
       spotify
@@ -125,10 +122,12 @@ in {
   environment.variables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
     # hyprland stuff start
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     rofi-wayland
     wofi
     waybar
     networkmanagerapplet
+    cliphist
     # bluez
     # blueman
     pavucontrol
@@ -138,6 +137,7 @@ in {
     xdg-desktop-portal-gtk
     hyprpaper
     hyprlock
+    hyprshot
     # hyprland stuff end
 
 	onlyoffice-bin
@@ -147,12 +147,7 @@ in {
     # gnome-console
 
 	gnome.dconf-editor
-	# gnome.gnome-tweaks
-
-	# gnomeExtensions.blur-my-shell
-	# gnomeExtensions.clipboard-history
-	# gnomeExtensions.forge
-	# gnomeExtensions.gsconnect
+    fastfetch
 
 	# gnumake
 	php83
@@ -162,32 +157,11 @@ in {
   	curl
   	docker
   	git
-  	# neovim
+  	neovim
   	wl-clipboard
     wget
     cargo
   ];
-
-# environment.gnome.excludePackages = (with pkgs; [
-#     gnome-photos
-#     gnome-tour
-# ]) ++ (with pkgs.gnome; [
-#     cheese # webcam tool
-#     gnome-music
-#     gnome-software
-#     #gnome-terminal
-#     #gedit # text editor
-#     #epiphany # web browser
-#     geary # email reader
-#     #evince # document viewer
-#     #gnome-characters
-#     totem # video player
-#     tali # poker game
-#     iagno # go game
-#     hitori # sudoku game
-#     atomix # puzzle game
-#     yelp # help
-# ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

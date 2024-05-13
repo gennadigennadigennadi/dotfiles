@@ -17,6 +17,15 @@ in {
     home.homeDirectory = "/home/gennadi";
     home.stateVersion = "23.11"; 
 
+    gtk = {
+        enable = true;
+        cursorTheme = {
+            package = pkgs.rose-pine-cursor;
+            name = "BreezeX-RosePine-Linux"; 
+            size = 28;
+        };
+    };
+
     # Required to get the fonts installed by home-manager to be picked up by OS.
     fonts.fontconfig.enable = true;
 
@@ -56,7 +65,7 @@ in {
          wl-clipboard
          openssl
          mysql80
-         whitesur-cursors
+         # whitesur-cursors
     ];
 
     home.file."${config.xdg.configHome}" = {
@@ -121,32 +130,32 @@ in {
 
     };
 
-    dconf.settings = {
-        "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };    
-        "org/gnome/desktop/interface" = { show-battery-percentage = true; };
-        "org/gnome/desktop/input-sources" = { 
-            xkb-options = ["compose:ralt" "caps:escape"];
-        };
-        "org/gnome/mutter" = {
-              # Enable window snapping to the edges of the screen
-              # edge-tiling = true;
-              # Enable fractional scaling
-              # experimental-features = [ "scale-monitor-framebuffer" ];
-              # dynamic-workspaces = cfg.desktop.gnome.workspaces.dynamicWorkspaces;
-        };
-        "org/gnome/shell" = {
-            favorite-apps = [
-                "org.gnome.Nautilus.desktop"
-                "org.gnome.Calendar.desktop"
-                "google-chrome.desktop"
-                "org.gnome.Epiphany.desktop"
-                "phpstorm.desktop"
-                "org.gnome.Console.desktop"
-                "org.wezfurlong.wezterm.desktop"
-                "teams-for-linux.desktop"
-                "slack.desktop"
-                "spotify.desktop"
-            ];
-        };
-   };
+   #  dconf.settings = {
+   #      "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };    
+   #      "org/gnome/desktop/interface" = { show-battery-percentage = true; };
+   #      "org/gnome/desktop/input-sources" = { 
+   #          xkb-options = ["compose:ralt" "caps:escape"];
+   #      };
+   #      "org/gnome/mutter" = {
+   #            # Enable window snapping to the edges of the screen
+   #            # edge-tiling = true;
+   #            # Enable fractional scaling
+   #            # experimental-features = [ "scale-monitor-framebuffer" ];
+   #            # dynamic-workspaces = cfg.desktop.gnome.workspaces.dynamicWorkspaces;
+   #      };
+   #      "org/gnome/shell" = {
+   #          favorite-apps = [
+   #              "org.gnome.Nautilus.desktop"
+   #              "org.gnome.Calendar.desktop"
+   #              "google-chrome.desktop"
+   #              "org.gnome.Epiphany.desktop"
+   #              "phpstorm.desktop"
+   #              "org.gnome.Console.desktop"
+   #              "org.wezfurlong.wezterm.desktop"
+   #              "teams-for-linux.desktop"
+   #              "slack.desktop"
+   #              "spotify.desktop"
+   #          ];
+   #      };
+   # };
 }

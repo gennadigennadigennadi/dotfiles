@@ -21,6 +21,7 @@ return {
             phpactor = {},
             dockerls = {},
             docker_compose_language_service = {},
+            nil_ls = {},
             lua_ls = {
                 settings = {
                     Lua = {

@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(43, 48, 59, 1.0);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     transition-property: background-color;
@@ -13,7 +13,7 @@ window#waybar {
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+    opacity: 1;
 }
 
 /*
@@ -183,6 +183,13 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
+}
+
+#backlight-slider trough {
+    min-height: 10px;
+    min-width: 50px;
+    border-radius: 5px;
+    background-color: black;
 }
 
 #network {

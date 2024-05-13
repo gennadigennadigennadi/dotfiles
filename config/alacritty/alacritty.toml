@@ -5,10 +5,10 @@ program = "/home/gennadi/.nix-profile/bin/fish"
 size = 12
 
 [font.glyph_offset]
-y = 4
+y = 7
 
 [font.offset]
-y = 8
+y = 14
 
 [font.bold]
 family = "Monaspace Krypton"
