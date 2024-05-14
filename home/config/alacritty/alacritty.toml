@@ -1,5 +1,5 @@
-[shell]
-program = "/home/gennadi/.nix-profile/bin/fish"
+# [shell]
+# program = "/home/gennadi/.nix-profile/bin/fish"
 
 [font]
 size = 12

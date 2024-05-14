@@ -4,7 +4,6 @@ let
     php = pkgs.php83.buildEnv { extraConfig = "memory_limit = 4G"; };
     php81 = pkgs.php81.buildEnv { extraConfig = "memory_limit = 4G"; };
     fish = import ./fish.nix;
-    tmux = import ./tmux.nix;
 in {
     nixpkgs = {
         config.allowUnfree = true;
@@ -15,13 +14,13 @@ in {
 
     home.username = "gennadi";
     home.homeDirectory = "/home/gennadi";
-    home.stateVersion = "23.11"; 
+    home.stateVersion = "23.11";
 
     gtk = {
         enable = true;
         cursorTheme = {
             package = pkgs.rose-pine-cursor;
-            name = "BreezeX-RosePine-Linux"; 
+            name = "BreezeX-RosePine-Linux";
             size = 28;
         };
     };
@@ -40,7 +39,7 @@ in {
          bottom
          coreutils
          delta
-         dfu-programmer
+         # dfu-programmer
          du-dust
          fd
          gcc
@@ -66,6 +65,7 @@ in {
          openssl
          mysql80
          # whitesur-cursors
+         evince
     ];
 
     home.file."${config.xdg.configHome}" = {
@@ -98,7 +98,7 @@ in {
                 theme = "GitHub";
             };
         };
-        home-manager = { 
+        home-manager = {
             enable = true;
         };
         eza = {
@@ -125,15 +125,14 @@ in {
             enableZshIntegration = true;
             options = [ "--cmd cd" ];
         };
-        tmux = tmux pkgs;
         fish = fish pkgs;
 
     };
 
    #  dconf.settings = {
-   #      "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };    
+   #      "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };
    #      "org/gnome/desktop/interface" = { show-battery-percentage = true; };
-   #      "org/gnome/desktop/input-sources" = { 
+   #      "org/gnome/desktop/input-sources" = {
    #          xkb-options = ["compose:ralt" "caps:escape"];
    #      };
    #      "org/gnome/mutter" = {

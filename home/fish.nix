@@ -1,4 +1,4 @@
-pkgs: 
+pkgs:
 {
     enable = true;
     shellAbbrs = {
@@ -7,8 +7,7 @@ pkgs:
         l = "eza -gl";
         ip = "ipconfig getifaddr en1";
         g= "git";
-        vv= "nvim";
-        v= "/usr/bin/nvim";
+        v= "nvim";
         lg= "lazygit";
         m= "make";
         d= "docker";
@@ -16,6 +15,7 @@ pkgs:
         tree= "eza --tree --group-directories-first";
         ports= "sudo lsof -i -P -n | grep LISTEN";
         hm = "home-manager switch --flake ~/.dotfiles/";
+        update = "sudo nixos-rebuild switch --flake ~/Code/dotfiles/";
     };
     interactiveShellInit = ''
         set -g fish_greeting

@@ -1,9 +1,9 @@
 { config, pkgs, inputs, ... }:
-let 
+let
     unstable = import <nixos-unstable> {config.allowUnfree = true;};
 in {
   imports =
-    [ 
+    [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
@@ -17,7 +17,7 @@ in {
    config.boot.kernelPackages.v4l2loopback
   ];
   networking.hostName = "thinkpad"; # Define your hostname.
-  
+
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -47,7 +47,7 @@ in {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
-  
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -108,13 +108,6 @@ in {
       google-chrome
       _1password-gui
     ];
-  };
-
-  home-manager = {
-  	extraSpecialArgs = { inherit inputs; };
-	users = {
-		"gennadi" = import ./home.nix;
-	};
   };
 
   nixpkgs.config.allowUnfree = true;
