@@ -9,12 +9,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.40.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland?ref=v0.40.0";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    #
+    # neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = { nixpkgs, home-manager, ... } @inputs: {

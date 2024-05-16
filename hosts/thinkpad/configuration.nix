@@ -1,12 +1,10 @@
 { config, pkgs, inputs, ... }:
-let
-    unstable = import <nixos-unstable> {config.allowUnfree = true;};
-in {
+{
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ../../modules/usb.nix
     ];
 
   # Bootloader.
@@ -46,7 +44,6 @@ in {
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -85,14 +82,17 @@ in {
       xdg-desktop-portal-hyprland
     ];
   };
+
   services.blueman.enable = true;
+
+  # thunderbolt
   services.hardware.bolt.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
   users.users.gennadi = {
-    # shell = pkgs.zsh;
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "gennadi";
     extraGroups = [ "networkmanager" "wheel" "docker"];
@@ -114,6 +114,7 @@ in {
 
   environment.variables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
+
     # hyprland stuff start
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     rofi-wayland
@@ -121,9 +122,9 @@ in {
     waybar
     networkmanagerapplet
     cliphist
-    # bluez
-    # blueman
     pavucontrol
+    brightnessctl
+    playerctl
     gnome.nautilus
     dunst
     nwg-look
@@ -133,17 +134,17 @@ in {
     hyprshot
     # hyprland stuff end
 
-	onlyoffice-bin
+	  onlyoffice-bin
     libreoffice
-	docker-buildx
+	  docker-buildx
 
     # gnome-console
 
-	gnome.dconf-editor
+	  gnome.dconf-editor
     fastfetch
 
 	# gnumake
-	php83
+	  php83
     python3
     zip
     unzip
