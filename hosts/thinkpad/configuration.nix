@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }:
 {
-  imports =
-    [
+  imports = [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
       ../../modules/usb.nix
@@ -11,9 +10,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelParams = [ "reboot=acpi" ];
   boot.extraModulePackages = [
-   config.boot.kernelPackages.v4l2loopback
+    config.boot.kernelPackages.v4l2loopback
   ];
+
+
   networking.hostName = "thinkpad"; # Define your hostname.
 
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,6 +48,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -63,6 +68,8 @@
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
   hardware.opengl.enable = true;
+   # vulkan
+  # hardware.driSupport.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -98,7 +105,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       bruno
-      dbeaver
       firefox
       alacritty
       jetbrains.phpstorm
@@ -107,6 +113,8 @@
       slack
       google-chrome
       _1password-gui
+      gnome.gnome-tweaks
+      inputs.neovim-nightly
     ];
   };
 
@@ -131,6 +139,7 @@
     xdg-desktop-portal-gtk
     hyprpaper
     hyprlock
+    hypridle
     hyprshot
     # hyprland stuff end
 

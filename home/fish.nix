@@ -15,7 +15,8 @@ pkgs:
         tree= "eza --tree --group-directories-first";
         ports= "sudo lsof -i -P -n | grep LISTEN";
         hm = "home-manager switch --flake ~/.dotfiles/";
-        update = "sudo nixos-rebuild switch --flake ~/Code/dotfiles/";
+        update = "nix flake update ~/Code/dotfiles/";
+        activate = "sudo nixos-rebuild switch --flake ~/Code/dotfiles/";
     };
     interactiveShellInit = ''
         set -g fish_greeting

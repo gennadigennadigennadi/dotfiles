@@ -7,9 +7,6 @@ let
 in {
     nixpkgs = {
         config.allowUnfree = true;
-        # overlays = [
-        #     inputs.neovim-nightly-overlay.overlay
-        # ];
     };
 
     home.username = "gennadi";
@@ -32,14 +29,14 @@ in {
     targets.genericLinux.enable = true;
 
     home.packages = with pkgs;  [
-         # nerdfonts
          (nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono"  ]; })
          monaspace
          babelfish
          bottom
+         cider
          coreutils
          delta
-         # dfu-programmer
+         dfu-programmer
          du-dust
          fd
          gcc
@@ -51,13 +48,11 @@ in {
          just
          jq
          lazygit
-         neovim
+         # neovim
          # neovim-nightly
          nodejs_20
          php
          phpPackages.composer
-         # php81Packages.composer
-         # php81
          pv
          ripgrep
          symfony-cli

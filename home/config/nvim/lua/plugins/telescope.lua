@@ -1,5 +1,6 @@
 return {
-    "nvim-telescope/telescope.nvim",
+    'nvim-telescope/telescope.nvim', 
+    branch = '0.1.x',
     cmd = { "Telescope" },
     keys = {
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
@@ -41,9 +42,9 @@ return {
             },
             pickers = {
                 buffers = { mappings = { i = { ["<c-d>"] = "delete_buffer" } } },
-                find_files = {
-                    find_command = { "rg", "--files", "--sort=path" },
-                },
+                -- find_files = {
+                --     find_command = { "rg", "--files", "--sort=path" },
+                -- },
             },
             extensions = {
                 fzf = {
@@ -65,7 +66,7 @@ return {
             },
         })
 
-        require("telescope").load_extension("fzf")
-        require("telescope").load_extension("live_grep_args")
+        -- require("telescope").load_extension("fzf")
+        -- require("telescope").load_extension("live_grep_args")
     end,
 }

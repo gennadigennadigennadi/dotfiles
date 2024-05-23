@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 hyprpaper &
+hypridle &
 nm-applet --indicator &
 blueman-applet &
 waybar &

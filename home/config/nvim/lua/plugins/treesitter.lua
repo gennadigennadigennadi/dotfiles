@@ -36,6 +36,7 @@ return {
                 "gitignore",
                 "go",
                 "html",
+                "hyprlang",
                 "ini",
                 "json",
                 "lua",

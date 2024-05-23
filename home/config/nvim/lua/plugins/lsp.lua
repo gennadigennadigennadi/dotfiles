@@ -18,7 +18,13 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
         local servers = {
-            phpactor = {},
+            phpactor = {
+                init_options = {
+                    ["language_server_worse_reflection.inlay_hints.enable"] = true,
+                    ["language_server_worse_reflection.inlay_hints.params"] = true,
+                    ["language_server_worse_reflection.inlay_hints.types"] = true,
+                }
+            },
             dockerls = {},
             docker_compose_language_service = {},
             nil_ls = {},
@@ -36,6 +42,10 @@ return {
         -- require("lspconfig")["docker_compose_language_service"].setup({})
 
         local function on_attach(client, bufnr)
+            if client.supports_method("textDocument/inlayHint") then
+                -- vim.lsp.inlay_hint.enable(bufnr, true)
+                vim.lsp.inlay_hint.enable(true)
+            end
             local map = vim.api.nvim_buf_set_keymap
             local opts = { noremap = true, silent = true }
 
