@@ -2,25 +2,37 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-23.11";
     };
     # hyprland = {
     #   url = "github:hyprwm/Hyprland?ref=v0.40.0";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     #
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @inputs: {
-    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... } @inputs:
+    let
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
+      # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+      pkgs-unstable = import nixpkgs-unstable {inherit system; config.allowUnfree = true; };
+      username = "gennadi";
+    in
+  {
+    nixosConfigurations.thinkpad = lib.nixosSystem {
+      system = system;
+      specialArgs = {
+        inherit inputs;
+        inherit username;
+        inherit pkgs-unstable;
+        inherit nixpkgs-unstable;
+      };
       modules = [
         ./hosts/thinkpad/configuration.nix
 
@@ -29,7 +41,13 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.gennadi = import ./home/home.nix;
+            extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+              inherit pkgs-unstable;
+              inherit nixpkgs-unstable;
+            };
+            users.${username} = import ./home;
           };
         }
       ];

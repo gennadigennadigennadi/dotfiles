@@ -1,8 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 {
   imports = [
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
       ../../modules/usb.nix
     ];
 
@@ -82,6 +81,7 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  services.power-profiles-daemon.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -96,7 +96,7 @@
   services.hardware.bolt.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
+  # services.libinput.enable = true;
 
   users.users.gennadi = {
     shell = pkgs.fish;
@@ -104,17 +104,7 @@
     description = "gennadi";
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
-      bruno
-      firefox
-      alacritty
-      jetbrains.phpstorm
-      teams-for-linux
-      spotify
-      slack
-      google-chrome
-      _1password-gui
-      gnome.gnome-tweaks
-      inputs.neovim-nightly
+      # inputs.neovim-nightly
     ];
   };
 
@@ -123,8 +113,8 @@
   environment.variables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
 
-    # hyprland stuff start
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+
     rofi-wayland
     wofi
     waybar
@@ -136,39 +126,34 @@
     gnome.nautilus
     dunst
     nwg-look
-    xdg-desktop-portal-gtk
-    hyprpaper
-    hyprlock
-    hypridle
-    hyprshot
-    # hyprland stuff end
+    # xdg-desktop-portal-gtk
+
+    pkgs-unstable.hyprpaper
+    pkgs-unstable.hyprlock
+    pkgs-unstable.hypridle
+    pkgs-unstable.hyprshot
 
 	  onlyoffice-bin
     libreoffice
 	  docker-buildx
 
-    # gnome-console
-
 	  gnome.dconf-editor
     fastfetch
 
-	# gnumake
-	  php83
+    gnumake
+	  php
     python3
     zip
     unzip
   	curl
-  	docker
+  	# docker
   	git
-  	neovim
   	wl-clipboard
     wget
     cargo
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
+  programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -180,7 +165,6 @@
   };
 
   programs.fish.enable = true;
-
   programs.steam.enable = true;
 
   # List services that you want to enable:
@@ -198,6 +182,13 @@
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
-  virtualisation.docker.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = false;
+      setSocketVariable = true;
+    };
+  };
 }
 
