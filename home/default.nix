@@ -1,7 +1,7 @@
 { inputs, config, lib, pkgs, pkgs-unstable, username, nixpkgs-unstable,  ... }:
 
 let
-  php = pkgs.php83.buildEnv { extraConfig = "memory_limit = 4G"; };
+  php83 = pkgs.php83.buildEnv { extraConfig = "memory_limit = 4G"; };
 in {
   imports = [
     ../modules/fish.nix
@@ -59,8 +59,9 @@ in {
     mysql80
     nodejs_20
     openssl
-    php
-    phpPackages.composer
+    php83
+    php83Packages.composer
+    php83Packages.phive
     pv
     ripgrep
     symfony-cli
@@ -72,15 +73,19 @@ in {
     slack
     spotify
     teams-for-linux
-    warp-terminal
-  ]) ++ (with pkgs-unstable; [
+
+    jetbrains.phpstorm
     rose-pine-cursor
+    _1password-gui
     alacritty
-    neovim
+    stylua
     waybar
     hyprland
-    _1password-gui
-    jetbrains.phpstorm
+    warp-terminal
+  ]) ++ (with pkgs-unstable; [
+    neovim
+    zed-editor
+    rofi-wayland
   ]);
 
   home.file."${config.xdg.configHome}" = {

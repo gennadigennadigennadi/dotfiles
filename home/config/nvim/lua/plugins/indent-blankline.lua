@@ -6,10 +6,14 @@ return {
         indent = {
             char = "▏",
         },
+        scope = { enabled = false },
         exclude = {
             filetypes = {
+                "help",
+                "lazy",
                 "mason",
-                "dashboard",
+                "notify",
+                "oil",
             },
         },
     },

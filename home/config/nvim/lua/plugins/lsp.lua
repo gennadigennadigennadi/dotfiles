@@ -6,6 +6,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
         "folke/neodev.nvim",
+        "b0o/schemastore.nvim",
     },
     config = function()
         require("neodev").setup({
@@ -16,6 +17,10 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+        }
 
         local servers = {
             phpactor = {
@@ -23,17 +28,40 @@ return {
                     ["language_server_worse_reflection.inlay_hints.enable"] = true,
                     ["language_server_worse_reflection.inlay_hints.params"] = true,
                     ["language_server_worse_reflection.inlay_hints.types"] = true,
-                }
+                },
             },
             dockerls = {},
             docker_compose_language_service = {},
             nil_ls = {},
+            gopls = {},
             lua_ls = {
                 settings = {
                     Lua = {
                         completion = {
                             callSnippet = "Replace",
                         },
+                    },
+                },
+            },
+            yamlls = {
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            -- You must disable built-in schemaStore support if you want to use
+                            -- this plugin and its advanced options like `ignore`.
+                            enable = false,
+                            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                            url = "",
+                        },
+                        schemas = require("schemastore").yaml.schemas(),
+                    },
+                },
+            },
+            jsonls = {
+                settings = {
+                    json = {
+                        schemas = require("schemastore").json.schemas(),
+                        validate = { enable = true },
                     },
                 },
             },

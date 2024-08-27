@@ -69,10 +69,11 @@ return {
             },
             sources = {
                 { name = "nvim_lsp" },
+                { name = "path" },
+                { name = "codeium" },
                 { name = "vim-dadbod-completion" },
                 { name = "treesitter" },
                 { name = "luasnip" },
-                { name = "path" },
                 { name = "buffer" },
             },
         })

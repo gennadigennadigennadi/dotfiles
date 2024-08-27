@@ -19,6 +19,9 @@ return {
                 conditionals = "NONE", -- Style that is applied to conditionals
                 virtual_text = "NONE", -- Style that is applied to virtual text
             },
+            options = {
+                highlight_inactive_windows = false,
+            },
         })
 
         vim.cmd("colorscheme onelight")

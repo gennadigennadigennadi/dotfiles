@@ -1,6 +1,6 @@
 return {
-    'nvim-telescope/telescope.nvim', 
-    branch = '0.1.x',
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
     cmd = { "Telescope" },
     keys = {
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
@@ -23,8 +23,8 @@ return {
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-        local trouble = require("trouble.providers.telescope")
         local lga_actions = require("telescope-live-grep-args.actions")
+        local open_with_trouble = require("trouble.sources.telescope").open
 
         telescope.setup({
             defaults = {
@@ -36,8 +36,8 @@ return {
                     },
                 },
                 mappings = {
-                    i = { ["<c-t>"] = trouble.open_with_trouble },
-                    n = { ["<c-t>"] = trouble.open_with_trouble },
+                    i = { ["<c-t>"] = open_with_trouble },
+                    n = { ["<c-t>"] = open_with_trouble },
                 },
             },
             pickers = {
