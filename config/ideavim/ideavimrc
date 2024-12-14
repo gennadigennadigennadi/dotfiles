@@ -1,0 +1,73 @@
+" vim:ft=vim
+"
+let mapleader=" "
+
+set nocompatible
+set number
+set relativenumber
+
+" support os clipboard
+set clipboard+=unnamedplus
+set clipboard+=ideaput
+set notimeout
+set scrolloff=10
+
+set hlsearch
+set ignorecase
+set smartcase
+set showmode
+set showcmd
+
+"" Choosing handlers in conflicting Intellij/IdeaVim keymaps =======
+sethandler <C-i> n-v-i:vim
+sethandler <C-o> n-v-i:vim
+sethandler <C-d> n-v-i:vim
+sethandler <C-u> n-v-i:vim
+sethandler <C-h> n-v-i:vim
+sethandler <C-j> n-v-i:vim
+sethandler <C-k> n-v-i:vim
+sethandler <C-l> n-v-i:vim
+
+nnoremap H ^
+nnoremap L $
+inoremap jk <esc>
+vnoremap jk <esc>
+vnoremap > >gv
+vnoremap < <gv
+nnoremap n nzzzv
+nnoremap n Nzzzv
+
+noremap <C-d> <C-d>zz
+noremap <C-u> <C-u>zz
+
+noremap <C-o> :action Back<cr>
+noremap <C-i> :action Forward<cr>
+
+nnoremap <leader>rn :action RenameElement<cr>
+noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
+
+nnoremap <leader>fh :action RecendFiles<cr> 
+nnoremap <leader>ff :action GotoFile<cr> 
+nnoremap <leader>fr :action FindInPath<cr> 
+
+nnoremap gd :action GotoDeclaration<cr> 
+nnoremap gi :action GotoImplementation<cr> 
+nnoremap gr :action ShowUsages<cr> 
+
+nnoremap <leader>cr :action RenameElement<cr>
+nnoremap <leader>cr :action RenameElement<cr>
+
+
+" Window navigation
+nnoremap <c-h> <c-w>h  
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k  
+nnoremap <c-l> <c-w>l  
+
+
+" Plugins
+set highlightedyank
+set ideajoin
+set nerdtree
+set commentary
+" set which-key

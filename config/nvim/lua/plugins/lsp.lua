@@ -18,8 +18,6 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
         local servers = {
-            phpactor = {},
-            dockerls = {},
             docker_compose_language_service = {},
             lua_ls = {
                 settings = {
@@ -32,7 +30,14 @@ return {
             },
         }
 
-        -- require("lspconfig")["docker_compose_language_service"].setup({})
+        require("lspconfig")["docker_compose_language_service"].setup({
+            filetypes = {
+                "yaml.docker-compose",
+                "yml",
+                "yaml",
+                "docker-compose",
+            },
+        })
 
         local function on_attach(client, bufnr)
             local map = vim.api.nvim_buf_set_keymap
@@ -53,6 +58,14 @@ return {
             end, opts)
             vim.keymap.set({ "n" }, "K", ":Lspsaga hover_doc<cr>", opts)
         end
+
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+        })
+
+        vim.lsp.config("phpactor", {
+            on_attach = on_attach,
+        })
 
         local mason_lspconfig = require("mason-lspconfig")
         mason_lspconfig.setup({

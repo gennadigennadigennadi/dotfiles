@@ -2,7 +2,7 @@
 program = "/home/gennadi/.nix-profile/bin/fish"
 
 [font]
-size = 16
+size = 14
 
 [font.glyph_offset]
 y = 4

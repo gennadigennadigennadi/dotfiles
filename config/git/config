@@ -24,9 +24,11 @@
 [rebase]
     autoStash = true
     autosquash = true
-    updateRefs = true
+    updateRefs = false
 [rerere]
     enabled = true
 [user]
-    name = Gennadi McKelvey
-    email = gennadijanzen@icloud.com
+	name = Gennadi McKelvey
+	email = gennadijanzen@icloud.com
+[blame]
+    ingoreRevsFile = .git-blame-ignore-revs

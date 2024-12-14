@@ -48,18 +48,6 @@ map("n", "<c-u>", "<c-u>zz", options)
 map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
-------------------
--- tab handling --
-------------------
-map("n", "th", "<cmd>tabfirst<cr>", options)
-map("n", "tk", "<cmd>tabprev<cr>", options)
-map("n", "tj", "<cmd>tabnext<cr>", options)
-map("n", "tl", "<cmd>tablast<cr>", options)
-map("n", "tn", "<cmd>tabnew<cr>", options)
-map("n", "tx", "<cmd>tabclose<cr>", options)
-map("n", "tH", "<cmd>tabm 0<cr>", options)
-map("n", "tL", "<cmd>tabm<cr>", options)
-
 -- better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -69,10 +57,3 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = tru
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
-
--- vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
--- vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
--- vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
--- vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
--- vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
--- vim.keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })

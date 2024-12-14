@@ -7,9 +7,9 @@ local function font(opts)
 end
 
 return {
-    default_prog = {'fish', '-l'},
     window_decorations = "TITLE|RESIZE",
-    color_scheme = "Github (base16)",
+    -- color_scheme = 'One Light (base16)',
+    color_scheme = 'OneHalfLight',
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
     font_size = 13,
