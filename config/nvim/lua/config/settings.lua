@@ -90,3 +90,17 @@ local builtins = {
 for _, plugin in ipairs(builtins) do
     vim.g["loaded_" .. plugin] = 1
 end
+
+vim.diagnostic.config({
+    virtual_text = false,
+    underline = false,
+    update_in_insert = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "󰞏",
+            [vim.diagnostic.severity.HINT] = "",
+            [vim.diagnostic.severity.INFO] = "",
+        },
+    },
+})
