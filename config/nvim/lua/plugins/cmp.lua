@@ -1,6 +1,5 @@
 return {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
@@ -24,6 +23,8 @@ return {
 
         "rafamadriz/friendly-snippets",
     },
+    enabled = false,
+    event = "InsertEnter",
     config = function()
         local cmp = require("cmp")
         local lspkind = require("lspkind")

@@ -52,3 +52,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
         require("lint").try_lint()
     end,
 })
+-- rename for mini.files and lrp-rename
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesActionRename",
+    group = "personal",
+    callback = function(event)
+        Snacks.rename.on_rename_file(event.data.from, event.data.to)
+    end,
+})

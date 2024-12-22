@@ -7,6 +7,5 @@ return {
             php = { "php" },
             yaml = { "yamllint" },
         }
-
     end,
 }

@@ -23,8 +23,10 @@ return {
             width_focus = 40,
             width_preview = 60,
         },
-        options = {
-            use_as_default_explorer = true,
+        content = {
+            filter = function(entry)
+                return entry.name ~= ".DS_Store" and entry.name ~= ".git" and entry.name ~= ".idea"
+            end,
         },
     },
 }

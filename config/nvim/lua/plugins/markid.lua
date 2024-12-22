@@ -1,7 +1,6 @@
 return {
     "David-Kunz/markid",
     event = "BufReadPre",
-    -- enabled = false,
     config = function()
         local m = require("markid")
         m.queries = {

@@ -29,7 +29,6 @@ return {
             require("ufo").closeAllFolds()
         end)
     end,
-    cofing = true,
     -- config = function()
     --     require("ufo").setup({
     --         provider_selector = function()

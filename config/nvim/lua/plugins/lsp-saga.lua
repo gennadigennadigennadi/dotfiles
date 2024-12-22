@@ -3,7 +3,6 @@ return {
     event = "BufRead",
     cmd = "Lspsaga",
     ft = { "lua", "php" },
-    -- enabled = false,
     opts = {
         lightbulb = {
             enable = false,

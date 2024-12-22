@@ -32,5 +32,7 @@ return {
             desc = "Search current word",
         },
     },
-    opts = {},
+    opts = {
+        is_block_ui_break = true,
+    },
 }

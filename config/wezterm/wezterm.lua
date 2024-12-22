@@ -1,18 +1,16 @@
 local wezterm = require("wezterm")
 local function font(opts)
-    return wezterm.font_with_fallback({
-        opts,
-        "Symbols Nerd Font Mono",
-    })
+    return wezterm.font_with_fallback({ opts, "Symbols Nerd Font Mono" })
 end
 
 return {
     window_decorations = "TITLE|RESIZE",
     -- color_scheme = 'One Light (base16)',
-    color_scheme = 'OneHalfLight',
+    color_scheme = "OneHalfLight",
+    -- color_scheme = "Catppuccin Frappe",
     default_cursor_style = "SteadyBlock",
     hide_tab_bar_if_only_one_tab = true,
-    font_size = 13,
+    font_size = 14,
     line_height = 1.5,
     scrollback_lines = 10000,
     window_padding = {
