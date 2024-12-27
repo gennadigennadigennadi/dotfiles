@@ -2,7 +2,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
     dependencies = {
-        "nvim-treesitter/playground",
         "gbprod/php-enhanced-treesitter.nvim",
     },
     config = function()

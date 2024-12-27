@@ -1,0 +1,5 @@
+font-size = 14
+theme = "OneHalfLight"
+cursor-style = "block"
+shell-integration-features = no-cursor
+adjust-cell-height = 25

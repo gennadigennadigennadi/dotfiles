@@ -1,9 +1,5 @@
 vim.lsp.config.phpactor = {
-    default_config = {
-        cmd = { "phpactor", "language-server" },
-        filetypes = { "php" },
-        root_markers = { "composer.json" },
-    },
+    cmd = { "phpactor", "language-server" },
+    root_markers = { "composer.json", ".git" },
+    filetypes = { "php" },
 }
-
-vim.lsp.enable("phpactor")

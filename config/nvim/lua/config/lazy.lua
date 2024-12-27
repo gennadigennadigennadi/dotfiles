@@ -6,7 +6,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- lockfile = "/home/gennadi/Code/dotfiles/config/nvim/lazy-lock.json",
     spec = {
         { import = "plugins" },
     },
@@ -26,7 +25,6 @@ require("lazy").setup({
         rtp = {
             disabled_plugins = {
                 "gzip",
-                "matchit",
                 "matchparen",
                 "netrwPlugin",
                 "rplugin",

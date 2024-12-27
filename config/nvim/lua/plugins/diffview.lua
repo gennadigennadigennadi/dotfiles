@@ -1,5 +1,5 @@
 return {
     "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen" },
     opts = {},
-    enabled = false,
 }

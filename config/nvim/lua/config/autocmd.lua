@@ -1,6 +1,6 @@
 vim.api.nvim_create_augroup("personal", { clear = true })
--- show cursor line only in active window
 
+-- show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
     group = "personal",
     callback = function()
@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
         end
     end,
 })
+
 vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
     group = "personal",
     callback = function()
@@ -21,6 +22,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
         end
     end,
 })
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     pattern = { "*" },
     group = "personal",
@@ -47,11 +49,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         end
     end,
 })
+
+-- lint my files
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
     callback = function()
         require("lint").try_lint()
     end,
 })
+
 -- rename for mini.files and lrp-rename
 vim.api.nvim_create_autocmd("User", {
     pattern = "MiniFilesActionRename",

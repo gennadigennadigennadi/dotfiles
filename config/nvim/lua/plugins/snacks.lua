@@ -10,7 +10,7 @@ return {
             end,
         },
         {
-            "<leader>t",
+            "<c-t>",
             function()
                 Snacks.terminal.toggle()
             end,
