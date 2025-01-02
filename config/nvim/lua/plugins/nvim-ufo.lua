@@ -17,8 +17,8 @@ return {
             end,
         },
     },
-    lazy = false,
-    -- event = "BufRead",
+    -- lazy = false,
+    event = "BufRead",
     opts = {},
     init = function()
         -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself

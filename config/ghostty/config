@@ -3,3 +3,4 @@ theme = "OneHalfLight"
 cursor-style = "block"
 shell-integration-features = no-cursor
 adjust-cell-height = 25
+adjust-cursor-height = 30

@@ -1,7 +1,10 @@
 zoxide init fish --cmd cd | source
 
 set -Ux UID (id -u)
-set -Ux DOCKER_HOST ""
+# set -Ux DOCKER_HOST ""
+
+set -Ux XDG_CONFIG_HOME "$HOME/.config"
+# set -Ux COLIMA_HOME "$HOME/.config/colima"
 
 set -U fish_user_paths /opt/homebrew/opt/coreutils/libexec/gnubin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/opt/gawk/libexec/gnubin $fish_user_paths

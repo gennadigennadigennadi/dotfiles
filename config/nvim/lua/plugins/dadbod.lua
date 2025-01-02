@@ -11,7 +11,14 @@ return {
     },
     dependencies = {
         { "tpope/vim-dadbod" },
-        { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
+        {
+            "kristijanhusak/vim-dadbod-completion",
+            ft = {
+                "sql",
+                "mysql",
+                "plsql",
+            },
+        },
     },
     init = function()
         -- Your DBUI configuration
