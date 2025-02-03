@@ -4,7 +4,7 @@ return {
     lazy = false,
     keys = {
         {
-            "<leader>g",
+            "<leader>gg",
             function()
                 Snacks.lazygit.open()
             end,
@@ -22,27 +22,84 @@ return {
             end,
             desc = "Delete Buffer",
         },
+        {
+            "<leader>ff",
+            function()
+                Snacks.picker.smart()
+            end,
+            desc = "Smart Files",
+        },
+        {
+            "<leader>fg",
+            function()
+                Snacks.picker.grep()
+            end,
+            desc = "Grep",
+        },
+        {
+            "<leader>fb",
+            function()
+                Snacks.picker.buffers()
+            end,
+            desc = "buffers",
+        },
+        {
+            "<leader>fh",
+            function()
+                Snacks.picker.recent()
+            end,
+            desc = "recent",
+        },
+        {
+            "gd",
+            function()
+                Snacks.picker.lsp_definitions()
+            end,
+            desc = "Goto Definition",
+        },
+        {
+            "gr",
+            function()
+                Snacks.picker.lsp_references()
+            end,
+            nowait = true,
+            desc = "References",
+        },
+        {
+            "gi",
+            function()
+                Snacks.picker.lsp_implementations()
+            end,
+            desc = "Goto Implementation",
+        },
+        {
+            "gy",
+            function()
+                Snacks.picker.lsp_type_definitions()
+            end,
+            desc = "Goto T[y]pe Definition",
+        },
     },
     opts = {
-        lazygit = {
-            configure = false,
-            win = {
-                title = "git",
-                title_pos = "center",
-                border = "rounded",
-                backdrop = false,
-            },
-        },
+        lazygit = { enabled = true },
         bigfile = { enabled = true },
-        scroll = { enabled = false },
         indent = {
             animate = {
                 enabled = false,
             },
         },
+        statuscolumn = {
+            left = { "sign", "git" }, -- priority of signs on the left (high to low)
+            right = { "fold", "mark" }, -- priority of signs on the right (high to low)
+        },
         terminal = { enabled = true },
         rename = { enabled = true },
         bufdelete = { enabled = true },
+        picker = { enabled = true },
+        scope = { enabled = true },
+        scroll = { enabled = true },
+        notif = { enabled = true },
+        notifer = { enabled = true },
         dashboard = {
             pane_gap = 1,
             sections = {

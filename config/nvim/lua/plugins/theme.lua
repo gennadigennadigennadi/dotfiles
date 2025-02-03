@@ -1,8 +1,19 @@
 return {
     {
+        "loctvl842/monokai-pro.nvim",
+        priority = 1000, -- Ensure it loads first,
+        enabled = false,
+        opts = {},
+        config = function(opts)
+            require("monokai-pro").setup(opts)
+
+            vim.cmd("colorscheme monokai-pro")
+        end,
+    },
+    {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first,
-        enabled = true,
+        enabled = false,
         opts = {
             styles = { -- For example, to apply bold and italic, use "bold,italic"
                 types = "NONE", -- Style that is applied to types
@@ -20,13 +31,38 @@ return {
                 virtual_text = "NONE", -- Style that is applied to virtual text
             },
         },
+        config = function(opts)
+            require("onedarkpro").setup(opts)
+
+            vim.cmd("colorscheme onelight")
+        end,
     },
     {
-        "navarasu/onedark.nvim",
-        priority = 1000, -- Ensure it loads first,
+        "rmehri01/onenord.nvim",
+        priority = 1000,
         enabled = false,
-        opts = {
-            style = "light",
-        },
+        opts = {},
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        -- enabled = false,
+        config = function(opts)
+            require("catppuccin").setup({
+                flavour = "latte",
+                -- transparent_background = true,
+                integrations = {
+                    blink_cmp = true,
+                    diffview = true,
+                    lsp_saga = true,
+                    mason = true,
+                    noice = true,
+                    which_key = true,
+                },
+            })
+
+            vim.cmd("colorscheme catppuccin")
+        end,
     },
 }

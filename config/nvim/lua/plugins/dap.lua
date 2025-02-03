@@ -46,7 +46,6 @@ return {
     },
     ft = { "php" },
     dependencies = {
-        "theHamsta/nvim-dap-virtual-text", -- does not support php, yet
         "rcarriga/nvim-dap-ui",
         "Weissle/persistent-breakpoints.nvim",
         "nvim-neotest/nvim-nio",
@@ -58,6 +57,7 @@ return {
 
         local dap = require("dap")
         local dapui = require("dapui")
+
         dap.adapters.php = {
             type = "executable",
             command = "php-debug-adapter",
@@ -75,11 +75,6 @@ return {
                 },
             },
         }
-        -- require("dap.ext.vscode").load_launchjs()
-
-        require("nvim-dap-virtual-text").setup({
-            enabled = true,
-        })
 
         dap.listeners.after.event_initialized["dapui_config"] = function()
             vim.keymap.set({ "n", "i" }, "<leader>k", function()
@@ -104,7 +99,6 @@ return {
             vim.keymap.set({ "n", "i" }, "<leader>do", function()
                 require("dap").step_out()
             end)
-
             vim.keymap.set({ "n", "i" }, "<leader>dx", function()
                 require("dap").terminate()
             end)
@@ -133,17 +127,6 @@ return {
             controls = {
                 element = "scopes",
                 enabled = true,
-                icons = {
-                    disconnect = "",
-                    pause = "",
-                    play = "",
-                    run_last = "",
-                    step_back = "",
-                    step_into = "",
-                    step_out = "",
-                    step_over = "",
-                    terminate = "",
-                },
             },
             -- windows = { indent = 0 },
             layouts = {
@@ -185,8 +168,15 @@ return {
                 },
             },
         })
-        vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "blue", linehl = "", numhl = "" })
-        vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
-        vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "red", linehl = "QuickFixLine", numhl = "" })
+
+        -- vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "blue", linehl = "", numhl = "" })
+        -- vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
+        -- vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "red", linehl = "QuickFixLine", numhl = "" })
+
+        local sign = vim.fn.sign_define
+
+        sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+        sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+        sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
     end,
 }

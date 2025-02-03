@@ -1,17 +1,10 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 vim.opt.title = true -- show file title in terminal tab
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 vim.opt.splitright = true -- Opens vertical split right of current window
 vim.opt.splitbelow = true -- Opens horizontal split below current window
 
-vim.opt.pumheight = 30 -- number Items in pum
 vim.o.completeopt = "menuone,noselect"
--- vim.opt.completeopt = "menu,preview,noinsert,menuone,noselect"
 vim.opt.autowrite = true -- write file with focus lost
--- default is on for neovim
--- vim.opt.hidden = true -- keep vim.opts open
 
 vim.opt.whichwrap = "h,l,,<,>,~,[,]" -- allow motions and back-spacing over line-endings
 
@@ -56,40 +49,18 @@ vim.wo.number = true
 vim.o.breakindent = true
 vim.o.updatetime = 250
 
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
+vim.o.foldcolumn = "1"
 vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldtext = "v:lua.vim.lsp.foldtext()"
+vim.o.foldmethod = "expr"
+
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"
 vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
-
--- don't load the plugins below
-local builtins = {
-    "gzip",
-    "zip",
-    "zipPlugin",
-    "fzf",
-    "tar",
-    "tarPlugin",
-    "getscript",
-    "getscriptPlugin",
-    "vimball",
-    "vimballPlugin",
-    "2html_plugin",
-    "matchit",
-    "matchparen",
-    "logiPat",
-    "rrhelper",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-}
-
-for _, plugin in ipairs(builtins) do
-    vim.g["loaded_" .. plugin] = 1
-end
 
 vim.diagnostic.config({
     virtual_text = false,

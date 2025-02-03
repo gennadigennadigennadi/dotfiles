@@ -1,14 +1,15 @@
 return {
     "folke/noice.nvim",
+    -- enabled = false,
     dependencies = {
         "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
+        -- "rcarriga/nvim-notify",
     },
     event = "VeryLazy",
     opts = {
         lsp = {
             progress = {
-                enabled = true,
+                enabled = false,
             },
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
             override = {
@@ -16,6 +17,9 @@ return {
                 ["vim.lsp.util.stylize_markdown"] = true,
                 ["cmp.entry.get_documentation"] = true,
             },
+        },
+        notify = {
+            enabled = false,
         },
         routes = {
             {

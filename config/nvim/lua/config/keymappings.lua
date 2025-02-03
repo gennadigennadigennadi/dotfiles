@@ -3,8 +3,6 @@ local options = { noremap = true, silent = true }
 
 --Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>", options)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 vim.keymap.set({ "n", "v", "i" }, "<c-s>", "<esc>:write!<cr>", options)
 vim.keymap.set("i", "jk", "<Esc>", options)

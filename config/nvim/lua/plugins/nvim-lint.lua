@@ -1,6 +1,5 @@
 return {
     "mfussenegger/nvim-lint",
-    event = "VeryLazy",
     ft = { "php", "yaml" },
     config = function()
         local lint = require("lint")
