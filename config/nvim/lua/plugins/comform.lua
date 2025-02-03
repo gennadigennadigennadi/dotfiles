@@ -2,10 +2,9 @@ vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 return {
     "stevearc/conform.nvim",
-    ft = { "lua", "php" },
     keys = {
         {
-            "<leader>F",
+            "<leader>cc",
             function()
                 require("conform").format()
             end,
@@ -16,11 +15,8 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             php = { "php_cs_fixer" },
+            sql = { "sql_formatter" },
+            mysql = { "sql_formatter" },
         },
-        -- format_on_save = {
-        --     -- These options will be passed to conform.format()
-        --     timeout_ms = 500,
-        --     lsp_fallback = false,
-        -- },
     },
 }

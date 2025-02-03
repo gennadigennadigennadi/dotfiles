@@ -60,7 +60,7 @@ vim.o.foldmethod = "expr"
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"
-vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
+-- vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 vim.diagnostic.config({
     virtual_text = false,

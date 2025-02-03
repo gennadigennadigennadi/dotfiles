@@ -1,6 +1,13 @@
-font-size = 14
-theme = "OneHalfLight"
+theme = "catppuccin-latte"
 cursor-style = "block"
 shell-integration-features = no-cursor
-adjust-cell-height = 25
-adjust-cursor-height = 30
+shell-integration = fish
+window-padding-balance = true
+# macos-titlebar-style = hidden
+
+# font config
+font-size = 16
+font-family = JetBrainsMono Nerd Font
+#font-style = SemiBold
+#adjust-cell-height = 16
+adjust-cursor-height = 8

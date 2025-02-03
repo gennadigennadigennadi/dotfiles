@@ -1,16 +1,5 @@
 return {
     {
-        "loctvl842/monokai-pro.nvim",
-        priority = 1000, -- Ensure it loads first,
-        enabled = false,
-        opts = {},
-        config = function(opts)
-            require("monokai-pro").setup(opts)
-
-            vim.cmd("colorscheme monokai-pro")
-        end,
-    },
-    {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first,
         enabled = false,
@@ -64,5 +53,18 @@ return {
 
             vim.cmd("colorscheme catppuccin")
         end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        enabled = false,
+        opts = {
+            transparent = true,
+            styles = {
+                sidebars = "normal",
+                floats = "normal", 
+            } 
+        },
     },
 }

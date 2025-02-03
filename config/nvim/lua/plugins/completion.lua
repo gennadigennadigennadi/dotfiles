@@ -1,7 +1,7 @@
 local M = {
     {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua", 
         opts = {
             library = {
                 -- See the configuration section for more details
@@ -15,6 +15,7 @@ local M = {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
+        enabled = false,
         cmd = "PhpActor",
         ft = "php",
         opts = {
@@ -31,7 +32,14 @@ local M = {
 local function on_attach(client, bufnr)
     local opt = {}
 
-    vim.keymap.set("n", "<leader>rn", ":lua vim.lsp.buf.rename()<cr>", opt)
+    vim.keymap.set("n", "<leader>rn", ":Lspsaga rename<cr>", opt)
+    --
+    -- vim.keymap.set("n", "<leader>cr", function ()
+    --     Snacks.rename.rename_file()
+    -- end, opt)
+
+    
+
     vim.keymap.set({ "n", "v" }, "<leader>ca", ":lua vim.lsp.buf.code_action()<cr>", opt)
     vim.keymap.set("n", "<leader>vd", ":lua vim.diagnostic.open_float()<cr>", opt)
 
@@ -40,15 +48,23 @@ local function on_attach(client, bufnr)
     end, opt)
 end
 
-vim.lsp.config("*", {
-    on_attach = on_attach(),
-})
 
--- vim.lsp.enable("phpactor")
-vim.lsp.enable("intelephense")
-vim.lsp.enable("luals")
-vim.lsp.enable("bashls")
-vim.lsp.enable("dockerls")
-vim.lsp.enable("yamlls")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+capabilities['textDocument']['codeAction'] = {}
+
+-- vim.lsp.config("*", {
+--     on_attach = on_attach(),
+--     capabilities = capabilities
+-- })
+--
+-- vim.lsp.enable({
+--     -- "phpactor",
+--     "intelephense",
+--     "luals",
+--     -- "bashls",
+--     "dockerls",
+--     "yamlls",
+-- })
 
 return M

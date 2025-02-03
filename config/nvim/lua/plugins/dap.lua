@@ -69,9 +69,14 @@ return {
                 request = "launch",
                 name = "Listen for Xdebug",
                 port = 9003,
+                -- stopOnEntry = false,
                 pathMappings = {
                     ["/var/www/html"] = "${workspaceFolder}",
-                    -- ["/var/www/deptrac"] = "${workspaceFolder}",
+                },
+                xdebugSettings = {
+                    max_children = 999,
+                    max_depth = 5,
+                    max_data = 5690,
                 },
             },
         }
@@ -90,18 +95,26 @@ return {
                 require("dap").step_out()
             end)
 
-            vim.keymap.set({ "n", "i" }, "<leader>dn", function()
+            vim.keymap.set({ "n" }, "<leader>dn", function()
                 require("dap").step_over()
-            end)
-            vim.keymap.set({ "n", "i" }, "<leader>di", function()
+            end, { desc = "step over" })
+
+            vim.keymap.set({ "n" }, "<leader>di", function()
                 require("dap").step_into()
-            end)
-            vim.keymap.set({ "n", "i" }, "<leader>do", function()
+            end, { desc = "step in" })
+
+            vim.keymap.set({ "n" }, "<leader>do", function()
                 require("dap").step_out()
-            end)
-            vim.keymap.set({ "n", "i" }, "<leader>dx", function()
+            end, { desc = "step out" })
+
+            vim.keymap.set({ "n" }, "<leader>dc", function()
+                require("dap").run_to_cursor()
+            end, { desc = "runt to cursor" })
+
+            vim.keymap.set({ "n" }, "<leader>dx", function()
                 require("dap").terminate()
-            end)
+            end, { desc = "kill debugging" })
+
             dapui.open({})
         end
         dap.listeners.before.event_terminated["dapui_config"] = function()

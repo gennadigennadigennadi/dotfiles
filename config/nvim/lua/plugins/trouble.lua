@@ -3,7 +3,7 @@ return {
     keys = {
         {
             "<leader>ts",
-            "<cmd>Trouble symbols toggle focus=false<cr>",
+            "<cmd>Trouble symbols toggle focus=false win.position=left<cr>",
             desc = "Symbols (Trouble)",
         },
         {
@@ -19,4 +19,24 @@ return {
     },
     cmd = "Trouble",
     opts = {},
+    specs = {
+        "folke/snacks.nvim",
+        opts = function(_, opts)
+            return vim.tbl_deep_extend("force", opts or {}, {
+                picker = {
+                    actions = require("trouble.sources.snacks").actions,
+                    win = {
+                        input = {
+                            keys = {
+                                ["<c-t>"] = {
+                                    "trouble_open",
+                                    mode = { "n", "i" },
+                                },
+                            },
+                        },
+                    },
+                },
+            })
+        end,
+    },
 }

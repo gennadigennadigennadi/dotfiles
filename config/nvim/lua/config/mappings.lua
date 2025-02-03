@@ -40,8 +40,8 @@ map("n", ",,", "<esc>A,<esc>", options)
 map("n", "n", "nzzzv", options)
 map("n", "N", "Nzzzv", options)
 
-map("n", "<c-d>", "<c-d>zz", options)
-map("n", "<c-u>", "<c-u>zz", options)
+-- map("n", "<c-d>", "<c-d>zz", options)
+-- map("n", "<c-u>", "<c-u>zz", options)
 
 -- better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

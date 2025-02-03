@@ -23,9 +23,16 @@ return {
             desc = "Delete Buffer",
         },
         {
+            "<leader>fe",
+            function()
+                Snacks.picker.explorer()
+            end,
+            desc = "explorer",
+        },
+        {
             "<leader>ff",
             function()
-                Snacks.picker.smart()
+                Snacks.picker.files()
             end,
             desc = "Smart Files",
         },
@@ -56,6 +63,13 @@ return {
                 Snacks.picker.lsp_definitions()
             end,
             desc = "Goto Definition",
+        },
+        {
+            "<leader>cR",
+            function()
+                Snacks.rename.rename_file()
+            end,
+            desc = "Rename File",
         },
         {
             "gr",
@@ -89,17 +103,32 @@ return {
             },
         },
         statuscolumn = {
-            left = { "sign", "git" }, -- priority of signs on the left (high to low)
-            right = { "fold", "mark" }, -- priority of signs on the right (high to low)
+            enabled = true,
+            -- left = { "sign", "git" }, -- priority of signs on the left (high to low)
+            -- right = { "fold", "mark" }, -- priority of signs on the right (high to low)
         },
         terminal = { enabled = true },
         rename = { enabled = true },
         bufdelete = { enabled = true },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            sources = {
+                files = { hidden = true },
+                grep = { hidden = true },
+            },
+            matcher = {
+                frecency = true, -- frecency bonus
+            },
+        },
+        explorer = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = true },
-        notif = { enabled = true },
-        notifer = { enabled = true },
+        input = { enabled = true },
+        notify = { enabled = true },
+        notifier = {
+            enabled = true,
+            timeout = 2500,
+        },
         dashboard = {
             pane_gap = 1,
             sections = {

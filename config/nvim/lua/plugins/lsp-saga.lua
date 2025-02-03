@@ -8,9 +8,6 @@ return {
                 enable = false,
                 debounce = 120,
             },
-            -- ui = {
-            --     kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-            -- },
         })
     end,
 }

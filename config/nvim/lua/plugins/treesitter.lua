@@ -3,8 +3,34 @@ return {
     event = "VeryLazy",
     build = ":TSUpdate",
     dependencies = {
-        "gbprod/php-enhanced-treesitter.nvim",
-        "David-Kunz/markid",
+        {
+            "gbprod/php-enhanced-treesitter.nvim",
+            ft = { "php" },
+        },
+        {
+            "David-Kunz/markid",
+            ft = { "php" },
+            config = function()
+                local m = require("markid")
+                m.queries = {
+                    -- default = "(identifier) @markid",
+                    php = [[
+                (variable_name) @markid
+                (member_access_expression) @markid
+            ]],
+                }
+
+                require("nvim-treesitter.configs").setup({
+                    markid = {
+                        enable = true,
+                        -- colors = m.colors.bright,
+                        -- colors = m.colors.medium,
+                        colors = m.colors.dark,
+                        queries = m.queries,
+                    },
+                })
+            end,
+        },
     },
     config = function()
         require("nvim-treesitter.configs").setup({
@@ -39,25 +65,6 @@ return {
             },
             highlight = { enable = true },
             indent = { enable = true },
-        })
-
-        local m = require("markid")
-        m.queries = {
-            -- default = "(identifier) @markid",
-            php = [[
-                (variable_name) @markid
-                (member_access_expression) @markid
-            ]],
-        }
-
-        require("nvim-treesitter.configs").setup({
-            markid = {
-                enable = true,
-                -- colors = m.colors.bright,
-                -- colors = m.colors.medium,
-                colors = m.colors.dark,
-                queries = m.queries,
-            },
         })
     end,
 }
