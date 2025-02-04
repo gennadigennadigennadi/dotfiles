@@ -1,5 +1,7 @@
 [init]
     defaultBranch = main
+[include]
+	path = /Volumes/Code/catppuccin-delta/catppuccin.gitconfig
 [core]
     fileMode = false
     precomposeunicode = false
@@ -13,7 +15,8 @@
     autoSetupMerge = simple
 [delta]
     navigate = true
-    syntax-theme = GitHub
+    features = catppuccin-latte
+    syntax-theme = "Catppuccin Latte"
     line-numbers = true
 [merge]
     conflictstyle = diff3

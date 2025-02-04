@@ -94,21 +94,21 @@ return {
             desc = "Goto T[y]pe Definition",
         },
     },
+    ---@type snacks.Config
     opts = {
         lazygit = { enabled = true },
         bigfile = { enabled = true },
-        indent = {
-            animate = {
-            },
-        },
-        statuscolumn = {
-            enabled = true,
-            -- left = { "sign", "git" }, -- priority of signs on the left (high to low)
-            -- right = { "fold", "mark" }, -- priority of signs on the right (high to low)
-        },
+        statuscolumn = { enabled = true },
         terminal = { enabled = true },
         rename = { enabled = true },
         bufdelete = { enabled = true },
+        
+        explorer = { enabled = true },
+        scope = { enabled = true },
+        scroll = { enabled = true },
+        input = { enabled = true },
+        notifier = { enabled = true },
+        indent = { enabled = true },
         picker = {
             enabled = true,
             sources = {
@@ -118,15 +118,6 @@ return {
             matcher = {
                 frecency = true, -- frecency bonus
             },
-        },
-        explorer = { enabled = true },
-        scope = { enabled = true },
-        scroll = { enabled = true },
-        input = { enabled = true },
-        notify = { enabled = true },
-        notifier = {
-            enabled = true,
-            timeout = 2500,
         },
         dashboard = {
             pane_gap = 1,
