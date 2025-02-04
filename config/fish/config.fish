@@ -1,4 +1,5 @@
 zoxide init fish --cmd cd | source
+starship init fish | source
 
 set -Ux UID (id -u)
 # set -Ux DOCKER_HOST ""

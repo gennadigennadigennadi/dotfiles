@@ -29,14 +29,14 @@ return {
     {
         "rmehri01/onenord.nvim",
         priority = 1000,
-        enabled = false,
+        -- enabled = false,
         opts = {},
     },
     {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
-        -- enabled = false,
+        enabled = false,
         config = function(opts)
             require("catppuccin").setup({
                 flavour = "latte",

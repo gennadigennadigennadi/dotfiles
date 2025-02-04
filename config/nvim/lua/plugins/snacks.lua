@@ -99,7 +99,6 @@ return {
         bigfile = { enabled = true },
         indent = {
             animate = {
-                enabled = false,
             },
         },
         statuscolumn = {
