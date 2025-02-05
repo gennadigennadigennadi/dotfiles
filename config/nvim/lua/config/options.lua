@@ -75,3 +75,5 @@ vim.diagnostic.config({
         },
     },
 })
+
+vim.g.no_php_maps = true
