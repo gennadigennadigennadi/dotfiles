@@ -1,5 +1,4 @@
 vim.opt.title = true -- show file title in terminal tab
--- vim.opt.termguicolors = true
 vim.opt.splitright = true -- Opens vertical split right of current window
 vim.opt.splitbelow = true -- Opens horizontal split below current window
 
@@ -30,6 +29,7 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
+vim.o.background = "light"
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.showmode = false -- don't show current mode
@@ -60,7 +60,7 @@ vim.o.foldmethod = "expr"
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"
--- vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
+vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 vim.diagnostic.config({
     virtual_text = false,
