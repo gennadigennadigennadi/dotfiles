@@ -1,0 +1,12 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# miliseconds
+command_timeout = 5000
+
+
+[hostname]
+aliases = { GJGJJQYCMW = 'adesso' }
+
+[username] 
+show_always = true
