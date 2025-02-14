@@ -3,10 +3,12 @@ starship init fish | source
 
 set -Ux UID (id -u)
 # set -Ux DOCKER_HOST ""
-set -Ux HOST (ipconfig getifaddr en0)
+# set -Ux HOST (ipconfig getifaddr en0)
 
 set -Ux XDG_CONFIG_HOME "$HOME/.config"
-# set -Ux COLIMA_HOME "$HOME/.config/colima"
+
+# remove fish greeting
+set -U fish_greeting
 
 set -U fish_user_paths /opt/homebrew/opt/coreutils/libexec/gnubin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/opt/gawk/libexec/gnubin $fish_user_paths
@@ -24,13 +26,16 @@ abbr brewu 'brew update && brew upgrade'
 
 abbr dc 'docker compose'
 abbr c 'composer'
-abbr mc 'mutagen-compose'
 abbr m 'make'
-abbr ip 'ipconfig getifaddr en1'
-
 abbr g 'git'
 abbr v 'nvim'
 abbr lg 'lazygit'
+
+abbr ip 'ipconfig getifaddr en0'
+
+abbr ms 'mutagen sync'
+abbr msc 'mutagen sync create'
+abbr msm 'mutagen sync monitor -l'
 
 alias l 'eza -gl --icons=auto'
 alias ll 'eza -gla --icons=auto --group-directories-first'
