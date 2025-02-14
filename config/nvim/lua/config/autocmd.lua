@@ -57,27 +57,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
     end,
 })
 
--- rename for mini.files and lsp-rename
-vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniFilesActionRename",
-    group = "personal",
-    callback = function(event)
-        Snacks.rename.on_rename_file(event.data.from, event.data.to)
-    end,
+-- folding methods
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  callback = function()
+    if require("nvim-treesitter.parsers").has_parser() then
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    else
+      vim.opt.foldmethod = "syntax"
+    end
+  end,
 })
-
--- lsp progress bar
--- vim.api.nvim_create_autocmd("LspProgress", {
---     ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
---     callback = function(ev)
---         local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
---         vim.notify(vim.lsp.status(), "info", {
---             id = "lsp_progress",
---             title = "LSP Progress",
---             opts = function(notif)
---                 notif.icon = ev.data.params.value.kind == "end" and " "
---                     or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
---             end,
---         })
---     end,
--- })

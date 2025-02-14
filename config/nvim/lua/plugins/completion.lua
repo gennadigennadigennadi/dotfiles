@@ -67,8 +67,8 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable({
-    -- "phpactor",
-    "intelephense",
+    "phpactor",
+    -- "intelephense",
     "luals",
     "bashls",
     "dockerls",

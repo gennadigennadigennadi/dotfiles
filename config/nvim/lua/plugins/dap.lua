@@ -74,9 +74,9 @@ return {
                     ["/var/www/html"] = "${workspaceFolder}",
                 },
                 xdebugSettings = {
-                    max_children = 999,
+                    max_children = 100,
                     max_depth = 5,
-                    max_data = 5690,
+                    max_data = 1000,
                 },
             },
         }

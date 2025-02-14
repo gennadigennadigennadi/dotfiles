@@ -20,9 +20,9 @@ return {
         { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
         { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     },
-    ---@type snacks.Config
     opts = {
         lazygit = { enabled = true },
+        quickfile = { enabled = true },
         bigfile = { enabled = true },
         ---@class snacks.statuscolumn.Config
         statuscolumn = {
@@ -41,11 +41,21 @@ return {
         input = { enabled = true },
         notifier = { enabled = true },
         indent = { enabled = true },
+
         picker = {
-            enabled = true,
             sources = {
                 files = { hidden = true },
                 grep = { hidden = true },
+                explorer = {
+                    auto_close = false,
+                    win = {
+                        input = {
+                            keys = {
+                                ["<Esc>"] = false,
+                            },
+                        },
+                    },
+                },
             },
             matcher = {
                 frecency = true, -- frecency bonus
@@ -60,6 +70,7 @@ return {
                 { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
                 { section = "startup" },
             },
+            jump = { close = false },
         },
     },
 }
