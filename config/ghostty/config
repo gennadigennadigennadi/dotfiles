@@ -11,8 +11,6 @@ window-padding-balance = true
 font-size = 16
 font-family = JetBrainsMono Nerd Font
 #font-style = SemiBold
-#adjust-cell-height = 16
-adjust-cursor-height = 8
 
 adjust-cell-height = 10
 adjust-cursor-height = 10
