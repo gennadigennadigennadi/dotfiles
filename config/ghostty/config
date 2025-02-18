@@ -1,9 +1,11 @@
 theme = "catppuccin-latte"
 cursor-style = "block"
+mouse-hide-while-typing = true
+
 shell-integration-features = no-cursor
 shell-integration = fish
+
 window-padding-balance = true
-# macos-titlebar-style = hidden
 
 # font config
 font-size = 16
@@ -11,3 +13,6 @@ font-family = JetBrainsMono Nerd Font
 #font-style = SemiBold
 #adjust-cell-height = 16
 adjust-cursor-height = 8
+
+adjust-cell-height = 10
+adjust-cursor-height = 10

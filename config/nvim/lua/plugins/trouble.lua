@@ -3,7 +3,7 @@ return {
     keys = {
         {
             "<leader>ts",
-            "<cmd>Trouble symbols toggle focus=false win.position=left<cr>",
+            "<cmd>Trouble symbols toggle focus=false <cr>",
             desc = "Symbols (Trouble)",
         },
         {

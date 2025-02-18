@@ -41,20 +41,12 @@ return {
         input = { enabled = true },
         notifier = { enabled = true },
         indent = { enabled = true },
-
         picker = {
             sources = {
                 files = { hidden = true },
                 grep = { hidden = true },
                 explorer = {
                     auto_close = false,
-                    win = {
-                        input = {
-                            keys = {
-                                ["<Esc>"] = false,
-                            },
-                        },
-                    },
                 },
             },
             matcher = {
