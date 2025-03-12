@@ -73,6 +73,7 @@ vim.lsp.enable({
     "bashls",
     "dockerls",
     "yamlls",
+    "ts_ls",
 })
 
 return M

@@ -6,6 +6,8 @@ set -Ux UID (id -u)
 # set -Ux HOST (ipconfig getifaddr en0)
 
 set -Ux XDG_CONFIG_HOME "$HOME/.config"
+set -Ux EDITOR nvim
+set -Ux VISUAL nvim
 
 # remove fish greeting
 set -U fish_greeting
