@@ -69,9 +69,10 @@ return {
                 request = "launch",
                 name = "Listen for Xdebug",
                 port = 9003,
-                -- stopOnEntry = false,
+                stopOnEntry = false,
                 pathMappings = {
-                    ["/var/www/html"] = "${workspaceFolder}",
+                    ["/var/www/html/"] = "${workspaceFolder}"
+                    -- ["/var/www/deptrac/"] = "${workspaceFolder}",
                 },
                 xdebugSettings = {
                     max_children = 100,

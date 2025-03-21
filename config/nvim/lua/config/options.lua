@@ -29,7 +29,6 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
-vim.o.background = "light"
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.showmode = false -- don't show current mode
@@ -40,7 +39,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.list = false -- show invisible chars
+-- vim.opt.list = true -- show invisible chars
 vim.opt.listchars = { tab = "▸ ", space = "·", trail = "·" }
 vim.opt.wrap = false
 
@@ -54,9 +53,8 @@ vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
-vim.o.foldtext = "v:lua.vim.lsp.foldtext()"
-vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+-- vim.o.foldtext = "v:lua.vim.lsp.foldtext()"
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"

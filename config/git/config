@@ -8,7 +8,7 @@
     pager = delta 
     editor = nvim
 [interactive]
-	diffFilter = delta --color-only
+	#diffFilter = delta --color-only
 [push]
 	default = simple
 [branch]

@@ -9,21 +9,22 @@ return {
         },
         {
             "David-Kunz/markid",
-            ft = { "php" },
             config = function()
                 local m = require("markid")
-                m.queries = {
-                    default = "(identifier) @markid",
-                    php = [[
-                    (variable_name) @markid
-                    (member_access_expression) @markid
-                    ]],
-                }
+                -- m.queries = {
+                --     default = "(identifier) @markid",
+                --     php = [[
+                --     (variable_name) @markid
+                --     (member_access_expression) @markid
+                --     ]],
+                -- }
+
+                local colors = m.colors.dark
 
                 require("nvim-treesitter.configs").setup({
                     markid = {
                         enable = true,
-                        colors = m.colors.dark,
+                        colors = colors,
                         queries = m.queries,
                     },
                 })

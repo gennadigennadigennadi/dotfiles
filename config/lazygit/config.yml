@@ -1,4 +1,4 @@
 git:
-  paging:
-    useConfig: false
-    pager: delta --paging=never
+  # paging:
+    # useConfig: false
+    # pager: delta --paging=never

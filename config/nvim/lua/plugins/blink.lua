@@ -15,7 +15,11 @@ return {
             ["<S-Tab>"] = { "snippet_backward", "fallback" },
         },
         sources = {
-            default = { "lazydev", "lsp", "path", "snippets", "buffer", "dadbod" },
+            default = { "lsp", "path", "buffer" },
+            per_filetype = {
+                sql = { "dadbod" },
+                lua = { "lazydev" },
+            },
             providers = {
                 dadbod = {
                     name = "Dadbod",
@@ -25,7 +29,6 @@ return {
                 lazydev = {
                     name = "LazyDev",
                     module = "lazydev.integrations.blink",
-                    -- make lazydev completions top priority (see `:h blink.cmp`)
                     score_offset = 100,
                 },
             },

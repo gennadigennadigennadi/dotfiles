@@ -1,16 +1,19 @@
-theme = "catppuccin-latte"
+theme = light:"catppuccin-latte", dark:"catppuccin-frappe"
 cursor-style = "block"
 mouse-hide-while-typing = true
 
 shell-integration-features = no-cursor
 shell-integration = fish
 
+maximize = true
+# fullscreen = true
+# window-decoration = none
 window-padding-balance = true
 
 # font config
 font-size = 16
-font-family = JetBrainsMono Nerd Font
-#font-style = SemiBold
+# font-family = JetBrainsMono Nerd Font
+# font-style = SemiBold
 
 adjust-cell-height = 10
 adjust-cursor-height = 10
