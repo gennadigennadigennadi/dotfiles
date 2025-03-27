@@ -41,6 +41,38 @@ local M = {
         end,
     },
     {
+        "olimorris/codecompanion.nvim",
+        config = true,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {
+            strategies = {
+                chat = {
+                    adapter = "copilot",
+                },
+                inline = {
+                    adapter = "copilot",
+                },
+                agent = {
+                    adapter = "copilot",
+                },
+            },
+            -- adapters = {
+            --     copilot = function()
+            --         return require("codecompanion.adapters").extend("copilot", {
+            --             schema = {
+            --                 model = {
+            --                     default = "claude-3.5-sonnet",
+            --                 },
+            --             },
+            --         })
+            --     end,
+            -- },
+        },
+    },
+    {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         event = "InsertEnter",
@@ -69,7 +101,20 @@ local M = {
                 mode = { "i" },
             },
         },
-        opts = {},
+        opts = {
+            copilot_model = "gpt-4o-copilot",
+            panel = {
+                enabled = true,
+                auto_refresh = true,
+                layout = {
+                    position = "right", -- | top | left | right | horizontal | vertical
+                    ratio = 0.4,
+                },
+            },
+            suggestion = {
+                auto_trigger = true,
+            },
+        },
     },
 }
 

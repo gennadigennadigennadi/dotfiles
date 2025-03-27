@@ -4,7 +4,7 @@ return {
         version = false,
         keys = {
             {
-                "gS",
+                "gs",
                 function()
                     require("mini.splitjoin").toggle()
                 end,
