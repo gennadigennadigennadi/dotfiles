@@ -64,6 +64,7 @@ vim.diagnostic.config({
     virtual_text = false,
     underline = false,
     update_in_insert = false,
+    virtual_lines = true,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = "",

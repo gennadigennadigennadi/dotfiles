@@ -3,7 +3,7 @@ return {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first
         lazy = false,
-        enabled = false,
+        -- enabled = false,
         config = function()
             require("onedarkpro").setup({})
 
@@ -36,7 +36,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        -- enabled = false,
+        enabled = false,
         priority = 1000,
         config = function()
             require("catppuccin").setup({
