@@ -36,7 +36,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        enabled = false,
+        -- enabled = false,
         priority = 1000,
         init = function()
             local hl = vim.api.nvim_set_hl
@@ -67,16 +67,13 @@ return {
         name = "github-theme",
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
-        init = function()
-            local hl = vim.api.nvim_set_hl
-            hl(0, "SnacksPicker", { link = "Normal" })
-        end,
-        -- enabled = false,
+        enabled = false,
         config = function()
             require("github-theme").setup({
+                -- ...
             })
 
-            vim.cmd("colorscheme github_light")
+            vim.cmd("colorscheme github_dark")
         end,
     },
 }
