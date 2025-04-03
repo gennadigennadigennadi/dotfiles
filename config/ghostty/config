@@ -7,11 +7,11 @@ shell-integration = fish
 
 maximize = true
 # fullscreen = true
-# window-decoration = none
+window-decoration = none
 window-padding-balance = true
 
 # font config
-font-size = 16
+font-size = 15
 # font-family = JetBrainsMono Nerd Font
 # font-style = SemiBold
 

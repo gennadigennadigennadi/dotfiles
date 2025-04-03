@@ -3,7 +3,7 @@ return {
         "olimorris/onedarkpro.nvim",
         priority = 1000, -- Ensure it loads first
         lazy = false,
-        -- enabled = false,
+        enabled = false,
         config = function()
             require("onedarkpro").setup({})
 
@@ -16,7 +16,7 @@ return {
         priority = 1000, -- Ensure it loads first
         enabled = false,
         config = function()
-            vim.o.background = "light"
+            vim.o.background = "dark"
             vim.cmd("colorscheme onenord")
         end,
     },
@@ -27,7 +27,7 @@ return {
         enabled = false,
         config = function()
             vim.g.sonokai_enable_italic = true
-            vim.g.sonokai_style = "andromeda"
+            -- vim.g.sonokai_style = "andromeda"
             vim.g.sonokai_better_performance = 1
 
             vim.cmd.colorscheme("sonokai")
@@ -38,9 +38,13 @@ return {
         name = "catppuccin",
         enabled = false,
         priority = 1000,
+        init = function()
+            local hl = vim.api.nvim_set_hl
+            hl(0, "SnacksPicker", { link = "Normal" })
+        end,
         config = function()
             require("catppuccin").setup({
-                background = { -- :h background
+                background = {
                     light = "latte",
                     dark = "frappe",
                 },
@@ -56,6 +60,23 @@ return {
 
             vim.o.background = "light"
             vim.cmd("colorscheme catppuccin")
+        end,
+    },
+    {
+        "projekt0n/github-nvim-theme",
+        name = "github-theme",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        init = function()
+            local hl = vim.api.nvim_set_hl
+            hl(0, "SnacksPicker", { link = "Normal" })
+        end,
+        -- enabled = false,
+        config = function()
+            require("github-theme").setup({
+            })
+
+            vim.cmd("colorscheme github_light")
         end,
     },
 }

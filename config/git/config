@@ -34,4 +34,4 @@
 	name = Gennadi McKelvey
 	email = gennadijanzen@icloud.com
 [blame]
-    ingoreRevsFile = .git-blame-ignore-revs
+    ignoreRevsFile = .git-blame-ignore-revs

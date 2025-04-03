@@ -3,9 +3,7 @@ return {
     keys = {
         {
             "<leader>dd",
-            function()
-                require("dap").continue()
-            end,
+            function() require("dap").continue() end,
             desc = "Dap continue",
         },
         {
@@ -24,23 +22,17 @@ return {
         },
         {
             "<F5>",
-            function()
-                require("dap").continue()
-            end,
+            function() require("dap").continue() end,
             desc = "Debug continue",
         },
         {
             "<leader>de",
-            function()
-                require("dapui").float_element("Repl")
-            end,
+            function() require("dapui").float_element("Repl") end,
             desc = "Dap Repl",
         },
         {
             "<M-k>",
-            function()
-                require("dapui").eval(nil, {})
-            end,
+            function() require("dapui").eval(nil, {}) end,
             desc = "Dap Eval",
         },
     },
@@ -71,7 +63,7 @@ return {
                 port = 9003,
                 stopOnEntry = false,
                 pathMappings = {
-                    ["/var/www/html/"] = "${workspaceFolder}"
+                    ["/var/www/html/"] = "${workspaceFolder}",
                     -- ["/var/www/deptrac/"] = "${workspaceFolder}",
                 },
                 xdebugSettings = {
@@ -83,50 +75,36 @@ return {
         }
 
         dap.listeners.after.event_initialized["dapui_config"] = function()
-            vim.keymap.set({ "n", "i" }, "<leader>k", function()
-                require("dap.ui.widgets").hover()
-            end)
-            vim.keymap.set("n", "<F7>", function()
-                require("dap").step_over()
-            end)
-            vim.keymap.set("n", "<F8>", function()
-                require("dap").step_into()
-            end)
-            vim.keymap.set("n", "<F9>", function()
-                require("dap").step_out()
-            end)
+            vim.keymap.set({ "n", "i" }, "<leader>k", function() require("dap.ui.widgets").hover() end)
+            vim.keymap.set("n", "<F7>", function() require("dap").step_over() end)
+            vim.keymap.set("n", "<F8>", function() require("dap").step_into() end)
+            vim.keymap.set("n", "<F9>", function() require("dap").step_out() end)
 
-            vim.keymap.set({ "n" }, "<leader>dn", function()
-                require("dap").step_over()
-            end, { desc = "step over" })
+            vim.keymap.set({ "n" }, "<leader>dn", function() require("dap").step_over() end, { desc = "step over" })
 
-            vim.keymap.set({ "n" }, "<leader>di", function()
-                require("dap").step_into()
-            end, { desc = "step in" })
+            vim.keymap.set({ "n" }, "<leader>di", function() require("dap").step_into() end, { desc = "step in" })
 
-            vim.keymap.set({ "n" }, "<leader>do", function()
-                require("dap").step_out()
-            end, { desc = "step out" })
+            vim.keymap.set({ "n" }, "<leader>do", function() require("dap").step_out() end, { desc = "step out" })
 
-            vim.keymap.set({ "n" }, "<leader>dc", function()
-                require("dap").run_to_cursor()
-            end, { desc = "runt to cursor" })
+            vim.keymap.set(
+                { "n" },
+                "<leader>dc",
+                function() require("dap").run_to_cursor() end,
+                { desc = "runt to cursor" }
+            )
 
-            vim.keymap.set({ "n" }, "<leader>dx", function()
-                require("dap").terminate()
-            end, { desc = "kill debugging" })
+            vim.keymap.set(
+                { "n" },
+                "<leader>dx",
+                function() require("dap").terminate() end,
+                { desc = "kill debugging" }
+            )
 
             dapui.open({})
         end
-        dap.listeners.before.event_terminated["dapui_config"] = function()
-            dapui.close({})
-        end
-        dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close({})
-        end
-        dap.listeners.before.disconnect["dapui_config"] = function()
-            dapui.close()
-        end
+        dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
+        dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
+        dap.listeners.before.disconnect["dapui_config"] = function() dapui.close() end
 
         dapui.setup({
             icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
@@ -189,8 +167,9 @@ return {
 
         local sign = vim.fn.sign_define
 
-        sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-        sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-        sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+        sign("DapBreakpoint", { text = "●" })
+        sign("DapBreakpointCondition", { text = "●" })
+        sign("DapLogPoint", { text = "◆" })
+        -- sign("DapStopped", { text = "●", texthl = "red", linehl = "QuickFixLine", numhl = "" })
     end,
 }

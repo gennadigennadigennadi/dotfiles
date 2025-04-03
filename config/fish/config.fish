@@ -22,6 +22,7 @@ set -U fish_user_paths /opt/homebrew/opt/gnu-tar/libexec/gnubin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/opt/grep/libexec/gnubin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/opt/make/libexec/gnubin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/opt/mysql-client@8.4/bin $fish_user_paths
+set -U fish_user_paths ~/.local/bin $fish_user_paths
 set -U fish_user_paths  $fish_user_paths
 
 abbr brewu 'brew update && brew upgrade'

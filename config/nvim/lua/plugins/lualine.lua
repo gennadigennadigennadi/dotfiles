@@ -11,6 +11,8 @@ return {
         },
         sections = {
             lualine_x = { "copilot", "encoding", "fileformat", "filetype" }, -- I added copilot here
+            lualine_y = {},
+            lualine_z = {},
         },
     },
 }

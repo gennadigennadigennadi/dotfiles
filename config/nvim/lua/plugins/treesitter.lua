@@ -6,18 +6,19 @@ return {
         {
             "gbprod/php-enhanced-treesitter.nvim",
             ft = { "php" },
+            enabled = false,
         },
         {
             "David-Kunz/markid",
             config = function()
                 local m = require("markid")
-                -- m.queries = {
-                --     default = "(identifier) @markid",
-                --     php = [[
-                --     (variable_name) @markid
-                --     (member_access_expression) @markid
-                --     ]],
-                -- }
+                m.queries = {
+                    default = "(identifier) @markid",
+                    -- php = [[
+                    -- (variable_name) @markid
+                    -- (member_access_expression) @markid 
+                    -- ]],
+                }
 
                 local colors = m.colors.dark
 
@@ -42,16 +43,17 @@ return {
                 "fish",
                 "gitcommit",
                 "gitignore",
-                "go",
+
                 "html",
                 "ini",
                 "json",
                 "lua",
                 "make",
-                "markdown",
+
                 "markdown_inline",
                 "nix",
                 "php",
+                "phpdoc",
                 "regex",
                 "scheme",
                 "sql",
@@ -64,6 +66,7 @@ return {
             },
             highlight = { enable = true },
             indent = { enable = true },
+            autopair = { enable = true },
         })
     end,
 }

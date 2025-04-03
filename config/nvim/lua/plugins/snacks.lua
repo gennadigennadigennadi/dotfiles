@@ -1,5 +1,8 @@
 return {
     "folke/snacks.nvim",
+    dependencies = {
+        "folke/persistence.nvim"
+    },
     priority = 1000,
     lazy = false,
     keys = {
@@ -24,7 +27,6 @@ return {
         lazygit = { enabled = true },
         quickfile = { enabled = true },
         bigfile = { enabled = true },
-        ---@class snacks.statuscolumn.Config
         statuscolumn = {
             folds = {
                 open = true, -- show open fold icons
@@ -40,13 +42,13 @@ return {
         scroll = { enabled = true },
         input = { enabled = true },
         notifier = { enabled = true },
-        indent = { enabled = true },
+        indent = { enabled = false },
         picker = {
             sources = {
                 files = { hidden = true },
                 grep = { hidden = true },
                 explorer = {
-                    auto_close = false,
+                    hidden = true,
                 },
             },
             matcher = {
@@ -56,7 +58,7 @@ return {
         dashboard = {
             pane_gap = 1,
             sections = {
-                { section = "header" },
+                { title = "Sessions", padding = 1 },
                 { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
                 { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
                 { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
