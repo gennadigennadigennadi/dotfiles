@@ -31,6 +31,8 @@ vim.opt.swapfile = false
 vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+vim.g.clipboard = 'osc52' -- copy via ssh enabled
+
 vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. "c" --  Don't pass messages to |ins-completion-menu|
 vim.opt.mouse = "a"
