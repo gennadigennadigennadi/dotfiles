@@ -15,7 +15,7 @@ local M = {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        enabled = false,
+        -- enabled = false,
         cmd = "PhpActor",
         ft = "php",
         opts = {
