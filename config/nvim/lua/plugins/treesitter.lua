@@ -14,10 +14,10 @@ return {
                 local m = require("markid")
                 m.queries = {
                     default = "(identifier) @markid",
-                    -- php = [[
-                    -- (variable_name) @markid
-                    -- (member_access_expression) @markid 
-                    -- ]],
+                    php = [[
+                    (variable_name) @markid
+                    (member_access_expression) @markid 
+                    ]],
                 }
 
                 local colors = m.colors.dark
