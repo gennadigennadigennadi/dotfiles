@@ -4,9 +4,7 @@ return {
     keys = {
         {
             "<leader>S",
-            function()
-                require("grug-far").open()
-            end,
+            function() require("grug-far").open() end,
         },
     },
 }

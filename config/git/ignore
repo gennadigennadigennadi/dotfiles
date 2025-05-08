@@ -7,6 +7,7 @@ logo.png
 .ctags
 tags
 node_modules
+vendor
 launch.json
 
 .idea

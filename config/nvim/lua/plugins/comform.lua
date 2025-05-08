@@ -5,9 +5,7 @@ return {
     keys = {
         {
             "<leader>cc",
-            function()
-                require("conform").format()
-            end,
+            function() require("conform").format() end,
             desc = "Formats file via conform",
         },
     },

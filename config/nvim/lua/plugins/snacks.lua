@@ -1,7 +1,7 @@
 return {
     "folke/snacks.nvim",
     dependencies = {
-        "folke/persistence.nvim"
+        "folke/persistence.nvim",
     },
     priority = 1000,
     lazy = false,
@@ -42,7 +42,7 @@ return {
         scroll = { enabled = true },
         input = { enabled = true },
         notifier = { enabled = true },
-        indent = { enabled = false },
+        indent = { enabled = true },
         picker = {
             sources = {
                 files = { hidden = true },

@@ -31,7 +31,6 @@ vim.opt.swapfile = false
 vim.opt.undofile = true -- Keep undo history across sessions, by storing in file
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
-vim.g.clipboard = 'osc52' -- copy via ssh enabled
 
 vim.opt.showmode = false -- don't show current mode
 vim.opt.shortmess = vim.o.shortmess .. "c" --  Don't pass messages to |ins-completion-menu|
@@ -40,7 +39,7 @@ vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 -- vim.opt.list = true -- show invisible chars
 vim.opt.listchars = { tab = "▸ ", space = "·", trail = "·" }
 vim.opt.wrap = false
@@ -54,7 +53,7 @@ vim.o.foldcolumn = "1"
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
-vim.o.foldmethod = "expr"
+-- vim.o.foldmethod = "expr"
 -- vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 -- vim.o.foldtext = "v:lua.vim.lsp.foldtext()"
 
@@ -63,12 +62,13 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     underline = false,
     update_in_insert = false,
-    virtual_lines = {
-        current_line = true,
-    },
+    -- virtual_lines = {
+    --     current_line = false,
+    -- },
+    virtual_lines = false,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = "",

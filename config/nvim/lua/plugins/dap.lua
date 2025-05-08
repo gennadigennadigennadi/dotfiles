@@ -64,12 +64,11 @@ return {
                 stopOnEntry = false,
                 pathMappings = {
                     ["/var/www/html/"] = "${workspaceFolder}",
-                    -- ["/var/www/deptrac/"] = "${workspaceFolder}",
                 },
                 xdebugSettings = {
-                    max_children = 100,
+                    max_children = 500,
                     max_depth = 5,
-                    max_data = 1000,
+                    -- max_data = 100,
                 },
             },
         }
@@ -120,21 +119,20 @@ return {
                 element = "scopes",
                 enabled = true,
             },
-            -- windows = { indent = 0 },
             layouts = {
                 {
                     elements = {
                         {
                             id = "scopes",
-                            size = 0.30,
+                            size = 0.40,
                         },
                         {
                             id = "breakpoints",
-                            size = 0.20,
+                            size = 0.10,
                         },
                         {
                             id = "stacks",
-                            size = 0.25,
+                            size = 0.40,
                         },
                         -- {
                         --     id = "watches",
@@ -161,15 +159,11 @@ return {
             },
         })
 
-        -- vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "blue", linehl = "", numhl = "" })
-        -- vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
-        -- vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "red", linehl = "QuickFixLine", numhl = "" })
-
         local sign = vim.fn.sign_define
 
         sign("DapBreakpoint", { text = "●" })
         sign("DapBreakpointCondition", { text = "●" })
         sign("DapLogPoint", { text = "◆" })
-        -- sign("DapStopped", { text = "●", texthl = "red", linehl = "QuickFixLine", numhl = "" })
+        sign("DapStopped", { text = "●", texthl = "DapStopped", numhl = "DapStopped" })
     end,
 }

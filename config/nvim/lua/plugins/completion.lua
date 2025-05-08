@@ -15,7 +15,6 @@ local M = {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        -- enabled = false,
         cmd = "PhpActor",
         ft = "php",
         opts = {
@@ -43,6 +42,7 @@ local M = {
     {
         "olimorris/codecompanion.nvim",
         config = true,
+        cmd = { "CodeCompanionChat" },
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",

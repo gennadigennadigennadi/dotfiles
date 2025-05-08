@@ -1,4 +1,6 @@
 theme = light:"catppuccin-latte", dark:"catppuccin-frappe"
+# theme = OneHalfLight
+# theme = "catppuccin-frappe"
 cursor-style = "block"
 mouse-hide-while-typing = true
 
@@ -7,13 +9,12 @@ shell-integration = fish
 
 maximize = true
 # fullscreen = true
-window-decoration = none
+# window-decoration = none
 window-padding-balance = true
 
 # font config
-font-size = 15
-# font-family = JetBrainsMono Nerd Font
-# font-style = SemiBold
+font-size = 16
+# font-family = Cascadia Code NF
 
 adjust-cell-height = 10
 adjust-cursor-height = 10

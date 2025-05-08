@@ -1,0 +1,6 @@
+[user]
+name = "Gennadi McKelvey"
+email = "gennadijanzen@icloud.com"
+
+[ui]
+default-command = "log" 

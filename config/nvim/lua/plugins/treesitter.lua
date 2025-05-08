@@ -6,7 +6,6 @@ return {
         {
             "gbprod/php-enhanced-treesitter.nvim",
             ft = { "php" },
-            enabled = false,
         },
         {
             "David-Kunz/markid",
@@ -16,7 +15,7 @@ return {
                     default = "(identifier) @markid",
                     php = [[
                     (variable_name) @markid
-                    (member_access_expression) @markid 
+                    (member_access_expression) @markid
                     ]],
                 }
 
@@ -39,15 +38,23 @@ return {
                 "c",
                 "clojure",
                 "css",
+                "csv",
+                "comment",
                 "dockerfile",
+                "editorconfig",
                 "fish",
+                "git_config",
                 "gitcommit",
                 "gitignore",
+                "go",
 
                 "html",
                 "ini",
+                "javascript",
+                "typescript",
                 "json",
                 "lua",
+                "luadoc",
                 "make",
 
                 "markdown_inline",
@@ -63,6 +70,7 @@ return {
                 "vimdoc",
                 "yaml",
                 "phpdoc",
+                "xml",
             },
             highlight = { enable = true },
             indent = { enable = true },

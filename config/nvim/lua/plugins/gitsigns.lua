@@ -11,7 +11,7 @@ return {
             ignore_whitespace = true,
         },
         on_attach = function(bufnr)
-            local gs = require('gitsigns')
+            local gs = require("gitsigns")
 
             local function map(mode, l, r, opts)
                 opts = opts or {}
@@ -26,14 +26,10 @@ return {
             map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "undo stage hunk" })
             map("n", "<leader>hR", gs.reset_buffer, { desc = "reset buffer" })
             map("n", "<leader>hp", gs.preview_hunk, { desc = "preview hunk" })
-            map("n", "<leader>hb", function()
-                gs.blame_line({ full = true })
-            end, { desc = "blame line full" })
+            map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, { desc = "blame line full" })
             map("n", "<leader>hb", gs.toggle_current_line_blame, { desc = "toggle current line blame" })
             map("n", "<leader>hd", gs.diffthis)
-            map("n", "<leader>hD", function()
-                gs.diffthis("~")
-            end, { desc = "diff this" })
+            map("n", "<leader>hD", function() gs.diffthis("~") end, { desc = "diff this" })
             map("n", "<leader>td", gs.toggle_deleted, { desc = "toggle deleted" })
 
             -- Text object

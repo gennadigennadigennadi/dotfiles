@@ -8,6 +8,14 @@ return {
             theme = "auto",
             component_separators = "|",
             section_separators = "",
+            disabled_filetypes = {
+                statusline = {
+                    "snacks_picker_list",
+                    "snacks_dashboard",
+                    -- "snacks_terminal",
+                },
+            },
+            globalstatus = true,
         },
         sections = {
             lualine_x = { "copilot", "encoding", "fileformat", "filetype" }, -- I added copilot here
