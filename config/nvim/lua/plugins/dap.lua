@@ -48,7 +48,6 @@ return {
         })
 
         local dap = require("dap")
-        local dapui = require("dapui")
 
         dap.adapters.php = {
             type = "executable",
@@ -73,6 +72,7 @@ return {
             },
         }
 
+        local dapui = require("dapui")
         dap.listeners.after.event_initialized["dapui_config"] = function()
             vim.keymap.set({ "n", "i" }, "<leader>k", function() require("dap.ui.widgets").hover() end)
             vim.keymap.set("n", "<F7>", function() require("dap").step_over() end)

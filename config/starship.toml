@@ -4,9 +4,8 @@
 # miliseconds
 command_timeout = 5000
 
-
 [hostname]
 aliases = { GJGJJQYCMW = 'adesso' }
 
-[username] 
+[username]
 show_always = true

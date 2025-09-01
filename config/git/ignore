@@ -1,17 +1,13 @@
 *~
 .DS_Store
-logo.png
+/logo.png
 
-.tags
-.tags_sorted_by_file
-.ctags
-tags
-node_modules
-vendor
+/node_modules
+/vendor
 launch.json
 
-.idea
-.vscode
-.phpactor.json
-.phpunit.result.cache
+/.idea
+/.vscode
+/.phpactor.json
+/.phpunit.result.cache
 

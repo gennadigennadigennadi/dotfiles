@@ -166,6 +166,6 @@ run = [
   # this was also observed in:
   # - https://github.com/ghostty-org/ghostty/issues/1840
   # - https://github.com/ghostty-org/ghostty/issues/2006
-  "layout floating",
+  # "layout floating",
   "move-node-to-workspace 1",
 ]
