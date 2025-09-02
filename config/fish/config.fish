@@ -28,6 +28,8 @@ abbr c 'composer'
 abbr m 'make'
 abbr g 'git'
 abbr v 'NVIM_APPNAME=lazyvim nvim'
+abbr vv 'NVIM_APPNAME=v12 nvim'
+abbr n 'nvim'
 abbr lg 'lazygit'
 
 abbr ip 'ipconfig getifaddr en0'
