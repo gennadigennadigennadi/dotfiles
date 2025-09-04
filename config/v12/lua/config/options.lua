@@ -66,13 +66,13 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false,
     underline = false,
     update_in_insert = false,
-    -- virtual_lines = {
-    --     current_line = false,
-    -- },
-    virtual_lines = false,
+    virtual_lines = {
+        current_line = false,
+    },
+    -- virtual_lines = false,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = "",
@@ -83,4 +83,13 @@ vim.diagnostic.config({
     },
 })
 
-vim.g.no_php_maps = true
+-- vim.g.no_php_maps = true
+
+vim.api.nvim_create_augroup("personal", { clear = true })
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+    pattern = { "*" },
+    group = "personal",
+    callback = function()
+        vim.highlight.on_yank({ timeout = 700 })
+    end,
+})
