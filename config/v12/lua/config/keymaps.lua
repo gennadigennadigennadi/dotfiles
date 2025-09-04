@@ -1,8 +1,12 @@
 local options = { noremap = true, silent = true }
 
-vim.keymap.set( {"n"}, "<leader>fe", function() MiniFiles.open() end)
-vim.keymap.set( {"n"}, "<leader><space>", function() Snacks.picker.files() end)
-vim.keymap.set("n",  "<leader>e", function() Snacks.explorer() end)
+vim.keymap.set("n", "<leader>fe", function() MiniFiles.open() end)
+vim.keymap.set("n", "<leader><space>", function() Snacks.picker.files() end)
+vim.keymap.set("n", "<leader>e", function() Snacks.explorer() end)
+vim.keymap.set("n", '<leader>gf', function() Snacks.lazygit.log_file() end)
+vim.keymap.set("n", 'gd', function() Snacks.picker.lsp_definitions() end)
+vim.keymap.set("n", 'gi', function() Snacks.picker.lsp_implementations() end)
+vim.keymap.set("n", 'gr', function() Snacks.picker.lsp_references() end)
 
 vim.keymap.set("i", "jj", "<Esc>", options)
 vim.keymap.set("i", "jk", "<Esc>", options)

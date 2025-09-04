@@ -45,3 +45,4 @@ require('snacks').setup({
         jump = { close = false },
     },
 })
+
