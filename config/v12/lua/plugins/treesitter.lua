@@ -4,7 +4,6 @@ vim.pack.add({
     { src = "https://github.com/David-Kunz/markid.git" },
 })
 
-
 local m = require("markid")
 m.queries = {
     default = "(identifier) @markid",

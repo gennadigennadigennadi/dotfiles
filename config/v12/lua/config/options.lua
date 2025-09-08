@@ -58,20 +58,18 @@ vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "expr"
--- vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
--- vim.o.foldtext = "v:lua.vim.lsp.foldtext()"
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.guicursor = "n-v-c:block-MiniStatuslineModeNormal,i-ci-ve:block-MiniStatuslineModeInsert"
 vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     underline = false,
     update_in_insert = false,
-    virtual_lines = {
-        current_line = false,
-    },
+    -- virtual_lines = {
+    --     current_line = false,
+    -- },
     -- virtual_lines = false,
     signs = {
         text = {

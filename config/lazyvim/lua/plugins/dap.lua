@@ -5,6 +5,7 @@ return {
         { "<F7>", function() require("dap").step_into() end, desc = "Step Into" },
         { "<F8>", function() require("dap").step_over() end, desc = "Step Over" },
         { "<F9>", function() require("dap").step_out() end, desc = "Step Back" },
+
         { "<F5>", function() require("dap").continue() end, desc = "Continue" },
         { "<F4>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
     },
