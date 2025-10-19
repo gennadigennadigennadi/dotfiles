@@ -5,6 +5,5 @@ vim.pack.add({
     }
 })
 
-
 require('mini.files').setup()
 

@@ -6,3 +6,7 @@ vim.g.autoformat = false
 vim.opt.tabstop = 4 -- when indenting with '>', use 4 spaces width
 vim.opt.shiftwidth = 4 -- On pressing tab, insert 4 spaces
 vim.g.deprecation_warnings = false -- Disable deprecation warnings
+
+-- LSP Server to use for PHP.
+-- Set to "intelephense" to use intelephense instead of phpactor.
+-- vim.g.lazyvim_php_lsp = "intelephense"

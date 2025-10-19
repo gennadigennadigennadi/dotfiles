@@ -17,5 +17,6 @@ return {
                 frecency = true, -- frecency bonus
             },
         },
+        scroll = { enabled = false },
     },
 }

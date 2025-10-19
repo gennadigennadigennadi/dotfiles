@@ -64,8 +64,8 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.guicursor = "n-c:block-lualine_a_normal,v:block-lualine_a_visual,i-ci-ve:block-lualine_a_insert"
 
 vim.diagnostic.config({
-    virtual_text = true,
-    underline = false,
+    virtual_text = false,
+    underline = true,
     update_in_insert = false,
     -- virtual_lines = {
     --     current_line = false,

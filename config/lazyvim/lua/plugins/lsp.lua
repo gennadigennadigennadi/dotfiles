@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
         servers = {
-            bashls = false, 
+            bashls = false,
         },
     },
 }
