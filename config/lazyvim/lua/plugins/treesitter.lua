@@ -14,6 +14,7 @@ return {
             "bash",
             "c",
             "diff",
+            "go",
             "html",
             "javascript",
             "jsdoc",
