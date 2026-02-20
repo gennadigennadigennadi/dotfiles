@@ -1,13 +1,16 @@
 *~
 .DS_Store
-/logo.png
+logo.png
 
-/node_modules
-/vendor
+node_modules
+vendor
 launch.json
 
-/.idea
-/.vscode
-/.phpactor.json
-/.phpunit.result.cache
+.idea
+.vscode
+.zed
+.phpactor.json
+.phpunit.result.cache
+AGENTS.md
 
+**/.claude/settings.local.json
