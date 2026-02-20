@@ -1,7 +1,3 @@
-zoxide init fish --cmd cd | source
-starship init fish | source
-jj util completion fish | source
-
 set -Ux UID (id -u)
 # set -Ux DOCKER_HOST ""
 # set -Ux HOST (ipconfig getifaddr en0)
@@ -16,9 +12,9 @@ set -Ux PHP_CS_FIXER_IGNORE_ENV 1
 set -U fish_greeting
 
 set -U fish_user_paths /opt/homebrew/opt/uutils-coreutils/libexec/uubin $fish_user_paths
-
 set -U fish_user_paths /opt/homebrew/opt/mysql-client@8.4/bin $fish_user_paths
 set -U fish_user_paths ~/.local/bin $fish_user_paths
+set -U fish_user_paths ~/go/bin $fish_user_paths
 set -U fish_user_paths  $fish_user_paths
 
 abbr brewu 'brew update && brew upgrade'
@@ -40,3 +36,9 @@ abbr msm 'mutagen sync monitor -l'
 
 alias l 'eza -gl --icons=auto'
 alias ll 'eza -gla --icons=auto --group-directories-first'
+
+zoxide init fish --cmd cd | source
+starship init fish | source
+jj util completion fish | source
+
+eval "$(/opt/homebrew/bin/brew shellenv)"

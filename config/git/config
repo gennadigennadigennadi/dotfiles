@@ -5,7 +5,6 @@
 [core]
     fileMode = false
     precomposeunicode = false
-    pager = delta 
     editor = nvim
 [interactive]
 	#diffFilter = delta --color-only
@@ -33,7 +32,7 @@
 [user]
 	name = Gennadi McKelvey
 	email = gennadijanzen@icloud.com
-[blame]
-    ignoreRevsFile = .git-blame-ignore-revs
+#[blame]
+#    ignoreRevsFile = .git-blame-ignore-revs
 [maintenance]
 	repo = /Volumes/Code/ehvp_core
