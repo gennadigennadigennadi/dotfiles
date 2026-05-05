@@ -11,7 +11,10 @@ return {
             sources = {
                 files = { hidden = true },
                 grep = { hidden = true },
-                explorer = { hidden = true },
+                explorer = {
+                    hidden = true,
+                    exclude = { ".DS_Store", ".idea", ".zed", ".git"}
+                },
             },
             matcher = {
                 frecency = true, -- frecency bonus
