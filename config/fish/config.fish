@@ -12,18 +12,19 @@ set -Ux HOMEBREW_CASK_OPTS "--appdir=$HOME/Applications"
 set -U fish_greeting
 
 set -U fish_user_paths /opt/homebrew/opt/uutils-coreutils/libexec/uubin $fish_user_paths
+# set -U fish_user_paths /opt/homebrew/opt/coreutils/libexec/gnubin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/opt/mysql-client@8.4/bin $fish_user_paths
 set -U fish_user_paths ~/.local/bin $fish_user_paths
 set -U fish_user_paths ~/go/bin $fish_user_paths
 set -U fish_user_paths  $fish_user_paths
 
-abbr brewu 'brew update && brew upgrade'
+abbr brewu 'brew update && brew upgrade && brew upgrade --cask --greedy'
 
 abbr dc 'docker compose'
 abbr c 'composer'
 abbr m 'make'
 abbr g 'git'
-abbr v 'NVIM_APPNAME=lazyvim nvim'
+abbr v 'nvim'
 abbr vv 'NVIM_APPNAME=v12 nvim'
 abbr n 'nvim'
 abbr lg 'lazygit'
