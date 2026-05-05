@@ -2,8 +2,8 @@
 .DS_Store
 logo.png
 
-node_modules
-vendor
+/node_modules
+/vendor
 launch.json
 
 .idea
@@ -11,6 +11,9 @@ launch.json
 .zed
 .phpactor.json
 .phpunit.result.cache
-AGENTS.md
+compose.override.yaml
 
+AGENTS.md
+opencode.json
+**/.opencode
 **/.claude/settings.local.json
