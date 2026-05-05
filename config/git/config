@@ -6,8 +6,7 @@
     fileMode = false
     precomposeunicode = false
     editor = nvim
-[interactive]
-	#diffFilter = delta --color-only
+	excludesfile = ~/.config/git/ignore
 [push]
 	default = simple
 [branch]
