@@ -8,9 +8,10 @@ return {
         opts = {
             background = { dark = "frappe" },
         },
+        priority = 1000
     },
     {
         "LazyVim/LazyVim",
-        opts = { colorscheme = "catppuccin" },
+        opts = { colorscheme = "catppuccin-nvim" },
     },
 }
