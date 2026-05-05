@@ -1,19 +1,20 @@
 *~
 .DS_Store
 logo.png
+AGENTS.md
+opencode.json
+compose.override.yaml
 
 /node_modules
 /vendor
-launch.json
 
 .idea
 .vscode
 .zed
+.opencode
+
 .phpactor.json
 .phpunit.result.cache
-compose.override.yaml
 
-AGENTS.md
-opencode.json
-**/.opencode
-**/.claude/settings.local.json
+# project specific override
+.lazy.lua
