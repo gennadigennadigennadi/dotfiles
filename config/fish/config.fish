@@ -6,7 +6,7 @@ set -Ux XDG_CONFIG_HOME "$HOME/.config"
 set -Ux JJ_CONFIG $XDG_CONFIG_HOME/jj/config.toml
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
-set -Ux PHP_CS_FIXER_IGNORE_ENV 1
+set -Ux HOMEBREW_CASK_OPTS "--appdir=$HOME/Applications"
 
 # remove fish greeting
 set -U fish_greeting
