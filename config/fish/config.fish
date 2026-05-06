@@ -35,8 +35,8 @@ abbr ms 'mutagen sync'
 abbr msc 'mutagen sync create'
 abbr msm 'mutagen sync monitor -l'
 
-alias l 'eza -gl --icons=auto'
-alias ll 'eza -gla --icons=auto --group-directories-first'
+alias l 'eza -glah --icons=auto --group-directories-first --git -I .DS_Store'
+alias ll 'eza -glah --icons=auto --group-directories-first --git'
 
 zoxide init fish --cmd cd | source
 starship init fish | source
